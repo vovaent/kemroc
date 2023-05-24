@@ -2,127 +2,172 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, 0.8);
-	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+    border: 1px solid;
+    border-color: $color__border-button;
+    border-radius: 3px;
+    background: $color__background-button;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1;
+    padding: 0.6em 1em 0.4em;
 
-	&:hover {
-		border-color: $color__border-button-hover;
-	}
+    &:hover {
+        border-color: $color__border-button-hover;
+    }
 
-	&:active,
-	&:focus {
-		border-color: $color__border-button-focus;
-	}
+    &:active,
+    &:focus {
+        border-color: $color__border-button-focus;
+    }
 }
 
 .btn {
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 130%;
-	text-decoration: none;
-	font-family: $font__secondary;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 130%;
+    text-decoration: none;
+    font-family: $font__secondary;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
 
-	&.btn-accent {
-		background-color: $accent;
-		color: #fff;
-		padding: 16.4px 18px;
+    &.btn-accent {
+        background-color: $accent;
+        color: #fff;
+        padding: 16.4px 18px;
 
-		&:hover {
-			background-color: $accent_hover;
-		}
-	}
+        &:hover {
+            background-color: $accent_hover;
+        }
+    }
 
-	&.btn-rounded {
-		padding: 16.4px 18px;
-		border-radius: 12px;
-	}
+    &.btn-rounded {
+        padding: 16.4px 18px;
+        border-radius: 12px;
+    }
 
-	&.arrow-right {
-		&:after {
-			content: url("data:image/svg+xml,%3Csvg width='6' height='11' viewBox='0 0 6 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.292893 0.792893C0.683417 0.402369 1.31658 0.402369 1.70711 0.792893L5.70711 4.79289C6.09763 5.18342 6.09763 5.81658 5.70711 6.20711L1.70711 10.2071C1.31658 10.5976 0.683417 10.5976 0.292893 10.2071C-0.0976311 9.81658 -0.0976311 9.18342 0.292893 8.79289L3.58579 5.5L0.292893 2.20711C-0.0976311 1.81658 -0.0976311 1.18342 0.292893 0.792893Z' fill='white'/%3E%3C/svg%3E%0A");
-			width: 6px;
-			height: 10px;
-			line-height: 1;
-			margin-left: 12px;
-		}
-	}
+    &.arrow-right {
+        &:after {
+            content: url("data:image/svg+xml,%3Csvg width='6' height='11' viewBox='0 0 6 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.292893 0.792893C0.683417 0.402369 1.31658 0.402369 1.70711 0.792893L5.70711 4.79289C6.09763 5.18342 6.09763 5.81658 5.70711 6.20711L1.70711 10.2071C1.31658 10.5976 0.683417 10.5976 0.292893 10.2071C-0.0976311 9.81658 -0.0976311 9.18342 0.292893 8.79289L3.58579 5.5L0.292893 2.20711C-0.0976311 1.81658 -0.0976311 1.18342 0.292893 0.792893Z' fill='white'/%3E%3C/svg%3E%0A");
+            width: 6px;
+            height: 10px;
+            line-height: 1;
+            margin-left: 12px;
+        }
+    }
 
-	&.btn-arrow-rounded {
-		color: $accent;
-		gap: 16px;
-		&:hover {
-			color: $accent_hover;
-			span {
-				border-color: $accent_hover;
-			}
-		}
-		span {
-			width: 48px;
-			height: 48px;
-			border: 2px solid $accent;
-			border-radius: 16px;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-		}
-	}
-	&.btn-border-accent {
-		background-color: transparent;
-		border: 2px solid $accent;
-		color: $accent;
-		padding: 14.48px 18px;
-		&:hover {
-			border-color: $accent_hover;
-			background-color: transparent;
-			color: $accent_hover;
-		}
-		&.arrow-right {
-			&:after {
-				content: url("data:image/svg+xml,%3Csvg width='6' height='11' viewBox='0 0 6 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.292893 0.792893C0.683417 0.402369 1.31658 0.402369 1.70711 0.792893L5.70711 4.79289C6.09763 5.18342 6.09763 5.81658 5.70711 6.20711L1.70711 10.2071C1.31658 10.5976 0.683417 10.5976 0.292893 10.2071C-0.0976311 9.81658 -0.0976311 9.18342 0.292893 8.79289L3.58579 5.5L0.292893 2.20711C-0.0976311 1.81658 -0.0976311 1.18342 0.292893 0.792893Z' fill='%23FF6000'/%3E%3C/svg%3E%0A");
-			}
-		}
-	}
+    &.btn-arrow-rounded {
+        color: $accent;
+        gap: 16px;
+
+        &:hover {
+            color: $accent_hover;
+
+            span {
+                border-color: $accent_hover;
+            }
+        }
+
+        span {
+            width: 48px;
+            height: 48px;
+            border: 2px solid $accent;
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &.btn-border-accent {
+        background-color: transparent;
+        border: 2px solid $accent;
+        color: $accent;
+        padding: 14.48px 18px;
+
+        &:hover {
+            border-color: $accent_hover;
+            background-color: transparent;
+            color: $accent_hover;
+        }
+
+        &.arrow-right {
+            &:after {
+                content: url("data:image/svg+xml,%3Csvg width='6' height='11' viewBox='0 0 6 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.292893 0.792893C0.683417 0.402369 1.31658 0.402369 1.70711 0.792893L5.70711 4.79289C6.09763 5.18342 6.09763 5.81658 5.70711 6.20711L1.70711 10.2071C1.31658 10.5976 0.683417 10.5976 0.292893 10.2071C-0.0976311 9.81658 -0.0976311 9.18342 0.292893 8.79289L3.58579 5.5L0.292893 2.20711C-0.0976311 1.81658 -0.0976311 1.18342 0.292893 0.792893Z' fill='%23FF6000'/%3E%3C/svg%3E%0A");
+            }
+        }
+    }
 }
+
 .more-link {
-	font-style: normal;
-font-weight: 700;
-font-size: 14px;
-line-height: 130%;
-color: $accent;
-display: inline-flex;
-align-items: center;
-&:hover {
-	color: $accent_hover;
-}
-&:after {
-	width: 6px;
-	height: 10px;
-	line-height: 1;
-	margin-left: 12px;
-	content: url("data:image/svg+xml,%3Csvg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L5.70711 4.29289C6.09763 4.68342 6.09763 5.31658 5.70711 5.70711L1.70711 9.70711C1.31658 10.0976 0.683417 10.0976 0.292893 9.70711C-0.0976311 9.31658 -0.0976311 8.68342 0.292893 8.29289L3.58579 5L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z' fill='%23FF6000'/%3E%3C/svg%3E%0A");
-}
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 130%;
+    color: $accent;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
+        color: $accent_hover;
+    }
+
+    &:after {
+        width: 6px;
+        height: 10px;
+        line-height: 1;
+        margin-left: 12px;
+        content: url("data:image/svg+xml,%3Csvg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L5.70711 4.29289C6.09763 4.68342 6.09763 5.31658 5.70711 5.70711L1.70711 9.70711C1.31658 10.0976 0.683417 10.0976 0.292893 9.70711C-0.0976311 9.31658 -0.0976311 8.68342 0.292893 8.29289L3.58579 5L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z' fill='%23FF6000'/%3E%3C/svg%3E%0A");
+    }
 }
 
 .site-search {
-	width: 24px;
-	height: 24px;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-	&:before {
-		content: url(images/icon-search.svg);
-		display: block;
-		height: 24px;
-	}
+    &:before {
+        content: url(images/icon-search.svg);
+        display: block;
+        height: 24px;
+    }
+}
+
+.toggle-nav {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+}
+
+.lang-switcher {
+    @media (max-width: 1023px) {
+        border: 1px solid #EBEBEB;
+        border-radius: 12px;
+        width: 42px;
+        height: 42px;
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        background-color: transparent;
+        outline: none;
+        padding: 0;
+    }
 }
