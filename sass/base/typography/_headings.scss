@@ -4,75 +4,85 @@ h3,
 h4,
 h5,
 h6 {
-	clear: both;
-	margin-top: 0;
-	margin-bottom: 0;
-	font-family: $font__secondary;
-	color: #000;
+    clear: both;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: $font__secondary;
+    color: #000;
 }
 
 h1 {
-	font-style: normal;
-	font-weight: 700;
-	font-size: 48px;
-	line-height: 130%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 130%;
 }
 
 h2 {
-	font-style: normal;
-	font-weight: 700;
-	font-size: 40px;
-	line-height: 130%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 130%;
 }
 
 h3 {
-	font-style: normal;
-	font-weight: 700;
-	font-size: 33px;
-	line-height: 130%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 33px;
+    line-height: 130%;
+
+    @include media-down-md {
+        font-size: 23px;
+        line-height: 160%;
+    }
 }
 
 h4 {
-	font-style: normal;
-	font-weight: 700;
-	font-size: 28px;
-	line-height: 130%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 130%;
 }
 
 h5 {
-	font-style: normal;
-	font-weight: 700;
-	font-size: 23px;
-	line-height: 160%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 160%;
 }
 
 h6 {
-	font-style: normal;
-	font-weight: 700;
-	font-size: 19px;
-	line-height: 160%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 160%;
 }
 
 .subheadline {
-	font-family: $font__main;
-	font-style: normal;
-	font-weight: 600;
-	font-size: 19px;
-	line-height: 160%;
-	p {
-		margin: 0;
-	}
+    font-family: $font__main;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 160%;
 
-	@media (max-width: 767px) {
-		font-size: 16px;
-	}
+    @include media-down-md {
+        font-size: 16px;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    @include media-down-sm {
+        font-size: 16px;
+    }
 }
 
 .p-text {
-	font-family: $font__main;
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 160%;
-	color: #54595F;
+    font-family: $font__main;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: #54595F;
 }

@@ -10,26 +10,26 @@
  * @package kemroc
  */
 
-$footer_cta = get_field('footer_cta', 'option'); // title link hide
-$footer_logo = get_field('footer_logo', 'option');
-$socials = get_field('socials', 'option'); // icon link
-$copyright = get_field('copyright', 'option');
-$links = get_field('footer_links', 'option'); // link
-$company = get_field('company', 'option'); // company_name address
-$contacts = get_field('footer_contacts', 'option'); //link
+$footer_cta  = get_field( 'footer_cta', 'option' ); // title link hide
+$footer_logo = get_field( 'footer_logo', 'option' );
+$socials     = get_field( 'socials', 'option' ); // icon link
+$copyright   = get_field( 'copyright', 'option' );
+$links       = get_field( 'footer_links', 'option' ); // link
+$company     = get_field( 'company', 'option' ); // company_name address
+$contacts    = get_field( 'footer_contacts', 'option' ); // link
 
-$footer_nav = get_field('footer_nav', 'option'); //title links-link
+$footer_nav = get_field( 'footer_nav', 'option' ); // title links-link
 
 ?>
 
 <footer class="footer">
 	<? if ($footer_cta && !$footer_cta['hide']) : ?>
-		<section class="cta-wide">
+		<section class="cta-wide cta-wide--footer">
 			<div class="container">
 				<div class="cta-wide__inner">
 					<div class="cta-content">
 						<? if ($footer_cta['title']) : ?>
-							<h3 class="title"><?= $footer_cta['title']; ?></h3>
+							<h3 class="title"><?php echo $footer_cta['title']; ?></h3>
 						<? endif; ?>
 
 					</div>
@@ -44,7 +44,7 @@ $footer_nav = get_field('footer_nav', 'option'); //title links-link
 								<path d="M12.4426 10.4806L5.86693 15.7232C5.18792 16.2638 4.81362 16.5 4.08759 16.5H1.88504C1.13644 16.5 0.596622 16.0993 0.596622 15.4643C0.596622 15.041 0.814808 14.6743 1.15901 14.406L7.64815 9.30132C7.90959 9.09343 7.99987 8.92523 7.99987 8.73624C7.99987 8.54725 7.92652 8.38661 7.64815 8.17116L0.575932 2.64127C0.231725 2.3729 0.0135422 1.98169 0.0135422 1.55835C0.0135422 0.898771 0.551479 0.5 1.30196 0.5H3.80733C4.53336 0.5 4.90954 0.732459 5.58667 1.27675L12.4783 6.79719C13.6576 7.74026 13.8514 8.23919 13.8514 8.69088C13.8514 9.09532 13.5993 9.56213 12.4426 10.4825" fill="#5F5F5F" />
 							</svg>
 
-							<a href="<?= $footer_cta['link']['url']; ?>" class="btn btn-accent btn-rounded arrow-right"><?= $footer_cta['link']['title']; ?></a>
+							<a href="<?php echo $footer_cta['link']['url']; ?>" class="btn btn-accent btn-rounded arrow-right"><?php echo $footer_cta['link']['title']; ?></a>
 						</div>
 					<? endif; ?>
 				</div>
@@ -55,25 +55,25 @@ $footer_nav = get_field('footer_nav', 'option'); //title links-link
 		<div class="footer__inner">
 			<div class="col-1">
 				<? if ($footer_logo) : ?>
-					<a href="<?= site_url(); ?>" class="footer-logo"><img src="<?= $footer_logo['url']; ?>" alt="<?= $footer_logo['alt']; ?>"></a>
+					<a href="<?php echo site_url(); ?>" class="footer-logo"><img src="<?php echo $footer_logo['url']; ?>" alt="<?php echo $footer_logo['alt']; ?>"></a>
 				<? endif; ?>
 				<? if ($socials) : ?>
 					<ul class="socials">
 						<? foreach ($socials as $item) : ?>
 							<li>
-								<a href="<?= $item['link']['url']; ?>"><img src="<?= $item['icon']['url']; ?>" alt=""></a>
+								<a href="<?php echo $item['link']['url']; ?>"><img src="<?php echo $item['icon']['url']; ?>" alt=""></a>
 							</li>
 						<? endforeach; ?>
 					</ul>
 				<? endif; ?>
 				<? if ($copyright) : ?>
-					<div class="copyright desktop"><?= $copyright; ?></div>
+					<div class="copyright desktop"><?php echo $copyright; ?></div>
 				<? endif; ?>
 				<? if ($links) : ?>
 					<ul class="footer-links desktop">
 						<? foreach ($links as $item) : ?>
 							<li>
-								<a href="<?= $item['link']['url']; ?>"><?= $item['link']['title']; ?></a>
+								<a href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a>
 							</li>
 						<? endforeach; ?>
 					</ul>
@@ -84,18 +84,18 @@ $footer_nav = get_field('footer_nav', 'option'); //title links-link
 					<? if ($company) : ?>
 						<div class="footer-info__left">
 							<? if ($company['company_name']) : ?>
-								<span class="company-name"><?= $company['company_name']; ?></span>
+								<span class="company-name"><?php echo $company['company_name']; ?></span>
 							<? endif; ?>
 
 							<? if ($company['address']) : ?>
-								<div class="company-address"><?= $company['address']; ?></div>
+								<div class="company-address"><?php echo $company['address']; ?></div>
 							<? endif; ?>
 						</div>
 					<? endif; ?>
 					<? if ($contacts) : ?>
 						<div class="footer-info__right">
 							<? foreach ($contacts as $item) : ?>
-								<a href="<?= $item['link']['url']; ?>"><?= $item['link']['title']; ?></a>
+								<a href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a>
 							<? endforeach; ?>
 						</div>
 					<? endif; ?>
@@ -105,13 +105,13 @@ $footer_nav = get_field('footer_nav', 'option'); //title links-link
 						<? foreach ($footer_nav as $item) : ?>
 							<div class="footer-nav__item">
 								<? if ($item['title']) : ?>
-									<span class="title"><?= $item['title']; ?></span>
+									<span class="title"><?php echo $item['title']; ?></span>
 								<? endif; ?>
 								<? if ($item['links']) : ?>
 									<ul>
 										<? foreach ($item['links'] as $link) : ?>
 											<li>
-												<a href="<?= $link['link']['url']; ?>"><?= $link['link']['title']; ?></a>
+												<a href="<?php echo $link['link']['url']; ?>"><?php echo $link['link']['title']; ?></a>
 											</li>
 										<? endforeach; ?>
 									</ul>
@@ -121,13 +121,13 @@ $footer_nav = get_field('footer_nav', 'option'); //title links-link
 					</div>
 				<? endif; ?>
 				<? if ($copyright) : ?>
-					<div class="copyright mobile"><?= $copyright; ?></div>
+					<div class="copyright mobile"><?php echo $copyright; ?></div>
 				<? endif; ?>
 				<? if ($links) : ?>
 					<ul class="footer-links mobile">
 						<? foreach ($links as $item) : ?>
 							<li>
-								<a href="<?= $item['link']['url']; ?>"><?= $item['link']['title']; ?></a>
+								<a href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a>
 							</li>
 						<? endforeach; ?>
 					</ul>

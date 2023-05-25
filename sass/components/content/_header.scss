@@ -1,29 +1,32 @@
 .header {
     &.desktop {
-        @media (max-width: 1023px) {
+        @include media-down-md {
             display: none;
         }
     }
 
     &.mobile {
+        display: none;
+
+        @include media-down-md {
+            display: block;
+        }
+
         &.nav-active {
             .header__bottom {
                 transform: translateX(0);
             }
         }
-
-        @media (min-width: 1024px) {
-            display: none;
-        }
     }
 
     &__top {
-        padding-top: 22px;
-        padding-bottom: 24px;
+        padding: 20px 0;
         display: flex;
         align-items: center;
 
-        @media (max-width: 1023px) {
+        @include media-down-md {}
+
+        @include media-down-sm {
             justify-content: space-between;
         }
 
@@ -31,7 +34,12 @@
             display: block;
             margin-right: 31px;
 
-            @media (max-width: 1023px) {
+            @include media-down-md {
+                margin-left: 31px;
+                margin-right: 0;
+            }
+
+            @include media-down-sm {
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -41,41 +49,21 @@
             }
         }
 
-        &-btns {
-            display: flex;
-            gap: 48px;
-            align-items: center;
-            margin-left: auto;
-
-            @media (max-width: 1023px) {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 24px;
-                margin-top: auto;
-                margin-bottom: 0;
-                width: 100%;
-
-                .btn {
-                    width: 100%;
-                    max-width: 264px;
-                }
-            }
-        }
     }
 
     &__bottom {
         border-top: 1px solid #EBEBEB;
 
-        @media (max-width: 1023px) {
+        @include media-down-md {
             overflow: auto;
             width: 100vw;
             left: 50%;
             right: 50%;
             margin-left: -50vw;
             margin-right: -50vw;
-            padding: 24px;
-            padding-bottom: 46px;
-            padding-top: 0;
+            // padding-bottom: 46px;
+            // padding-top: 0;
+            padding: 0 40px 46px;
             position: fixed;
             z-index: 9;
             background: #fff;
@@ -90,12 +78,18 @@
             overflow-y: auto;
         }
 
+        @include media-down-sm {
+            padding-right: 24px;
+            padding-left: 24px;
+
+        }
+
         .mobile-nav-panel {
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid #EBEBEB;
-            padding: 11px 0;
+            padding: 20px 0;
             margin-left: -25px;
             margin-right: -25px;
             padding-left: 25px;
@@ -104,6 +98,13 @@
             top: 0;
             z-index: 9;
             background: #fff;
+
+            @include media-down-md {
+                margin-right: -40px;
+                margin-left: -40px;
+                padding-left: 40px;
+                padding-right: 40px;
+            }
         }
     }
 
@@ -122,5 +123,94 @@
             height: 24px;
             margin-right: 13px;
         }
+    }
+}
+
+.header__cta {
+    font-size: 14px;
+}
+
+.header__top-btns {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    margin-left: auto;
+
+    @include media-down-md {
+        margin-left: 0;
+        gap: 55px;
+    }
+
+    @include media-down-sm {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        // margin-top: auto;
+        margin-bottom: 0;
+        width: 100%;
+    }
+}
+
+.header__top-btns .btn {
+    @include media-down-md {
+        width: 100%;
+        max-width: 264px;
+    }
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    // @include media-down-sm {
+    //     justify-content: center;
+    // }
+}
+
+.header-top__left {
+    display: flex;
+    align-items: center;
+
+    @include media-down-sm {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+.header-top__right {
+    display: flex;
+    align-items: center;
+}
+
+.header-top__lang-switcher {
+    margin-left: 31px;
+
+    @include media-down-sm {
+        display: none;
+    }
+}
+
+.header-top__site-search {
+    display: none;
+
+    @include media-down-sm {
+        display: block;
+    }
+}
+
+.top-right__site-search {
+    margin-right: 48px;
+
+    @include media-down-sm {
+        display: none;
+    }
+}
+
+.top-right__cta {
+    font-size: 14px;
+
+    @include media-down-sm {
+        display: none;
     }
 }
