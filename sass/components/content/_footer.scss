@@ -1,7 +1,6 @@
 .footer {
     background-color: #131313;
     padding-bottom: 80px;
-
     @media (max-width: 1023px) {
         padding-bottom: 64px;
     }
@@ -9,15 +8,12 @@
     .cta-wide {
         margin-bottom: 80px;
         background: rgb(19, 19, 19);
-        background: -webkit-gradient(linear, left bottom, left top, from(rgb(19, 19, 19)), color-stop(50%, rgb(19, 19, 19)), color-stop(50%, rgb(255, 255, 255)), to(rgb(255, 255, 255)));
-        background: linear-gradient(0deg, rgb(19, 19, 19) 0%, rgb(19, 19, 19) 50%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 100%);
+        background: linear-gradient(0deg, rgba(19, 19, 19, 1) 0%, rgba(19, 19, 19, 1) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
         position: relative;
         top: -1px;
-
         @media (max-width: 1023px) {
             margin-bottom: 64px;
         }
-
         h3 {
             strong {
                 color: $accent;
@@ -29,7 +25,6 @@
     .footer-logo {
         display: inline-flex;
         margin-bottom: 106px;
-
         @media (max-width: 1023px) {
             margin-bottom: 32px;
         }
@@ -37,7 +32,6 @@
 
     .socials {
         margin-bottom: 72px;
-
         @media (max-width: 1023px) {
             margin-bottom: 24px;
         }
@@ -45,18 +39,12 @@
 
     .copyright {
         margin-bottom: 16px;
-
         @media (max-width: 1023px) {
             margin-bottom: 0;
-
-        }
-
-        @media (max-width: 1023px) {
             &.desktop {
                 display: none;
             }
         }
-
         @media (min-width: 1024px) {
             &.mobile {
                 display: none;
@@ -68,16 +56,15 @@
         display: flex;
         gap: 100px;
         justify-content: space-between;
-
         @media (max-width: 1023px) {
             flex-direction: column;
+            gap: 32px;
         }
 
         .col-1 {
             border-right: 1px solid #1B1B1B;
             width: 400px;
             max-width: 50%;
-
             @media (max-width: 1023px) {
                 max-width: 100%;
             }
@@ -87,17 +74,17 @@
             display: flex;
             flex-direction: column;
             gap: 72px;
-
             @media (max-width: 1023px) {
                 gap: 16px;
             }
+            
 
             .footer-info {
                 display: flex;
                 gap: 130px;
-
                 @media (max-width: 1023px) {
                     flex-direction: column;
+                    gap: 16px;
                 }
 
                 .company-name {
@@ -115,7 +102,6 @@
                     font-size: 19px;
                     line-height: 160%;
                     color: #fff;
-
                     @media (max-width: 1023px) {
                         font-size: 16px;
                     }
@@ -130,7 +116,6 @@
                     display: flex;
                     flex-direction: column;
                     gap: 16px;
-
                     @media (max-width: 1023px) {
                         gap: 4px;
                         margin-bottom: 16px;
@@ -142,7 +127,6 @@
                         line-height: 160%;
                         color: #FFFFFF;
                         text-decoration: none;
-
                         @media (max-width: 1023px) {
                             font-size: 16px;
                         }
@@ -153,7 +137,6 @@
             .footer-nav {
                 display: flex;
                 justify-content: space-between;
-
                 @media (max-width: 1023px) {
                     flex-direction: column;
                     gap: 24px;
@@ -169,7 +152,6 @@
                     margin-bottom: 16px;
                     color: #fff;
                     display: block;
-
                     @media (max-width: 1023px) {
                         margin-bottom: 8px;
                     }
@@ -220,13 +202,11 @@
     padding: 0;
     gap: 12px;
     list-style: none;
-
     @media (max-width: 1023px) {
         &.desktop {
             display: none;
         }
     }
-
     @media (min-width: 1024px) {
         &.mobile {
             display: none;
