@@ -1,0 +1,130 @@
+.product-general-info {
+    margin: 40px 0;
+
+    @include media-down-md {
+        margin: 72px 0;
+    }
+
+    @include media-down-sm {
+        margin: 40px 0;
+    }
+
+    &__content {
+        display: flex;
+        gap: 70px;
+
+        @include media-down-md {
+            gap: 32px;
+        }
+
+        @include media-down-sm {
+            flex-direction: column;
+        }
+    }
+
+    &__picture {
+        position: relative;
+        width: 600px;
+        height: 640px;
+        flex: 1 0 auto;
+        border-radius: 16px;
+        overflow: hidden;
+
+        @include media-down-md {
+            width: 328px;
+        }
+
+        @include media-down-sm {
+            width: 100%;
+            height: 370px;
+        }
+
+        img {
+            border-radius: 16px;
+            overflow: hidden;
+
+            @include media-down-md {
+                position: absolute;
+                top: 0;
+                right: -42px;
+                max-width: unset;
+                width: 555px;
+                height: 640px;
+                object-fit: unset;
+            }
+
+            @include media-down-sm {
+                right: -23px;
+                width: 360px;
+                height: 395px;
+            }
+        }
+    }
+
+    &__tag {
+        position: absolute;
+        top: 32px;
+        left: 32px;
+        padding: 4px 8px;
+        background: $accent;
+        color: #FFFFFF;
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-family: $font__main;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 160%;
+
+        @include media-down-md {
+            font-size: 10px;
+            line-height: 160%;
+        }
+    }
+
+    // &__text {}
+
+    &__title {
+        font-family: $font__secondary;
+        font-size: 40px;
+        line-height: 130%;
+
+        @include media-down-md {
+            font-size: 28px;
+            line-height: 140%;
+        }
+    }
+
+    &__subtitle {
+        margin-top: 16px;
+        font-family: $font__main;
+        font-size: 19px;
+        font-weight: 600;
+        line-height: 160%;
+
+        @include media-down-md {
+            font-size: 16px;
+            line-height: 160%;
+        }
+    }
+
+    &__params {
+        @include reset-ul;
+
+        margin-top: 16px;
+    }
+
+    &__param {
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid $color__border;
+        font-family: $font__main;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+    }
+
+    &__arrow-right {
+        margin-right: 16px;
+    }
+}

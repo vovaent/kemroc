@@ -55,6 +55,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	/* IE9*/
 	src: url("fonts/8b91e093997592567ef9e144ac80f87d.eot?#iefix") format("embedded-opentype"), url("fonts/8b91e093997592567ef9e144ac80f87d.woff2") format("woff2"), url("fonts/8b91e093997592567ef9e144ac80f87d.woff") format("woff"), url("fonts/8b91e093997592567ef9e144ac80f87d.ttf") format("truetype"), url("fonts/8b91e093997592567ef9e144ac80f87d.svg#Eurostile Candy W02 Bold") format("svg");
 	/* iOS 4.1- */
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
@@ -635,6 +638,7 @@ object {
 img {
 	height: auto;
 	max-width: 100%;
+	object-fit: cover;
 }
 
 figure {
@@ -2986,6 +2990,266 @@ main {
 
 .gallery-caption {
 	display: block;
+}
+
+/* Blocks
+--------------------------------------------- */
+.product-general-info {
+	margin: 40px 0;
+}
+
+@media (max-width: 1023px) {
+	.product-general-info {
+		margin: 72px 0;
+	}
+}
+
+@media (max-width: 767px) {
+	.product-general-info {
+		margin: 40px 0;
+	}
+}
+
+.product-general-info__content {
+	display: flex;
+	gap: 70px;
+}
+
+@media (max-width: 1023px) {
+	.product-general-info__content {
+		gap: 32px;
+	}
+}
+
+@media (max-width: 767px) {
+	.product-general-info__content {
+		flex-direction: column;
+	}
+}
+
+.product-general-info__picture {
+	position: relative;
+	width: 600px;
+	height: 640px;
+	flex: 1 0 auto;
+	border-radius: 16px;
+	overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+	.product-general-info__picture {
+		width: 328px;
+	}
+}
+
+@media (max-width: 767px) {
+	.product-general-info__picture {
+		width: 100%;
+		height: 370px;
+	}
+}
+
+.product-general-info__picture img {
+	border-radius: 16px;
+	overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+	.product-general-info__picture img {
+		position: absolute;
+		top: 0;
+		right: -42px;
+		max-width: unset;
+		width: 555px;
+		height: 640px;
+		object-fit: unset;
+	}
+}
+
+@media (max-width: 767px) {
+	.product-general-info__picture img {
+		right: -23px;
+		width: 360px;
+		height: 395px;
+	}
+}
+
+.product-general-info__tag {
+	position: absolute;
+	top: 32px;
+	left: 32px;
+	padding: 4px 8px;
+	background: #FF6000;
+	color: #FFFFFF;
+	border-radius: 8px;
+	text-transform: uppercase;
+	font-family: "Asap", sans-serif;
+	font-weight: 700;
+	font-size: 10px;
+	line-height: 160%;
+}
+
+@media (max-width: 1023px) {
+	.product-general-info__tag {
+		font-size: 10px;
+		line-height: 160%;
+	}
+}
+
+.product-general-info__title {
+	font-family: "Eurostile Candy W02 Bold";
+	font-size: 40px;
+	line-height: 130%;
+}
+
+@media (max-width: 1023px) {
+	.product-general-info__title {
+		font-size: 28px;
+		line-height: 140%;
+	}
+}
+
+.product-general-info__subtitle {
+	margin-top: 16px;
+	font-family: "Asap", sans-serif;
+	font-size: 19px;
+	font-weight: 600;
+	line-height: 160%;
+}
+
+@media (max-width: 1023px) {
+	.product-general-info__subtitle {
+		font-size: 16px;
+		line-height: 160%;
+	}
+}
+
+.product-general-info__params {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-top: 16px;
+}
+
+.product-general-info__param {
+	display: flex;
+	align-items: center;
+	padding: 12px 16px;
+	border-bottom: 1px solid #EBEBEB;
+	font-family: "Asap", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 160%;
+}
+
+.product-general-info__arrow-right {
+	margin-right: 16px;
+}
+
+.product-tech-info {
+	margin: 70px 0;
+}
+
+@media (max-width: 1023px) {
+	.product-tech-info {
+		margin: 72px 0;
+	}
+}
+
+@media (max-width: 767px) {
+	.product-tech-info {
+		margin: 40px 0;
+	}
+}
+
+.product-tech-info__content {
+	display: flex;
+	gap: 70px;
+}
+
+@media (max-width: 1023px) {
+	.product-tech-info__content {
+		gap: 30px;
+	}
+}
+
+@media (max-width: 767px) {
+	.product-tech-info__content {
+		flex-direction: column;
+	}
+}
+
+.product-tech-info__text {
+	max-width: 51%;
+}
+
+@media (max-width: 1023px) {
+	.product-tech-info__text {
+		max-width: 50%;
+	}
+}
+
+@media (max-width: 767px) {
+	.product-tech-info__text {
+		max-width: 100%;
+	}
+}
+
+.product-tech-info__title {
+	font-family: "Asap", sans-serif;
+	font-weight: 600;
+	font-size: 19px;
+	line-height: 160%;
+}
+
+.product-tech-info__description {
+	margin-top: 24px;
+	font-family: "Asap", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 160%;
+}
+
+.tech-drawing {
+	padding: 24px;
+	background: #EFEFEF;
+	border-radius: 16px;
+	height: max-content;
+}
+
+.tech-drawing__info {
+	display: flex;
+	align-items: center;
+	padding: 16px 22px;
+	background-color: #ffffff;
+	border-radius: 12px;
+}
+
+@media (max-width: 1023px) {
+	.tech-drawing__info {
+		padding: 8px 16px;
+	}
+}
+
+.tech-drawing__icon {
+	margin-right: 12px;
+}
+
+.tech-drawing__text {
+	font-family: "Asap", sans-serif;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 160%;
+}
+
+@media (max-width: 1023px) {
+	.tech-drawing__text {
+		font-size: 14px;
+	}
+}
+
+.tech-drawing img {
+	margin-top: 24px;
 }
 
 /*--------------------------------------------------------------
