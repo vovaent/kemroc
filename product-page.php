@@ -28,81 +28,81 @@ get_header();
 			ANBAU-DREHBOHRANTRIEBE FÜR BAGGER, BAGGERLADER UND KOMPAKTLADER
 			</h3>
 			<!-- /.product-general-info__subtitle -->
-			<ul class="product-general-info__params">
-				<li class="product-general-info__param">
+			<ul class="product-general-info__benefits">
+				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right-accent' ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					drehmomentstarker Hydraulikmotor
 				</li>
-				<!-- /.product-general-info__param -->
-				<li class="product-general-info__param">
+				<!-- /.product-general-info__benefit -->
+				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right-accent' ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					robuste und verwindungssteife Aufhängung
 				</li>
-				<!-- /.product-general-info__param -->
-				<li class="product-general-info__param">
+				<!-- /.product-general-info__benefit -->
+				<li class="product-general-info__benefit">
 				<span    span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right-accent' ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					robuste Lagerung
 				</li>
-				<!-- /.product-general-info__param -->
-				<li class="product-general-info__param">
+				<!-- /.product-general-info__benefit -->
+				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right-accent' ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					verschleißfeste Bohrschnecken
 				</li>
-				<!-- /.product-general-info__param -->
-				<li class="product-general-info__param">
+				<!-- /.product-general-info__benefit -->
+				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right-accent' ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					Drehbohrköpfe für unterschiedliche Einsätze
 				</li>
-				<!-- /.product-general-info__param -->
-				<li class="product-general-info__param">
+				<!-- /.product-general-info__benefit -->
+				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right-accent' ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					Zentriermonitor für garantiert senkrechtes Bohren
 				</li>
-				<!-- /.product-general-info__param -->
-				<li class="product-general-info__param">
+				<!-- /.product-general-info__benefit -->
+				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right-accent' ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					verschleißfeste Bohrschnecken
 				</li>
-				<!-- /.product-general-info__param -->
-				<li class="product-general-info__param">
+				<!-- /.product-general-info__benefit -->
+				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right-accent' ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					Drehbohrköpfe für unterschiedliche Einsätze
 				</li>
-				<!-- /.product-general-info__param -->
-				<li class="product-general-info__param">
+				<!-- /.product-general-info__benefit -->
+				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right-accent' ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					Zentriermonitor für garantiert senkrechtes Bohren
 				</li>
-				<!-- /.product-general-info__param -->
+				<!-- /.product-general-info__benefit -->
 			</ul>
-			<!-- /.product-general-info__params -->
+			<!-- /.product-general-info__benefits -->
 		</div>
 		<!-- /.product-general-info__text -->
 	</div>
@@ -143,197 +143,297 @@ get_header();
 </section>
 <!-- /.product-tech-info -->
 
-<section class="product-list">
-	<div class="container product-list__container">
-		<div class="product-list__card product-card">
-			<div class="product-card__title">
-			MODELLE VERGLEICHEN
+<section class="model-list">
+	<div class="container model-list__content">
+		<div class="model-list__card model-card">
+			<div class="model-card__title">
+				<strong>MODELLE</strong> VERGLEICHEN
 			</div>
-			<!-- /.product-card__title -->
-			<div class="product-card__params">
-				<div class="product-card__param">
+			<!-- /.model-card__title -->
+			<div class="model-card__params">
+				<div class="model-card__param">
 				Empfohlenes Baggergewicht
 				</div>
-				<!-- /.product-card__param -->
-				<div class="product-card__param">
+				<!-- /.model-card__param -->
+				<div class="model-card__param">
 				Max. Bohrdurchmesser
 				</div>
-				<!-- /.product-card__param -->
-				<div class="product-card__param">
+				<!-- /.model-card__param -->
+				<div class="model-card__param">
 				Min. Bohrdurchmesser
 				</div>
-				<!-- /.product-card__param -->
+				<!-- /.model-card__param -->
 			</div>
-			<!-- /.product-card__params -->
+			<!-- /.model-card__params -->
 		</div>
-		<!-- /.product-list__card product-card -->
-		<ul class="product-list__models">
-			<li class="product-list__item model">
-				<div class="model__title">
-				EBA 500
-				</div>
-				<!-- /.model__title -->
-				<ul class="model__params">
-					<li class="model__param">
-					7 – 13 t
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					800 mm
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					200 mm
-					</li>
-					<!-- /.model__param -->
-				</ul>
-				<!-- /.model__params -->
-				<a href="" class="model__link">
-				Details
-				</a>
-				<!-- /.model__link -->
-			</li>
-			<!-- /.product-list__item model -->
-			<li class="product-list__item model">
-				<div class="model__title">
-				EBA 600
-				</div>
-				<!-- /.model__title -->
-				<ul class="model__params">
-					<li class="model__param">
-					7 – 13 t
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					800 mm
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					200 mm
-					</li>
-					<!-- /.model__param -->
-				</ul>
-				<!-- /.model__params -->
-				<a href="" class="model__link">
-				Details
-				</a>
-				<!-- /.model__link -->
-			</li>
-			<!-- /.product-list__item model -->
-			<li class="product-list__item model">
-				<div class="model__title">
-				EBA 700
-				</div>
-				<!-- /.model__title -->
-				<ul class="model__params">
-					<li class="model__param">
-					7 – 13 t
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					800 mm
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					200 mm
-					</li>
-					<!-- /.model__param -->
-				</ul>
-				<!-- /.model__params -->
-				<a href="" class="model__link">
-				Details
-				</a>
-				<!-- /.model__link -->
-			</li>
-			<!-- /.product-list__item model -->
-			<li class="product-list__item model">
-				<div class="model__title">
-				EBA 800
-				</div>
-				<!-- /.model__title -->
-				<ul class="model__params">
-					<li class="model__param">
-					7 – 13 t
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					800 mm
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					200 mm
-					</li>
-					<!-- /.model__param -->
-				</ul>
-				<!-- /.model__params -->
-				<a href="" class="model__link">
-				Details
-				</a>
-				<!-- /.model__link -->
-			</li>
-			<!-- /.product-list__item model -->
-			<li class="product-list__item model">
-				<div class="model__title">
-				EBA 900
-				</div>
-				<!-- /.model__title -->
-				<ul class="model__params">
-					<li class="model__param">
-					7 – 13 t
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					800 mm
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					200 mm
-					</li>
-					<!-- /.model__param -->
-				</ul>
-				<!-- /.model__params -->
-				<a href="" class="model__link">
-				Details
-				</a>
-				<!-- /.model__link -->
-			</li>
-			<!-- /.product-list__item model -->
-			<li class="product-list__item model">
-				<div class="model__title">
-				EBA 1000
-				</div>
-				<!-- /.model__title -->
-				<ul class="model__params">
-					<li class="model__param">
-					7 – 13 t
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					800 mm
-					</li>
-					<!-- /.model__param -->
-					<li class="model__param">
-					200 mm
-					</li>
-					<!-- /.model__param -->
-				</ul>
-				<!-- /.model__params -->
-				<a href="" class="model__link">
-				Details
-				<span class="model__arrow-right">
-					<?php get_template_part( 'template-parts/icons/arrow-right-accent' ); ?>
-				</span>
-				<!-- /.model__arrow-right -->
-				</a>
-				<!-- /.model__link -->
-			</li>
-			<!-- /.product-list__item model -->
-		</ul>
-		<!-- /.product-list__models -->
+		<!-- /.model-list__card model-card -->
+		<div class="swiper model-list__slider">
+			<ul class="swiper-wrapper model-list__models">
+				<li class="swiper-slide model-list__item model">
+					<div class="model__title">
+					EBA 3300
+					</div>
+					<!-- /.model__title -->
+					<ul class="model__params">
+						<li class="model__param">
+						7 – 13 t
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						800 mm
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						200 mm
+						</li>
+						<!-- /.model__param -->
+					</ul>
+					<!-- /.model__params -->
+					<a href="" class="model__link">
+						Details 
+						<span class="model__arrow">
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						</span>
+					</a>
+					<!-- /.model__link -->
+				</li>
+				<!-- /.model-list__item model -->
+				<li class="swiper-slide model-list__item model">
+					<div class="model__title">
+					EBA 600
+					</div>
+					<!-- /.model__title -->
+					<ul class="model__params">
+						<li class="model__param">
+						7 – 13 t
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						800 mm
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						200 mm
+						</li>
+						<!-- /.model__param -->
+					</ul>
+					<!-- /.model__params -->
+					<a href="" class="model__link">
+					Details
+					</a>
+					<!-- /.model__link -->
+				</li>
+				<!-- /.model-list__item model -->
+				<li class="swiper-slide model-list__item model">
+					<div class="model__title">
+					EBA 700
+					</div>
+					<!-- /.model__title -->
+					<ul class="model__params">
+						<li class="model__param">
+						7 – 13 t
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						800 mm
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						200 mm
+						</li>
+						<!-- /.model__param -->
+					</ul>
+					<!-- /.model__params -->
+					<a href="" class="model__link">
+					Details
+					</a>
+					<!-- /.model__link -->
+				</li>
+				<!-- /.model-list__item model -->
+				<li class="swiper-slide model-list__item model">
+					<div class="model__title">
+					EBA 800
+					</div>
+					<!-- /.model__title -->
+					<ul class="model__params">
+						<li class="model__param">
+						7 – 13 t
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						800 mm
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						200 mm
+						</li>
+						<!-- /.model__param -->
+					</ul>
+					<!-- /.model__params -->
+					<a href="" class="model__link">
+					Details
+					</a>
+					<!-- /.model__link -->
+				</li>
+				<!-- /.model-list__item model -->
+				<li class="swiper-slide model-list__item model">
+					<div class="model__title">
+					EBA 900
+					</div>
+					<!-- /.model__title -->
+					<ul class="model__params">
+						<li class="model__param">
+						7 – 13 t
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						800 mm
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						200 mm
+						</li>
+						<!-- /.model__param -->
+					</ul>
+					<!-- /.model__params -->
+					<a href="" class="model__link">
+					Details
+					</a>
+					<!-- /.model__link -->
+				</li>
+				<!-- /.model-list__item model -->
+				<li class="swiper-slide model-list__item model">
+					<div class="model__title">
+					EBA 1000
+					</div>
+					<!-- /.model__title -->
+					<ul class="model__params">
+						<li class="model__param">
+						7 – 13 t
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						800 mm
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						200 mm
+						</li>
+						<!-- /.model__param -->
+					</ul>
+					<!-- /.model__params -->
+					<a href="" class="model__link">
+						Details
+						<span class="model__arrow">
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						</span>
+					</a>
+					<!-- /.model__link -->
+				</li>
+				<!-- /.model-list__item model -->
+				<li class="swiper-slide model-list__item model">
+					<div class="model__title">
+					EBA 1000
+					</div>
+					<!-- /.model__title -->
+					<ul class="model__params">
+						<li class="model__param">
+						7 – 13 t
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						800 mm
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						200 mm
+						</li>
+						<!-- /.model__param -->
+					</ul>
+					<!-- /.model__params -->
+					<a href="" class="model__link">
+						Details
+						<span class="model__arrow">
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						</span>
+					</a>
+					<!-- /.model__link -->
+				</li>
+				<!-- /.model-list__item model -->
+				<li class="swiper-slide model-list__item model">
+					<div class="model__title">
+					EBA 1000
+					</div>
+					<!-- /.model__title -->
+					<ul class="model__params">
+						<li class="model__param">
+						7 – 13 t
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						800 mm
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						200 mm
+						</li>
+						<!-- /.model__param -->
+					</ul>
+					<!-- /.model__params -->
+					<a href="" class="model__link">
+						Details
+						<span class="model__arrow">
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						</span>
+					</a>
+					<!-- /.model__link -->
+				</li>
+				<!-- /.model-list__item model -->
+				<li class="swiper-slide model-list__item model">
+					<div class="model__title">
+					EBA 1000
+					</div>
+					<!-- /.model__title -->
+					<ul class="model__params">
+						<li class="model__param">
+						7 – 13 t
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						800 mm
+						</li>
+						<!-- /.model__param -->
+						<li class="model__param">
+						200 mm
+						</li>
+						<!-- /.model__param -->
+					</ul>
+					<!-- /.model__params -->
+					<a href="" class="model__link">
+						Details
+						<span class="model__arrow">
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						</span>
+					</a>
+					<!-- /.model__link -->
+				</li>
+				<!-- /.model-list__item model -->
+			</ul>
+			<!-- /.model-list__models -->
+			<div class="swiper-button-prev model-list__control model-list__control--prev">
+				<?php get_template_part( 'template-parts/icons/arrow-left', null, array( 'color' => '#444444' ) ); ?>
+			</div>
+			<!-- /.model-list__control -->
+			<div class="swiper-button-next model-list__control model-list__control--next">
+				<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#444444' ) ); ?>
+			</div>
+			<!-- /.model-list__control -->
+		</div>
+		<!-- /.swiper model-list__slider -->
 	</div>
-	<!-- /.container product-list__container -->
+	<!-- /.container model-list__content -->
 </section>
-<!-- /.product-list -->
+<!-- /.model-list -->
 
 <?php
 get_footer();

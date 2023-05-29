@@ -10,6 +10,7 @@ function custom_images_size() {
 	add_image_size( 'home-product', 140, 140, true );
 	add_image_size( 'home-areas', 540, 680, true );
 	add_image_size( 'home-news', 370, 250, true );
+	add_image_size( 'product-page', 370, 250, true );
 
 }
  // SVG support
@@ -87,31 +88,31 @@ function kemroc_pingback_header() {
 }
 add_action( 'wp_head', 'kemroc_pingback_header' );
 
-if ( ! function_exists( 'mytheme_register_nav_menu' ) ) {
+if ( ! function_exists( 'kemroc_register_nav_menu' ) ) {
 
-	function mytheme_register_nav_menu() {
+	function kemroc_register_nav_menu() {
 		register_nav_menus(
 			array(
-				'main_menu'   => __( 'Main Menu', 'text_domain' ),
-				'footer_menu' => __( 'Footer Menu', 'text_domain' ),
+				'main_menu'   => __( 'Main Menu', 'kemroc' ),
+				'footer_menu' => __( 'Footer Menu', 'kemroc' ),
 			)
 		);
 	}
-	add_action( 'after_setup_theme', 'mytheme_register_nav_menu', 0 );
+	add_action( 'after_setup_theme', 'kemroc_register_nav_menu', 0 );
 }
 
 add_filter(
 	'wp_nav_menu_objects',
 	function( $items, $args ) {
 	
-		// loop
+		// loop.
 		foreach ( $items as &$item ) {
 		
-			// vars
+			// vars.
 			$image = get_field( 'image', $item );
 		
 		
-			// append icon
+			// append icon.
 			if ( $image ) {
 			
 				$item->title = '<img src="' . $image['sizes']['home-product'] . '" /><div class="item-title"><span>' . $item->title . '</span><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,8 +123,6 @@ add_filter(
 			}   
 		}
 	
-	
-		// return
 		return $items;
 	
 	},
@@ -170,14 +169,14 @@ function custom_post_type() {
 			'not_found_in_trash'  => __( 'Not found in Trash', 'kemroc' ),
 		);
 		  
-		// Set other options for Custom Post Type
+		// Set other options for Custom Post Type.
 		  
 		$args = array(
 			'label'               => __( 'products', 'kemroc' ),
 			'description'         => __( 'Products', 'kemroc' ),
 			'labels'              => $labels,
-			// Features this CPT supports in Post Editor
-			'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+			// Features this CPT supports in Post Editor.
+			'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'taxonomies' ),
 			// You can associate this CPT with a taxonomy or custom taxonomy. 
 			
 			/*
@@ -202,17 +201,44 @@ function custom_post_type() {
 		);
 		  
 		// Registering your Custom Post Type
-		register_post_type( 'products', $args );
+		register_post_type( 'produkt', $args );
 	  
 }
-	  
-	/*
-	 Hook into the 'init' action so that the function
-	* Containing our post type registration is not 
-	* unnecessarily executed. 
-	*/
-	  
-	add_action( 'init', 'custom_post_type', 0 );
+add_action( 'init', 'custom_post_type', 0 );
+
+/**
+ * Create two taxonomies, genres and writers for the post type "book".
+ *
+ * @see register_post_type() for registering custom post types.
+ */
+function kemroc_create_book_taxonomies() {
+	// Add new taxonomy, make it hierarchical (like categories).
+	$labels = array(
+		'name'              => _x( 'Tags', 'taxonomy general name', 'kemroc' ),
+		'singular_name'     => _x( 'Tag', 'taxonomy singular name', 'kemroc' ),
+		'search_items'      => __( 'Search Tags', 'kemroc' ),
+		'all_items'         => __( 'All Tags', 'kemroc' ),
+		'parent_item'       => __( 'Parent Tag', 'kemroc' ),
+		'parent_item_colon' => __( 'Parent Tag:', 'kemroc' ),
+		'edit_item'         => __( 'Edit Tag', 'kemroc' ),
+		'update_item'       => __( 'Update Tag', 'kemroc' ),
+		'add_new_item'      => __( 'Add New Tag', 'kemroc' ),
+		'new_item_name'     => __( 'New Tag Name', 'kemroc' ),
+		'menu_name'         => __( 'Tag', 'kemroc' ),
+	);
+
+	$args = array(
+		'hierarchical'      => false,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'produkt-tag' ),
+	);
+
+	register_taxonomy( 'product_tag', array( 'produkt' ), $args );
+}
+add_action( 'init', 'kemroc_create_book_taxonomies', 0 );
 
 function custom_post_type_areas() {
   
@@ -315,6 +341,11 @@ function add_custom_block_categories( $block_categories, $editor_context ) {
 			array(
 				'slug'  => 'sonder-modules',
 				'title' => __( 'Sonder module', 'text-plugins' ),
+				'icon'  => null,
+			),
+			array(
+				'slug'  => 'product',
+				'title' => esc_html__( 'Produkt', 'kemroc' ),
 				'icon'  => null,
 			)
 		);
@@ -467,6 +498,27 @@ function acf_init_block_types() {
 					'mode' => 'preview',
 					'data' => array(
 						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/our-news.png',
+					),
+				),
+			),
+		)
+	);
+	acf_register_block_type(
+		array(
+			'name'            => 'product-general-info',
+			'title'           => __( 'Allgemeine Produktinformationen', 'kemroc' ),
+			'description'     => __( 'Allgemeine Produktinformationen', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/product/general-info/general-info.php',
+			'category'        => 'product',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Product' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/product/general-info/general-info.png',
 					),
 				),
 			),

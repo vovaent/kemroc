@@ -35,7 +35,6 @@
     }
 
     &__title {
-        font-family: $font__main;
         font-weight: 600;
         font-size: 19px;
         line-height: 160%;
@@ -43,7 +42,6 @@
 
     &__description {
         margin-top: 24px;
-        font-family: $font__main;
         font-weight: 400;
         font-size: 16px;
         line-height: 160%;
@@ -73,7 +71,6 @@
     }
 
     &__text {
-        font-family: $font__main;
         font-weight: 600;
         font-size: 16px;
         line-height: 160%;

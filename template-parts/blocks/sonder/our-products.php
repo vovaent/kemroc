@@ -42,7 +42,7 @@ if ( ! $is_preview ) {
 						<div class="readmore desktop">
 							<a href="<?php echo $link['url']; ?>" class="btn btn-arrow-rounded"><?php echo $link['title']; ?>
 								<span>
-									<?php get_template_part( 'template-parts/icons/arrow-right-accent' ); ?>
+									<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
 								</span>
 							</a>
 						</div>

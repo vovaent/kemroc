@@ -138,10 +138,29 @@ add_action( 'widgets_init', 'kemroc_widgets_init' );
  * Enqueue scripts and styles.
  */
 function kemroc_scripts() {
-	wp_enqueue_style( 'kemroc-style', get_stylesheet_uri(), array(), KEMROC_VERSION );
+	$main_asset = kemroc_get_asset_data( 'js/build/scripts.asset.php' );
+	
+	wp_enqueue_style(
+		'kemroc-additional-style', 
+		get_template_directory_uri() . '/js/build/scripts.css',
+		array(), 
+		$main_asset['version'] 
+	);
+	wp_enqueue_style(
+		'kemroc-style', 
+		get_stylesheet_uri(), 
+		array( 'kemroc-additional-style' ),
+		$main_asset['version'] 
+	);
 	wp_style_add_data( 'kemroc-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'kemroc-scripts', get_template_directory_uri() . '/js/scripts.js', array(), KEMROC_VERSION, true );
+	wp_enqueue_script(
+		'kemroc-scripts',
+		get_template_directory_uri() . '/js/build/scripts.js',
+		array(),
+		$main_asset['version'],
+		true 
+	);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -175,3 +194,8 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Helpers
+ */
+require get_template_directory() . '/inc/helpers.php';
