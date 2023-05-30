@@ -39,21 +39,21 @@ if ( ! $is_preview ) :
 		<div class="container product-general-info__content">
 			<figure class="product-general-info__picture">
 				<div class="product-general-info__tag">
-					<?php echo esc_html( $kemroc_pgi_figure['tag']->name ); ?>
+					<?php echo wp_kses_post( $kemroc_pgi_figure['tag']->name ); ?>
 				</div>
 				<?php echo wp_get_attachment_image( $kemroc_pgi_figure['image'], 'medium_large' ); ?>
 				<figcaption>
-					<?php echo esc_html( wp_get_attachment_caption( $kemroc_pgi_figure['image'] ) ); ?>
+					<?php echo wp_kses_post( wp_get_attachment_caption( $kemroc_pgi_figure['image'] ) ); ?>
 				</figcaption>
 			</figure>
 			<!-- /.product-general-info__picture -->
 			<div class="product-general-info__text">
 				<h1 class="product-general-info__title">
-					<?php echo esc_html( get_field( 'title' ) ); ?>
+					<?php echo wp_kses_post( get_field( 'title' ) ); ?>
 				</h1>
 				<!-- /.product-general-info__title -->
 				<h3 class="product-general-info__subtitle">
-					<?php echo esc_html( get_field( 'subtitle' ) ); ?>
+					<?php echo wp_kses_post( get_field( 'subtitle' ) ); ?>
 				</h3>
 				<!-- /.product-general-info__subtitle -->
 
@@ -63,10 +63,10 @@ if ( ! $is_preview ) :
 						<?php foreach ( $kemroc_pgi_list_benefits as $kemroc_pgi_benefit ) : ?>
 							<li class="product-general-info__benefit">
 								<span class="product-general-info__arrow-right">
-									<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+									<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 								</span>
 								<!-- /.product-general-info__arrow-right -->
-								<?php echo esc_html( $kemroc_pgi_benefit['benefit'] ); ?>
+								<?php echo wp_kses_post( $kemroc_pgi_benefit['benefit'] ); ?>
 							</li>
 							<!-- /.product-general-info__benefit -->
 						<?php endforeach; ?>

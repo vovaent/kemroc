@@ -202,7 +202,6 @@ function custom_post_type() {
 		  
 		// Registering your Custom Post Type
 		register_post_type( 'produkt', $args );
-	  
 }
 add_action( 'init', 'custom_post_type', 0 );
 
@@ -540,6 +539,27 @@ function acf_init_block_types() {
 					'mode' => 'preview',
 					'data' => array(
 						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/product/tech-info/tech-info.png',
+					),
+				),
+			),
+		)
+	);
+	acf_register_block_type(
+		array(
+			'name'            => 'product-model-list',
+			'title'           => __( 'Produkt Modellliste', 'kemroc' ),
+			'description'     => __( 'Produkt Modellliste', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/product/model-list/model-list.php',
+			'category'        => 'product',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Product' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/product/model-list/model-list.png',
 					),
 				),
 			),

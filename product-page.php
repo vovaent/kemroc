@@ -31,7 +31,7 @@ get_header();
 			<ul class="product-general-info__benefits">
 				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					drehmomentstarker Hydraulikmotor
@@ -39,7 +39,7 @@ get_header();
 				<!-- /.product-general-info__benefit -->
 				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					robuste und verwindungssteife Aufhängung
@@ -47,7 +47,7 @@ get_header();
 				<!-- /.product-general-info__benefit -->
 				<li class="product-general-info__benefit">
 				<span    span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					robuste Lagerung
@@ -55,7 +55,7 @@ get_header();
 				<!-- /.product-general-info__benefit -->
 				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					verschleißfeste Bohrschnecken
@@ -63,7 +63,7 @@ get_header();
 				<!-- /.product-general-info__benefit -->
 				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					Drehbohrköpfe für unterschiedliche Einsätze
@@ -71,7 +71,7 @@ get_header();
 				<!-- /.product-general-info__benefit -->
 				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					Zentriermonitor für garantiert senkrechtes Bohren
@@ -79,7 +79,7 @@ get_header();
 				<!-- /.product-general-info__benefit -->
 				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					verschleißfeste Bohrschnecken
@@ -87,7 +87,7 @@ get_header();
 				<!-- /.product-general-info__benefit -->
 				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					Drehbohrköpfe für unterschiedliche Einsätze
@@ -95,7 +95,7 @@ get_header();
 				<!-- /.product-general-info__benefit -->
 				<li class="product-general-info__benefit">
 					<span class="product-general-info__arrow-right">
-						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+						<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 					</span>
 					<!-- /.product-general-info__arrow-right -->
 					Zentriermonitor für garantiert senkrechtes Bohren
@@ -192,7 +192,7 @@ get_header();
 					<a href="" class="model__link">
 						Details 
 						<span class="model__arrow">
-							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 						</span>
 					</a>
 					<!-- /.model__link -->
@@ -325,7 +325,7 @@ get_header();
 					<a href="" class="model__link">
 						Details
 						<span class="model__arrow">
-							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 						</span>
 					</a>
 					<!-- /.model__link -->
@@ -354,7 +354,7 @@ get_header();
 					<a href="" class="model__link">
 						Details
 						<span class="model__arrow">
-							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 						</span>
 					</a>
 					<!-- /.model__link -->
@@ -383,7 +383,7 @@ get_header();
 					<a href="" class="model__link">
 						Details
 						<span class="model__arrow">
-							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 						</span>
 					</a>
 					<!-- /.model__link -->
@@ -412,7 +412,7 @@ get_header();
 					<a href="" class="model__link">
 						Details
 						<span class="model__arrow">
-							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#FF6000' ) ); ?>
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 						</span>
 					</a>
 					<!-- /.model__link -->
@@ -421,11 +421,11 @@ get_header();
 			</ul>
 			<!-- /.model-list__models -->
 			<div class="swiper-button-prev model-list__control model-list__control--prev">
-				<?php get_template_part( 'template-parts/icons/arrow-left', null, array( 'color' => '#444444' ) ); ?>
+				<?php get_template_part( 'template-parts/icons/arrow-left', null, array( 'fill' => '#444444' ) ); ?>
 			</div>
 			<!-- /.model-list__control -->
 			<div class="swiper-button-next model-list__control model-list__control--next">
-				<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'color' => '#444444' ) ); ?>
+				<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#444444' ) ); ?>
 			</div>
 			<!-- /.model-list__control -->
 		</div>

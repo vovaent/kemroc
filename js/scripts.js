@@ -6,5 +6,5 @@ import { modelList } from "./components/blocks/product/model-list";
 
 jQuery(document).ready(function ($) {
     navigation($);
-    modelList();
+    modelList($);
 });

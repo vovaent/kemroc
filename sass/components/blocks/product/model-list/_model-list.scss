@@ -65,6 +65,10 @@
                 right: -4px;
             }
         }
+
+        &.swiper-button-disabled svg path {
+            fill: #bebebe;
+        }
     }
 }
 
@@ -96,12 +100,19 @@
             font-size: 16px;
         }
 
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
         strong {
             color: $accent;
         }
     }
 
     &__params {
+        @include reset-ul;
+
         margin-top: 26px;
     }
 
@@ -130,6 +141,7 @@
     flex-direction: column;
     align-items: center;
     width: 174px;
+    height: auto;
     padding: 77px 0 57px;
     border-radius: 16px;
     flex-shrink: 0;
@@ -216,6 +228,13 @@
 
         @include media-down-md {
             margin-left: 8px;
+        }
+
+        svg {
+            @include media-down-md {
+                width: 4px;
+                height: 6px;
+            }
         }
     }
 }

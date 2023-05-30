@@ -199,3 +199,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Helpers
  */
 require get_template_directory() . '/inc/helpers.php';
+
+/**
+ * Yoast
+ */
+require get_template_directory() . '/inc/yoast.php';

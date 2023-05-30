@@ -147,3 +147,16 @@
 			</div>
 		</div>
 	</header>
+	<section id="breadcrumbs" class="breadcrumbs">
+		<div class="container breadcrumbs__crumbs">
+			<?php
+			if ( function_exists( 'yoast_breadcrumb' ) ) {
+				if ( is_front_page() ) {
+					return;
+				}
+				yoast_breadcrumb();
+			}
+			?>
+		</div>
+		<!-- /.container breadcrumbs__container -->
+	</section><!-- /.breadcrumbs -->

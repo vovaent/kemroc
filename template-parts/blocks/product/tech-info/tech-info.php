@@ -38,11 +38,11 @@ if ( ! $is_preview ) :
 		<div class="container product-tech-info__content">
 			<div class="product-tech-info__text">
 				<h3 class="product-tech-info__title">
-					<?php echo esc_html( get_field( 'title' ) ); ?>
+					<?php echo wp_kses_post( get_field( 'title' ) ); ?>
 				</h3>
 				<!-- /.product-tech-info__title -->
 				<div class="product-tech-info__description">
-					<?php echo esc_html( get_field( 'description' ) ); ?>
+					<?php echo wp_kses_post( get_field( 'description' ) ); ?>
 				</div>
 				<!-- /.product-tech-info__description -->
 			</div>
@@ -54,7 +54,7 @@ if ( ! $is_preview ) :
 					</div>
 					<!-- /.tech-drawing__icon -->
 					<div class="tech-drawing__text">
-						<?php echo esc_html( $kemroc_pti_figure['drawing_text'] ); ?>
+						<?php echo wp_kses_post( $kemroc_pti_figure['drawing_text'] ); ?>
 					</div>
 					<!-- /.tech-drawing__text -->
 				</div>

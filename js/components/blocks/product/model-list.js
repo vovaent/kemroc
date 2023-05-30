@@ -4,7 +4,7 @@
 import Swiper, { Navigation } from 'swiper';
 import 'swiper/css';
 
-const modelList = () => {
+const modelList = ($) => {
     const swiper = new Swiper('.swiper', {
         modules: [Navigation],
 

@@ -214,3 +214,24 @@
         display: none;
     }
 }
+
+.breadcrumbs {
+    padding: 16px 0;
+    font-family: $font__main;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 160%;
+    color: #000000;
+
+    &__separator {
+        margin: 0 9px;
+    }
+
+    a {
+        @include reset-a(#000000);
+    }
+
+    .breadcrumb_last {
+        color: #B6B6B6;
+    }
+}
