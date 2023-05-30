@@ -1,9 +1,9 @@
 {
-    "key": "group_6474e4ff60c42",
-    "title": "Block | Product General Info",
+    "key": "group_6475a2337d2ed",
+    "title": "Block | Product Tech Info",
     "fields": [
         {
-            "key": "field_6475974d0177d",
+            "key": "field_6475a2331ece2",
             "label": "Titel",
             "name": "title",
             "type": "text",
@@ -22,10 +22,10 @@
             "append": ""
         },
         {
-            "key": "field_6474e57009b0e",
-            "label": "Untertitel",
-            "name": "subtitle",
-            "type": "text",
+            "key": "field_6475a2561ece3",
+            "label": "Beschreibung",
+            "name": "description",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -35,56 +35,13 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "delay": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
         },
         {
-            "key": "field_6474e59609b0f",
-            "label": "Liste der Vorteile",
-            "name": "list_benefits",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Row",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_6474eee9bd722",
-                    "label": "Profitieren",
-                    "name": "benefit",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_6474e59609b0f"
-                }
-            ]
-        },
-        {
-            "key": "field_6475006100414",
+            "key": "field_6475a5427a41a",
             "label": "Abbildung",
             "name": "figure",
             "type": "group",
@@ -99,9 +56,28 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_6474e50009b0c",
-                    "label": "Image",
-                    "name": "image",
+                    "key": "field_6475a2af35fff",
+                    "label": "Zeichnungstext",
+                    "name": "drawing_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6475a2ce698e6",
+                    "label": "Zeichnung",
+                    "name": "drawing",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -121,28 +97,6 @@
                     "max_size": "",
                     "mime_types": "",
                     "preview_size": "medium"
-                },
-                {
-                    "key": "field_647500a100415",
-                    "label": "Etikett",
-                    "name": "tag",
-                    "type": "taxonomy",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "taxonomy": "product_tag",
-                    "add_term": 1,
-                    "save_terms": 0,
-                    "load_terms": 0,
-                    "return_format": "object",
-                    "field_type": "select",
-                    "allow_null": 0,
-                    "multiple": 0
                 }
             ]
         }
@@ -152,7 +106,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/product-general-info"
+                "value": "acf\/product-tech-info"
             }
         ]
     ],
@@ -165,5 +119,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685431843
+    "modified": 1685431877
 }

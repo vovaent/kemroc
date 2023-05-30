@@ -524,6 +524,27 @@ function acf_init_block_types() {
 			),
 		)
 	);
+	acf_register_block_type(
+		array(
+			'name'            => 'product-tech-info',
+			'title'           => __( 'Technische Produktinformationen', 'kemroc' ),
+			'description'     => __( 'Technische Produktinformationen', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/product/tech-info/tech-info.php',
+			'category'        => 'product',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Product' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/product/tech-info/tech-info.png',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'acf_init_block_types' );
 
