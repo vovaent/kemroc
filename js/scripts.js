@@ -1,10 +1,12 @@
 /**
  * Components
  */
-import { navigation } from "./components/navigation";
-import { modelList } from "./components/blocks/product/model-list";
+import { navigation } from "./components/navigation/navigation";
+import { productModelList } from "./components/blocks/product/product-model-list";
+import { modelInfo } from "./components/blocks/model/model-info";
 
 jQuery(document).ready(function ($) {
     navigation($);
-    modelList($);
+    productModelList($);
+    modelInfo($);
 });

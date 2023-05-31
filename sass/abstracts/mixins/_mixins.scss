@@ -63,3 +63,28 @@
         color: $color;
     }
 }
+
+@mixin underline($h) {
+    &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0px;
+        display: block;
+        width: 40px;
+        height: $h;
+        border-radius: 5px;
+        background-color: $accent;
+        transform: translateX(-50%) scaleX(0);
+        transition: transform 0.2s linear;
+        transform-origin: center;
+    }
+}
+
+@mixin active-underline($h) {
+    @include underline($h);
+
+    &::before {
+        transform: translateX(-50%) scaleX(1);
+    }
+}

@@ -165,7 +165,7 @@ main {
         width: 25%;
         flex: 25%;
         max-width: calc(25% - 22.5px);
-        border: 1px solid #EBEBEB;
+        border: 1px solid $color__border;
         border-radius: 16px;
         color: #000;
         cursor: pointer;
@@ -236,7 +236,7 @@ main {
         width: 25%;
         flex: 25%;
         max-width: calc(25% - 22.5px);
-        border: 1px solid #EBEBEB;
+        border: 1px solid $color__border;
         border-radius: 16px;
         color: #000;
         cursor: pointer;

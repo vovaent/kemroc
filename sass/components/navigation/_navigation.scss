@@ -31,31 +31,12 @@
                     padding: 10px 0;
                 }
 
-                &::before {
-                    content: '';
-                    position: absolute;
-                    left: 50%;
-                    bottom: 0px;
-                    display: block;
-                    width: 40px;
-                    height: 2px;
-                    border-radius: 5px;
-                    background-color: $accent;
-                    transform: translateX(-50%) scaleX(0);
-                    transition: transform 0.2s linear;
-                    transform-origin: center;
-
-                    @include media-down-md {
-                        display: none;
-                    }
-                }
+                @include underline(2px)
             }
 
             >a:hover,
             .current-menu-item>a {
-                &::before {
-                    transform: translateX(-50%) scaleX(1);
-                }
+                @include active-underline(2px)
             }
         }
     }
@@ -79,8 +60,8 @@
                 margin-left: 0;
                 padding-top: 16px;
                 padding-bottom: 16px;
-                border-top: 1px solid #EBEBEB;
-                border-bottom: 1px solid #EBEBEB;
+                border-top: 1px solid $color__border;
+                border-bottom: 1px solid $color__border;
                 display: flex;
                 flex-direction: column;
                 gap: 16px;
@@ -203,7 +184,7 @@
                 display: flex;
                 flex-wrap: wrap;
                 background: #FFFFFF;
-                border-top: 1px solid #EBEBEB;
+                border-top: 1px solid $color__border;
                 box-shadow: inset 0px 6px 32px rgba(0, 0, 0, 0.08);
                 border-radius: 0px 0px 16px 16px;
                 width: 100%;
@@ -285,7 +266,7 @@
                         max-width: none;
                         padding-left: 25px;
                         padding-right: 25px;
-                        border-bottom: 1px solid #EBEBEB;
+                        border-bottom: 1px solid $color__border;
                         margin-bottom: 16px;
                         position: sticky;
                         top: 0;
@@ -332,7 +313,7 @@
                         width: 100%;
                         align-items: center;
                         text-transform: none;
-                        border: 1px solid #EBEBEB;
+                        border: 1px solid $color__border;
                         border-radius: 8px;
                         font-style: normal;
                         font-weight: 600;
