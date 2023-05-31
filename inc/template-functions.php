@@ -324,22 +324,22 @@ function add_custom_block_categories( $block_categories, $editor_context ) {
 			$block_categories,
 			array(
 				'slug'  => 'images-modules',
-				'title' => __( 'Bild-Module', 'images-plugins' ),
+				'title' => __( 'Bild-Module', 'kemroc' ),
 				'icon'  => null,
 			),
 			array(
 				'slug'  => 'text-images-modules',
-				'title' => __( 'Bild/Text module', 'text-plugins' ),
+				'title' => __( 'Bild/Text module', 'kemroc' ),
 				'icon'  => null,
 			),
 			array(
 				'slug'  => 'text-modules',
-				'title' => __( 'Text module', 'text-plugins' ),
+				'title' => __( 'Text module', 'kemroc' ),
 				'icon'  => null,
 			),
 			array(
 				'slug'  => 'sonder-modules',
-				'title' => __( 'Sonder module', 'text-plugins' ),
+				'title' => __( 'Sonder module', 'kemroc' ),
 				'icon'  => null,
 			),
 			array(
@@ -570,8 +570,20 @@ add_action( 'acf/init', 'acf_init_block_types' );
 
 add_filter( 'allowed_block_types_all', 'allowed_block_types', 25, 2 );
 function allowed_block_types( $allowed_blocks, $editor_context ) {
-	if ( 'post' === $editor_context->post->post_type ) {
-		return array(
+	$post_types = array( 'post', 'page' );
+	if ( (int) get_option( 'page_on_front' ) === $editor_context->post->ID ) {
+		$allowed_blocks = array(
+			'acf/home-hero',
+			'acf/home-hero',
+			'acf/our-products',
+			'acf/cta-wide',
+			'acf/our-areas',
+			'acf/our-company',
+			'acf/cta-bg',
+			'acf/our-news',
+		);
+	} elseif ( in_array( $editor_context->post->post_type, $post_types, true ) ) {
+		$allowed_blocks = array(
 			'core/paragraph',
 			'core/image',
 			'core/gallery',
@@ -579,19 +591,14 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'core/list',
 			'core/list-item',
 			'core/video',
-			'core/embed',
 			'core/spacer',
 			'core/buttons',
 			'core/separator',
-			'acf/article-button-simple',
+			'acf/product-general-info',
+			'acf/product-tech-info',
+			'acf/product-model-list',
 		);
 	}
 
-	if ( get_option( 'page_on_front' ) == $editor_context->post->ID ) {
-
-		return array(
-			'core/columns',
-			'acf/home-topnews',
-		);
-	}
+	return $allowed_blocks;
 }
