@@ -5,6 +5,10 @@
  * @package kemroc
  */
 
+$kemroc_video_id     = isset( $args['video']['id'] ) ? $args['video']['id'] : '';
+$kemroc_video_poster = isset( $args['video']['poster'] ) ? $args['video']['poster'] : '';
+$kemroc_video_title  = isset( $args['video']['title'] ) ? $args['video']['title'] : '';
+
 ?>
 <style>
 	* {
@@ -41,9 +45,25 @@
 		cursor: pointer;
 	}
 </style>
-<a href=https://www.youtube.com/embed/QWcJR1hdNoU?autoplay=1>
-	<img src=https://img.youtube.com/vi/QWcJR1hdNoU/hqdefault.jpg alt='Video The Dark Knight Rises: What Went Wrong? – Wisecrack Edition'>
-	<span class=icon-play>
+<a href="https://www.youtube.com/embed/<?php echo esc_attr( $kemroc_video_id ); ?>?autoplay=1">
+
+	<?php if ( $kemroc_video_poster ) : ?>
+		<?php
+		echo wp_get_attachment_image( 
+			$kemroc_video_poster, 
+			'full', 
+			false, 
+			array( 'alt' => wp_get_attachment_caption( $kemroc_video_poster ) ) 
+		); 
+		?>
+	<?php else : ?>
+			<img 
+				src="https://img.youtube.com/vi/<?php echo esc_attr( $kemroc_video_id ); ?>/hqdefault.jpg" 
+				alt="<?php echo esc_attr( $kemroc_video_title ); ?>"
+			>
+	<?php endif; ?>
+
+	<span class="icon-play">
 		<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
 	</span>
 </a>

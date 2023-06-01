@@ -507,17 +507,17 @@ function acf_init_block_types() {
 			'name'            => 'product-general-info',
 			'title'           => __( 'Allgemeine Produktinformationen', 'kemroc' ),
 			'description'     => __( 'Allgemeine Produktinformationen', 'kemroc' ),
-			'render_template' => 'template-parts/blocks/product/general-info/general-info.php',
+			'render_template' => 'template-parts/blocks/product/product-general-info/product-general-info.php',
 			'category'        => 'product',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
-			'keywords'        => array( 'Product' ),
+			'keywords'        => array( 'Produkt' ),
 			'post_types'      => array( 'page' ),
 			'example'         => array(
 				'attributes' => array(
 					'mode' => 'preview',
 					'data' => array(
-						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/product/general-info/general-info.png',
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/product/product-general-info/product-general-info.png',
 					),
 				),
 			),
@@ -528,17 +528,17 @@ function acf_init_block_types() {
 			'name'            => 'product-tech-info',
 			'title'           => __( 'Technische Produktinformationen', 'kemroc' ),
 			'description'     => __( 'Technische Produktinformationen', 'kemroc' ),
-			'render_template' => 'template-parts/blocks/product/tech-info/tech-info.php',
+			'render_template' => 'template-parts/blocks/product/product-tech-info/product-tech-info.php',
 			'category'        => 'product',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
-			'keywords'        => array( 'Product' ),
+			'keywords'        => array( 'Produkt' ),
 			'post_types'      => array( 'page' ),
 			'example'         => array(
 				'attributes' => array(
 					'mode' => 'preview',
 					'data' => array(
-						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/product/tech-info/tech-info.png',
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/product/product-tech-info/product-tech-info.png',
 					),
 				),
 			),
@@ -549,17 +549,38 @@ function acf_init_block_types() {
 			'name'            => 'product-model-list',
 			'title'           => __( 'Produkt Modellliste', 'kemroc' ),
 			'description'     => __( 'Produkt Modellliste', 'kemroc' ),
-			'render_template' => 'template-parts/blocks/product/model-list/model-list.php',
+			'render_template' => 'template-parts/blocks/product/product-model-list/product-model-list.php',
 			'category'        => 'product',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
-			'keywords'        => array( 'Product' ),
+			'keywords'        => array( 'Produkt' ),
 			'post_types'      => array( 'page' ),
 			'example'         => array(
 				'attributes' => array(
 					'mode' => 'preview',
 					'data' => array(
-						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/product/model-list/model-list.png',
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/product/product-model-list/product-model-list.png',
+					),
+				),
+			),
+		)
+	);
+	acf_register_block_type(
+		array(
+			'name'            => 'model-info',
+			'title'           => __( 'Modellinformationen', 'kemroc' ),
+			'description'     => __( 'Modellinformationen', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/model/model-info.php',
+			'category'        => 'product',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Modell' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/model/model-info.png',
 					),
 				),
 			),
@@ -597,6 +618,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/product-general-info',
 			'acf/product-tech-info',
 			'acf/product-model-list',
+			'acf/model-info',
 		);
 	}
 

@@ -52,7 +52,7 @@ if ( ! $is_preview ) :
 	$kemroc_pml_models_query = new WP_Query( $kemroc_pml_args );
 	?>
 
-	<section class="model-list">
+	<section id="<?php echo esc_attr( $kemroc_pml_id ); ?>" class="<?php echo esc_attr( $kemroc_pml_class_name ); ?>">
 		<div class="container model-list__content">
 			<div class="model-list__card model-card">
 				<div class="model-card__title">

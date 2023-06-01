@@ -35,7 +35,7 @@ if ( ! $is_preview ) :
 	$kemroc_pgi_list_benefits = get_field( 'list_benefits' );
 	?>
 
-	<section class="product-general-info">
+	<section id="<?php echo esc_attr( $kemroc_pgi_id ); ?>" class="<?php echo esc_attr( $kemroc_pgi_class_name ); ?>">
 		<div class="container product-general-info__content">
 			<figure class="product-general-info__picture">
 				<div class="product-general-info__tag">

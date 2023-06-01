@@ -34,7 +34,7 @@ if ( ! $is_preview ) :
 	$kemroc_pti_figure = get_field( 'figure' );
 	?>
 
-	<section class="product-tech-info">
+	<section id="<?php echo esc_attr( $kemroc_pti_id ); ?>" class="<?php echo esc_attr( $kemroc_pti_class_name ); ?>">
 		<div class="container product-tech-info__content">
 			<div class="product-tech-info__text">
 				<h3 class="product-tech-info__title">
