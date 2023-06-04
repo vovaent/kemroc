@@ -47,7 +47,7 @@
         "lint:js": "wp-scripts lint-js 'js/*.js'",
         "compile:js": "wp-scripts build --config webpack.config.js",
         "build": "npm-run-all --parallel compile:css compile:js",
-        "build:nofix": "npm-run-all --parallel compile:css:nofix compile:js",
+        "build:nofix": "npm-run-all --parallel compile:min:css:nofix compile:js",
         "build:rtl": "npm-run-all --parallel compile:rtl compile:js",
         "bundle": "dir-archiver --src . --dest ../kemroc.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
         "bundle:full": "dir-archiver --src . --dest ../kemroc.zip --exclude .DS_Store node_modules vendor"
