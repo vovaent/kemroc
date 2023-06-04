@@ -55,13 +55,13 @@ if ( ! $is_preview ) :
 				if ( 'acf/model-info' !== $kemroc_pml_block['blockName'] ) {
 					continue;
 				}
-				if ( empty( $kemroc_pml_block['attrs']['data']['params'] ) ) {
+
+				$kemroc_pml_block_data   = $kemroc_pml_block['attrs']['data'];
+				$kemroc_pml_block_params = $kemroc_pml_block_data['params'];
+
+				if ( empty( $kemroc_pml_block_params ) ) {
 					break;
 				}
-
-				$kemroc_pml_block_params = $kemroc_pml_block['attrs']['data']['params'];
-				$kemroc_pml_block_data   = $kemroc_pml_block['attrs']['data'];
-				
 				
 				for ( $kemroc_pml_i = 0; $kemroc_pml_i < $kemroc_pml_block_params; $kemroc_pml_i++ ) { 
 					$kemroc_pml_params_key_title_post_id = 'params_' . $kemroc_pml_i . '_title';
@@ -76,7 +76,10 @@ if ( ! $is_preview ) :
 			}
 
 			ksort( $kemroc_pml_params );
-			$kemroc_pml_models[ get_the_title() ] = $kemroc_pml_params;
+			$kemroc_pml_model_title = get_the_title();
+			
+			$kemroc_pml_models[ $kemroc_pml_model_title ]['id']     = get_the_ID();
+			$kemroc_pml_models[ $kemroc_pml_model_title ]['params'] = $kemroc_pml_params;
 		}   
 	}
 	?>
@@ -94,7 +97,7 @@ if ( ! $is_preview ) :
 
 						<?php 
 						foreach ( $kemroc_pml_models as $kemroc_pml_model ) :
-							foreach ( $kemroc_pml_model as $kemroc_pml_param_title => $kemroc_pml_param_value ) : 
+							foreach ( $kemroc_pml_model['params'] as $kemroc_pml_param_title => $kemroc_pml_param_value ) : 
 								?>
 								<li class="model-card__param">
 									<?php echo esc_html( $kemroc_pml_param_title ); ?>
@@ -117,7 +120,7 @@ if ( ! $is_preview ) :
 				<div class="swiper product-model-list__slider">
 					<ul class="swiper-wrapper product-model-list__models">
 
-					<?php foreach ( $kemroc_pml_models as $kemroc_pml_model_name => $kemroc_pml_model_params ) : ?>
+					<?php foreach ( $kemroc_pml_models as $kemroc_pml_model_name => $kemroc_pml_model_data ) : ?>
 
 							<li class="swiper-slide product-model-list__item model">
 								<div class="model__title">
@@ -125,10 +128,10 @@ if ( ! $is_preview ) :
 								</div>
 								<!-- /.model__title -->
 
-								<?php if ( $kemroc_pml_model_params ) : ?>
+								<?php if ( $kemroc_pml_model_data['params'] ) : ?>
 									<ul class="model__params">
 
-										<?php foreach ( $kemroc_pml_model_params as $kemroc_pml_param_value ) : ?>
+										<?php foreach ( $kemroc_pml_model_data['params'] as $kemroc_pml_param_value ) : ?>
 											<li class="model__param">
 												<?php echo esc_html( $kemroc_pml_param_value ); ?>
 											</li>
@@ -139,7 +142,7 @@ if ( ! $is_preview ) :
 									<!-- /.model__params -->
 								<?php endif; ?>
 
-								<a href="<?php the_permalink(); ?>" class="model__link">
+								<a href="<?php the_permalink( $kemroc_pml_model_data['id'] ); ?>" class="model__link">
 									<?php esc_html_e( 'Details', 'kemroc' ); ?> 
 									<span class="model__arrow">
 										<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
