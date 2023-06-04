@@ -204,3 +204,8 @@ require get_template_directory() . '/inc/helpers.php';
  * Yoast
  */
 require get_template_directory() . '/inc/yoast.php';
+
+/**
+ * ACF
+ */
+require get_template_directory() . '/inc/acf/acf.php';

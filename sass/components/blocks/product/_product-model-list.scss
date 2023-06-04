@@ -1,4 +1,4 @@
-.model-list {
+.product-model-list {
     margin: 70px 0;
 
     @include media-down-md {
@@ -105,8 +105,9 @@
             padding: 0;
         }
 
-        strong {
+        span {
             color: $accent;
+            text-transform: uppercase;
         }
     }
 
@@ -185,6 +186,9 @@
     }
 
     &__param {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         padding: 12px 0;
         border-top: 1px solid $color__border;

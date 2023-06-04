@@ -39,7 +39,7 @@ if ( ! $is_preview ) :
 		<div class="container product-general-info__content">
 			<figure class="product-general-info__picture">
 				<div class="product-general-info__tag">
-					<?php echo wp_kses_post( $kemroc_pgi_figure['tag']->name ); ?>
+					<?php echo wp_kses_post( $kemroc_pgi_figure['app_area']->name ); ?>
 				</div>
 				<?php echo wp_get_attachment_image( $kemroc_pgi_figure['image'], 'medium_large' ); ?>
 				<figcaption>

@@ -10,6 +10,8 @@
     }
 
     &__parent-page-name {
+        @include reset-a($accent);
+
         font-family: $font__secondary;
         font-weight: 700;
         font-size: 19px;

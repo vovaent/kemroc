@@ -124,8 +124,8 @@
                 },
                 {
                     "key": "field_647500a100415",
-                    "label": "Etikett",
-                    "name": "tag",
+                    "label": "Anwendungsbereich",
+                    "name": "app_area",
                     "type": "taxonomy",
                     "instructions": "",
                     "required": 0,
@@ -135,10 +135,10 @@
                         "class": "",
                         "id": ""
                     },
-                    "taxonomy": "product_tag",
+                    "taxonomy": "anwendungsbereich",
                     "add_term": 1,
-                    "save_terms": 0,
-                    "load_terms": 0,
+                    "save_terms": 1,
+                    "load_terms": 1,
                     "return_format": "object",
                     "field_type": "select",
                     "allow_null": 0,
@@ -165,5 +165,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685431843
+    "modified": 1685744444
 }
