@@ -4,6 +4,11 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 
+/**
+ * Internal
+ */
+import { lazyLoadYT } from '../../lazy-load-yt/lazy-load-yt';
+
 const modelInfo = ( $ ) => {
 	const $modelInfoTab = $( '.model-tabs__tab' );
 	const $modelInfoInset = $( '.model-tabs__inset' );
@@ -36,8 +41,15 @@ const modelInfo = ( $ ) => {
 		},
 	} );
 
-	$( 'video' ).on( 'click', function() {
-		$( this ).attr( 'controls', '' );
+	lazyLoadYT( $ );
+
+	$( '.model-video--file' ).on( 'click', function() {
+		const $this = $( this );
+		const $video = $this.find( 'video' );
+
+		$this.find( '.icon-play' ).remove( );
+		$video.attr( 'controls', '' );
+		$video[ 0 ].play( );
 	} );
 };
 

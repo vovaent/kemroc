@@ -44,19 +44,15 @@ if ( ! $is_preview ) :
 		false,
 		array( 'alt' => wp_get_attachment_caption( $kemroc_mi_drawing_id ) )
 	);
-	
-	$kemroc_mi_parent_id      = wp_get_post_parent_id();
-	$kemroc_mi_iframe_src_doc = '';
 
-	if ( $kemroc_mi_video['id'] ) {
-		ob_start();
-		get_template_part(
-			'template-parts/blocks/components/youtube-video',
-			null,
-			array( 'video' => $kemroc_mi_video )
-		);
-		$kemroc_mi_iframe_src_doc = ob_get_clean();
-	}
+	$kemroc_mi_video_poster = wp_get_attachment_image( 
+		$kemroc_mi_video['poster'], 
+		'full', 
+		false, 
+		array( 'alt' => wp_get_attachment_caption( $kemroc_mi_video['poster'] ) ) 
+	); 
+	
+	$kemroc_mi_parent_id = wp_get_post_parent_id();
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_mi_id ); ?>" class="<?php echo esc_attr( $kemroc_mi_class_name ); ?>">
@@ -79,7 +75,11 @@ if ( ! $is_preview ) :
 					</div>
 					<!-- /.model-tabs__tab -->
 
-					<?php if ( $kemroc_mi_video['id'] ) : ?>
+					<?php 
+					if ( ( 'youtube' === $kemroc_mi_video['yt_or_file_load'] && $kemroc_mi_video['id'] )
+						|| ( 'videofile' === $kemroc_mi_video['yt_or_file_load'] && $kemroc_mi_video['videofile'] )
+					) : 
+						?>
 						<div class="model-tabs__tab">
 							<?php esc_html_e( 'VIDEO', 'kemroc' ); ?>
 						</div>
@@ -141,40 +141,66 @@ if ( ! $is_preview ) :
 					</div>
 					<!-- /.model-tabs__inset -->
 
-					<?php 
-					if ( 'youtube' === $kemroc_mi_video['yt_or_file_load'] ) :
-					
-						if ( $kemroc_mi_video['id'] ) :
-							?>
+					<?php if ( 'youtube' === $kemroc_mi_video['yt_or_file_load'] && $kemroc_mi_video['id'] ) : ?>
 						<div class="model-tabs__inset">
-							<div class="model-tabs__video">
-								<iframe 
-									width="100%" 
-									height="100%" 
-									src="https://www.youtube.com/embed/<?php echo esc_attr( $kemroc_mi_video['id'] ); ?>" 
-									srcdoc="<?php echo esc_html( $kemroc_mi_iframe_src_doc ); ?>" 
-									frameborder="0" 
-									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-									allowfullscreen 
-									title="<?php echo esc_attr( $kemroc_mi_video['title'] ); ?>"
-								>
-								</iframe>
+							<div class="model-tabs__video model-video model-video--yt">
+								<div class="model-video__placeholder" data-yt-video-id="<?php echo esc_attr( $kemroc_mi_video['id'] ); ?>">
+									
+									<?php 
+									if ( $kemroc_mi_video_poster ) : 
+										echo wp_kses_post( $kemroc_mi_video_poster );
+									else : 
+										$kemroc_mi_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_mi_video['id'] . '/maxresdefault.jpg';
+										?>
+										<img 
+											src="<?php echo esc_url( $kemroc_mi_yt_poster_url ); ?>" 
+											alt="<?php echo esc_attr( $kemroc_mi_video['title'] ); ?>"
+										>
+									<?php endif; ?>
+
+									<span class="icon-play model-video__icon-play">
+										<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
+									</span>
+								</div>
+								<!-- /.model-video__placeholder -->
 							</div>
-							<!-- /.model-tabs__video -->
+							<!-- /.model-tabs__video model-video model-video--yt -->
 						</div>
 						<!-- /.model-tabs__inset -->
-							<?php 
-					endif; 
-					endif;                     
-					?>
+						<?php 
+					elseif ( 'videofile' === $kemroc_mi_video['yt_or_file_load'] && $kemroc_mi_video['videofile'] ) :
+						$kemroc_mi_video_poster_img = '';
+						if ( $kemroc_mi_video['poster'] ) : 
+							$kemroc_mi_video_poster_img = wp_get_attachment_url( $kemroc_mi_video['poster'] ); 
+						endif;
+						?>
+						<div class="model-tabs__inset">
+							<div class="model-tabs__video model-video model-video--file">
+								<video 
+									src="<?php echo esc_url( $kemroc_mi_video['videofile']['url'] ); ?>" 
+									width="100%" 
+									height="100%" 
+									muted
+									poster="<?php echo esc_url( $kemroc_mi_video_poster_img ); ?>"
+								>
+									<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
+								</video>
+								<span class="icon-play model-tabs__video-icon">
+									<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
+								</span>
+							</div>
+							<!-- /.model-tabs__video model-video model-video--file -->
+						</div>
+						<!-- /.model-tabs__inset -->
+					<?php endif; ?>
 
 					<?php if ( $kemroc_mi_photos ) : ?>
-						<div class="model-tabs__inset">
-							<div class="swiper model-tabs__slider">
-								<ul class="swiper-wrapper model-tabs__photos">
+						<div class="model - tabs__inset'>
+							<div class='swiper model - tabs__slider'>
+								<ul class='swiper - wrapper model - tabs__photos">
 
 									<?php foreach ( $kemroc_mi_photos as $kemroc_mi_photo ) : ?>
-										<li class="swiper-slide model-tabs__photo">
+										<li class="swiper - slide model - tabs__photo">
 											<?php
 											echo wp_get_attachment_image(
 												$kemroc_mi_photo['photo'],
@@ -189,17 +215,17 @@ if ( ! $is_preview ) :
 
 								</ul>
 								<!-- /.swiper-wrapper model-tabs__photos -->
-								<div class="swiper-button-prev model-tabs__control model-tabs__control--prev">
+								<div class="swiper - button - prev model - tabs__control model - tabs__control--prev">
 									<?php get_template_part( 'template-parts/icons/arrow-left', null, array( 'fill' => '#444444' ) ); ?>
 								</div>
 								<!-- /.model-tabs__control -->
-								<div class="swiper-button-next model-tabs__control model-tabs__control--next">
+								<div class="swiper - button - next model - tabs__control model - tabs__control--next">
 									<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#444444' ) ); ?>
 								</div>
 								<!-- /.model-tabs__control -->
 							</div>
 							<!-- /.swiper model-tabs__slider -->
-							<div class="swiper-pagination model-tabs__slider-pagination"></div>
+							<div class="swiper - pagination model - tabs__slider - pagination"></div>
 							<!-- /.swiper-pagination model-tabs__slider-pagination -->
 						</div>
 						<!-- /.model-tabs__inset -->
