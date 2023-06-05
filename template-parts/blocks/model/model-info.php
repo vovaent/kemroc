@@ -141,7 +141,11 @@ if ( ! $is_preview ) :
 					</div>
 					<!-- /.model-tabs__inset -->
 
-					<?php if ( $kemroc_mi_video['id'] ) : ?>
+					<?php 
+					if ( 'youtube' === $kemroc_mi_video['yt_or_file_load'] ) :
+					
+						if ( $kemroc_mi_video['id'] ) :
+							?>
 						<div class="model-tabs__inset">
 							<div class="model-tabs__video">
 								<iframe 
@@ -159,7 +163,10 @@ if ( ! $is_preview ) :
 							<!-- /.model-tabs__video -->
 						</div>
 						<!-- /.model-tabs__inset -->
-					<?php endif; ?>
+							<?php 
+					endif; 
+					endif;                     
+					?>
 
 					<?php if ( $kemroc_mi_photos ) : ?>
 						<div class="model-tabs__inset">

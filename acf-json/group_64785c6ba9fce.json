@@ -195,13 +195,43 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_647dc3f22c032",
+                    "label": "Laden von Youtube- oder Videodateien",
+                    "name": "yt_or_file_load",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "youtube": "Youtube",
+                        "videofile": "Videodateien"
+                    },
+                    "default_value": "youtube",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "layout": "horizontal"
+                },
+                {
                     "key": "field_647868a8b0d6d",
-                    "label": "Video ID",
+                    "label": "Youtube video ID",
                     "name": "id",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_647dc3f22c032",
+                                "operator": "==",
+                                "value": "youtube"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -212,6 +242,33 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_647dc4d72c033",
+                    "label": "Videodatei",
+                    "name": "videofile",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_647dc3f22c032",
+                                "operator": "==",
+                                "value": "videofile"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": ""
                 },
                 {
                     "key": "field_6478b1e0edd84",
@@ -341,5 +398,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685901054
+    "modified": 1685966663
 }

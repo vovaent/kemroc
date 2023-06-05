@@ -35,6 +35,10 @@ const modelInfo = ( $ ) => {
 			clickable: true,
 		},
 	} );
+
+	$( 'video' ).on( 'click', function() {
+		$( this ).attr( 'controls', '' );
+	} );
 };
 
 export { modelInfo };
