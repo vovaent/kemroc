@@ -195,12 +195,12 @@ if ( ! $is_preview ) :
 					<?php endif; ?>
 
 					<?php if ( $kemroc_mi_photos ) : ?>
-						<div class="model - tabs__inset'>
-							<div class='swiper model - tabs__slider'>
-								<ul class='swiper - wrapper model - tabs__photos">
+						<div class="model-tabs__inset">
+							<div class="swiper model-tabs__slider">
+								<ul class="swiper-wrapper model-tabs__photos">
 
 									<?php foreach ( $kemroc_mi_photos as $kemroc_mi_photo ) : ?>
-										<li class="swiper - slide model - tabs__photo">
+										<li class="swiper-slide model-tabs__photo">
 											<?php
 											echo wp_get_attachment_image(
 												$kemroc_mi_photo['photo'],
@@ -215,17 +215,17 @@ if ( ! $is_preview ) :
 
 								</ul>
 								<!-- /.swiper-wrapper model-tabs__photos -->
-								<div class="swiper - button - prev model - tabs__control model - tabs__control--prev">
+								<div class="swiper-button-prev model-tabs__control model-tabs__control--prev">
 									<?php get_template_part( 'template-parts/icons/arrow-left', null, array( 'fill' => '#444444' ) ); ?>
 								</div>
 								<!-- /.model-tabs__control -->
-								<div class="swiper - button - next model - tabs__control model - tabs__control--next">
+								<div class="swiper-button-next model-tabs__control model-tabs__control--next">
 									<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#444444' ) ); ?>
 								</div>
 								<!-- /.model-tabs__control -->
 							</div>
 							<!-- /.swiper model-tabs__slider -->
-							<div class="swiper - pagination model - tabs__slider - pagination"></div>
+							<div class="swiper-pagination model-tabs__slider-pagination"></div>
 							<!-- /.swiper-pagination model-tabs__slider-pagination -->
 						</div>
 						<!-- /.model-tabs__inset -->
