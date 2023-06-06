@@ -129,15 +129,11 @@ __webpack_require__.r(__webpack_exports__);
 const serialProductGeneralInfo = () => {
   new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper.spgi-slider', {
     modules: [swiper__WEBPACK_IMPORTED_MODULE_0__.Pagination],
-    slidesPerView: 2,
+    slidesPerView: 1,
+    spaceBetween: 5,
     pagination: {
-      el: '.swiper-pagination.spgi-slider-pagination',
+      el: '.swiper-pagination.spgi-slider__pagination',
       clickable: true
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 5
-      }
     }
   });
 };

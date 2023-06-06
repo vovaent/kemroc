@@ -8,17 +8,12 @@ const serialProductGeneralInfo = ( ) => {
 	new Swiper( '.swiper.spgi-slider', {
 		modules: [ Pagination ],
 
-		slidesPerView: 2,
+		slidesPerView: 1,
+		spaceBetween: 5,
 
 		pagination: {
-			el: '.swiper-pagination.spgi-slider-pagination',
+			el: '.swiper-pagination.spgi-slider__pagination',
 			clickable: true,
-		},
-
-		breakpoints: {
-			768: {
-				slidesPerView: 5,
-			},
 		},
 	} );
 };

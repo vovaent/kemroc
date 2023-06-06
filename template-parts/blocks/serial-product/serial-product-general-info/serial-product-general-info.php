@@ -22,7 +22,7 @@ if ( ! $is_preview ) :
 	}
 
 	// Create class attribute allowing for custom "className" and "align" values.
-	$kemroc_spgi_class_name = 'serial-product-general-info bg-primary text-white text-center';
+	$kemroc_spgi_class_name = 'serial-product-general-info';
 	if ( ! empty( $block['className'] ) ) {
 		$kemroc_spgi_class_name .= ' ' . $block['className'];
 	}
@@ -31,50 +31,48 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	// $kemroc_spgi_figure        = get_field( 'figure' );
-	// $kemroc_spgi_list_benefits = get_field( 'list_benefits' );
+	$kemroc_spgi_title       = get_field( 'title' );
+	$kemroc_spgi_subtitle    = get_field( 'subtitle' );
+	$kemroc_spgi_description = get_field( 'description' );
+	$kemroc_spgi_photos      = get_field( 'photos' );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_spgi_id ); ?>" class="<?php echo esc_attr( $kemroc_spgi_class_name ); ?>">
 		<div class="container serial-product-general-info__content">
 			<div class="serial-product-general-info__text">
 				<h1 class="serial-product-general-info__title">
-					<?php the_title(); ?>
+					<?php echo esc_html( $kemroc_spgi_title ); ?>
 				</h1>
 				<!-- /.serial-product-general-info__title -->
 				<p class="serial-product-general-info__subtitle">
-					KEMROC Querschneidkopffräsen – bewährte Konzepte konsequent weitergedacht
+					<?php echo esc_html( $kemroc_spgi_subtitle ); ?>
 				</p>
 				<!-- /.serial-product-general-info__subtitle -->
 				<div class="serial-product-general-info__description">
-					Neben Unseren Einzigartigen Kettenfräsen Mit Ihrer Mittig Umlaufenden Fräskette Haben Wir Jetzt Auch Anbaufräsen Mit Querschneidkopf Ohne Eine Solche Fräskette In Unsere Produktpalette Aufgenommen Und Gegenüber Marktgängigen Produkten Aufgewertet.
+					<?php echo wp_kses_post( $kemroc_spgi_description ); ?>
 				</div>
 				<!-- /.serial-product-general-info__description -->
 			</div>
 			<!-- /.serial-product-general-info__text -->
-			<div class="swiper serial-product-general-info__slider spgi-slider">
-				<ul class="swiper-wrapper spgi-slider__container">
-					<li class="swiper-slide spgi-slider__slide">
-						<img src="<?php echo get_template_directory_uri() . '/images/serial-product-slide.png'; ?>" alt="">
-					</li>
-					<!-- /.swiper-slide spgi-slider__slide -->
-					<li class="swiper-slide spgi-slider__slide">
-						<img src="<?php echo get_template_directory_uri() . '/images/serial-product-slide.png'; ?>" alt="">
-					</li>
-					<!-- /.swiper-slide spgi-slider__slide -->
-					<li class="swiper-slide spgi-slider__slide">
-						<img src="<?php echo get_template_directory_uri() . '/images/serial-product-slide.png'; ?>" alt="">
-					</li>
-					<!-- /.swiper-slide spgi-slider__slide -->
-					<li class="swiper-slide spgi-slider__slide">
-						<img src="<?php echo get_template_directory_uri() . '/images/serial-product-slide.png'; ?>" alt="">
-					</li>
-					<!-- /.swiper-slide spgi-slider__slide -->
-				</ul>
-				<!-- /.swiper-wrapper spgi-slider__container -->
-				<div class="swiper-pagination spgi-slider__pagination"></div>
-			</div>
-			<!-- /.swiper serial-product-general-info__slider -->
+
+			<?php if ( $kemroc_spgi_photos ) : ?>
+				<div class="swiper serial-product-general-info__slider spgi-slider">
+					<ul class="swiper-wrapper spgi-slider__container">
+
+					<?php foreach ( $kemroc_spgi_photos as $kemroc_spgi_photo ) : ?>
+						<li class="swiper-slide spgi-slider__slide">
+							<?php echo wp_get_attachment_image( $kemroc_spgi_photo['photo'], 'medium_large' ); ?>
+						</li>
+						<!-- /.swiper-slide spgi-slider__slide -->
+					<?php endforeach; ?>
+
+					</ul>
+					<!-- /.swiper-wrapper spgi-slider__container -->
+					<div class="swiper-pagination spgi-slider__pagination"></div>
+				</div>
+				<!-- /.swiper serial-product-general-info__slider -->
+			<?php endif; ?>
+
 		</div>
 		<!-- /.container serial-product-general-info__content -->
 	</section>
