@@ -187,7 +187,6 @@ add_filter( 'block_categories_all', 'add_custom_block_categories', 10, 2 );
 
 add_filter( 'allowed_block_types_all', 'allowed_block_types', 25, 2 );
 function allowed_block_types( $allowed_blocks, $editor_context ) {
-	$post_types = array( 'post', 'page' );
 	if ( (int) get_option( 'page_on_front' ) === $editor_context->post->ID ) {
 		$allowed_blocks = array(
 			'acf/home-hero',
@@ -199,7 +198,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/cta-bg',
 			'acf/our-news',
 		);
-	} elseif ( in_array( $editor_context->post->post_type, $post_types, true ) ) {
+	} elseif ( 'page' === $editor_context->post->post_type ) {
 		$allowed_blocks = array(
 			'core/paragraph',
 			'core/image',
@@ -215,6 +214,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/product-tech-info',
 			'acf/product-model-list',
 			'acf/model-info',
+			'acf/serial-product-general-info',
 		);
 	}
 

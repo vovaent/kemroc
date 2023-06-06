@@ -4,6 +4,7 @@
 import { navigation } from './components/navigation/navigation';
 import { productModelList } from './components/blocks/product/product-model-list';
 import { modelInfo } from './components/blocks/model/model-info';
+import { serialProductGeneralInfo } from './components/blocks/serial-product/serial-product-general-info';
 
 /**
  * eslint ignore JQuery
@@ -14,4 +15,5 @@ jQuery( document ).ready( function( $ ) {
 	navigation( $ );
 	productModelList( $ );
 	modelInfo( $ );
+	serialProductGeneralInfo( );
 } );
