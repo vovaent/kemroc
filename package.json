@@ -50,7 +50,7 @@
         "build:nofix": "npm-run-all --parallel compile:min:css:nofix compile:js",
         "build:rtl": "npm-run-all --parallel compile:rtl compile:js",
         "bundle": "dir-archiver --src . --dest ../kemroc.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
-        "bundle:full": "dir-archiver --src . --dest ../kemroc.zip --exclude .DS_Store node_modules"
+        "bundle:full": "dir-archiver --src . --dest ../kemroc.zip --exclude .DS_Store node_modules vendor"
     },
     "dependencies": {
         "swiper": "^9.3.2"
