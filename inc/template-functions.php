@@ -215,6 +215,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/product-model-list',
 			'acf/model-info',
 			'acf/serial-product-general-info',
+			'acf/serial-product-descriptions',
 		);
 	}
 

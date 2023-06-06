@@ -4149,6 +4149,62 @@ main {
 	border-radius: 16px;
 }
 
+.serial-product-descriptions {
+	margin: 66px 0 72px;
+}
+
+@media (max-width: 1023px) {
+	.serial-product-descriptions {
+		margin: 72px 0;
+	}
+}
+
+@media (max-width: 767px) {
+	.serial-product-descriptions {
+		margin: 40px 0;
+	}
+}
+
+.serial-product-descriptions__content {
+	display: flex;
+	gap: 40px;
+}
+
+@media (max-width: 1023px) {
+	.serial-product-descriptions__content {
+		flex-direction: column;
+		gap: 24px;
+	}
+}
+
+.serial-product-descriptions__title {
+	font-family: "Eurostile Candy W02 Bold";
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 36px;
+	color: #131313;
+}
+
+@media (max-width: 1023px) {
+	.serial-product-descriptions__title {
+		font-size: 19px;
+		line-height: 27px;
+	}
+}
+
+.serial-product-descriptions__description {
+	margin-top: 18px;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 26px;
+}
+
+@media (max-width: 1023px) {
+	.serial-product-descriptions__description {
+		margin-top: 12px;
+	}
+}
+
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
