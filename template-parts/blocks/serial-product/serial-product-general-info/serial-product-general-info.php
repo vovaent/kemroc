@@ -31,8 +31,8 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	$kemroc_spgi_figure        = get_field( 'figure' );
-	$kemroc_spgi_list_benefits = get_field( 'list_benefits' );
+	// $kemroc_spgi_figure        = get_field( 'figure' );
+	// $kemroc_spgi_list_benefits = get_field( 'list_benefits' );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_spgi_id ); ?>" class="<?php echo esc_attr( $kemroc_spgi_class_name ); ?>">
