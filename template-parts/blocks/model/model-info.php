@@ -16,7 +16,7 @@ if ( isset( $block['data']['gutenberg_preview_image'] ) && $is_preview ) {
 
 if ( ! $is_preview ) :
 	// Create id attribute allowing for custom "anchor" value.
-	$kemroc_mi_id = 'product-general-info-' . $block['id'];
+	$kemroc_mi_id = 'model-info-' . $block['id'];
 	if ( ! empty( $block['anchor'] ) ) {
 		$kemroc_mi_id = $block['anchor'];
 	}
