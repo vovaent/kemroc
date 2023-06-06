@@ -37,19 +37,27 @@ if ( ! $is_preview ) :
 
 	<section id="<?php echo esc_attr( $kemroc_pgi_id ); ?>" class="<?php echo esc_attr( $kemroc_pgi_class_name ); ?>">
 		<div class="container product-general-info__content">
-			<figure class="product-general-info__picture">
-				<div class="product-general-info__tag">
-					<?php echo wp_kses_post( $kemroc_pgi_figure['app_area']->name ); ?>
-				</div>
-				<?php echo wp_get_attachment_image( $kemroc_pgi_figure['image'], 'medium_large' ); ?>
-				<figcaption>
-					<?php echo wp_kses_post( wp_get_attachment_caption( $kemroc_pgi_figure['image'] ) ); ?>
-				</figcaption>
-			</figure>
-			<!-- /.product-general-info__picture -->
+			
+			<?php if ( $kemroc_pgi_figure['image'] ) : ?>
+				<figure class="product-general-info__picture">
+
+					<?php if ( $kemroc_pgi_figure['app_area'] ) : ?>
+						<div class="product-general-info__tag">
+							<?php echo esc_html( $kemroc_pgi_figure['app_area']->name ); ?>
+						</div>
+					<?php endif; ?>
+				
+					<?php echo wp_get_attachment_image( $kemroc_pgi_figure['image'], 'medium_large' ); ?>
+					<figcaption>
+						<?php echo wp_kses_post( wp_get_attachment_caption( $kemroc_pgi_figure['image'] ) ); ?>
+					</figcaption>
+				</figure>
+				<!-- /.product-general-info__picture -->
+			<?php endif; ?>	
+
 			<div class="product-general-info__text">
 				<h1 class="product-general-info__title">
-					<?php echo wp_kses_post( get_field( 'title' ) ); ?>
+					<?php echo esc_html( get_field( 'title' ) ); ?>
 				</h1>
 				<!-- /.product-general-info__title -->
 				<h3 class="product-general-info__subtitle">
