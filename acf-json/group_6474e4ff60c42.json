@@ -124,7 +124,7 @@
                 },
                 {
                     "key": "field_647500a100415",
-                    "label": "Anwendungsbereich",
+                    "label": "Einsatzbereiche",
                     "name": "app_area",
                     "type": "taxonomy",
                     "instructions": "",
@@ -135,7 +135,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "taxonomy": "anwendungsbereich",
+                    "taxonomy": "einsatzbereich",
                     "add_term": 1,
                     "save_terms": 1,
                     "load_terms": 1,
@@ -165,5 +165,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685744444
+    "modified": 1686044712
 }
