@@ -283,5 +283,26 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
+	acf_register_block_type(
+		array(
+			'name'            => 'serial-product-compare',
+			'title'           => __( 'Serienproduktvergleich', 'kemroc' ),
+			'description'     => __( 'Serienproduktvergleich', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php',
+			'category'        => 'product',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Serienprodukt' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.png',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'kemroc_acf_init_block_types' );
