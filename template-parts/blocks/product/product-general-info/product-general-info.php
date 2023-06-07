@@ -33,6 +33,8 @@ if ( ! $is_preview ) :
 	// Load values and assing defaults.
 	$kemroc_pgi_figure        = get_field( 'figure' );
 	$kemroc_pgi_list_benefits = get_field( 'list_benefits' );
+
+	$kemroc_pgi_app_areas = wp_get_post_terms( get_the_ID(), 'einsatzbereich' );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_pgi_id ); ?>" class="<?php echo esc_attr( $kemroc_pgi_class_name ); ?>">
@@ -41,9 +43,9 @@ if ( ! $is_preview ) :
 			<?php if ( $kemroc_pgi_figure['image'] ) : ?>
 				<figure class="product-general-info__picture">
 
-					<?php if ( $kemroc_pgi_figure['app_area'] ) : ?>
+					<?php if ( $kemroc_pgi_app_areas[0] ) : ?>
 						<div class="product-general-info__tag">
-							<?php echo esc_html( $kemroc_pgi_figure['app_area']->name ); ?>
+							<?php echo esc_html( $kemroc_pgi_app_areas[0]->name ); ?>
 						</div>
 					<?php endif; ?>
 				

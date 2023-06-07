@@ -121,28 +121,6 @@
                     "max_size": "",
                     "mime_types": "",
                     "preview_size": "medium"
-                },
-                {
-                    "key": "field_647500a100415",
-                    "label": "Einsatzbereiche",
-                    "name": "app_area",
-                    "type": "taxonomy",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "taxonomy": "einsatzbereich",
-                    "add_term": 1,
-                    "save_terms": 1,
-                    "load_terms": 1,
-                    "return_format": "object",
-                    "field_type": "select",
-                    "allow_null": 0,
-                    "multiple": 0
                 }
             ]
         }
@@ -165,5 +143,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686044712
+    "modified": 1686135908
 }
