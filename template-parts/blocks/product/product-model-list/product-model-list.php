@@ -31,7 +31,7 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	$kemroc_pml_models = kemroc_get_models( 'page' );
+	$kemroc_pml_models = kemroc_get_models_compare( get_post_type() );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_pml_id ); ?>" class="<?php echo esc_attr( $kemroc_pml_class_name ); ?>">

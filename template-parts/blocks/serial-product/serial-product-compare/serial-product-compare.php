@@ -47,39 +47,85 @@ if ( ! $is_preview ) :
 					
 					<?php foreach ( $kemroc_spd_serial_products as $kemroc_spd_serial_product ) : ?>
 						<li class="serial-product-compare__item sp-item">
-							<h6 class="sp-item__title">
-								<?php echo esc_html( $kemroc_spd_serial_product['title'] ); ?>
-							</h6>
-							<!-- /.sp-item__title -->
-							<div class="sp-item__subtitle">
-								<?php echo esc_html( $kemroc_spd_serial_product['subtitle'] ); ?>
+							<div class="sp-item__photo">
+								<?php echo wp_get_attachment_image( $kemroc_spd_serial_product['photo'] ); ?>
 							</div>
-							<!-- /.sp-item__subtitle -->
-
-							<?php if ( $kemroc_spd_serial_product['params'] ) : ?>
-								<ul class="sp-item__params">
-									<li class="sp-item__param">
-										
-									</li>
-									<!-- /.sp-item__param -->
-								</ul>
-								<!-- /.sp-item__params -->
-							<?php endif; ?>
-
-							<div class="sp-item__areas-use spi-areas-use">
-								<div class="spi-areas-use__title">
-
+							<!-- /.sp-item__photo -->
+							<div class="sp-item__text">
+								<h6 class="sp-item__title">
+									<?php echo esc_html( $kemroc_spd_serial_product['page']->post_title ); ?>
+								</h6>
+								<!-- /.sp-item__title -->
+								<div class="sp-item__subtitle">
+									<?php echo esc_html( $kemroc_spd_serial_product['subtitle'] ); ?>
 								</div>
-								<!-- /.spi-areas-use__title -->
-								<ul class="spi-areas-use__list">
-									<li class="spi-areas-use__item">
+								<!-- /.sp-item__subtitle -->
+
+								<?php if ( $kemroc_spd_serial_product['params'] ) : ?>
+									<ul class="sp-item__params">
+
+										<?php foreach ( $kemroc_spd_serial_product['params'] as $kemroc_spd_serial_product_param ) : ?>
+											<li class="sp-item__param arrow-list-item-full">
+												<div class="arrow-list-item-full__property">
+													<div class="arrow-list-item-full__arrow-right">
+														<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
+													</div>
+													<!-- /.arrow-list-item-full__arrow-right -->
+													<?php echo esc_html( $kemroc_spd_serial_product_param['name']->post_title ); ?>
+												</div>
+												<!-- /.arrow-list-item-full__property -->
+												<div class="arrow-list-item-full__value">
+													<?php echo wp_kses_post( $kemroc_spd_serial_product_param['value'] ); ?>
+												</div>
+												<!-- /.arrow-list-item-full__value -->
+											</li>
+											<!-- /.sp-item__param arrow-list-item-full -->
+										<?php endforeach; ?>
 										
-									</li>
-									<!-- /.spi-areas-use__item -->
-								</ul>
-								<!-- /.spi-areas-use__list -->
+									</ul>
+									<!-- /.sp-item__params -->
+								<?php endif; ?>
+
+								<?php if ( $kemroc_spd_serial_product['areas_use'] ) : ?>
+									<div class="sp-item__areas-use spi-areas-use">
+										<div class="spi-areas-use__title">
+											<?php echo esc_html( $kemroc_spd_serial_product['areas_use']['title'] ); ?>
+										</div>
+										<!-- /.spi-areas-use__title -->
+										<div class="spi-areas-use__list">
+											<?php echo wp_kses_post( $kemroc_spd_serial_product['areas_use']['list'] ); ?>
+										</div>
+										<!-- /.spi-areas-use__list -->
+									</div>
+									<!-- /.sp-item__areas-use spi-areas-use -->
+								<?php endif; ?>
+
+								<div class="sp-item__bottom">
+									<div class="sp-item__amount">
+										<span class="sp-item__number">
+											<?php 
+											echo esc_html( 
+												kemroc_get_models_amount( 
+													$kemroc_spd_serial_product['page']->post_type, 
+													$kemroc_spd_serial_product['page']->ID 
+												) 
+											);
+											?>
+										</span>
+										<?php esc_html_e( 'modelle', 'kemroc' ); ?> 
+									</div>
+									<!-- /.sp-item__amount -->
+									<a 
+										href="<?php the_permalink( $kemroc_spd_serial_product['page']->ID ); ?>" 
+										class="btn btn-accent btn-rounded arrow-right sp-item__btn"
+									>
+										<?php esc_html_e( 'Details', 'kemroc' ); ?> 
+									</a>
+									<!-- /.sp-item__btn -->
+								</div>
+								<!-- /.sp-item__bottom -->
 							</div>
-							<!-- /.sp-item__areas-use spi-areas-use -->
+							<!-- /.sp-item__text -->
 						</li>
 						<!-- /.serial-product-compare__item sp-item -->
 					<?php endforeach; ?>

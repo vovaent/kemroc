@@ -43,6 +43,29 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
+                    "key": "field_647f7deb70d4e",
+                    "label": "Serielle Produktseite",
+                    "name": "page",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": "",
+                    "return_format": "object",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "parent_repeater": "field_647f7cf9b674c"
+                },
+                {
                     "key": "field_647f7dd370d4d",
                     "label": "Foto",
                     "name": "photo",
@@ -65,26 +88,6 @@
                     "max_size": "",
                     "mime_types": "",
                     "preview_size": "medium",
-                    "parent_repeater": "field_647f7cf9b674c"
-                },
-                {
-                    "key": "field_647f7deb70d4e",
-                    "label": "Titel",
-                    "name": "title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
                     "parent_repeater": "field_647f7cf9b674c"
                 },
                 {
@@ -250,5 +253,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686083384
+    "modified": 1686158967
 }

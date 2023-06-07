@@ -35,26 +35,62 @@ function kemroc_get_asset_data( $path_to_file ) {
 }
 
 /**
- * Retrievs product models
+ * Getting product models amount
  * 
- * @param string $post_type Post type.
+ * @param string $post_type Optional. Post type. Default post_type='page'.
+ * @param int    $post_id Optional. Post id. Default current post id.
  * 
- * @return array
+ * @return int
  */
-function kemroc_get_models( $post_type ) {
-	// Get models.
+function kemroc_get_models_amount( $post_type = 'page', $post_id = null ) {
+	if ( null === $post_id ) {
+		global $post;
+		$post_id = $post->ID;
+	}
+
+	$models_amount = 0;
+
 	$models_args  = array(
 		'post_type'      => $post_type,
 		'post_status'    => 'published',
 		'posts_per_page' => -1, // phpcs:ignore
-		'post_parent'    => get_the_ID(),
+		'post_parent'    => $post_id,
+	);
+	$models_query = new WP_Query( $models_args );
+
+	if ( 0 < $models_query->post_count ) {
+		$models_amount = $models_query->post_count;
+	}
+
+	return $models_amount;
+}
+
+/**
+ * Getting product models for comparison
+ * 
+ * @param string $post_type Optional. Post type. Default post_type='page'.
+ * @param int    $post_id Optional. Post id. Default current post id.
+ * 
+ * @return array
+ */
+function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
+	if ( null === $post_id ) {
+		global $post;
+		$post_id = $post->ID;
+	}
+
+	$models = array();
+
+	$models_args  = array(
+		'post_type'      => $post_type,
+		'post_status'    => 'published',
+		'posts_per_page' => -1, // phpcs:ignore
+		'post_parent'    => $post_id,
 		'orderby'        => 'menu_order',
 		'order'          => 'ASC',
 	);
 	$models_query = new WP_Query( $models_args );
 	
-	$models = array();
-
 	if ( $models_query->have_posts() ) {
 		while ( $models_query->have_posts() ) {
 			$models_query->the_post();
