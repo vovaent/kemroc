@@ -31,92 +31,41 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	// Get models.
-	$kemroc_pml_models_args  = array(
-		'post_type'      => 'page',
-		'post_status'    => 'published',
-		'posts_per_page' => -1, // phpcs:ignore
-		'post_parent'    => get_the_ID(),
-		'orderby'        => 'menu_order',
-		'order'          => 'ASC',
-	);
-	$kemroc_pml_models_query = new WP_Query( $kemroc_pml_models_args );
-
-	if ( $kemroc_pml_models_query->have_posts() ) {
-		$kemroc_pml_models = array();
-
-		while ( $kemroc_pml_models_query->have_posts() ) {
-			$kemroc_pml_models_query->the_post();
-			
-			$kemroc_pml_blocks = parse_blocks( get_the_content() );
-			$kemroc_pml_params = array();
-
-			foreach ( $kemroc_pml_blocks as $kemroc_pml_block ) {
-				if ( 'acf/model-info' !== $kemroc_pml_block['blockName'] ) {
-					continue;
-				}
-
-				$kemroc_pml_block_data   = $kemroc_pml_block['attrs']['data'];
-				$kemroc_pml_block_params = $kemroc_pml_block_data['params'];
-
-				if ( empty( $kemroc_pml_block_params ) ) {
-					break;
-				}
-				
-				for ( $kemroc_pml_i = 0; $kemroc_pml_i < $kemroc_pml_block_params; $kemroc_pml_i++ ) { 
-					$kemroc_pml_params_key_title_post_id = 'params_' . $kemroc_pml_i . '_title';
-					$kemroc_pml_params_key_title_post    = get_post( $kemroc_pml_block_data[ $kemroc_pml_params_key_title_post_id ] );
-					$kemroc_pml_params_title             = $kemroc_pml_params_key_title_post->post_title;
-					
-					$kemroc_pml_params_value = 'params_' . $kemroc_pml_i . '_value';
-					
-					$kemroc_pml_params[ $kemroc_pml_params_title ] = $kemroc_pml_block_data[ $kemroc_pml_params_value ];
-				}
-				break;
-			}
-
-			ksort( $kemroc_pml_params );
-			$kemroc_pml_model_title = get_the_title();
-			
-			$kemroc_pml_models[ $kemroc_pml_model_title ]['id']     = get_the_ID();
-			$kemroc_pml_models[ $kemroc_pml_model_title ]['params'] = $kemroc_pml_params;
-		}   
-	}
+	$kemroc_pml_models = kemroc_get_models( 'page' );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_pml_id ); ?>" class="<?php echo esc_attr( $kemroc_pml_class_name ); ?>">
 		<div class="container product-model-list__content">
-			<div class="product-model-list__card model-card">
-				<div class="model-card__title">
-					<?php echo wp_kses_post( __( '<span>MODELLE</span> VERGLEICHEN', 'kemroc' ) ); ?>
-				</div>
-				<!-- /.model-card__title -->
-
-				<?php if ( $kemroc_pml_models ) : ?>
-					<ul class="model-card__params">
-
-						<?php 
-						foreach ( $kemroc_pml_models as $kemroc_pml_model ) :
-							foreach ( $kemroc_pml_model['params'] as $kemroc_pml_param_title => $kemroc_pml_param_value ) : 
-								?>
-								<li class="model-card__param">
-									<?php echo esc_html( $kemroc_pml_param_title ); ?>
-								</li>
-								<!-- /.model-card__param -->
-								<?php 
-							endforeach;
-							break;
-						endforeach;
-						?>
-
-					</ul>
-					<!-- /.model-card__params -->
-				<?php endif; ?>
-
-			</div>
-			<!-- /.product-model-list__card model-card -->
-
+			
 			<?php if ( $kemroc_pml_models ) : ?>
+				<div class="product-model-list__card model-card">
+					<div class="model-card__title">
+						<?php echo wp_kses_post( __( '<span>MODELLE</span> VERGLEICHEN', 'kemroc' ) ); ?>
+					</div>
+					<!-- /.model-card__title -->
+
+						<ul class="model-card__params">
+
+							<?php 
+							foreach ( $kemroc_pml_models as $kemroc_pml_model ) :
+								foreach ( $kemroc_pml_model['params'] as $kemroc_pml_param_title => $kemroc_pml_param_value ) : 
+									?>
+									<li class="model-card__param">
+										<?php echo esc_html( $kemroc_pml_param_title ); ?>
+									</li>
+									<!-- /.model-card__param -->
+									<?php 
+								endforeach;
+								break;
+							endforeach;
+							?>
+
+						</ul>
+						<!-- /.model-card__params -->
+
+				</div>
+				<!-- /.product-model-list__card model-card -->
+
 				<div class="swiper product-model-list__slider">
 					<ul class="swiper-wrapper product-model-list__models">
 
