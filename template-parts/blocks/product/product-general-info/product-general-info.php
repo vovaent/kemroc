@@ -44,7 +44,7 @@ if ( ! $is_preview ) :
 				<figure class="product-general-info__picture">
 
 					<?php if ( $kemroc_pgi_app_areas[0] ) : ?>
-						<div class="product-general-info__tag">
+						<div class="tag-in-image product-general-info__tag">
 							<?php echo esc_html( $kemroc_pgi_app_areas[0]->name ); ?>
 						</div>
 					<?php endif; ?>
@@ -71,7 +71,7 @@ if ( ! $is_preview ) :
 					<ul class="product-general-info__benefits">
 
 						<?php foreach ( $kemroc_pgi_list_benefits as $kemroc_pgi_benefit ) : ?>
-							<li class="product-general-info__benefit">
+							<li class="arrow-list-item product-general-info__benefit">
 								<span class="product-general-info__arrow-right">
 									<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 								</span>

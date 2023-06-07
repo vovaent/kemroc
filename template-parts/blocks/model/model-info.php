@@ -100,7 +100,7 @@ if ( ! $is_preview ) :
 								<ul class="model-tabs__params">
 
 									<?php foreach ( $kemroc_mi_params as $kemroc_mi_param ) : ?>
-										<li class="model-tabs__param model-tabs-param">
+										<li class="arrow-list-item model-tabs__param model-tabs-param">
 											<div class="model-tabs-param__property">
 												<div class="model-tabs-param__arrow">
 													<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
