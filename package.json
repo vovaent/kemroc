@@ -17,6 +17,7 @@
         "url": "https://github.com/Automattic/_s/issues"
     },
     "devDependencies": {
+        "@wordpress/prettier-config": "^2.18.0",
         "@wordpress/scripts": "^19.2.2",
         "dir-archiver": "^1.1.1",
         "node-sass": "^7.0.1",
@@ -40,14 +41,14 @@
         "start:scss": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
         "start:js": "wp-scripts start --config webpack.config.js",
         "watch": "npm-run-all --parallel start:scss start:js",
-        "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
-        "compile:min:css:nofix": "node-sass sass/ -o ./ --output-style compressed",
+        "compile:css:fix": "node-sass sass/ -o ./ --output-style compressed && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+        "compile:css": "node-sass sass/ -o ./ --output-style compressed",
         "compile:rtl": "rtlcss style.css style-rtl.css",
         "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
         "lint:js": "wp-scripts lint-js 'js/*.js'",
         "compile:js": "wp-scripts build --config webpack.config.js",
+        "build:fix": "npm-run-all --parallel compile:css:fix compile:js",
         "build": "npm-run-all --parallel compile:css compile:js",
-        "build:nofix": "npm-run-all --parallel compile:min:css:nofix compile:js",
         "build:rtl": "npm-run-all --parallel compile:rtl compile:js",
         "bundle": "dir-archiver --src . --dest ../kemroc.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
         "bundle:full": "dir-archiver --src . --dest ../kemroc.zip --exclude .DS_Store node_modules vendor"
