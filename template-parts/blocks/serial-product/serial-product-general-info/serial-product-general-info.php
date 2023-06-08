@@ -31,10 +31,11 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	$kemroc_spgi_title       = get_field( 'title' );
-	$kemroc_spgi_subtitle    = get_field( 'subtitle' );
-	$kemroc_spgi_description = get_field( 'description' );
-	$kemroc_spgi_photos      = get_field( 'photos' );
+	$kemroc_spgi_title_choice = get_field( 'title_choice' );
+	$kemroc_spgi_title        = 'custom_title' === $kemroc_spgi_title_choice ? get_field( 'custom_title' ) : get_the_title();
+	$kemroc_spgi_subtitle     = get_field( 'subtitle' );
+	$kemroc_spgi_description  = get_field( 'description' );
+	$kemroc_spgi_photos       = get_field( 'photos' );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_spgi_id ); ?>" class="<?php echo esc_attr( $kemroc_spgi_class_name ); ?>">

@@ -101,8 +101,8 @@ if ( ! $is_preview ) :
 								<?php endif; ?>
 
 								<div class="sp-item__bottom">
-									<div class="sp-item__amount">
-										<span class="sp-item__number">
+									<div class="sp-item__amount amount-series-models">
+										<span class="amount-series-models__number">
 											<?php 
 											echo esc_html( 
 												kemroc_get_models_amount( 
@@ -114,7 +114,7 @@ if ( ! $is_preview ) :
 										</span>
 										<?php esc_html_e( 'modelle', 'kemroc' ); ?> 
 									</div>
-									<!-- /.sp-item__amount -->
+									<!-- /.sp-item__amount amount-series-models -->
 									<a 
 										href="<?php the_permalink( $kemroc_spd_serial_product['page']->ID ); ?>" 
 										class="btn btn-accent btn-rounded arrow-right sp-item__btn"

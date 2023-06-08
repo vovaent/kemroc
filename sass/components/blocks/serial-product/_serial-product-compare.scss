@@ -144,24 +144,6 @@
             margin-top: 24px;
         }
     }
-
-    &__amount {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 8.5px 12px;
-        background: $color__border;
-        border-radius: 16px;
-        font-size: 10px;
-        line-height: 16px;
-    }
-
-    &__number {
-        font-family: $font__secondary;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 18px;
-    }
 }
 
 .spi-areas-use {
@@ -185,5 +167,24 @@
             margin-left: 10px;
             padding-left: 15px;
         }
+    }
+}
+
+.amount-series-models {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    padding: 8.5px 12px;
+    background: $color__border;
+    border-radius: 16px;
+    font-size: 10px;
+    line-height: 16px;
+
+    &__number {
+        font-family: $font__secondary;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
     }
 }

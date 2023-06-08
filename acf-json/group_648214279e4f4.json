@@ -1,11 +1,35 @@
 {
-    "key": "group_647ef9dae697f",
-    "title": "Block | Serial Product General Info",
+    "key": "group_648214279e4f4",
+    "title": "Block | Series General Info",
     "fields": [
         {
-            "key": "field_64821cdfeacb2",
+            "key": "field_64821569a6e1b",
             "label": "Titelauswahl",
             "name": "title_choice",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "page_title": "Page title",
+                "custom_title": "Custom title"
+            },
+            "default_value": "Page title",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "layout": "vertical"
+        },
+        {
+            "key": "field_64821cdfeacb2",
+            "label": "Titelauswahl (copy)",
+            "name": "title_choice_copy",
             "type": "radio",
             "instructions": "",
             "required": 0,
@@ -27,16 +51,16 @@
             "save_other_choice": 0
         },
         {
-            "key": "field_647f12c2ab7ef",
+            "key": "field_64821427ad7aa",
             "label": "Titel",
-            "name": "custom_title",
+            "name": "title",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_64821cdfeacb2",
+                        "field": "field_64821569a6e1b",
                         "operator": "==",
                         "value": "custom_title"
                     }
@@ -54,26 +78,7 @@
             "append": ""
         },
         {
-            "key": "field_647f13fc50efe",
-            "label": "Beschreibung",
-            "name": "description",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "delay": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1
-        },
-        {
-            "key": "field_647f1440029b0",
+            "key": "field_64821427ad7fd",
             "label": "Untertitel",
             "name": "subtitle",
             "type": "text",
@@ -92,7 +97,26 @@
             "append": ""
         },
         {
-            "key": "field_647ef9dbe778d",
+            "key": "field_64821427ad857",
+            "label": "Beschreibung",
+            "name": "description",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "delay": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
+        },
+        {
+            "key": "field_64821427ad8af",
             "label": "Fotos",
             "name": "photos",
             "type": "repeater",
@@ -113,7 +137,7 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_647efa20e778e",
+                    "key": "field_64821427c4609",
                     "label": "Foto",
                     "name": "photo",
                     "type": "image",
@@ -135,7 +159,7 @@
                     "max_size": "",
                     "mime_types": "",
                     "preview_size": "medium",
-                    "parent_repeater": "field_647ef9dbe778d"
+                    "parent_repeater": "field_64821427ad8af"
                 }
             ]
         }
@@ -145,7 +169,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/serial-product-general-info"
+                "value": "acf\/series-general-info"
             }
         ]
     ],
@@ -158,5 +182,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686251004
+    "modified": 1686248678
 }

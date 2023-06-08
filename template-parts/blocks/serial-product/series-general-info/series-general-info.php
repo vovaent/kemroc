@@ -16,61 +16,97 @@ if ( isset( $block['data']['gutenberg_preview_image'] ) && $is_preview ) {
 
 if ( ! $is_preview ) :
 	// Create id attribute allowing for custom "anchor" value.
-	$kemroc_spgi_id = 'series-general-info-' . $block['id'];
+	$kemroc_sgi_id = 'series-general-info-' . $block['id'];
 	if ( ! empty( $block['anchor'] ) ) {
-		$kemroc_spgi_id = $block['anchor'];
+		$kemroc_sgi_id = $block['anchor'];
 	}
 
 	// Create class attribute allowing for custom "className" and "align" values.
-	$kemroc_spgi_class_name = 'series-general-info';
+	$kemroc_sgi_class_name = 'series-general-info';
 	if ( ! empty( $block['className'] ) ) {
-		$kemroc_spgi_class_name .= ' ' . $block['className'];
+		$kemroc_sgi_class_name .= ' ' . $block['className'];
 	}
 	if ( ! empty( $block['align'] ) ) {
-		$kemroc_spgi_class_name .= ' align' . $block['align'];
+		$kemroc_sgi_class_name .= ' align' . $block['align'];
 	}
 
 	// Load values and assing defaults.
-	$kemroc_spgi_title       = get_field( 'title' );
-	$kemroc_spgi_subtitle    = get_field( 'subtitle' );
-	$kemroc_spgi_description = get_field( 'description' );
-	$kemroc_spgi_photos      = get_field( 'photos' );
+	$kemroc_sgi_title_choice  = get_field( 'title_choice' );
+	$kemroc_sgi_title         = 'custom_title' === $kemroc_sgi_title_choice ? get_field( 'custom_title' ) : get_the_title();
+	$kemroc_sgi_subtitle      = get_field( 'subtitle' );
+	$kemroc_sgi_description   = get_field( 'description' );
+	$kemroc_sgi_photos        = get_field( 'photos' );
+	$kemroc_sgi_models_amount = kemroc_get_models_amount( 
+		get_post_type(), 
+		get_the_ID()
+	);
 	?>
 
-	<section id="<?php echo esc_attr( $kemroc_spgi_id ); ?>" class="<?php echo esc_attr( $kemroc_spgi_class_name ); ?>">
+	<section id="<?php echo esc_attr( $kemroc_sgi_id ); ?>" class="<?php echo esc_attr( $kemroc_sgi_class_name ); ?>">
 		<div class="container series-general-info__content">
 			<div class="series-general-info__text">
-				<h1 class="series-general-info__title">
-					<?php echo esc_html( $kemroc_spgi_title ); ?>
-				</h1>
-				<!-- /.series-general-info__title -->
-				<p class="series-general-info__subtitle">
-					<?php echo esc_html( $kemroc_spgi_subtitle ); ?>
-				</p>
-				<!-- /.series-general-info__subtitle -->
-				<div class="series-general-info__description">
-					<?php echo wp_kses_post( $kemroc_spgi_description ); ?>
+				<div class="series-general-info__header">
+					<h1 class="series-general-info__title">
+						<?php echo esc_html( $kemroc_sgi_title ); ?>
+					</h1>
+					<!-- /.series-general-info__title -->
+					<div class="amount-series-models series-general-info__amount series-general-info__amount--md">
+						<span class="amount-series-models__number">
+							<?php echo esc_html( $kemroc_sgi_models_amount ); ?>
+						</span>
+						<?php esc_html_e( 'modelle', 'kemroc' ); ?> 
+					</div>
+					<!-- /.amount-series-models series-general-info__amount  -->
 				</div>
-				<!-- /.series-general-info__description -->
+				<!-- /.series-general-info__header -->
+				<div class="series-general-info__body">
+					<p class="series-general-info__subtitle">
+						<?php echo esc_html( $kemroc_sgi_subtitle ); ?>
+					</p>
+					<!-- /.series-general-info__subtitle -->
+					<div class="series-general-info__description">
+						<?php echo wp_kses_post( $kemroc_sgi_description ); ?>
+					</div>
+					<!-- /.series-general-info__description -->
+					<div class="amount-series-models series-general-info__amount series-general-info__amount--lg">
+						<span class="amount-series-models__number">
+							<?php echo esc_html( $kemroc_sgi_models_amount ); ?>
+						</span>
+						<?php esc_html_e( 'modelle', 'kemroc' ); ?> 
+					</div>
+					<!-- /.amount-series-models series-general-info__amount -->
+				</div>
+				<!-- /.series-general-info__body -->
 			</div>
 			<!-- /.series-general-info__text -->
 
-			<?php if ( $kemroc_spgi_photos ) : ?>
-				<div class="swiper series-general-info__slider spgi-slider">
-					<ul class="swiper-wrapper spgi-slider__container">
+			<?php if ( $kemroc_sgi_photos ) : ?>
+				<div class="series-general-info__slider-wrapper">
+					<div class="swiper series-general-info__slider swiper-single-slide">
+						<ul class="swiper-wrapper swiper-single-slide__container">
 
-					<?php foreach ( $kemroc_spgi_photos as $kemroc_spgi_photo ) : ?>
-						<li class="swiper-slide spgi-slider__slide">
-							<?php echo wp_get_attachment_image( $kemroc_spgi_photo['photo'], 'medium_large' ); ?>
-						</li>
-						<!-- /.swiper-slide spgi-slider__slide -->
-					<?php endforeach; ?>
+							<?php foreach ( $kemroc_sgi_photos as $kemroc_sgi_photo ) : ?>
+								<li class="swiper-slide swiper-single-slide__slide">
+									<?php echo wp_get_attachment_image( $kemroc_sgi_photo['photo'], 'medium_large' ); ?>
+								</li>
+								<!-- /.swiper-slide swiper-single-slide__slide -->
+							<?php endforeach; ?>
 
-					</ul>
-					<!-- /.swiper-wrapper spgi-slider__container -->
-					<div class="swiper-pagination spgi-slider__pagination"></div>
+						</ul>
+						<!-- /.swiper-wrapper swiper-single-slide__container -->
+						<div class="swiper-button-prev swiper-single-slide__arrow swiper-single-slide__arrow--prev">
+							<?php get_template_part( 'template-parts/icons/arrow-left', null, array( 'fill' => '#444444' ) ); ?>
+						</div>
+						<!-- /.swiper-button-prev swiper-single-slide__arrow -->
+						<div class="swiper-button-next swiper-single-slide__arrow swiper-single-slide__arrow--next">
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#444444' ) ); ?>
+						</div>
+						<!-- /.swiper-button-next swiper-single-slide__arrow -->
+					</div>
+					<!-- /.swiper series-general-info__slider -->
+					<div class="swiper-pagination swiper-single-slide__pagination"></div>
 				</div>
-				<!-- /.swiper series-general-info__slider -->
+				<!-- /.series-general-info__slider-wrapper -->
 			<?php endif; ?>
 
 		</div>
