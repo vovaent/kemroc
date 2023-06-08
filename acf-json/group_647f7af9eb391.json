@@ -1,6 +1,6 @@
 {
     "key": "group_647f7af9eb391",
-    "title": "Block | Serial Product",
+    "title": "Block | Serial Products Comparison",
     "fields": [
         {
             "key": "field_647f7afa6bb0e",
@@ -253,5 +253,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686158967
+    "modified": 1686171347
 }
