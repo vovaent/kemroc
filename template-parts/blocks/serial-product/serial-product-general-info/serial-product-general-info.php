@@ -56,21 +56,32 @@ if ( ! $is_preview ) :
 			<!-- /.serial-product-general-info__text -->
 
 			<?php if ( $kemroc_spgi_photos ) : ?>
-				<div class="swiper serial-product-general-info__slider spgi-slider">
-					<ul class="swiper-wrapper spgi-slider__container">
+				<div class="serial-product-general-info__slider-wrapper">
+					<div class="swiper serial-product-general-info__slider swiper-single-slide">
+						<ul class="swiper-wrapper swiper-single-slide__container">
 
-					<?php foreach ( $kemroc_spgi_photos as $kemroc_spgi_photo ) : ?>
-						<li class="swiper-slide spgi-slider__slide">
-							<?php echo wp_get_attachment_image( $kemroc_spgi_photo['photo'], 'medium_large' ); ?>
-						</li>
-						<!-- /.swiper-slide spgi-slider__slide -->
-					<?php endforeach; ?>
+							<?php foreach ( $kemroc_spgi_photos as $kemroc_spgi_photo ) : ?>
+								<li class="swiper-slide swiper-single-slide__slide">
+									<?php echo wp_get_attachment_image( $kemroc_spgi_photo['photo'], 'medium_large' ); ?>
+								</li>
+								<!-- /.swiper-slide swiper-single-slide__slide -->
+							<?php endforeach; ?>
 
-					</ul>
-					<!-- /.swiper-wrapper spgi-slider__container -->
-					<div class="swiper-pagination spgi-slider__pagination"></div>
+						</ul>
+						<!-- /.swiper-wrapper swiper-single-slide__container -->
+						<div class="swiper-button-prev swiper-single-slide__arrow swiper-single-slide__arrow--prev">
+							<?php get_template_part( 'template-parts/icons/arrow-left', null, array( 'fill' => '#444444' ) ); ?>
+						</div>
+						<!-- /.swiper-button-prev swiper-single-slide__arrow -->
+						<div class="swiper-button-next swiper-single-slide__arrow swiper-single-slide__arrow--next">
+							<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#444444' ) ); ?>
+						</div>
+						<!-- /.swiper-button-next swiper-single-slide__arrow -->
+					</div>
+					<!-- /.swiper serial-product-general-info__slider -->
+					<div class="swiper-pagination swiper-single-slide__pagination"></div>
 				</div>
-				<!-- /.swiper serial-product-general-info__slider -->
+				<!-- /.serial-product-general-info__slider-wrapper -->
 			<?php endif; ?>
 
 		</div>
