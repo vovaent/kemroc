@@ -304,5 +304,26 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
+	acf_register_block_type(
+		array(
+			'name'            => 'series-general-info',
+			'title'           => __( 'Allgemeine Informationen zur Serie', 'kemroc' ),
+			'description'     => __( 'Allgemeine Informationen zur Serie', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/serial-product/series-general-info/series-general-info.php',
+			'category'        => 'product',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Serienprodukt' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/serial-product/series-general-info/series-general-info.png',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'kemroc_acf_init_block_types' );
