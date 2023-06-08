@@ -218,6 +218,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/serial-product-descriptions',
 			'acf/serial-product-compare',
 			'acf/series-general-info',
+			'acf/series-tech-info',
 		);
 	}
 
