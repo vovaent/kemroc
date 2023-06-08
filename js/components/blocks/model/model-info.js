@@ -9,48 +9,50 @@ import 'swiper/css';
  */
 import { lazyLoadYT } from '../../lazy-load-yt/lazy-load-yt';
 
-const modelInfo = ( $ ) => {
-	const $modelInfoTab = $( '.model-tabs__tab' );
-	const $modelInfoInset = $( '.model-tabs__inset' );
+const modelInfo = ($) => {
+	const $modelInfoTab = $('.model-tabs__tab');
+	const $modelInfoInset = $('.model-tabs__inset');
 
-	const modelInfoToggleTab = function() {
-		const $this = $( this );
+	const modelInfoToggleTab = function () {
+		const $this = $(this);
 
-		$modelInfoTab.removeClass( 'model-tabs__tab--active' );
-		$this.addClass( 'model-tabs__tab--active' );
-		$modelInfoInset.removeClass( 'model-tabs__inset--visible' );
-		$modelInfoInset.eq( $this.index() ).addClass( 'model-tabs__inset--visible' );
+		$modelInfoTab.removeClass('model-tabs__tab--active');
+		$this.addClass('model-tabs__tab--active');
+		$modelInfoInset.removeClass('model-tabs__inset--visible');
+		$modelInfoInset
+			.eq($this.index())
+			.addClass('model-tabs__inset--visible');
 	};
 
-	$modelInfoTab.on( 'click', modelInfoToggleTab );
+	$modelInfoTab.on('click', modelInfoToggleTab);
 
-	new Swiper( '.swiper.model-tabs__slider', {
-		modules: [ Navigation, Pagination ],
+	new Swiper('.model-tabs__slider.swiper-single-slide', {
+		modules: [Navigation, Pagination],
 
 		slidesPerView: 1,
 		spaceBetween: 10,
 
 		navigation: {
-			nextEl: '.swiper-button-next.model-tabs__control',
-			prevEl: '.swiper-button-prev.model-tabs__control',
+			nextEl: '.model-tabs__slider .swiper-single-slide__arrow--next',
+			prevEl: '.model-tabs__slider .swiper-single-slide__arrow--prev',
 		},
 
 		pagination: {
-			el: '.swiper-pagination.model-tabs__slider-pagination',
+			el: '.model-tabs__slider + .swiper-single-slide__pagination',
 			clickable: true,
 		},
-	} );
+	});
 
-	lazyLoadYT( $ );
+	lazyLoadYT($);
 
-	$( '.model-video--file' ).on( 'click', function() {
-		const $this = $( this );
-		const $video = $this.find( 'video' );
+	$('.model-video--file').on('click', function () {
+		const $this = $(this);
+		const $video = $this.find('video');
 
-		$this.find( '.icon-play' ).remove( );
-		$video.attr( 'controls', '' );
-		$video[ 0 ].play( );
-	} );
+		$this.find('.icon-play').remove();
+		$video.attr('controls', '');
+		$video[0].play();
+	});
 };
 
 export { modelInfo };
