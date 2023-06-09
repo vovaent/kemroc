@@ -67,10 +67,10 @@ if ( ! $is_preview ) :
 										<?php foreach ( $kemroc_spd_serial_product['params'] as $kemroc_spd_serial_product_param ) : ?>
 											<li class="sp-item__param arrow-list-item-full">
 												<div class="arrow-list-item-full__property">
-													<div class="arrow-list-item-full__arrow-right">
+													<div class="arrow-list-item-full__arrow">
 														<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 													</div>
-													<!-- /.arrow-list-item-full__arrow-right -->
+													<!-- /.arrow-list-item-full__arrow -->
 													<?php echo esc_html( $kemroc_spd_serial_product_param['name']->post_title ); ?>
 												</div>
 												<!-- /.arrow-list-item-full__property -->

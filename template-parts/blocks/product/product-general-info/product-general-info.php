@@ -72,13 +72,13 @@ if ( ! $is_preview ) :
 
 						<?php foreach ( $kemroc_pgi_list_benefits as $kemroc_pgi_benefit ) : ?>
 							<li class="arrow-list-item product-general-info__benefit">
-								<span class="product-general-info__arrow-right">
+								<span class="arrow-list-item__arrow">
 									<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 								</span>
-								<!-- /.product-general-info__arrow-right -->
+								<!-- /.arrow-list-item__arrow -->
 								<?php echo wp_kses_post( $kemroc_pgi_benefit['benefit'] ); ?>
 							</li>
-							<!-- /.product-general-info__benefit -->
+							<!-- /.arrow-list-item product-general-info__benefit -->
 						<?php endforeach; ?>
 
 					</ul>

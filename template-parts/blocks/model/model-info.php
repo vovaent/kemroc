@@ -100,19 +100,19 @@ if ( ! $is_preview ) :
 								<ul class="model-tabs__params">
 
 									<?php foreach ( $kemroc_mi_params as $kemroc_mi_param ) : ?>
-										<li class="arrow-list-item model-tabs__param model-tabs-param">
-											<div class="model-tabs-param__property">
-												<div class="model-tabs-param__arrow">
+										<li class="arrow-list-item-full model-tabs__param arrow-list-item-full">
+											<div class="arrow-list-item-full__property">
+												<div class="arrow-list-item-full__arrow">
 													<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 												</div>
-												<!-- /.model-tabs-param__arrow -->
+												<!-- /.arrow-list-item-full__arrow -->
 												<?php echo esc_html( $kemroc_mi_param['title']->post_title ); ?>
 											</div>
-											<!-- /.model-tabs-param__property -->
-											<div class="model-tabs-param__value">
-												<?php echo wp_kses_post( $kemroc_mi_param['value'] ); ?>
+											<!-- /.arrow-list-item-full__property -->
+											<div class="arrow-list-item-full__value">
+												<?php echo esc_html( $kemroc_mi_param['value'] ); ?>
 											</div>
-											<!-- /.model-tabs-param__value -->
+											<!-- /.arrow-list-item-full__value -->
 										</li>
 										<!-- /.model-tabs__param model-tabs-param -->
 									<?php endforeach; ?>
