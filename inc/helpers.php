@@ -95,9 +95,11 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 		while ( $models_query->have_posts() ) {
 			$models_query->the_post();
 			
-			$blocks = parse_blocks( get_the_content() );
-			$params = array();
-
+			$blocks                       = parse_blocks( get_the_content() );
+			$params                       = array();
+			$model_title                  = get_the_title();
+			$models[ $model_title ]['id'] = get_the_ID();
+			
 			foreach ( $blocks as $block ) {
 				if ( 'acf/model-info' !== $block['blockName'] ) {
 					continue;
@@ -123,9 +125,6 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 			}
 
 			ksort( $params );
-			$model_title = get_the_title();
-			
-			$models[ $model_title ]['id']     = get_the_ID();
 			$models[ $model_title ]['params'] = $params;
 		}   
 		wp_reset_postdata();
