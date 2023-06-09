@@ -32,6 +32,10 @@ dd {
     font-weight: 400;
     font-size: 16px;
     line-height: 160%;
+
+    &__arrow {
+        margin-right: 16px;
+    }
 }
 
 .arrow-list-item-full {
@@ -47,7 +51,7 @@ dd {
         display: flex;
     }
 
-    &__arrow-right {
+    &__arrow {
         margin-right: 16px;
     }
 

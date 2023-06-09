@@ -3,33 +3,9 @@
     "title": "Block | Series General Info",
     "fields": [
         {
-            "key": "field_64821569a6e1b",
+            "key": "field_6482d09c6c661",
             "label": "Titelauswahl",
             "name": "title_choice",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "page_title": "Page title",
-                "custom_title": "Custom title"
-            },
-            "default_value": "Page title",
-            "return_format": "value",
-            "allow_null": 0,
-            "other_choice": 0,
-            "save_other_choice": 0,
-            "layout": "vertical"
-        },
-        {
-            "key": "field_64821cdfeacb2",
-            "label": "Titelauswahl (copy)",
-            "name": "title_choice_copy",
             "type": "radio",
             "instructions": "",
             "required": 0,
@@ -60,7 +36,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_64821569a6e1b",
+                        "field": "field_6482d09c6c661",
                         "operator": "==",
                         "value": "custom_title"
                     }
@@ -182,5 +158,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686248678
+    "modified": 1686294743
 }
