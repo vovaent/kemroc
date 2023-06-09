@@ -22,6 +22,7 @@
 
     &__slider {
         position: relative;
+        width: 74.5%;
     }
 
     &__models {
@@ -72,7 +73,7 @@
     }
 }
 
-.model-card {
+.pml-model-card {
     width: 300px;
     padding: 64px 32px;
     background: #131313;
@@ -86,6 +87,7 @@
     }
 
     @include media-down-sm {
+        width: 196px;
         padding: 24px;
     }
 
@@ -137,7 +139,7 @@
     }
 }
 
-.model {
+.pml-model {
     display: flex;
     flex-direction: column;
     align-items: center;

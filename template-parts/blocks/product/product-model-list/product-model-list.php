@@ -38,22 +38,22 @@ if ( ! $is_preview ) :
 		<div class="container product-model-list__content">
 			
 			<?php if ( $kemroc_pml_models ) : ?>
-				<div class="product-model-list__card model-card">
-					<div class="model-card__title">
+				<div class="product-model-list__card pml-model-card">
+					<div class="pml-model-card__title">
 						<?php echo wp_kses_post( __( '<span>MODELLE</span> VERGLEICHEN', 'kemroc' ) ); ?>
 					</div>
-					<!-- /.model-card__title -->
+					<!-- /.pml-model-card__title -->
 
-						<ul class="model-card__params">
+						<ul class="pml-model-card__params">
 
 							<?php 
 							foreach ( $kemroc_pml_models as $kemroc_pml_model ) :
 								foreach ( $kemroc_pml_model['params'] as $kemroc_pml_param_title => $kemroc_pml_param_value ) : 
 									?>
-									<li class="model-card__param">
+									<li class="pml-model-card__param">
 										<?php echo esc_html( $kemroc_pml_param_title ); ?>
 									</li>
-									<!-- /.model-card__param -->
+									<!-- /.pml-model-card__param -->
 									<?php 
 								endforeach;
 								break;
@@ -61,45 +61,45 @@ if ( ! $is_preview ) :
 							?>
 
 						</ul>
-						<!-- /.model-card__params -->
+						<!-- /.pml-model-card__params -->
 
 				</div>
-				<!-- /.product-model-list__card model-card -->
+				<!-- /.product-model-list__card pml-model-card -->
 
 				<div class="swiper product-model-list__slider">
 					<ul class="swiper-wrapper product-model-list__models">
 
 					<?php foreach ( $kemroc_pml_models as $kemroc_pml_model_name => $kemroc_pml_model_data ) : ?>
 
-							<li class="swiper-slide product-model-list__item model">
-								<div class="model__title">
+							<li class="swiper-slide product-model-list__item pml-model">
+								<div class="pml-model__title">
 									<?php echo esc_html( $kemroc_pml_model_name ); ?>
 								</div>
-								<!-- /.model__title -->
+								<!-- /.pml-model__title -->
 
 								<?php if ( $kemroc_pml_model_data['params'] ) : ?>
-									<ul class="model__params">
+									<ul class="pml-model__params">
 
 										<?php foreach ( $kemroc_pml_model_data['params'] as $kemroc_pml_param_value ) : ?>
-											<li class="model__param">
+											<li class="pml-model__param">
 												<?php echo esc_html( $kemroc_pml_param_value ); ?>
 											</li>
-											<!-- /.model__param -->
+											<!-- /.pml-model__param -->
 										<?php endforeach; ?>	
 
 									</ul>
-									<!-- /.model__params -->
+									<!-- /.pml-model__params -->
 								<?php endif; ?>
 
-								<a href="<?php the_permalink( $kemroc_pml_model_data['id'] ); ?>" class="model__link">
+								<a href="<?php the_permalink( $kemroc_pml_model_data['id'] ); ?>" class="pml-model__link">
 									<?php esc_html_e( 'Details', 'kemroc' ); ?> 
-									<span class="model__arrow">
+									<span class="pml-model__arrow">
 										<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 									</span>
 								</a>
-								<!-- /.model__link -->
+								<!-- /.pml-model__link -->
 							</li>
-							<!-- /.product-model-list__item model -->
+							<!-- /.product-model-list__item pml-model -->
 						<?php endforeach; ?>
 
 					</ul>
