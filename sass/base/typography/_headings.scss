@@ -9,7 +9,7 @@ h6 {
     margin-bottom: 0;
     font-family: $font__secondary;
     color: #000;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 h1 {
@@ -68,6 +68,7 @@ h6 {
 
     @include media-down-md {
         font-size: 16px;
+        line-height: 140%;
     }
 
     p {

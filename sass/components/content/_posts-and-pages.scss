@@ -32,31 +32,54 @@ main {
 
 /* home hero section */
 .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    margin-bottom: 64px;
+    height: 613px;
+    margin-bottom: 128px;
 
     @include media-down-md {
         margin-bottom: 32px;
+        height: 414px;
+    }
+
+    &__bg-picture {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        // min-height: 100%;
+        z-index: -1;
+    }
+
+    &__bg-image {
+        display: block;
+        width: 100%;
+        height: 100%;
     }
 
     &__inner {
         display: flex;
         flex-direction: column;
-        height: 100vh;
-        min-height: 613px;
+        // height: 100vh;
+        // min-height: 613px;
         justify-content: center;
-        max-width: 520px;
+        width: 530px;
 
         @include media-down-md {
-            min-height: 514px;
-            max-height: 514px;
+            width: 500px;
+            // height: 514px;
         }
 
         @include media-down-sm {
-            min-height: 414px;
-            max-height: 414px;
+            width: 100%;
+            // height: 414px;
         }
     }
 
@@ -189,11 +212,15 @@ main {
 }
 
 .our-products {
-    padding-top: 64px;
-    padding-bottom: 74px;
+    margin-top: 128px;
+    margin-bottom: 56px;
 
     @include media-down-md {
-        padding: 40px 0;
+        margin: 72px 0 40px;
+    }
+
+    @include media-down-sm {
+        margin: 64px 0 32px;
     }
 
     @include media-down-sm {
@@ -304,10 +331,15 @@ main {
 }
 
 .cta-wide {
-    margin-bottom: 64px;
+    margin-top: 74px;
+    margin-bottom: 128px;
 
     @include media-down-md {
-        margin-bottom: 32px;
+        margin: 40px 0 72px;
+    }
+
+    @include media-down-sm {
+        margin: 32px 0 64px;
     }
 
     &__inner {
@@ -461,16 +493,16 @@ main {
 }
 
 .our-areas {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    margin-top: 128px;
+    margin-bottom: 128px;
 
     @include media-down-md {
-        padding: 40px 0;
+        margin: 72px 0;
     }
 
     @include media-down-sm {
-        padding-top: 32px;
-        padding-bottom: 32px;
+        margin: 64px 0;
+
     }
 
     .section-header {
@@ -653,31 +685,26 @@ main {
         top: 0;
 
         @include media-down-md {
-            max-width: 340px;
-            top: unset;
             bottom: 0;
         }
 
         @include media-down-sm {
             margin: 0;
             bottom: 0;
-            top: auto;
-            max-width: 250px;
+            top: unset;
         }
     }
 }
 
 .our-company {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    margin: 128px 0;
 
     @include media-down-md {
-        padding: 40px 0;
+        margin: 72px 0;
     }
 
     @include media-down-sm {
-        padding-top: 32px;
-        padding-bottom: 32px;
+        margin: 64px 0;
     }
 
     &__inner {
@@ -785,12 +812,14 @@ main {
 }
 
 .our-news {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    margin: 128px 0;
 
     @include media-down-md {
-        padding-top: 32px;
-        padding-bottom: 32px;
+        margin: 72px 0;
+    }
+
+    @include media-down-sm {
+        margin: 64px 0;
     }
 
     .section-header {

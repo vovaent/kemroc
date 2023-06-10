@@ -23,36 +23,35 @@ if ( ! $is_preview ) {
 	$subtitle     = get_field( 'subtitle' );
 	$title        = get_field( 'title' );
 	$link         = get_field( 'link' );
-	$image        = get_field( 'image' );
+	$image_pc     = get_field( 'image_pc' );
+	$image_tablet = get_field( 'image_tablet' );
 	$image_mobile = get_field( 'image_mobile' );
-
-
 	?>
-	<?php if ( $image_mobile ) : ?>
-<style>
-	@media (max-width: 767px) {
-		.hero {
-			background-image: url(<?php echo $image_mobile['url']; ?>) !important;
-		}
-	}
-</style>
-<?php endif; ?>
-	<section  id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>" style="background-image: url(<?php echo $image['url']; ?>);">
-		<div class="container">
+	<section  id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $className ); ?>">
+	<picture class="hero__bg-picture">
+		<source srcset="<?php echo esc_url( $image_pc['url'] ); ?>" media="(min-width: 1024px)">
+		<source srcset="<?php echo esc_url( $image_tablet['url'] ); ?>" media="(min-width: 743px)">
+		<img class="hero__bg-image" src="<?php echo esc_url( $image_mobile['url'] ); ?>" alt="<?php echo esc_url( $image_mobile['alt'] ); ?>">
+	</picture>
+	<!-- /.hero__bg-image -->
+		<div class="container hero__container">
 			<div class="hero__inner">
 				<?php if ( $subtitle ) : ?>
-				<h6 class="hero__subtitle"><?php echo $subtitle; ?></h6>
+					<h6 class="hero__subtitle"><?php echo $subtitle; ?></h6>
 				<?php endif; ?>
+
 				<?php if ( $title ) : ?>
-				<h1 class="hero__title"><?php echo $title; ?></h1>
+					<h1 class="hero__title"><?php echo $title; ?></h1>
 				<?php endif; ?>
+
 				<?php if ( $link ) : ?>
-				<div class="hero__readmore">
-					<a href="<?php echo $link['url']; ?>" class="btn btn-accent btn-rounded arrow-right"><?php echo $link['title']; ?></a>
-				</div>
+					<div class="hero__readmore">
+						<a href="<?php echo $link['url']; ?>" class="btn btn-accent btn-rounded arrow-right">
+							<?php echo $link['title']; ?>
+						</a>
+					</div>
 				<?php endif; ?>
 			</div>
 		</div>
 	</section>
-
 <?php } ?>

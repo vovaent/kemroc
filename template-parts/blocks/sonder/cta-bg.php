@@ -24,9 +24,6 @@ if ( ! $is_preview ) {
 	$title = get_field( 'title' );
 	$link  = get_field( 'link' );
 	$info  = get_field( 'info' );
-	$image = get_field( 'image' );
-
-
 	?>
 
 
@@ -34,21 +31,24 @@ if ( ! $is_preview ) {
 	<div class="container">
 		<div class="cta-bg__inner">
 			<div class="cta-content">
-				<? if($title): ?>
+				<?php if ( $title ) : ?>
 				<h2 class="cta-title"><?php echo $title; ?></h2>
-				<? endif; ?>
-				<? if($info): ?>
+				<?php endif; ?>
+				<?php if ( $info ) : ?>
 				<div class="subheadline"><?php echo $info; ?></div>
-				<? endif; ?>
-				<? if($link) :?>
+				<?php endif; ?>
+				<?php if ( $link ) : ?>
 				<div class="cta-more">
 					<a href="<?php echo $link['url']; ?>" class="btn btn-accent btn-border-accent btn-rounded arrow-right"><?php echo $link['title']; ?></a>
 				</div>
-				<? endif; ?>
+				<?php endif; ?>
 			</div>
-			<? if($image): ?>
-			<img class="cta-bg__image" src="<?php echo $image['url']; ?>" alt="">
-			<? endif; ?>
+			<picture class="cta-bg__picture">
+				<source srcset="<?php echo esc_url( get_template_directory_uri() . '/images/Mietpark-pc.png' ); ?>" media="(min-width: 1024px)">
+				<source srcset="<?php echo esc_url( get_template_directory_uri() . '/images/Mietpark-tablet.png' ); ?>" media="(min-width: 743px)">
+				<img class="cta-bg__image" src="<?php echo esc_url( get_template_directory_uri() . '/images/Mietpark-mobile.png' ); ?>" alt="Mietpark">
+			</picture>
+			<!-- /.cta-bg__picture -->
 
 		</div>
 	</div>
