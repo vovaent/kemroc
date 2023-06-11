@@ -10,6 +10,7 @@ const seriesGeneralInfo = () => {
 
 		slidesPerView: 1,
 		spaceBetween: 5,
+		loop: true,
 
 		pagination: {
 			el: '.series-general-info__slider + .swiper-single-slide__pagination',

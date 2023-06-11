@@ -31,6 +31,7 @@ const modelInfo = ($) => {
 
 		slidesPerView: 1,
 		spaceBetween: 10,
+		loop: true,
 
 		navigation: {
 			nextEl: '.model-tabs__slider .swiper-single-slide__arrow--next',

@@ -10,6 +10,7 @@ const serialProductGeneralInfo = () => {
 
 		slidesPerView: 1,
 		spaceBetween: 5,
+		lopp: true,
 
 		pagination: {
 			el: '.serial-product-general-info__slider + .swiper-single-slide__pagination',
