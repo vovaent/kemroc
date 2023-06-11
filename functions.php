@@ -154,10 +154,12 @@ function kemroc_scripts() {
 	);
 	wp_style_add_data( 'kemroc-style', 'rtl', 'replace' );
 
+	wp_enqueue_script( 'jquery' );
+
 	wp_enqueue_script(
 		'kemroc-scripts',
 		get_template_directory_uri() . '/js/build/scripts.js',
-		array(),
+		array( 'jquery' ),
 		$main_asset['version'],
 		true 
 	);
