@@ -44,7 +44,7 @@ if ( ! $is_preview ) :
 				<figure class="product-general-info__picture">
 
 					<?php if ( $kemroc_pgi_app_areas[0] ) : ?>
-						<div class="tag-in-image product-general-info__tag">
+						<div class="area-use-in-image area-use-in-image--absolute product-general-info__area">
 							<?php echo esc_html( $kemroc_pgi_app_areas[0]->name ); ?>
 						</div>
 					<?php endif; ?>

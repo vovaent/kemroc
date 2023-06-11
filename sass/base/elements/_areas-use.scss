@@ -1,4 +1,4 @@
-.tag-in-image {
+.area-use-in-image {
     padding: 4px 8px;
     background: $accent;
     color: #FFFFFF;
@@ -11,5 +11,12 @@
     @include media-down-md {
         font-size: 10px;
         line-height: 160%;
+    }
+
+    &--absolute {
+        position: absolute;
+        top: 32px;
+        left: 32px;
+        z-index: 99;
     }
 }

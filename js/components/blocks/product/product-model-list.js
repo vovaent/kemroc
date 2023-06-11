@@ -22,9 +22,14 @@ const pmlSliderHandler = ($) => {
 		},
 	});
 
-	if ('5' >= pmlSlider.slides.length) {
-		$('.swiper-button-prev').hide();
-		$('.swiper-button-next').hide();
+	const isNullPrevEl = null === pmlSlider.navigation.prevEl;
+	const isNullNextEl = null === pmlSlider.navigation.nextEl;
+
+	if (!isNullPrevEl && !isNullNextEl) {
+		if ('5' >= pmlSlider.slides.length) {
+			$(pmlSlider.navigation.nextEl[0]).hide();
+			$(pmlSlider.navigation.prevEl[0]).hide();
+		}
 	}
 };
 
