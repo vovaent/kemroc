@@ -127,15 +127,15 @@ if ( ! $is_preview ) :
 							<!-- /.model-tabs__drawing -->
 						</div>
 						<!-- /.model-tabs__tech-info -->
-						<div class="model-tabs__inset-description">
-							<div class="model-tabs__accent-text">
+						<div class="fifty-fifty-description model-tabs__inset-description">
+							<div class="fifty-fifty-description__accent-text">
 								<?php echo wp_kses_post( $kemroc_mi_descr['accent_text'] ); ?>
 							</div>
-							<!-- /.model-tabs__accent-text -->
-							<div class="model-tabs__text">
+							<!-- /.fifty-fifty-description__accent-text -->
+							<div class="fifty-fifty-description__text">
 								<?php echo wp_kses_post( $kemroc_mi_descr['simple_text'] ); ?>
 							</div>
-							<!-- /.model-tabs__text -->
+							<!-- /.fifty-fifty-description__text -->
 						</div>
 						<!-- /.model-tabs__inset-description -->
 					</div>

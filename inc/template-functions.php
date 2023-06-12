@@ -225,6 +225,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/series-general-info',
 			'acf/series-tech-info',
 			'acf/application-areas-list',
+			'acf/application-areas-description',
 		);
 	}
 

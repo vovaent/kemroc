@@ -164,61 +164,6 @@
             ]
         },
         {
-            "key": "field_64871d0f613ff",
-            "label": "Description (copy)",
-            "name": "descr_copy",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_64871d0f61400",
-                    "label": "Akzenttext",
-                    "name": "accent_text",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "delay": 0,
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1
-                },
-                {
-                    "key": "field_64871d0f61401",
-                    "label": "Einfacher Text",
-                    "name": "simple_text",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "50",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "delay": 0,
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1
-                }
-            ]
-        },
-        {
             "key": "field_64786888b0d6c",
             "label": "VIDEO",
             "name": "",
@@ -453,5 +398,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686576402
+    "modified": 1686597903
 }
