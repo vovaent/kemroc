@@ -87,32 +87,32 @@ if ( ! $is_preview ) :
 				<!-- /.sti-features__right -->
 			</section>
 			<!-- /.series-tech-info__features -->
-			<section class="series-tech-info__areas-use sti-areas-use">
-				<h4 class="sti-title sti-areas-use__title">
+			<section class="series-tech-info__application-areas sti-application-areas">
+				<h4 class="sti-title sti-application-areas__title">
 					<?php esc_html_e( 'Einsatzgebiete', 'kemroc' ); ?>
 				</h4>
-				<!-- /.sti-areas-use__title -->
+				<!-- /.sti-application-areas__title -->
 
 				<?php if ( $kemroc_sti_areas ) : ?>
-					<ul class="sti-areas-use__list">
+					<ul class="sti-application-areas__list">
 
 						<?php foreach ( $kemroc_sti_areas as $kemroc_sti_area ) : ?>
-							<li class="arrow-list-item sti-areas-use__item">
+							<li class="arrow-list-item sti-application-areas__item">
 								<span class="arrow-list-item__arrow">
 									<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 								</span>
 								<!-- /.arrow-list-item__arrow -->
 								<?php echo esc_html( $kemroc_sti_area['area'] ); ?>
 							</li>
-							<!-- /.arrow-list-item sti-areas-use__item -->
+							<!-- /.arrow-list-item sti-application-areas__item -->
 						<?php endforeach; ?>
 
 					</ul>
-					<!-- /.sti-areas-use__list -->
+					<!-- /.sti-application-areas__list -->
 				<?php endif; ?>				
 				
 			</section>
-			<!-- /.sti-areas-use -->
+			<!-- /.sti-application-areas -->
 			<section class="series-tech-info__novelty sti-novelty">
 				<div class="sti-novelty__left">
 					<h4 class="sti-title sti-novelty__title">

@@ -178,6 +178,11 @@ function add_custom_block_categories( $block_categories, $editor_context ) {
 				'slug'  => 'product',
 				'title' => esc_html__( 'Produkt', 'kemroc' ),
 				'icon'  => null,
+			),
+			array(
+				'slug'  => 'application-areas',
+				'title' => esc_html__( 'Einsatzbereiche', 'kemroc' ),
+				'icon'  => null,
 			)
 		);
 	}
@@ -219,6 +224,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/serial-product-compare',
 			'acf/series-general-info',
 			'acf/series-tech-info',
+			'acf/application-areas-list',
 		);
 	}
 

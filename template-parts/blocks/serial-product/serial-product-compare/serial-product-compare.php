@@ -87,17 +87,17 @@ if ( ! $is_preview ) :
 								<?php endif; ?>
 
 								<?php if ( $kemroc_spd_serial_product['areas_use'] ) : ?>
-									<div class="sp-item__areas-use spi-areas-use">
-										<div class="spi-areas-use__title">
+									<div class="sp-item__application-areas spi-application-areas">
+										<div class="spi-application-areas__title">
 											<?php echo esc_html( $kemroc_spd_serial_product['areas_use']['title'] ); ?>
 										</div>
-										<!-- /.spi-areas-use__title -->
-										<div class="spi-areas-use__list">
+										<!-- /.spi-application-areas__title -->
+										<div class="spi-application-areas__list">
 											<?php echo wp_kses_post( $kemroc_spd_serial_product['areas_use']['list'] ); ?>
 										</div>
-										<!-- /.spi-areas-use__list -->
+										<!-- /.spi-application-areas__list -->
 									</div>
-									<!-- /.sp-item__areas-use spi-areas-use -->
+									<!-- /.sp-item__application-areas spi-application-areas -->
 								<?php endif; ?>
 
 								<div class="sp-item__bottom">

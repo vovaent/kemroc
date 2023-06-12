@@ -12,6 +12,7 @@
     }
 
     .cta-wide {
+        margin-top: 0;
         margin-bottom: 80px;
         background: rgb(19, 19, 19);
         background: linear-gradient(0deg, rgba(19, 19, 19, 1) 0%, rgba(19, 19, 19, 1) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
@@ -19,6 +20,10 @@
         top: -1px;
 
         @include media-down-md {
+            margin-bottom: 57px;
+        }
+
+        @include media-down-sm {
             margin-bottom: 64px;
         }
 

@@ -83,7 +83,7 @@ if ( ! $is_preview ) :
 			<?php if ( $kemroc_sgi_photos ) : ?>
 				<div class="series-general-info__slider-wrapper">
 					<div class="swiper series-general-info__slider swiper-single-slide">
-						<div class="area-use-in-image area-use-in-image--absolute series-general-info__area">
+						<div class="application-area-in-image application-area-in-image--absolute series-general-info__area">
 							Bohren
 						</div>
 						<ul class="swiper-wrapper swiper-single-slide__container">

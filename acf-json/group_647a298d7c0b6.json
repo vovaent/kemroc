@@ -1,12 +1,12 @@
 {
     "key": "group_647a298d7c0b6",
-    "title": "Taxonomy | Produktmerkmale",
+    "title": "Taxonomy | Einsatzbereich",
     "fields": [
         {
             "key": "field_647a298e7fe2a",
-            "label": "Werte",
-            "name": "values",
-            "type": "repeater",
+            "label": "Image",
+            "name": "image",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,35 +15,16 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Row",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_647a44affc04f",
-                    "label": "Wert",
-                    "name": "value",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_647a298e7fe2a"
-                }
-            ]
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -51,7 +32,7 @@
             {
                 "param": "taxonomy",
                 "operator": "==",
-                "value": "produktmerkmale"
+                "value": "einsatzbereich"
             }
         ]
     ],
@@ -64,5 +45,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685734610
+    "modified": 1686578937
 }
