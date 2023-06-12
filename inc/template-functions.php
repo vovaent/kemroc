@@ -189,8 +189,7 @@ add_filter( 'allowed_block_types_all', 'allowed_block_types', 25, 2 );
 function allowed_block_types( $allowed_blocks, $editor_context ) {
 	if ( (int) get_option( 'page_on_front' ) === $editor_context->post->ID ) {
 		$allowed_blocks = array(
-			'acf/home-hero',
-			'acf/home-hero',
+			'acf/hero',
 			'acf/our-products',
 			'acf/cta-wide',
 			'acf/our-areas',
@@ -210,6 +209,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'core/spacer',
 			'core/buttons',
 			'core/separator',
+			'acf/hero',
 			'acf/product-general-info',
 			'acf/product-tech-info',
 			'acf/product-model-list',

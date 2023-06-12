@@ -12,10 +12,10 @@ function kemroc_acf_init_block_types() {
 	// Home last news block.
 	acf_register_block_type(
 		array(
-			'name'            => 'home-hero',
-			'title'           => __( 'Home Hero', 'kemroc' ),
-			'description'     => __( 'Home Hero', 'kemroc' ),
-			'render_template' => 'template-parts/blocks/sonder/home-hero.php',
+			'name'            => 'hero',
+			'title'           => __( 'Held', 'kemroc' ),
+			'description'     => __( 'Held', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/sonder/hero/hero.php',
 			'category'        => 'sonder',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
@@ -25,7 +25,7 @@ function kemroc_acf_init_block_types() {
 				'attributes' => array(
 					'mode' => 'preview',
 					'data' => array(
-						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/home-hero.png',
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/hero/hero.png',
 					),
 				),
 			),

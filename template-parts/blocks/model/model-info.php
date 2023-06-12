@@ -58,7 +58,7 @@ if ( ! $is_preview ) :
 	<section id="<?php echo esc_attr( $kemroc_mi_id ); ?>" class="<?php echo esc_attr( $kemroc_mi_class_name ); ?>">
 		<div class="container model-info__content">
 			<header class="model-info__head">
-				<a href="<?php the_permalink( $kemroc_mi_parent_id ); ?>" class="model-info__parent-page-name">
+				<a href="<?php the_permalink( $kemroc_mi_parent_id ); ?>" class="above-title model-info__parent-page-name">
 					<?php echo wp_kses_post( get_the_title( $kemroc_mi_parent_id ) ); ?>
 				</a>
 				<!-- /.model-info__parent-page-name -->

@@ -3,13 +3,45 @@
     "title": "Block | Product General Info",
     "fields": [
         {
+            "key": "field_6486ffcc19ed1",
+            "label": "Titelauswahl",
+            "name": "title_choice",
+            "type": "radio",
+            "instructions": "Использовать название страницы или ввести индивидуальное название?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "page_title": "Page title",
+                "custom_title": "Custom title"
+            },
+            "default_value": "Page title",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_6475974d0177d",
             "label": "Titel",
-            "name": "title",
+            "name": "custom_title",
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6486ffcc19ed1",
+                        "operator": "==",
+                        "value": "custom_title"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -143,5 +175,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686135908
+    "modified": 1686572409
 }

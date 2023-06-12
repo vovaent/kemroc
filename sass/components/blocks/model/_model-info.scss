@@ -11,20 +11,12 @@
 
     &__parent-page-name {
         @include reset-a($accent);
-
-        font-family: $font__secondary;
-        font-weight: 700;
-        font-size: 19px;
-        line-height: 160%;
-        color: $accent;
-        text-transform: capitalize;
     }
 
     &__title {
         margin-top: 16px;
         font-size: 40px;
         line-height: 130%;
-        text-transform: capitalize;
 
         @include media-down-md {
             font-size: 28px;

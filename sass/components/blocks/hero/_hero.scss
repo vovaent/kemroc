@@ -1,0 +1,116 @@
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 463px;
+    margin-bottom: 128px;
+    padding: 64px 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include media-down-md {
+        align-items: start;
+        margin-bottom: 32px;
+        min-height: 333px;
+        padding-top: 64px;
+    }
+
+    @include media-down-sm {
+        min-height: 178px;
+    }
+
+    &--front-page {
+        padding: 144px 0;
+
+        @include media-down-md {
+            align-items: center;
+            padding: 88px 0;
+        }
+
+        @include media-down-sm {
+            padding: 64px 0;
+        }
+    }
+
+    &__bg-picture {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        z-index: -1;
+    }
+
+    &__bg-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 530px;
+
+        @include media-down-md {
+            width: 500px;
+        }
+
+        @include media-down-sm {
+            width: 100%;
+        }
+    }
+
+    &__above-title {
+        margin-bottom: 22px;
+
+        @include media-down-md {
+            margin-bottom: 8px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 0;
+        color: #fff;
+
+        @include media-down-md {
+            font-size: 33px;
+        }
+
+        @include media-down-sm {
+            font-size: 23px;
+            line-height: 32px;
+        }
+    }
+
+    &__description {
+        margin-top: 22px;
+        font-weight: 600;
+        font-size: 19px;
+        line-height: 30px;
+        color: #fff;
+
+        @include media-down-md {
+            margin-top: 16px;
+        }
+
+        @include media-down-sm {
+            margin-top: 8px;
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+
+    &__readmore {
+        width: max-content;
+        margin-top: 36px;
+
+        @include media-down-md {
+            margin-top: 24px;
+        }
+    }
+}

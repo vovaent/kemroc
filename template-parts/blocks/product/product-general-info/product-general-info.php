@@ -33,6 +33,9 @@ if ( ! $is_preview ) :
 	// Load values and assing defaults.
 	$kemroc_pgi_figure        = get_field( 'figure' );
 	$kemroc_pgi_list_benefits = get_field( 'list_benefits' );
+	$kemroc_pgi_title_choice  = get_field( 'title_choice' );
+	$kemroc_pgi_title         = 'custom_title' === $kemroc_pgi_title_choice ? get_field( 'custom_title' ) : get_the_title();
+	$kemroc_pgi_subtitle      = get_field( 'subtitle' );
 
 	$kemroc_pgi_app_areas = wp_get_post_terms( get_the_ID(), 'einsatzbereich' );
 	?>
@@ -59,11 +62,11 @@ if ( ! $is_preview ) :
 
 			<div class="product-general-info__text">
 				<h1 class="product-general-info__title">
-					<?php echo esc_html( get_field( 'title' ) ); ?>
+					<?php echo esc_html( $kemroc_pgi_title ); ?>
 				</h1>
 				<!-- /.product-general-info__title -->
 				<h3 class="product-general-info__subtitle">
-					<?php echo wp_kses_post( get_field( 'subtitle' ) ); ?>
+					<?php echo wp_kses_post( $kemroc_pgi_subtitle ); ?>
 				</h3>
 				<!-- /.product-general-info__subtitle -->
 
