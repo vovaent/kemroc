@@ -388,5 +388,26 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
+	acf_register_block_type(
+		array(
+			'name'            => 'chess-content',
+			'title'           => __( 'Schachinhalt', 'kemroc' ),
+			'description'     => __( 'Schachinhalt', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/general/chess-content/chess-content.php',
+			'category'        => 'text-images-modules',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Schachinhalt', 'Text und Bild' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/general/chess-content/chess-content.png',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'kemroc_acf_init_block_types' );

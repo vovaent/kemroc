@@ -226,6 +226,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/series-tech-info',
 			'acf/application-areas-list',
 			'acf/application-areas-description',
+			'acf/chess-content',
 		);
 	}
 
