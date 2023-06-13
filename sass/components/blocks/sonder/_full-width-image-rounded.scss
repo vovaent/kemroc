@@ -1,0 +1,17 @@
+.fw-image-rounded {
+    margin: 128px 0;
+
+    @include media-down-md {
+        margin: 72px 0;
+    }
+
+    @include media-down-sm {
+        margin: 64px 0;
+    }
+
+    &__content {
+        img {
+            border-radius: 24px;
+        }
+    }
+}

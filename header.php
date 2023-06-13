@@ -38,7 +38,7 @@
 							<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
 						</a>
 						<button class="lang-switcher">
-							<?php get_template_part( 'template-parts/icons/lang-switcher' ); ?>
+							<?php get_template_part( 'template-parts/icons/english-flag' ); ?>
 						</button>
 					</div>
 

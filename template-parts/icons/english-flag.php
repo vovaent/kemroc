@@ -1,6 +1,6 @@
 <?php
 /**
- * Language switcher
+ * English flag
  * 
  * @package kemroc
  */

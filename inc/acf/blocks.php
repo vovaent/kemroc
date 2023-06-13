@@ -393,7 +393,7 @@ function kemroc_acf_init_block_types() {
 			'name'            => 'chess-content',
 			'title'           => __( 'Schachinhalt', 'kemroc' ),
 			'description'     => __( 'Schachinhalt', 'kemroc' ),
-			'render_template' => 'template-parts/blocks/general/chess-content/chess-content.php',
+			'render_template' => 'template-parts/blocks/sonder/chess-content/chess-content.php',
 			'category'        => 'text-images-modules',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
@@ -403,7 +403,49 @@ function kemroc_acf_init_block_types() {
 				'attributes' => array(
 					'mode' => 'preview',
 					'data' => array(
-						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/general/chess-content/chess-content.png',
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/chess-content/chess-content.png',
+					),
+				),
+			),
+		)
+	);
+	acf_register_block_type(
+		array(
+			'name'            => 'full-width-image-rounded',
+			'title'           => __( 'Bild in voller Breite mit abgerundeten Kanten', 'kemroc' ),
+			'description'     => __( 'Bild in voller Breite mit abgerundeten Kanten', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/sonder/full-width-image-rounded/full-width-image-rounded.php',
+			'category'        => 'images-modules',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Bild' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/full-width-image-rounded/full-width-image-rounded.png',
+					),
+				),
+			),
+		)
+	);
+	acf_register_block_type(
+		array(
+			'name'            => 'our-team',
+			'title'           => __( 'Unser Team', 'kemroc' ),
+			'description'     => __( 'Unser Team', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/sonder/our-team/our-team.php',
+			'category'        => 'sonder-modules',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Team' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/our-team/our-team.png',
 					),
 				),
 			),
