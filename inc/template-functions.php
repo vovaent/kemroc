@@ -229,6 +229,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/chess-content',
 			'acf/full-width-image-rounded',
 			'acf/our-team',
+			'acf/application-areas-filter',
 		);
 	}
 

@@ -451,5 +451,26 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
+	acf_register_block_type(
+		array(
+			'name'            => 'application-areas-filter',
+			'title'           => __( 'Einsatzbereiche Filter', 'kemroc' ),
+			'description'     => __( 'Einsatzbereiche Filter', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php',
+			'category'        => 'application-areas',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Einsatzbereiche', 'Filter' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.png',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'kemroc_acf_init_block_types' );
