@@ -18,7 +18,7 @@
 .cc-left {
     display: flex;
     flex-direction: column;
-    width: calc(50% - 35px);
+    width: 45.21%;
 
     @include media-down-md {
         flex-direction: row;
@@ -75,6 +75,7 @@
 
     &__image {
         margin-top: 98px;
+        height: 100%;
 
         @include media-down-md {
             margin-top: 0;
@@ -102,7 +103,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: calc(50% - 35px);
+    width: 48.72%;
 
     @include media-down-md {
         display: flex;
@@ -117,6 +118,9 @@
 
     &__image {
         margin: 0;
+        height: 475px;
+        border-radius: 24px;
+        overflow: hidden;
 
         @include media-down-md {
             flex-shrink: 0;
@@ -135,9 +139,14 @@
     }
 
     &__description {
+        margin-top: 106px;
         font-weight: 400;
         font-size: 16px;
         line-height: 26px;
+
+        @include media-down-md {
+            margin-top: 0;
+        }
 
         p {
             margin-top: 24px;
