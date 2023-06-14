@@ -394,7 +394,7 @@ main {
 
             >.btn {
                 flex: auto;
-                width: auto;
+                max-width: max-content;
 
                 @include media-down-md {
                     max-width: max-content;
@@ -617,15 +617,7 @@ main {
 }
 
 .our-company {
-    margin: 128px 0;
-
-    @include media-down-md {
-        margin: 72px 0;
-    }
-
-    @include media-down-sm {
-        margin: 64px 0;
-    }
+    @include standard-block-margins;
 
     &__inner {
         display: flex;
@@ -732,15 +724,7 @@ main {
 }
 
 .our-news {
-    margin: 128px 0;
-
-    @include media-down-md {
-        margin: 72px 0;
-    }
-
-    @include media-down-sm {
-        margin: 64px 0;
-    }
+    @include standard-block-margins;
 
     .section-header {
         margin-bottom: 64px;
