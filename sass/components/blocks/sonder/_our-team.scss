@@ -1,0 +1,96 @@
+.our-team {
+    @include standard-block-margins;
+
+    &__title {
+        font-family: $font__secondary;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 52px;
+        color: #000000;
+
+        @include media-down-md {
+            font-size: 28px;
+            line-height: 36px;
+        }
+
+        @include media-down-sm {
+            font-size: 19px;
+            line-height: 27px;
+        }
+    }
+
+    &__list {
+        @include reset-ul;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 40px;
+
+        @include media-down-md {
+            gap: 24px 30px;
+            margin-top: 32px;
+        }
+
+        @include media-down-sm {
+            gap: 24px;
+        }
+    }
+
+    &__cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 40px;
+        padding: 32px 48px;
+        background: #444444;
+        border-radius: 24px;
+
+        @include media-down-md {
+            margin-top: 72px;
+        }
+
+        @include media-down-sm {
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-top: 64px;
+            padding: 24px;
+        }
+    }
+
+    &__cta-content {
+        display: flex;
+        align-items: center;
+    }
+
+    &__cta-logo {
+        width: 34.14px;
+        height: 22.67px;
+    }
+
+    &__cta-text {
+        margin-left: 14px;
+        font-family: $font__secondary;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 36px;
+        color: #fff;
+
+        @include media-down-md {
+            font-size: 28px;
+            line-height: 36px;
+        }
+
+        @include media-down-sm {
+            font-size: 20px;
+            line-height: 26px;
+        }
+    }
+
+    &__cta-btn {
+        @include media-down-sm {
+            margin-top: 24px;
+            width: 100%;
+        }
+    }
+}

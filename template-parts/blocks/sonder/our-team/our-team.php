@@ -32,6 +32,7 @@ if ( ! $is_preview ) :
 
 	// Load values and assing defaults.
 	$kemroc_ot_title = get_field( 'title' );
+	$kemroc_ot_cta   = get_field( 'cta' );
 
 	$kemroc_ot_args  = array(
 		'post_type'   => 'member',
@@ -65,52 +66,95 @@ if ( ! $is_preview ) :
 						$kemroc_ot_email         = get_field( 'email', $kemroc_ot_this_id );
 						?>
 						<li class="our-team__item member-card">
-							<div class="member-card__langs">
-								<span class="member-card__langs-text">
-									<?php esc_html_e( 'Sprachen', 'kemroc' ); ?> 
-								</span>
-								<!-- /.member-card__langs-text -->
-								<ul class="member-card__langs-list">
+							<div class="member-card__personal-info">
+								<div class="member-card__langs member-card__langs--pc">
+									<span class="member-card__langs-text">
+										<?php esc_html_e( 'Sprachen', 'kemroc' ); ?> 
+									</span>
+									<!-- /.member-card__langs-text -->
+									<ul class="member-card__langs-list">
 
-									<?php if ( $kemroc_ot_langs && in_array( 'en', $kemroc_ot_langs, true ) ) : ?>
-										<li class="member-card__langs-item">
-											<?php get_template_part( 'template-parts/icons/english-flag' ); ?>
-										</li>
-										<!-- /.member-card__langs-item -->									   
-									<?php endif; ?>
-									
-									<?php if ( $kemroc_ot_langs && in_array( 'de', $kemroc_ot_langs, true ) ) : ?>
-										<li class="member-card__langs-item">
-											<?php get_template_part( 'template-parts/icons/german-flag' ); ?>
-										</li>
-										<!-- /.member-card__langs-item -->									   
-									<?php endif; ?>
+										<?php if ( $kemroc_ot_langs && in_array( 'en', $kemroc_ot_langs, true ) ) : ?>
+											<li class="member-card__langs-item">
+												<?php get_template_part( 'template-parts/icons/english-flag' ); ?>
+											</li>
+											<!-- /.member-card__langs-item -->									   
+										<?php endif; ?>
+										
+										<?php if ( $kemroc_ot_langs && in_array( 'de', $kemroc_ot_langs, true ) ) : ?>
+											<li class="member-card__langs-item">
+												<?php get_template_part( 'template-parts/icons/german-flag' ); ?>
+											</li>
+											<!-- /.member-card__langs-item -->									   
+										<?php endif; ?>
 
-								</ul>
-								<!-- /.member-card__langs-list -->
+									</ul>
+									<!-- /.member-card__langs-list -->								
+								</div>
+								<!-- /.member-card__langs -->
 								<div class="member-card__avatar">
 									<?php echo wp_get_attachment_image( $kemroc_ot_avatar ); ?>
 								</div>
 								<!-- /.member-card__avatar -->
-								<div class="member-card__name">
-									<?php echo esc_html( $kemroc_ot_full_name ); ?>
+								<div class="member-card__inner">
+									<div class="member-card__langs member-card__langs--tab">
+										<span class="member-card__langs-text">
+											<?php esc_html_e( 'Sprachen', 'kemroc' ); ?> 
+										</span>
+										<!-- /.member-card__langs-text -->
+										<ul class="member-card__langs-list">
+
+											<?php if ( $kemroc_ot_langs && in_array( 'en', $kemroc_ot_langs, true ) ) : ?>
+												<li class="member-card__langs-item">
+													<?php get_template_part( 'template-parts/icons/english-flag' ); ?>
+												</li>
+												<!-- /.member-card__langs-item -->									   
+											<?php endif; ?>
+											
+											<?php if ( $kemroc_ot_langs && in_array( 'de', $kemroc_ot_langs, true ) ) : ?>
+												<li class="member-card__langs-item">
+													<?php get_template_part( 'template-parts/icons/german-flag' ); ?>
+												</li>
+												<!-- /.member-card__langs-item -->									   
+											<?php endif; ?>
+
+										</ul>
+										<!-- /.member-card__langs-list -->								
+									</div>
+									<!-- /.member-card__langs -->
+									<div class="member-card__name">
+										<?php echo esc_html( $kemroc_ot_full_name ); ?>
+									</div>
+									<!-- /.member-card__name -->
+									<div class="member-card__position">
+										<?php echo esc_html( $kemroc_ot_position ); ?>
+									</div>
+									<!-- /.member-card__position -->
 								</div>
-								<div class="member-card__position">
-									<?php echo esc_html( $kemroc_ot_position ); ?>
-								</div>
-								<div class="member-card__contacts">
+								<!-- /.member-card__inner -->
+							</div>
+							<!-- /.member-card__personal-info -->
+							<div class="member-card__contacts">
+								<div class="member-card__numbers">
 									<div class="member-card__phone-number">
+										<?php get_template_part( 'template-parts/icons/phone' ); ?>
 										<?php echo esc_html( $kemroc_ot_phone_number ); ?>
 									</div>
+									<!-- /.member-card__phone-number -->
 									<div class="member-card__mobile-number">
+										<?php esc_html_e( 'mob.:', 'kemroc' ); ?>
 										<?php echo esc_html( $kemroc_ot_mobile_number ); ?>
 									</div>
-									<div class="member-card__email">
-										<?php echo esc_html( $kemroc_ot_email ); ?>
-									</div>
+									<!-- /.member-card__mobile-number -->
 								</div>
+								<!-- /.member-card__numbers -->
+								<div class="member-card__email">
+									<?php get_template_part( 'template-parts/icons/email' ); ?>
+									<?php echo esc_html( $kemroc_ot_email ); ?>
+								</div>
+							<!-- /.member-card__email -->
 							</div>
-							<!-- /.member-card__langs -->
+							<!-- /.member-card__contacts -->
 						</li>
 						<!-- /.our-team__item member-card --> 
 						<?php 
@@ -121,6 +165,27 @@ if ( ! $is_preview ) :
 				<!-- /.our-team__list -->
 			<?php endif; ?>
 
+			<?php if ( $kemroc_ot_cta['show_cta'] ) : ?>
+				<div class="our-team__cta">
+					<div class="our-team__cta-content">
+						<div class="our-team__cta-logo">
+							<?php get_template_part( 'template-parts/icons/logo', 'mini' ); ?>
+						</div>
+						<!-- /.our-team__cta-logo -->
+						<div class="our-team__cta-text">
+							<?php echo esc_html( $kemroc_ot_cta['text'] ); ?>
+						</div>
+						<!-- /.our-team__cta-text -->
+					</div>
+					<!-- /.our-team__cta-text -->
+					<a href="<?php echo esc_url( $kemroc_ot_cta['link']['url'] ); ?>" class="btn btn-accent btn-rounded arrow-right our-team__cta-btn">
+						<?php echo esc_html( $kemroc_ot_cta['link']['title'] ); ?>
+					</a>
+					<!-- /.our-team__cta-btn -->
+				</div>
+				<!-- /.our-team__cta -->
+			<?php endif; ?>
+			
 		</div>
 		<!-- /.container our-team__content -->
 	</section>
