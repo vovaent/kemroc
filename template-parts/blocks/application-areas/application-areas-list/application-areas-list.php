@@ -53,20 +53,26 @@ if ( ! $is_preview ) :
 						?>
 						<li class="application-areas-list__item application-areas-item">
 							<a href="<?php the_permalink( $kemroc_aal_post_id ); ?>" class="application-areas-item__link">
-								<?php echo get_the_post_thumbnail( $kemroc_aal_post_id, 'medium', array( 'class' => 'application-areas-item__image' ) ); ?>
-								<h5 class="application-areas-item__title">
-									<?php the_title(); ?>
-								</h5>
-								<!-- /.application-areas-item__title -->
-								<div class="application-areas-item__more">
-									<?php esc_html_e( 'Mehr', 'kemroc' ); ?>
-									<?php get_template_part( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ); ?>
-								</div>
-								<!-- /.application-areas-item__more -->
+								<figure class="application-areas-item__figure">
+									<?php echo get_the_post_thumbnail( $kemroc_aal_post_id, 'medium', array( 'class' => 'application-areas-item__image' ) ); ?>
+									<figcaption class="application-areas-item__caption">
+										<h6 class="application-areas-item__title">
+											<?php the_title(); ?>
+										</h6>
+										<!-- /.application-areas-item__title -->										
+									</figcaption>
+									<!-- /.application-areas-item__caption -->
+									<p class="pseudo-link application-areas-item__pseudo-link">
+										<?php esc_html_e( 'Mehr', 'kemroc' ); ?>
+										<?php get_template_part( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ); ?>
+									</p>
+									<!-- /.application-areas-item__pseudo-link -->
+								</figure>
+								<!-- /.application-areas-item__figure -->
 							</a>
 							<!-- /.application-areas-item__link -->
 						</li>
-						<!-- /.application-areas-list__item application-areas-item -->
+						<!-- /.application-areas-list__item -->
 						<?php 
 					endwhile;
 					wp_reset_postdata() 

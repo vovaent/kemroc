@@ -16,7 +16,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Held', 'kemroc' ),
 			'description'     => __( 'Held', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/sonder/hero/hero.php',
-			'category'        => 'sonder',
+			'category'        => 'text-images-modules',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'hero' ),

@@ -59,10 +59,12 @@ if ( ! $is_preview ) :
 			<?php if ( $kemroc_aaf_term_children ) : ?>
 				<ul class="application-areas-filter__areas-list">
 					<li 
-						class="application-areas-filter__areas-item application-areas-filter__area-item--all"
+						class="application-areas-filter__areas-item application-areas-filter__areas-item--active"
 						data-term-id="null"
 					>
-						<?php esc_html_e( 'Alle', 'kemroc' ); ?>
+						<button>
+							<?php esc_html_e( 'Alle', 'kemroc' ); ?>
+						</button>
 					</li>
 					<!-- /.application-areas-filter__areas-item -->
 					
@@ -74,7 +76,9 @@ if ( ! $is_preview ) :
 							class="application-areas-filter__areas-item" 
 							data-term-id="<?php echo esc_attr( $kemroc_aaf_term_child ); ?>"
 						>
-							<?php echo esc_html( $kemroc_aaf_term_obj->name ); ?>
+							<button>
+								<?php echo esc_html( $kemroc_aaf_term_obj->name ); ?>
+							</button>
 						</li>
 						<!-- /.application-areas-filter__areas-item -->
 						<?php 
@@ -98,20 +102,39 @@ if ( ! $is_preview ) :
 						$kemroc_aaf_model_term_id = isset( $kemroc_aaf_model_terms[0] ) ? $kemroc_aaf_model_terms[0]->term_id : null;
 						?>
 						<li 
-							class="application-areas-filter__model-item aaf-model"
+							class="application-areas-filter__model-item application-areas-item application-areas-item--model"
 							data-term-id="<?php echo esc_attr( $kemroc_aaf_model_term_id ); ?>"
 						>
-							<a href="<?php the_permalink(); ?>" class="aaf-model__link">
-								<span class="aaf-model__title">
-									<?php the_title(); ?>
-								</span>
-								<!-- /.aaf-model__title -->
-								<span class="aaf-model__weight">
-									<?php echo esc_html( $kemroc_aaf_model_weight ); ?>
-								</span>
-								<!-- /.aaf-model__weight -->
+							<a href="<?php the_permalink(); ?>" class="application-areas-item__link">
+								<figure class="application-areas-item__figure application-areas-item__figure--model">
+									<?php echo get_the_post_thumbnail( $kemroc_aaf_model_id, 'post-thumbnail', array( 'class' => 'application-areas-item__image' ) ); ?>
+									<figcaption class="application-areas-item__caption">
+										<h6 class="application-areas-item__title application-areas-item__title--model">
+											<?php the_title(); ?>
+										</h6>
+										<!-- /.application-areas-item__title -->
+										<p class="application-areas-item__weight">
+											<span class="application-areas-item__weight-icon">
+												<?php get_template_part( 'template-parts/icons/weights' ); ?>
+											</span>
+											<!-- /.application-areas-item__weight-icon -->
+											<span class="application-areas-item__weight-text">
+												<?php echo esc_html( $kemroc_aaf_model_weight ); ?>
+											</span>
+											<!-- /.application-areas-item__weight-text -->
+										</p>
+										<!-- /.application-areas-item__weight -->
+									</figcaption>
+									<!-- /.application-areas-item__caption -->
+									<p class="pseudo-link application-areas-item__pseudo-link application-areas-item__pseudo-link--model">
+										<?php esc_html_e( 'Mehr', 'kemroc' ); ?>
+										<?php get_template_part( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ); ?>
+									</p>
+									<!-- /.application-areas-item__pseudo-link -->
+								</figure>
+								<!-- /.application-areas-item__figure -->
 							</a>
-							<!-- /.aaf-model__link -->
+							<!-- /.application-areas-item__link -->
 						</li>
 						<!-- /.application-areas-filter__model-item -->
 						<?php 

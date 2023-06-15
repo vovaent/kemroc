@@ -12,9 +12,20 @@ const applicationAreasFilter = ($) => {
 		}
 
 		const $areaItemThis = $(this);
+		const areaItemClassActive =
+			'application-areas-filter__areas-item--active';
+
+		if ($areaItemThis.hasClass(areaItemClassActive)) {
+			return;
+		}
+
+		$areaItems.removeClass(areaItemClassActive);
+		$areaItemThis.addClass(areaItemClassActive);
+
 		const areaItemThisTermId = $areaItemThis.data('term-id');
+
 		if (null === areaItemThisTermId) {
-			$modelItems.show();
+			$modelItems.fadeIn();
 		} else {
 			$modelItems.hide();
 
@@ -23,7 +34,7 @@ const applicationAreasFilter = ($) => {
 				const modelItemThisTermId = $modelItemThis.data('term-id');
 
 				if (modelItemThisTermId === areaItemThisTermId) {
-					$modelItemThis.show();
+					$modelItemThis.fadeIn();
 				}
 			});
 		}

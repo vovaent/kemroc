@@ -1,0 +1,178 @@
+.application-areas-item {
+    position: relative;
+    width: calc((100% - 90px) / 4);
+    height: 340px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20.83%, rgba(0, 0, 0, 0.84) 100%);
+    overflow: hidden;
+
+    @include media-down-md {
+        width: calc((100% - 60px) / 3);
+        height: 260px;
+    }
+
+    @include media-down-sm {
+        width: calc((100% - 16px) / 2);
+        height: 180px;
+    }
+
+    &--model {
+        @include media-down-md {
+            height: 242px;
+        }
+
+        @include media-down-sm {
+            width: 100%;
+        }
+    }
+
+    &__link {
+        @include reset-a($accent);
+
+        width: 100%;
+        height: 100%;
+    }
+
+    &__figure {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin: 0;
+        height: 100%;
+        padding: 28px 24px;
+
+        @include media-down-md {
+            padding: 20px;
+        }
+
+        @include media-down-sm {
+            padding: 12px;
+        }
+
+        &--model {
+            @include media-down-md {
+                padding: 24px;
+            }
+
+            @include media-down-sm {
+                padding: 24px;
+            }
+        }
+    }
+
+    &__image {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(-50%);
+        z-index: -2;
+    }
+
+    &__title {
+        font-family: $font__main;
+        font-weight: 600;
+        font-size: 19px;
+        line-height: 30px;
+        color: #fff;
+
+        @include media-down-md {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        @include media-down-sm {
+            font-size: 13px;
+            line-height: 16px;
+        }
+
+        &--model {
+            font-family: $font__secondary;
+            font-weight: 700;
+            font-size: 19px;
+            line-height: 30px;
+            color: #FFFFFF;
+
+            @include media-down-md {
+                font-size: 19px;
+                line-height: 30px;
+            }
+
+            @include media-down-sm {
+                font-size: 19px;
+                line-height: 30px;
+            }
+        }
+    }
+
+
+    &__caption {
+        transform: translateY(22px);
+        transition: transform .3s ease-in-out;
+
+        @include media-down-md {
+            transform: translateY(0);
+        }
+
+        .application-areas-item:hover & {
+            transform: translateY(0);
+        }
+    }
+
+    &__weight {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+    }
+
+    &__weight-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    &__weight-text {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 26px;
+        color: #FFFFFF;
+    }
+
+    &__pseudo-link {
+        margin: 0;
+        margin-top: 2px;
+        transform: translateY(43px);
+        transition: transform .3s ease-in-out;
+
+        @include media-down-md {
+            font-size: 11px;
+            line-height: 15px;
+            transform: translateY(0);
+        }
+
+        @include media-down-sm {}
+
+        .application-areas-item:hover & {
+            transform: translateY(0);
+        }
+
+        &--model {
+            margin-top: 8px;
+
+            @include media-down-md {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+    }
+}
