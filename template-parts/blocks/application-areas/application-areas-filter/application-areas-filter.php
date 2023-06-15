@@ -58,17 +58,20 @@ if ( ! $is_preview ) :
 
 			<?php if ( $kemroc_aaf_term_children ) : ?>
 				<ul class="application-areas-filter__areas-list">
-					<li class="application-areas-filter__area-item application-areas-filter__area-item--all">
+					<li 
+						class="application-areas-filter__areas-item application-areas-filter__area-item--all"
+						data-term-id="null"
+					>
 						<?php esc_html_e( 'Alle', 'kemroc' ); ?>
 					</li>
-					<!-- /.application-areas-filter__area-item -->
+					<!-- /.application-areas-filter__areas-item -->
 					
 					<?php 
 					foreach ( $kemroc_aaf_term_children as $kemroc_aaf_term_child ) : 
 						$kemroc_aaf_term_obj = get_term( $kemroc_aaf_term_child, $kemroc_aaf_application_area->taxonomy );
 						?>
 						<li 
-							class="application-areas-filter__area-item" 
+							class="application-areas-filter__areas-item" 
 							data-term-id="<?php echo esc_attr( $kemroc_aaf_term_child ); ?>"
 						>
 							<?php echo esc_html( $kemroc_aaf_term_obj->name ); ?>
@@ -92,8 +95,7 @@ if ( ! $is_preview ) :
 						$kemroc_aaf_model_id      = get_the_ID();
 						$kemroc_aaf_model_weight  = get_field( 'weight', $kemroc_aaf_model_id );
 						$kemroc_aaf_model_terms   = get_the_terms( $kemroc_aaf_model_id, $kemroc_aaf_application_area->taxonomy );
-						$kemroc_aaf_model_term_id = isset( $kemroc_aaf_model_terms[0] ) ? $kemroc_aaf_model_terms[0]->term_id : '';
-							// var_dump( $kemroc_aaf_model_terms );
+						$kemroc_aaf_model_term_id = isset( $kemroc_aaf_model_terms[0] ) ? $kemroc_aaf_model_terms[0]->term_id : null;
 						?>
 						<li 
 							class="application-areas-filter__model-item aaf-model"
