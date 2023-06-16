@@ -182,6 +182,11 @@ function add_custom_block_categories( $block_categories, $editor_context ) {
 			array(
 				'slug'  => 'application-areas',
 				'title' => esc_html__( 'Einsatzbereiche', 'kemroc' ),
+				'icon'  => null,            
+			),
+			array(
+				'slug'  => 'constacts',
+				'title' => esc_html__( 'Kontakte', 'kemroc' ),
 				'icon'  => null,
 			)
 		);
@@ -230,6 +235,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/full-width-image-rounded',
 			'acf/our-team',
 			'acf/application-areas-filter',
+			'acf/contacts-info',
 		);
 	}
 

@@ -31,8 +31,8 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	$kemroc_ot_title = get_field( 'title' );
-	$kemroc_ot_cta   = get_field( 'cta' );
+	$kemroc_ot_section_title = get_field( 'section_title' );
+	$kemroc_ot_cta           = get_field( 'cta' );
 
 	$kemroc_ot_args  = array(
 		'post_type'   => 'member',
@@ -45,9 +45,15 @@ if ( ! $is_preview ) :
 
 	<section id="<?php echo esc_attr( $kemroc_ot_id ); ?>" class="<?php echo esc_attr( $kemroc_ot_class_name ); ?>">
 		<div class="container our-team__content">
-			<h2 class="our-team__title">
-				<?php echo esc_html( $kemroc_ot_title ); ?>
-			</h2>
+			<?php if ( 'h2' === $kemroc_ot_section_title['title_size'] ) : ?>
+				<h2 class="our-team__title our-team__title--h2">
+					<?php echo esc_html( $kemroc_ot_section_title['title'] ); ?>
+				</h2>
+			<?php elseif ( 'h4' === $kemroc_ot_section_title['title_size'] ) : ?>
+				<h4 class="our-team__title our-team__title--h4">
+					<?php echo esc_html( $kemroc_ot_section_title['title'] ); ?>
+				</h4>
+			<?php endif; ?>
 			<!-- /.our-team__title -->
 			
 			<?php if ( $kemroc_ot_query->have_posts() ) : ?>
@@ -58,8 +64,6 @@ if ( ! $is_preview ) :
 						
 						$kemroc_ot_this_id       = get_the_ID();
 						$kemroc_ot_langs         = get_field( 'languages', $kemroc_ot_this_id );
-						$kemroc_ot_avatar        = get_field( 'avatar', $kemroc_ot_this_id );
-						$kemroc_ot_full_name     = get_field( 'full_name', $kemroc_ot_this_id );
 						$kemroc_ot_position      = get_field( 'position', $kemroc_ot_this_id );
 						$kemroc_ot_phone_number  = get_field( 'phone_number', $kemroc_ot_this_id );
 						$kemroc_ot_mobile_number = get_field( 'mobile_number', $kemroc_ot_this_id );
@@ -72,28 +76,25 @@ if ( ! $is_preview ) :
 										<?php esc_html_e( 'Sprachen', 'kemroc' ); ?> 
 									</span>
 									<!-- /.member-card__langs-text -->
-									<ul class="member-card__langs-list">
 
-										<?php if ( $kemroc_ot_langs && in_array( 'en', $kemroc_ot_langs, true ) ) : ?>
-											<li class="member-card__langs-item">
-												<?php get_template_part( 'template-parts/icons/english-flag' ); ?>
-											</li>
-											<!-- /.member-card__langs-item -->									   
-										<?php endif; ?>
-										
-										<?php if ( $kemroc_ot_langs && in_array( 'de', $kemroc_ot_langs, true ) ) : ?>
-											<li class="member-card__langs-item">
-												<?php get_template_part( 'template-parts/icons/german-flag' ); ?>
-											</li>
-											<!-- /.member-card__langs-item -->									   
-										<?php endif; ?>
+									<?php if ( $kemroc_ot_langs ) : ?>
+										<ul class="member-card__langs-list">
 
-									</ul>
-									<!-- /.member-card__langs-list -->								
+											<?php foreach ( $kemroc_ot_langs as $kemroc_ot_lang ) : ?>
+												<li class="member-card__langs-item">
+													<?php echo get_the_post_thumbnail( $kemroc_ot_lang ); ?>
+												</li>
+												<!-- /.member-card__langs-item -->									   
+											<?php endforeach; ?>
+											
+										</ul>
+										<!-- /.member-card__langs-list -->								
+									<?php endif; ?>
+
 								</div>
 								<!-- /.member-card__langs -->
 								<div class="member-card__avatar">
-									<?php echo wp_get_attachment_image( $kemroc_ot_avatar ); ?>
+									<?php echo get_the_post_thumbnail(); ?>
 								</div>
 								<!-- /.member-card__avatar -->
 								<div class="member-card__inner">
@@ -102,28 +103,25 @@ if ( ! $is_preview ) :
 											<?php esc_html_e( 'Sprachen', 'kemroc' ); ?> 
 										</span>
 										<!-- /.member-card__langs-text -->
-										<ul class="member-card__langs-list">
+										
+										<?php if ( $kemroc_ot_langs ) : ?>
+											<ul class="member-card__langs-list">
 
-											<?php if ( $kemroc_ot_langs && in_array( 'en', $kemroc_ot_langs, true ) ) : ?>
-												<li class="member-card__langs-item">
-													<?php get_template_part( 'template-parts/icons/english-flag' ); ?>
-												</li>
-												<!-- /.member-card__langs-item -->									   
-											<?php endif; ?>
-											
-											<?php if ( $kemroc_ot_langs && in_array( 'de', $kemroc_ot_langs, true ) ) : ?>
-												<li class="member-card__langs-item">
-													<?php get_template_part( 'template-parts/icons/german-flag' ); ?>
-												</li>
-												<!-- /.member-card__langs-item -->									   
-											<?php endif; ?>
-
-										</ul>
-										<!-- /.member-card__langs-list -->								
+												<?php foreach ( $kemroc_ot_langs as $kemroc_ot_lang ) : ?>
+													<li class="member-card__langs-item">
+														<?php echo get_the_post_thumbnail( $kemroc_ot_lang ); ?>
+													</li>
+													<!-- /.member-card__langs-item -->									   
+												<?php endforeach; ?>
+												
+											</ul>
+											<!-- /.member-card__langs-list -->								
+										<?php endif; ?>
+							
 									</div>
 									<!-- /.member-card__langs -->
 									<div class="member-card__name">
-										<?php echo esc_html( $kemroc_ot_full_name ); ?>
+										<?php the_title(); ?>
 									</div>
 									<!-- /.member-card__name -->
 									<div class="member-card__position">
@@ -158,8 +156,8 @@ if ( ! $is_preview ) :
 						</li>
 						<!-- /.our-team__item member-card --> 
 						<?php 
-					endwhile;
-					wp_reset_postdata();
+						endwhile;
+						wp_reset_postdata();
 					?>
 				</ul>
 				<!-- /.our-team__list -->
@@ -192,4 +190,4 @@ if ( ! $is_preview ) :
 	<!-- /.our-team -->
 
 	<?php
-endif;
+	endif;

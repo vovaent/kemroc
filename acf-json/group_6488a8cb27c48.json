@@ -3,10 +3,10 @@
     "title": "Block | Our Team",
     "fields": [
         {
-            "key": "field_6488a8cb64309",
-            "label": "Titel",
-            "name": "title",
-            "type": "text",
+            "key": "field_648c73b119720",
+            "label": "Abschnittsüberschrift",
+            "name": "section_title",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,11 +15,50 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6488a8cb64309",
+                    "label": "Titel",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_648c73e019721",
+                    "label": "Titelgröße",
+                    "name": "title_size",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "h2": "H2",
+                        "h4": "H4"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "layout": "horizontal"
+                }
+            ]
         },
         {
             "key": "field_64899fa124d2a",
@@ -126,5 +165,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686741087
+    "modified": 1686926525
 }

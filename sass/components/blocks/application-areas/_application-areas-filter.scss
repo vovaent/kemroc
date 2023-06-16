@@ -28,7 +28,9 @@
         margin-top: 40px;
 
         @include media-down-sm {
+            flex-wrap: nowrap;
             margin-top: 16px;
+            overflow: auto;
         }
     }
 
@@ -46,6 +48,10 @@
             font-size: 14px;
             line-height: 18px;
             cursor: pointer;
+
+            @include media-down-sm {
+                width: max-content;
+            }
         }
 
         &--active {
