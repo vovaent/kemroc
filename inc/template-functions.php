@@ -236,6 +236,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/our-team',
 			'acf/application-areas-filter',
 			'acf/contacts-info',
+			'acf/contacts-form',
 		);
 	}
 

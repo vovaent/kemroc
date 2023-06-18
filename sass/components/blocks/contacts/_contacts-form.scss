@@ -1,0 +1,172 @@
+.contacts-form {
+    @include standard-block-margins;
+
+    padding: 128px 0;
+    background: #EEEEEE;
+
+    &__title {
+        font-family: $font__secondary;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 36px;
+        color: #000000;
+
+        @include media-down-sm {
+            font-size: 19px;
+            line-height: 27px;
+        }
+    }
+
+    &__form {
+        margin-top: 60px;
+
+        @include media-down-sm {
+            margin-top: 24px;
+        }
+    }
+}
+
+.cf-form {
+    &__top {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+
+        @include media-down-sm {
+            flex-direction: column;
+        }
+    }
+
+    &__left {
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        @include media-down-sm {
+            gap: 20px 16px;
+            width: 100%;
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        gap: 20px;
+
+        @include media-down-sm {
+            width: 100%;
+        }
+    }
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-family: $font__third;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        color: #444444;
+
+        &--street {
+            width: 412px;
+
+            @include media-down-md {
+                width: 100%;
+            }
+
+            @include media-down-sm {
+                width: calc(50% - 8px);
+            }
+        }
+
+        &--house {
+            width: 137px;
+
+            @include media-down-md {
+                width: 100%;
+            }
+
+            @include media-down-sm {
+                width: calc(50% - 8px);
+            }
+        }
+
+        &--zipcode {
+            width: 137px;
+
+            @include media-down-md {
+                width: 100%;
+            }
+
+            @include media-down-sm {
+                width: calc(50% - 8px);
+            }
+        }
+
+        &--location {
+            width: 412px;
+
+            @include media-down-md {
+                width: 100%;
+            }
+
+            @include media-down-sm {
+                width: calc(50% - 8px);
+            }
+        }
+
+        &--phone {
+            width: calc(50% - 15px);
+
+            @include media-down-md {
+                width: 100%;
+            }
+        }
+
+        &--add-phone {
+            width: calc(50% - 15px);
+
+            @include media-down-md {
+                width: 100%;
+            }
+        }
+
+        &--email {
+            width: calc(50% - 15px);
+
+            @include media-down-md {
+                width: 100%;
+            }
+        }
+
+        &--fax {
+            width: calc(50% - 15px);
+
+            @include media-down-md {
+                width: 100%;
+            }
+        }
+    }
+
+    &__field {
+        margin-top: 8px;
+        width: 100%;
+        padding: 16px 20px;
+        font-family: $font__third;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        background: #FFFFFF;
+        color: #444444;
+        border: none;
+        border-radius: 16px;
+        outline: none;
+
+        @include media-down-sm {
+            margin-top: 4px;
+        }
+    }
+}
