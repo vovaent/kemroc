@@ -37,8 +37,6 @@ if ( ! $is_preview ) :
 	$kemroc_ci_personal_logo     = $kemroc_ci_personal_logo_use ? $kemroc_ci_personal_logo : $kemroc_ci_logo;
 	$kemroc_ci_address           = get_field( 'address' );
 	$kemroc_ci_contacts          = get_field( 'contacts' );
-
-	// var_dump( get_fields() );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_ci_id ); ?>" class="<?php echo esc_attr( $kemroc_ci_class_name ); ?>">

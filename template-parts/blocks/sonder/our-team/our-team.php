@@ -134,23 +134,33 @@ if ( ! $is_preview ) :
 							<!-- /.member-card__personal-info -->
 							<div class="member-card__contacts">
 								<div class="member-card__numbers">
-									<div class="member-card__phone-number">
-										<?php get_template_part( 'template-parts/icons/phone' ); ?>
-										<?php echo esc_html( $kemroc_ot_phone_number ); ?>
-									</div>
-									<!-- /.member-card__phone-number -->
-									<div class="member-card__mobile-number">
-										<?php esc_html_e( 'mob.:', 'kemroc' ); ?>
-										<?php echo esc_html( $kemroc_ot_mobile_number ); ?>
-									</div>
-									<!-- /.member-card__mobile-number -->
+									<?php if ( $kemroc_ot_phone_number ) : ?>
+										<div class="member-card__phone-number">
+											<?php get_template_part( 'template-parts/icons/phone' ); ?>
+											<?php echo esc_html( $kemroc_ot_phone_number ); ?>
+										</div>
+										<!-- /.member-card__phone-number -->
+									<?php endif; ?>
+
+									<?php if ( $kemroc_ot_mobile_number ) : ?>
+										<div class="member-card__mobile-number">
+											<?php esc_html_e( 'mob.:', 'kemroc' ); ?>
+											<?php echo esc_html( $kemroc_ot_mobile_number ); ?>
+										</div>
+										<!-- /.member-card__mobile-number -->
+									<?php endif; ?>
+
 								</div>
 								<!-- /.member-card__numbers -->
-								<div class="member-card__email">
-									<?php get_template_part( 'template-parts/icons/email' ); ?>
-									<?php echo esc_html( $kemroc_ot_email ); ?>
-								</div>
-							<!-- /.member-card__email -->
+
+								<?php if ( $kemroc_ot_email ) : ?>
+									<div class="member-card__email">
+										<?php get_template_part( 'template-parts/icons/email' ); ?>
+										<?php echo esc_html( $kemroc_ot_email ); ?>
+									</div>
+									<!-- /.member-card__email -->
+								<?php endif; ?>
+
 							</div>
 							<!-- /.member-card__contacts -->
 						</li>
