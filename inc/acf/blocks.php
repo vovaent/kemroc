@@ -514,5 +514,26 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
+	acf_register_block_type(
+		array(
+			'name'            => 'contacts-links',
+			'title'           => __( 'Kontakt-Links', 'kemroc' ),
+			'description'     => __( 'Kontakt-Links', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/contacts/contacts-links/contacts-links.php',
+			'category'        => 'contacts',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Kontakt', 'Links' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/contacts/contacts-links/contacts-links.png',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'kemroc_acf_init_block_types' );

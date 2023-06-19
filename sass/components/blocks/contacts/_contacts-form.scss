@@ -77,7 +77,7 @@
         font-weight: 600;
         font-size: 14px;
         line-height: 20px;
-        color: #444444;
+        color: $color__text-main;
 
         &--street {
             width: 412px;
@@ -173,7 +173,7 @@
         font-size: 14px;
         line-height: 20px;
         background: #FFFFFF;
-        color: #444444;
+        color: $color__text-main;
         border: none;
         border-radius: 16px;
         outline: none;
@@ -309,7 +309,7 @@
         font-weight: 600;
         font-size: 18px;
         line-height: 26px;
-        color: #444444;
+        color: $color__text-main;
         text-align: center;
     }
 }
