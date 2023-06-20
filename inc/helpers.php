@@ -137,6 +137,7 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
  * Getting the insides of headers in the content.
  * 
  * @param string $content Optional. Searchable content.
+ * @param string $tag Optional. Header tag.
  * 
  * @return array|void Returns an array of the insides of headers. If no string to search for is specified - returns false.
  */
