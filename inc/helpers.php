@@ -132,3 +132,39 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 
 	return $models;
 }
+
+/**
+ * Getting the insides of headers in the content.
+ * 
+ * @param string $content Optional. Searchable content.
+ * 
+ * @return array|void Returns an array of the insides of headers. If no string to search for is specified - returns false.
+ */
+function kemroc_get_headers_insides_in_content( $content = '', $tag = '' ) {
+	if ( empty( $content ) ) {
+		return;
+	}
+
+	if ( empty( $tag ) ) {
+		$new_tag = 'h(1|2|3|4|5|6)';
+	} else {
+		$new_tag = "($tag)";
+	}
+
+	$headers_insides = array();
+	$matches         = array();
+	
+	$pattern = '/<\s*' . $new_tag . '[^>]*>(.*?)<\/' . $new_tag . '>/';
+
+	preg_match_all( $pattern, $content, $matches );
+
+	if ( $matches[0] ) {
+		
+		foreach ( $matches[0] as $match ) {
+			$header_inside     = preg_replace( $pattern, '$2', $match );
+			$headers_insides[] = $header_inside;
+		}
+	}    
+
+	return $headers_insides;
+}

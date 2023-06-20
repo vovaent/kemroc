@@ -1,22 +1,10 @@
-/**
- * Components
- */
-import { navigation } from './components/navigation/navigation';
-import { productModelList } from './components/blocks/product/product-model-list';
-import { modelInfo } from './components/blocks/model/model-info';
-import { serialProductGeneralInfo } from './components/blocks/serial-product/serial-product-general-info';
-import { seriesGeneralInfo } from './components/blocks/serial-product/series-general-info';
-import { applicationAreasFilter } from './components/blocks/application-areas/application-areas-filter';
-import { contactsForm } from './components/blocks/contacts/contacts-form';
+import { components } from './components/components';
+import { templates } from './templates/templates';
 
 /* global jQuery */
-/* eslint no-undef: "error"*/
+/* eslint no-undef: "error" */
+
 jQuery(document).ready(function ($) {
-	navigation($);
-	productModelList($);
-	modelInfo($);
-	serialProductGeneralInfo();
-	seriesGeneralInfo();
-	applicationAreasFilter($);
-	contactsForm($);
+	components($);
+	templates($);
 });

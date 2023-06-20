@@ -195,8 +195,11 @@ function add_custom_block_categories( $block_categories, $editor_context ) {
 }
 add_filter( 'block_categories_all', 'add_custom_block_categories', 10, 2 );
 
-add_filter( 'allowed_block_types_all', 'allowed_block_types', 25, 2 );
 function allowed_block_types( $allowed_blocks, $editor_context ) {
+	if ( ! is_object( $editor_context ) || ! is_object( $editor_context->post ) ) {
+		return;
+	}
+
 	if ( (int) get_option( 'page_on_front' ) === $editor_context->post->ID ) {
 		$allowed_blocks = array(
 			'acf/hero',
@@ -243,3 +246,4 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 
 	return $allowed_blocks;
 }
+add_filter( 'allowed_block_types_all', 'allowed_block_types', 25, 2 );

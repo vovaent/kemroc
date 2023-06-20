@@ -12,9 +12,16 @@ if ( ! function_exists( 'kemroc_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
 	function kemroc_posted_on() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		$is_post_type_post = 'post' === get_post_type();
+		
+		if ( $is_post_type_post ) {
+			$entry_date_add_class = $is_post_type_post ? ' article__meta-date' : '';
+			$time_string          = '<time class="entry-date published updated' . $entry_date_add_class . '" datetime="%1$s">%2$s</time>';
+		} else {
+			$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+			}
 		}
 
 		$time_string = sprintf(
@@ -25,14 +32,17 @@ if ( ! function_exists( 'kemroc_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		$posted_on = sprintf(
-			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'kemroc' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
-
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
+		if ( $is_post_type_post ) {
+			$posted_on = $time_string;
+			echo $posted_on; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped    
+		} else {
+			$posted_on = sprintf(
+				/* translators: %s: post date. */
+				esc_html_x( 'Posted on %s', 'post date', 'kemroc' ),
+				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			);
+			echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped    
+		}   
 	}
 endif;
 
@@ -119,7 +129,7 @@ if ( ! function_exists( 'kemroc_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function kemroc_post_thumbnail() {
+	function kemroc_post_thumbnail( $custom_classes = '' ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -127,7 +137,7 @@ if ( ! function_exists( 'kemroc_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
+			<div class="post-thumbnail<?php echo ' ' . esc_attr( $custom_classes ); ?>">
 				<?php the_post_thumbnail(); ?>
 			</div><!-- .post-thumbnail -->
 
