@@ -91,7 +91,7 @@
 							<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
 						</a>
 						<button class="lang-switcher header-top__lang-switcher">
-							<?php get_template_part( 'template-parts/icons/lang-switcher' ); ?>
+							<?php get_template_part( 'template-parts/icons/english-flag' ); ?>
 						</button>
 						<a class="site-search header-top__site-search"></a>
 					</div>
@@ -105,7 +105,7 @@
 				<div class="header__bottom">
 					<div class="mobile-nav-panel">
 						<button class="lang-switcher">
-							<?php get_template_part( 'template-parts/icons/lang-switcher' ); ?>
+							<?php get_template_part( 'template-parts/icons/english-flag' ); ?>
 						</button>
 						<button class="toggle-nav">
 							<?php get_template_part( 'template-parts/icons/toggle-nav-cross' ); ?>
