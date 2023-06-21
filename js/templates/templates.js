@@ -1,7 +1,7 @@
-import { singlePost } from './single-post/single-post';
+import { contentPost } from './post/content-post';
 
 const templates = ($) => {
-	singlePost($);
+	contentPost($);
 };
 
 export { templates };

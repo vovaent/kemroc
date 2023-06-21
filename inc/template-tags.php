@@ -15,7 +15,7 @@ if ( ! function_exists( 'kemroc_posted_on' ) ) :
 		$is_post_type_post = 'post' === get_post_type();
 		
 		if ( $is_post_type_post ) {
-			$entry_date_add_class = $is_post_type_post ? ' article__meta-date' : '';
+			$entry_date_add_class = $is_post_type_post ? ' cp-article__meta-date' : '';
 			$time_string          = '<time class="entry-date published updated' . $entry_date_add_class . '" datetime="%1$s">%2$s</time>';
 		} else {
 			$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
@@ -129,7 +129,7 @@ if ( ! function_exists( 'kemroc_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function kemroc_post_thumbnail( $custom_classes = '' ) {
+	function kemroc_post_thumbnail( $size = 'post-thumbnail', $attr = '', $wrapper_classes = '' ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -137,7 +137,7 @@ if ( ! function_exists( 'kemroc_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail<?php echo ' ' . esc_attr( $custom_classes ); ?>">
+			<div class="post-thumbnail<?php echo ' ' . esc_attr( $wrapper_classes ); ?>">
 				<?php the_post_thumbnail(); ?>
 			</div><!-- .post-thumbnail -->
 

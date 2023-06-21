@@ -19,47 +19,45 @@ $kemroc_headers_insides = kemroc_get_headers_insides_in_content( get_the_content
 ?>
 
 <?php if ( ! empty( $kemroc_header_tag ) ) : ?>
-<script>
-	var headerTag = '<?php echo esc_html( $kemroc_header_tag ); ?>';
-</script>   
+	<script>
+		var headerTag = '<?php echo esc_html( $kemroc_header_tag ); ?>';
+	</script>   
 <?php endif; ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'article' ); ?>>
-	<header class="article__header">
-		<div class="article__text">
-			<div class="article__meta">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'cp-article' ); ?>>
+	<header class="container cp-article__header">
+		<div class="cp-article__text">
+			<div class="cp-article__meta">
 				<?php kemroc_posted_on(); ?>
-				<div class="article__meta-mediator"></div>
-				<!-- /.article__meta-mediator -->
-				<div class="article__meta-text">
+				<div class="cp-article__meta-mediator"></div>
+				<!-- /.cp-article__meta-mediator -->
+				<div class="cp-article__meta-text">
 					<?php esc_html_e( 'Nachricht', 'kemroc' ); ?>
 				</div>
-				<!-- /.article__meta-text -->
+				<!-- /.cp-article__meta-text -->
 			</div>
-			<!-- .article__meta -->
-			<h1 class="article__title">
+			<!-- .cp-article__meta -->
+			<h1 class="cp-article__title">
 				<?php the_title(); ?>
 			</h1>
-			<!-- .article__title -->
-			<div class="article__to-read">
-				<button class="btn btn-rounded btn-border-accent arrow-right article__to-read-btn"></button>
-				<!-- /.article__link-to-read -->
-				<div class="article__to-read-text">
+			<!-- .cp-article__title -->
+			<div class="cp-article__to-read">
+				<button class="btn btn-rounded btn-border-accent arrow-right cp-article__to-read-btn"></button>
+				<!-- /.cp-article__link-to-read -->
+				<div class="cp-article__to-read-text">
 					<?php esc_html_e( 'Lesen', 'kemroc' ); ?>
 				</div>
-				<!-- /.article__to-read-text -->
+				<!-- /.cp-article__to-read-text -->
 			</div>
-			<!-- /.article__to-read -->			
+			<!-- /.cp-article__to-read -->			
 		</div>
-		<!-- /.article__text -->
-		<div class="article__image">
-			<?php kemroc_post_thumbnail( 'article__post-thumbnail' ); ?>
-		</div>
-		<!-- /.article__image -->
+		<!-- /.cp-article__text -->
+		<?php kemroc_post_thumbnail( 'medium_large', '', 'cp-article__post-thumbnail' ); ?>
+		<!-- /.cp-article__image -->
 	</header>
-	<!-- /.article__header -->
-	<div class="container article__inner">
-		<section class="article__content">
+	<!-- /.cp-article__header -->
+	<div class="container cp-article__inner">
+		<section class="cp-article__content">
 			<?php
 			the_content(
 				sprintf(
@@ -77,61 +75,64 @@ $kemroc_headers_insides = kemroc_get_headers_insides_in_content( get_the_content
 			);
 			?>
 		</section>
-		<!-- .article__content -->
-		<div class="article__aside article-aside">
-			<nav class="article-aside__navigation" role="list">
-				<h5 class="article-aside__title">
-					
-				</h5>
-				<!-- /.article-aside__title -->
+		<!-- .cp-article__content -->
+		<div class="cp-article__aside">
+			<div class="cp-article__sticky">
+				<nav class="cp-article__navigation cp-article-navigation" role="list">
+					<h5 class="cp-article-navigation__title">
+						Inhaltsverzeichnis
+					</h5>
+					<!-- /.cp-article-navigation__title -->
 
-				<?php if ( $kemroc_headers_insides ) : ?>
-					<ul class="article-aside__nav-list">
+					<?php if ( $kemroc_headers_insides ) : ?>
+						<ul class="cp-article-navigation__list">
 
-						<?php foreach ( $kemroc_headers_insides as $kemroc_header_inside_key => $kemroc_header_inside_value ) : ?>
-							<li class="article-aside__nav-item">
-								<span class="article-aside__nav-item-number">
-									<?php
-									$kemroc_nav_item_number = sprintf( '%02d', ++$kemroc_header_inside_key );
-                                    echo $kemroc_nav_item_number; //phpcs:ignore 
-									?>
-								</span>
-								<!-- /.article-aside__nav-item-number -->
-                                <a href="#title-<?php echo $kemroc_header_inside_key; //phpcs:ignore ?>" class="article-aside__nav-item-link">
-									<?php echo wp_kses_post( $kemroc_header_inside_value ); ?>
-								</a>
-								<!-- /.article-aside__nav-item-link -->
-							</li>
-							<!-- /.article-aside__nav-item -->
-						<?php endforeach; ?>
+							<?php foreach ( $kemroc_headers_insides as $kemroc_header_inside_key => $kemroc_header_inside_value ) : ?>
+								<li class="cp-article-navigation__item">
+									<span class="cp-article-navigation__item-number">
+										<?php
+										$kemroc_nav_item_number = sprintf( '%02d', ++$kemroc_header_inside_key );
+                                        echo $kemroc_nav_item_number; //phpcs:ignore 
+										?>
+									</span>
+									<!-- /.cp-article-navigation__item-number -->
+                                    <a href="#title-<?php echo $kemroc_header_inside_key; //phpcs:ignore ?>" class="cp-article-navigation__item-link">
+										<?php echo wp_kses_post( $kemroc_header_inside_value ); ?>
+									</a>
+									<!-- /.cp-article-navigation__item-link -->
+								</li>
+								<!-- /.cp-article-navigation__item -->
+							<?php endforeach; ?>
 
+						</ul>
+						<!-- /.cp-article-navigation__list -->
+					<?php endif; ?>
+
+				</nav>
+				<!-- /.cp-article__navigation -->
+				<div class="cp-article__share">
+					<p class="cp-article__share-text">
+						
+					</p>
+					<!-- /.cp-article__share-text -->
+					<ul class="cp-article__share-list">
+						<li class="cp-article__share-item">
+							<a href="" class="cp-article__share-social-link">
+								<img src="" alt="" class="cp-article__share-icon">
+							</a>
+							<!-- /.cp-article__share-social-link -->
+						</li>
+						<!-- /.cp-article__share-item -->
 					</ul>
-					<!-- /.article-aside__nav-list -->
-				<?php endif; ?>
-
-			</nav>
-			<!-- /.article__navigation -->
-			<div class="article__share">
-				<p class="article__share-text">
-					
-				</p>
-				<!-- /.article__share-text -->
-				<ul class="article__share-list">
-					<li class="article__share-item">
-						<a href="" class="article__share-social-link">
-							<img src="" alt="" class="article__share-icon">
-						</a>
-						<!-- /.article__share-social-link -->
-					</li>
-					<!-- /.article__share-item -->
-				</ul>
-				<!-- /.article__share-list -->
+					<!-- /.cp-article__share-list -->
+				</div>
+				<!-- /.cp-article__share -->
 			</div>
-			<!-- /.article__share -->
+			<!-- /.cp-article__sticky -->
 		</div>
-		<!-- /.article__aside -->
+		<!-- /.cp-article__aside -->
 		
 	</div>
-	<!-- /.container article__inner -->
+	<!-- /.container cp-article__inner -->
 </article>
 <!-- #post-<?php the_ID(); ?> -->
