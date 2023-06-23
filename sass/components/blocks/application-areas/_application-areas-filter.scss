@@ -35,6 +35,8 @@
     }
 
     &__areas-item {
+        @include reset-li;
+
         button {
             display: flex;
             justify-content: center;
@@ -74,6 +76,11 @@
         @include media-down-sm {
             margin-top: 24px;
         }
+    }
+
+    &__model-item {
+        @include reset-li;
+
     }
 }
 

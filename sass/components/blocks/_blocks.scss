@@ -1,3 +1,9 @@
+// WP Blocks
+@import 'wp-block/wp-block-file';
+@import 'wp-block/wp-block-video';
+@import 'wp-block/wp-block-image';
+
+// Custom Blocks
 @import 'components/components';
 @import 'sonder/hero';
 @import 'product/product-general-info';
@@ -15,6 +21,7 @@
 @import 'sonder/chess-content';
 @import 'sonder/full-width-image-rounded';
 @import 'sonder/our-team';
+@import 'sonder/lazy-video';
 @import 'contacts/contacts-info';
 @import 'contacts/contacts-form';
 @import 'contacts/contacts-links';

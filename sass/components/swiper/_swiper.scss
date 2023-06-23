@@ -24,7 +24,6 @@
 
 
 .swiper-single-slide {
-
     &--big-slider {
         width: 1030px;
 
@@ -38,6 +37,8 @@
     }
 
     &__slide {
+        @include reset-li;
+
         display: flex;
         align-items: center;
         justify-content: center;

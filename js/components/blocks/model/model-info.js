@@ -46,7 +46,7 @@ const modelInfo = ($) => {
 
 	lazyLoadYT($);
 
-	$('.model-video--file').on('click', function () {
+	$('.lazy-video__figure--file').on('click', function () {
 		const $this = $(this);
 		const $video = $this.find('video');
 

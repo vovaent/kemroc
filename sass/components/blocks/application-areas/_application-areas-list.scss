@@ -16,4 +16,8 @@
             gap: 24px 16px;
         }
     }
+
+    &__item {
+        @include reset-li;
+    }
 }

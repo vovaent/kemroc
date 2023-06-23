@@ -46,10 +46,8 @@
     }
 
     ul {
+        @include reset-ul;
         display: none;
-        list-style: none;
-        margin: 0;
-        padding-left: 0;
         gap: 32px;
 
         @include media-down-md {
@@ -102,6 +100,7 @@
             }
 
             li {
+                @include reset-li;
 
                 &:hover>ul,
                 &.focus>ul {
@@ -129,7 +128,7 @@
     }
 
     li {
-
+        @include reset-li;
 
         &:hover {
             >a {
@@ -184,6 +183,8 @@
         }
 
         .sub-menu {
+            @include reset-ul;
+
             position: absolute;
             top: 99%;
             right: 0;
@@ -241,6 +242,8 @@
             }
 
             li {
+                @include reset-li;
+
                 width: calc((100% - 12px) / 4);
                 // flex: 25%;
                 // max-width: calc(25% - 12px);

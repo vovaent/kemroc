@@ -1,4 +1,6 @@
 .member-card {
+    @include reset-li;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,7 +52,7 @@
         }
 
         &--pc {
-            transform: translateY(-58px);
+            transform: translateY(-68px);
             transition: transform .3s ease-out;
 
             @include media-down-md {
@@ -89,6 +91,10 @@
         display: flex;
         align-items: center;
         gap: 8px;
+    }
+
+    &__langs-item {
+        @include reset-li;
     }
 
     &__avatar {

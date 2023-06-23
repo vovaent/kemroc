@@ -143,28 +143,35 @@ if ( ! $is_preview ) :
 
 					<?php if ( 'youtube' === $kemroc_mi_video['yt_or_file_load'] && $kemroc_mi_video['id'] ) : ?>
 						<div class="model-tabs__inset">
-							<div class="model-tabs__video model-video model-video--yt">
-								<div class="model-video__placeholder" data-yt-video-id="<?php echo esc_attr( $kemroc_mi_video['id'] ); ?>">
-									
-									<?php 
-									if ( $kemroc_mi_video_poster ) : 
-										echo wp_kses_post( $kemroc_mi_video_poster );
-									else : 
-										$kemroc_mi_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_mi_video['id'] . '/maxresdefault.jpg';
-										?>
-										<img 
-											src="<?php echo esc_url( $kemroc_mi_yt_poster_url ); ?>" 
-											alt="<?php echo esc_attr( $kemroc_mi_video['title'] ); ?>"
-										>
-									<?php endif; ?>
+							<div class="model-tabs__lazy-video lazy-video">
+								<figure class="lazy-video__figure">
+									<div 
+										class="lazy-video__placeholder lazy-video__placeholder--model-page" 
+										data-yt-video-id="<?php echo esc_attr( $kemroc_mi_video['id'] ); ?>" 
+										data-yt-iframe-class="lazy-video__source lazy-video__source--model-page"
+									>
+										
+										<?php 
+										if ( $kemroc_mi_video_poster ) : 
+											echo wp_kses_post( $kemroc_mi_video_poster );
+										else : 
+											$kemroc_mi_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_mi_video['id'] . '/maxresdefault.jpg';
+											?>
+											<img 
+												src="<?php echo esc_url( $kemroc_mi_yt_poster_url ); ?>" 
+												alt="<?php echo esc_attr( $kemroc_mi_video['title'] ); ?>"
+											>
+										<?php endif; ?>
 
-									<span class="icon-play model-video__icon-play">
-										<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-									</span>
-								</div>
-								<!-- /.model-video__placeholder -->
+										<span class="icon-play lazy-video__icon-play">
+											<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
+										</span>
+									</div>
+									<!-- /.lazy-video__placeholder -->
+								</figure>
+								<!-- /.lazy-video__figure -->
 							</div>
-							<!-- /.model-tabs__video model-video model-video--yt -->
+							<!-- /.model-tabs__lazy-video lazy-video -->
 						</div>
 						<!-- /.model-tabs__inset -->
 						<?php 
@@ -175,21 +182,27 @@ if ( ! $is_preview ) :
 						endif;
 						?>
 						<div class="model-tabs__inset">
-							<div class="model-tabs__video model-video model-video--file">
-								<video 
-									src="<?php echo esc_url( $kemroc_mi_video['videofile']['url'] ); ?>" 
-									width="100%" 
-									height="100%" 
-									muted
-									poster="<?php echo esc_url( $kemroc_mi_video_poster_img ); ?>"
-								>
-									<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
-								</video>
-								<span class="icon-play model-tabs__video-icon">
-									<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-								</span>
+							<div class="model-tabs__lazy-video lazy-video">
+								<figure class="lazy-video__figure lazy-video__figure--file">
+									<video 
+										class="lazy-video__source lazy-video__source--model-page"
+										src="<?php echo esc_url( $kemroc_mi_video['videofile']['url'] ); ?>" 
+										width="100%" 
+										height="100%" 
+										muted
+										poster="<?php echo esc_url( $kemroc_mi_video_poster_img ); ?>"
+									>
+										<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
+									</video>
+									<!-- /.lazy-video__source -->
+									<span class="icon-play lazy-video__figure-icon">
+										<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
+									</span>
+									<!-- /.icon-play lazy-video__figure-icon -->
+								</figure>
+								<!-- /.lazy-video__figure lazy-video__figure--file -->
 							</div>
-							<!-- /.model-tabs__video model-video model-video--file -->
+							<!-- /.model-tabs__lazy-video lazy-video -->
 						</div>
 						<!-- /.model-tabs__inset -->
 					<?php endif; ?>

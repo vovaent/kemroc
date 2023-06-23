@@ -1,0 +1,44 @@
+.a2a_floating_style,
+.a2a_kit {
+    position: static !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 0 !important;
+    gap: 18px !important;
+    padding: 0 !important;
+
+    &>a {
+        width: max-content !important;
+        height: max-content !important;
+        padding: 0 !important;
+
+        &>span.a2a_svg {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 56px !important;
+            height: 56px !important;
+            border-radius: 8px !important;
+
+            &>svg {
+                position: static !important;
+                width: 28px !important;
+                height: 28px !important;
+            }
+        }
+    }
+}
+
+.addtoany_content_bottom {
+    .a2a_kit {
+
+        @include media-down-md {
+            justify-content: flex-end !important;
+        }
+
+        @include media-down-sm {
+            justify-content: flex-start;
+        }
+    }
+}

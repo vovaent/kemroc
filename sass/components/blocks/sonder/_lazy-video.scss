@@ -1,0 +1,41 @@
+.lazy-video {
+    margin-top: 40px;
+
+    &__content {
+        height: 392px;
+    }
+
+    &__figure {
+        position: relative;
+        margin-top: 0;
+        height: 100%;
+        overflow: hidden;
+        cursor: pointer;
+
+        @include media-down-md {
+            width: 100%;
+        }
+    }
+
+    &__placeholder {
+        height: 100%;
+
+        img {
+            height: 100%;
+        }
+
+        &--model-page {
+            img {
+                border-radius: 16px;
+            }
+        }
+    }
+
+    &__source {
+        object-fit: cover;
+
+        &--model-page {
+            border-radius: 16px;
+        }
+    }
+}

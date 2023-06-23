@@ -3,6 +3,22 @@
     "title": "Post Type |  Post",
     "fields": [
         {
+            "key": "field_6494085f57359",
+            "label": "Einstellungen im Inhaltsverzeichnis",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_6492169393bd8",
             "label": "Inhaltsübersicht",
             "name": "table_of_contents",
@@ -88,10 +104,10 @@
             "placeholder": ""
         },
         {
-            "key": "field_64921b249c6c9",
-            "label": "Titel des Inhaltsverzeichnisses",
-            "name": "table_of_contents_title",
-            "type": "text",
+            "key": "field_649408e25735a",
+            "label": "Einstellungen für die gemeinsame Nutzung",
+            "name": "",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -100,11 +116,27 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6494090b5735b",
+            "label": "Einfügen eines \"Share\"-Feldes in einen Artikel",
+            "name": "share_article",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 0
         }
     ],
     "location": [
@@ -125,5 +157,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687296913
+    "modified": 1687423971
 }

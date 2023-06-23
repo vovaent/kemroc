@@ -535,5 +535,26 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
+	acf_register_block_type(
+		array(
+			'name'            => 'lazy-video',
+			'title'           => __( 'Faulenzer-Video', 'kemroc' ),
+			'description'     => __( 'Faulenzer-Video', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/sonder/lazy-video/lazy-video.php',
+			'category'        => 'sonder',
+			'mode'            => 'edit',
+			'icon'            => 'video-alt3',
+			'keywords'        => array( 'Video', 'Lazy video' ),
+			'post_types'      => array( 'page', 'post' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/lazy-video/lazy-video.png',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'kemroc_acf_init_block_types' );

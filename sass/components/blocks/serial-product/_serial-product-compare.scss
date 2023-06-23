@@ -167,6 +167,10 @@
             margin-left: 10px;
             padding-left: 15px;
         }
+
+        li {
+            @include reset-li;
+        }
     }
 }
 

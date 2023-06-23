@@ -80,7 +80,7 @@ $kemroc_headers_insides = kemroc_get_headers_insides_in_content( get_the_content
 			<div class="cp-article__sticky">
 				<nav class="cp-article__navigation cp-article-navigation" role="list">
 					<h5 class="cp-article-navigation__title">
-						Inhaltsverzeichnis
+						<?php esc_html_e( 'Inhaltsverzeichnis', 'kemroc' ); ?>
 					</h5>
 					<!-- /.cp-article-navigation__title -->
 
@@ -112,18 +112,10 @@ $kemroc_headers_insides = kemroc_get_headers_insides_in_content( get_the_content
 				<!-- /.cp-article__navigation -->
 				<div class="cp-article__share">
 					<p class="cp-article__share-text">
-						
+						<?php esc_html_e( 'Teilen Sie den Artikel:', 'kemroc' ); ?>
 					</p>
 					<!-- /.cp-article__share-text -->
-					<ul class="cp-article__share-list">
-						<li class="cp-article__share-item">
-							<a href="" class="cp-article__share-social-link">
-								<img src="" alt="" class="cp-article__share-icon">
-							</a>
-							<!-- /.cp-article__share-social-link -->
-						</li>
-						<!-- /.cp-article__share-item -->
-					</ul>
+					<div class="cp-article__share-list"></div>
 					<!-- /.cp-article__share-list -->
 				</div>
 				<!-- /.cp-article__share -->

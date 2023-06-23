@@ -12,5 +12,6 @@ img {
 }
 
 figure {
-    margin: 1em 0; // Extra wide images within figure tags don't overflow the content area.
+    margin-top: 16px; // Extra wide images within figure tags don't overflow the content area.
+    margin-bottom: 0;
 }

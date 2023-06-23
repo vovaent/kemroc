@@ -222,7 +222,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'core/heading',
 			'core/list',
 			'core/list-item',
-			'core/video',
+			// 'core/video',
 			'core/spacer',
 			'core/buttons',
 			'core/separator',
@@ -245,6 +245,20 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			'acf/contacts-info',
 			'acf/contacts-form',
 			'acf/contacts-links',
+		);
+	} elseif ( 'post' === $editor_context->post->post_type ) {
+		$allowed_blocks = array(
+			'core/paragraph',
+			'core/image',
+			'core/gallery',
+			'core/heading',
+			'core/list',
+			'core/list-item',
+			// 'core/video',
+			'core/spacer',
+			'core/buttons',
+			'core/separator',
+			'acf/lazy-video',
 		);
 	}
 

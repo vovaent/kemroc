@@ -145,14 +145,11 @@
         }
     }
 
-    &__video {
+    &__lazy-video {
         position: relative;
         margin: 40px auto 0;
         width: 928px;
         height: 520px;
-        border-radius: 16px;
-        overflow: hidden;
-        cursor: pointer;
 
         @include media-down-md {
             margin-top: 16px;
