@@ -4,6 +4,8 @@ import { serialProductGeneralInfo } from './serial-product/serial-product-genera
 import { seriesGeneralInfo } from './serial-product/series-general-info';
 import { applicationAreasFilter } from './application-areas/application-areas-filter';
 import { contactsForm } from './contacts/contacts-form';
+import { lazyLoad } from './sonder/lazy-load';
+import { faq } from './sonder/faq';
 
 const blocks = ($) => {
 	productModelList($);
@@ -12,6 +14,8 @@ const blocks = ($) => {
 	seriesGeneralInfo();
 	applicationAreasFilter($);
 	contactsForm($);
+	lazyLoad($);
+	faq($);
 };
 
 export { blocks };

@@ -7,6 +7,10 @@ const contentPost = ($) => {
 
 	const $articleContent = $('.cp-article__content');
 
+	if ($articleContent.length === 0) {
+		return;
+	}
+
 	const articleTitlesSelector =
 		typeof headerTag !== 'undefined' && headerTag.length !== 0
 			? headerTag

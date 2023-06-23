@@ -45,12 +45,17 @@ if ( ! $is_preview ) :
 		array( 'alt' => wp_get_attachment_caption( $kemroc_mi_drawing_id ) )
 	);
 
-	$kemroc_mi_video_poster = wp_get_attachment_image( 
-		$kemroc_mi_video['poster'], 
-		'full', 
-		false, 
-		array( 'alt' => wp_get_attachment_caption( $kemroc_mi_video['poster'] ) ) 
-	); 
+	if ( ! empty( $kemroc_mi_video['poster'] ) ) {
+		$kemroc_mi_video_poster = wp_get_attachment_image( 
+			$kemroc_mi_video['poster'], 
+			'full', 
+			false, 
+			array(
+				'class' => 'lazy-video__poster',
+				'alt'   => wp_get_attachment_caption( $kemroc_mi_video['poster'] ),
+			) 
+		); 
+	}
 	
 	$kemroc_mi_parent_id = wp_get_post_parent_id();
 	?>
@@ -153,19 +158,23 @@ if ( ! $is_preview ) :
 										
 										<?php 
 										if ( $kemroc_mi_video_poster ) : 
-											echo wp_kses_post( $kemroc_mi_video_poster );
+											echo $kemroc_mi_video_poster; //phpcs:ignore
 										else : 
 											$kemroc_mi_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_mi_video['id'] . '/maxresdefault.jpg';
 											?>
 											<img 
+												class="lazy-video__poster"
 												src="<?php echo esc_url( $kemroc_mi_yt_poster_url ); ?>" 
 												alt="<?php echo esc_attr( $kemroc_mi_video['title'] ); ?>"
 											>
 										<?php endif; ?>
 
-										<span class="icon-play lazy-video__icon-play">
+										<div class="icon-play lazy-video__icon-play">
 											<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-										</span>
+										</div>
+										<!-- /.icon-play lazy-video__icon-play -->
+										<div class="lazy-video__preloader"></div>
+										<!-- /.lazy-video__preloader -->
 									</div>
 									<!-- /.lazy-video__placeholder -->
 								</figure>
@@ -195,10 +204,10 @@ if ( ! $is_preview ) :
 										<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
 									</video>
 									<!-- /.lazy-video__source -->
-									<span class="icon-play lazy-video__figure-icon">
+									<span class="icon-play lazy-video__icon-play">
 										<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
 									</span>
-									<!-- /.icon-play lazy-video__figure-icon -->
+									<!-- /.icon-play lazy-video__icon-play -->
 								</figure>
 								<!-- /.lazy-video__figure lazy-video__figure--file -->
 							</div>

@@ -1,27 +1,35 @@
 .lazy-video {
     margin-top: 40px;
 
-    &__content {
-        height: 392px;
-    }
 
     &__figure {
         position: relative;
         margin-top: 0;
-        height: 100%;
+        height: 392px;
         overflow: hidden;
         cursor: pointer;
 
         @include media-down-md {
             width: 100%;
         }
+
+        @include media-down-sm {
+            height: 184px;
+        }
     }
 
     &__placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
         height: 100%;
 
-        img {
-            height: 100%;
+        &--back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
         }
 
         &--model-page {
@@ -29,13 +37,48 @@
                 border-radius: 16px;
             }
         }
+
+        img {
+            height: 100%;
+        }
+    }
+
+    &__poster {
+        &--back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+    }
+
+    &__preloader {
+        position: relative;
+        display: none;
+        width: 64px;
+        height: 64px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 2;
     }
 
     &__source {
+        position: relative;
         object-fit: cover;
+        z-index: 2;
 
         &--model-page {
             border-radius: 16px;
         }
+    }
+
+    &__icon-play {
+        position: absolute;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
     }
 }

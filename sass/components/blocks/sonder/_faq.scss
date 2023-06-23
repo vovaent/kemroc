@@ -1,0 +1,101 @@
+.faq {
+    margin-top: 40px;
+
+    &__content {
+        .cp-article & {
+            padding: 0;
+        }
+    }
+
+    &__list {
+        @include reset-ul;
+
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 32px 48px;
+        background-color: #eeeeee;
+        border-radius: 24px;
+        cursor: pointer;
+
+        @include media-down-sm {
+            padding: 32px;
+        }
+
+        &-question {
+            display: flex;
+            align-items: center;
+            font-family: $font__secondary;
+            font-size: 23px;
+            font-weight: 700;
+            line-height: 160%;
+
+            @include media-down-sm {
+                font-size: 18px;
+                line-height: 140%;
+            }
+        }
+
+        &-switcher {
+            position: relative;
+            flex-shrink: 0;
+            margin-left: 16px;
+            width: 40px;
+            height: 40px;
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            background: #fff;
+            outline: none;
+            cursor: pointer;
+            transition: transform .3s ease-out;
+
+            @include media-down-sm {
+                margin-left: 20px;
+            }
+
+            .faq__item--extended & {
+                transform: translateY(-17px);
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                display: flex;
+                background: #000;
+                border-radius: 50px;
+                transform: translate(-50%, -50%);
+                transform-origin: center;
+                transition: transform .3s ease-out;
+            }
+
+            &::before {
+                width: 18px;
+                height: 2px;
+            }
+
+            &::after {
+                width: 2px;
+                height: 18px;
+
+                .faq__item--extended & {
+                    transform: translate(-50%, -50%) rotate(-90deg);
+                }
+            }
+        }
+
+        &-answer {
+            display: none;
+        }
+    }
+
+}

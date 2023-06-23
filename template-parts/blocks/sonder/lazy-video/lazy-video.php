@@ -39,7 +39,10 @@ if ( ! $is_preview ) :
 			$kemroc_lv_video['poster'],
 			'full',
 			false,
-			array( 'alt' => wp_get_attachment_caption( $kemroc_lv_video['poster'] ) )
+			array( 
+				'class' => 'lazy-video__poster',
+				'alt'   => wp_get_attachment_caption( $kemroc_lv_video['poster'] ),
+			)
 		);
 	}
 	?>
@@ -57,19 +60,24 @@ if ( ! $is_preview ) :
 
 						<?php
 						if ( ! empty( $kemroc_lv_video_poster ) ) :
-							echo wp_kses_post( $kemroc_lv_video_poster );
+							echo $kemroc_lv_video_poster; //phpcs:ignore
 						else :
 							$kemroc_lv_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_lv_video['id'] . '/maxresdefault.jpg';
 							?>
-							
-							<img src="<?php echo esc_url( $kemroc_lv_yt_poster_url ); ?>" alt="<?php echo esc_attr( $kemroc_lv_video['title'] ); ?>">
+							<img 
+								class="lazy-video__poster"
+								src="<?php echo esc_url( $kemroc_lv_yt_poster_url ); ?>" 
+								alt="<?php echo esc_attr( $kemroc_lv_video['title'] ); ?>"
+							>
 						<?php endif; ?>
 
 						<figcaption class="lazy-video__caption"></figcaption>
-						<span class="icon-play lazy-video__icon-play">
+						<div class="icon-play lazy-video__icon-play">
 							<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-						</span>
-						<!-- /.icon-play lazy-video__figure-icon -->
+						</div>
+						<!-- /.icon-play lazy-video__icon-play -->
+						<div class="lazy-video__preloader"></div>
+						<!-- /.lazy-video__preloader -->
 					</div>
 					<!-- /.lazy-video__placeholder -->
 				</figure>
@@ -95,9 +103,10 @@ if ( ! $is_preview ) :
 					</video>
 					<figcaption class="lazy-video__caption"></figcaption>
 					<!-- /.lazy-video__caption -->
-					<span class="icon-play lazy-video__figure-icon">
+					<div class="icon-play lazy-video__icon-play">
 						<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-					</span>
+					</div>
+					<!-- /.icon-play lazy-video__icon-play -->
 				</figure>
 				<!-- /.lazy-video__figure lazy-video__figure--file -->
 			<?php endif; ?>

@@ -23,7 +23,19 @@
         }
 
         >li {
-            >a {
+
+            &:hover,
+            &.current-menu-item {
+                &>a {
+                    @include active-underline(2px);
+
+                    @include media-down-md {
+                        @include underline(0);
+                    }
+                }
+            }
+
+            &>a {
                 position: relative;
                 padding: 25px 0;
 
@@ -34,14 +46,6 @@
                 @include underline(2px)
             }
 
-            >a:hover,
-            .current-menu-item>a {
-                @include active-underline(2px);
-
-                @include media-down-md {
-                    @include underline(0);
-                }
-            }
         }
     }
 

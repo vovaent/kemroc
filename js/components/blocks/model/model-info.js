@@ -7,7 +7,7 @@ import 'swiper/css';
 /**
  * Internal
  */
-import { lazyLoadYT } from '../../lazy-load-yt/lazy-load-yt';
+import { lazyLoad } from '../sonder/lazy-load';
 
 const modelInfo = ($) => {
 	const $modelInfoTab = $('.model-tabs__tab');
@@ -44,16 +44,7 @@ const modelInfo = ($) => {
 		},
 	});
 
-	lazyLoadYT($);
-
-	$('.lazy-video__figure--file').on('click', function () {
-		const $this = $(this);
-		const $video = $this.find('video');
-
-		$this.find('.icon-play').remove();
-		$video.attr('controls', '');
-		$video[0].play();
-	});
+	lazyLoad($);
 };
 
 export { modelInfo };

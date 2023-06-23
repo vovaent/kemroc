@@ -204,61 +204,63 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 		return;
 	}
 
+	$general_blocks = array(
+		'core/paragraph',
+		'core/image',
+		'core/gallery',
+		'core/heading',
+		'core/list',
+		'core/list-item',
+		'core/spacer',
+		'core/buttons',
+		'core/separator',
+		'acf/lazy-video',
+	);
+
 	if ( (int) get_option( 'page_on_front' ) === $editor_context->post->ID ) {
-		$allowed_blocks = array(
-			'acf/hero',
-			'acf/our-products',
-			'acf/cta-wide',
-			'acf/our-areas',
-			'acf/our-company',
-			'acf/cta-bg',
-			'acf/our-news',
+		$allowed_blocks = array_merge(
+			$general_blocks,
+			array(
+				'acf/hero',
+				'acf/our-products',
+				'acf/cta-wide',
+				'acf/our-areas',
+				'acf/our-company',
+				'acf/cta-bg',
+				'acf/our-news',
+			)
 		);
 	} elseif ( 'page' === $editor_context->post->post_type ) {
-		$allowed_blocks = array(
-			'core/paragraph',
-			'core/image',
-			'core/gallery',
-			'core/heading',
-			'core/list',
-			'core/list-item',
-			// 'core/video',
-			'core/spacer',
-			'core/buttons',
-			'core/separator',
-			'acf/hero',
-			'acf/product-general-info',
-			'acf/product-tech-info',
-			'acf/product-model-list',
-			'acf/model-info',
-			'acf/serial-product-general-info',
-			'acf/serial-product-descriptions',
-			'acf/serial-product-compare',
-			'acf/series-general-info',
-			'acf/series-tech-info',
-			'acf/application-areas-list',
-			'acf/application-areas-description',
-			'acf/chess-content',
-			'acf/full-width-image-rounded',
-			'acf/our-team',
-			'acf/application-areas-filter',
-			'acf/contacts-info',
-			'acf/contacts-form',
-			'acf/contacts-links',
+		$allowed_blocks = array_merge(
+			$general_blocks,
+			array(
+				'acf/hero',
+				'acf/product-general-info',
+				'acf/product-tech-info',
+				'acf/product-model-list',
+				'acf/model-info',
+				'acf/serial-product-general-info',
+				'acf/serial-product-descriptions',
+				'acf/serial-product-compare',
+				'acf/series-general-info',
+				'acf/series-tech-info',
+				'acf/application-areas-list',
+				'acf/application-areas-description',
+				'acf/chess-content',
+				'acf/full-width-image-rounded',
+				'acf/our-team',
+				'acf/application-areas-filter',
+				'acf/contacts-info',
+				'acf/contacts-form',
+				'acf/contacts-links',
+			)
 		);
 	} elseif ( 'post' === $editor_context->post->post_type ) {
-		$allowed_blocks = array(
-			'core/paragraph',
-			'core/image',
-			'core/gallery',
-			'core/heading',
-			'core/list',
-			'core/list-item',
-			// 'core/video',
-			'core/spacer',
-			'core/buttons',
-			'core/separator',
-			'acf/lazy-video',
+		$allowed_blocks = array_merge(
+			$general_blocks, 
+			array(
+				'acf/faq',
+			)
 		);
 	}
 

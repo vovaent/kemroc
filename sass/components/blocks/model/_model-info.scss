@@ -149,7 +149,6 @@
         position: relative;
         margin: 40px auto 0;
         width: 928px;
-        height: 520px;
 
         @include media-down-md {
             margin-top: 16px;
@@ -159,6 +158,10 @@
 
         @include media-down-sm {
             height: 175px;
+        }
+
+        .lazy-video__figure {
+            height: 520px;
         }
     }
 }
