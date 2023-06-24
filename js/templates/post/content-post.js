@@ -18,6 +18,7 @@ const contentPost = ($) => {
 	const $articleTitles = $(`.cp-article__content > ${articleTitlesSelector}`);
 	const navLinkSelector = '.cp-article-navigation__item-link';
 	const $articleNavlinks = $(navLinkSelector);
+	const articleContentTopPos = $articleContent.offset().top;
 
 	const articleNavlinkAnchorHandler = () => {
 		$articleTitles.each(function (index) {
@@ -54,9 +55,8 @@ const contentPost = ($) => {
 		const activeNavItemClassName = navItemClassName + '--active';
 		const activeNavItemSelector = '.' + activeNavItemClassName;
 
-		const articleContentTopPos = $articleContent.offset().top - 70;
 		const articleContentBottomPos =
-			articleContentTopPos + 70 + $articleContent.height();
+			articleContentTopPos + $articleContent.height();
 		const windowScrollTopPos = $window.scrollTop();
 
 		$articleTitles.each(function () {
@@ -177,16 +177,35 @@ const contentPost = ($) => {
 		}
 	};
 
-	$window.resize(function () {
-		windowWidth = $window.width();
+	const goToReadHandler = () => {
+		const $goToRead = $('.cp-article__to-read');
+		if ($goToRead.length === 0) {
+			return;
+		}
 
-		synchronizationHandler();
-		articleShareHandler();
-	});
+		$goToRead.on('click', (event) => {
+			event.preventDefault();
+
+			const srollToPos = articleContentTopPos - 20;
+
+			$('html, body').animate({ scrollTop: srollToPos }, 500);
+		});
+	};
+
+	const windowResizeHandler = () => {
+		$window.resize(function () {
+			windowWidth = $window.width();
+
+			synchronizationHandler();
+			articleShareHandler();
+		});
+	};
 
 	articleNavigationHandler();
 	articleShareHandler();
 	wpBlockFileHandler();
+	goToReadHandler();
+	windowResizeHandler();
 };
 
 export { contentPost };

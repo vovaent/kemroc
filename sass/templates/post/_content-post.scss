@@ -63,6 +63,7 @@
         align-items: center;
         gap: 16px;
         margin-top: 32px;
+        cursor: pointer;
 
         @include media-down-md {
             margin-top: 16px;
@@ -73,6 +74,8 @@
         }
 
         &-btn {
+            cursor: pointer;
+
             &::after {
                 margin: 0 !important;
                 rotate: 90deg;
