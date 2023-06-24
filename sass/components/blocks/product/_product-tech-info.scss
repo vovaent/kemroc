@@ -32,18 +32,20 @@
         @include media-down-sm {
             max-width: 100%;
         }
-    }
 
-    &__title {
-        font-weight: 600;
-        font-size: 19px;
-        line-height: 160%;
-    }
+        &--strong {
+            font-weight: 600;
+            font-size: 19px;
+            line-height: 160%;
+            text-transform: uppercase;
+            color: #000;
+        }
 
-    &__description {
-        margin-top: 24px;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 160%;
+        &-simple {
+            margin-top: 24px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 160%;
+        }
     }
 }

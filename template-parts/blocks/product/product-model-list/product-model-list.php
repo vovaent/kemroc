@@ -72,30 +72,33 @@ if ( ! $is_preview ) :
 					<?php foreach ( $kemroc_pml_models as $kemroc_pml_model_name => $kemroc_pml_model_data ) : ?>
 
 							<li class="swiper-slide product-model-list__item pml-model">
-								<div class="pml-model__title">
-									<?php echo esc_html( $kemroc_pml_model_name ); ?>
-								</div>
-								<!-- /.pml-model__title -->
-
-								<?php if ( $kemroc_pml_model_data['params'] ) : ?>
-									<ul class="pml-model__params">
-
-										<?php foreach ( $kemroc_pml_model_data['params'] as $kemroc_pml_param_value ) : ?>
-											<li class="pml-model__param">
-												<?php echo esc_html( $kemroc_pml_param_value ); ?>
-											</li>
-											<!-- /.pml-model__param -->
-										<?php endforeach; ?>	
-
-									</ul>
-									<!-- /.pml-model__params -->
-								<?php endif; ?>
-
 								<a href="<?php the_permalink( $kemroc_pml_model_data['id'] ); ?>" class="pml-model__link">
-									<?php esc_html_e( 'Details', 'kemroc' ); ?> 
-									<span class="pml-model__arrow">
-										<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
-									</span>
+									<div class="pml-model__title">
+										<?php echo esc_html( $kemroc_pml_model_name ); ?>
+									</div>
+									<!-- /.pml-model__title -->
+
+									<?php if ( $kemroc_pml_model_data['params'] ) : ?>
+										<ul class="pml-model__params">
+
+											<?php foreach ( $kemroc_pml_model_data['params'] as $kemroc_pml_param_value ) : ?>
+												<li class="pml-model__param">
+													<?php echo esc_html( $kemroc_pml_param_value ); ?>
+												</li>
+												<!-- /.pml-model__param -->
+											<?php endforeach; ?>	
+
+										</ul>
+										<!-- /.pml-model__params -->
+									<?php endif; ?>
+
+									<div class="pml-model__pseudo-link">
+										<?php esc_html_e( 'Details', 'kemroc' ); ?> 
+										<span class="pml-model__arrow">
+											<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
+										</span>
+									</div>
+									<!-- /.pml-model__pseudo-link -->
 								</a>
 								<!-- /.pml-model__link -->
 							</li>

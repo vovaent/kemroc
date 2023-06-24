@@ -54,7 +54,6 @@
 
     li {
         position: static;
-        // padding-left: 0;
 
         &:not(:first-child) {
             margin-top: 0;
@@ -68,8 +67,6 @@
 
 @mixin reset-li() {
     position: static;
-    // margin: 0;
-    // padding: 0;
     padding-left: 0;
 
     &:not(:first-child) {
@@ -81,7 +78,7 @@
     }
 }
 
-@mixin reset-a ($color) {
+@mixin reset-a ($color: #444444) {
 
     &,
     &:link,

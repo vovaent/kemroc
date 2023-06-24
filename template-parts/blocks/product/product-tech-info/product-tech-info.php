@@ -37,14 +37,14 @@ if ( ! $is_preview ) :
 	<section id="<?php echo esc_attr( $kemroc_pti_id ); ?>" class="<?php echo esc_attr( $kemroc_pti_class_name ); ?>">
 		<div class="container product-tech-info__content">
 			<div class="product-tech-info__text">
-				<h3 class="product-tech-info__title">
+				<div class="product-tech-info__text-strong">
 					<?php echo wp_kses_post( get_field( 'title' ) ); ?>
-				</h3>
-				<!-- /.product-tech-info__title -->
-				<div class="product-tech-info__description">
+				</div>
+				<!-- /.product-tech-info__text-strong -->
+				<div class="product-tech-info__text-simple">
 					<?php echo wp_kses_post( get_field( 'description' ) ); ?>
 				</div>
-				<!-- /.product-tech-info__description -->
+				<!-- /.product-tech-info__text-simple -->
 			</div>
 			<!-- /.product-tech-info__text -->
 			<div class="product-tech-info__drawing tech-drawing">

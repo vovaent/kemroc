@@ -144,18 +144,13 @@
 }
 
 .pml-model {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 174px;
     height: auto;
-    padding: 77px 0 57px;
     border-radius: 16px;
     flex-shrink: 0;
 
     @include media-down-md {
         width: 109px;
-        padding-top: 30px;
     }
 
     &:hover {
@@ -163,6 +158,19 @@
 
         @include media-down-md {
             background-color: #fff;
+        }
+    }
+
+    &__link {
+        @include reset-a;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 77px 0 57px;
+
+        @include media-down-md {
+            padding-top: 30px;
         }
     }
 
@@ -215,7 +223,7 @@
         }
     }
 
-    &__link {
+    &__pseudo-link {
         @include reset-a($accent);
 
         display: flex;
@@ -230,6 +238,10 @@
         @include media-down-md {
             margin-top: 16px;
             font-size: 12px;
+        }
+
+        .pml-model:hover & {
+            text-decoration: underline;
         }
     }
 

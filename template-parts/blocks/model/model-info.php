@@ -68,7 +68,7 @@ if ( ! $is_preview ) :
 				</a>
 				<!-- /.model-info__parent-page-name -->
 				<h1 class="model-info__title">
-					<?php the_title( esc_html_e( 'Modell', 'kemroc' ) . ' ' ); ?>
+					<?php the_title( esc_html__( 'Modell', 'kemroc' ) . '&nbsp;' ); ?>
 				</h1>
 				<!-- /.model-info__title -->
 			</header>
