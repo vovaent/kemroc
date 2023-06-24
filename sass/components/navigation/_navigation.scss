@@ -29,6 +29,8 @@
                 &>a {
                     @include active-underline(2px);
 
+                    color: $accent;
+
                     @include media-down-md {
                         @include underline(0);
                     }
