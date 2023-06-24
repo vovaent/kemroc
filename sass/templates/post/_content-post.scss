@@ -219,6 +219,8 @@
     }
 
     &__item {
+        @include reset-li;
+
         display: flex;
         gap: 8px;
         font-family: $font__secondary;
