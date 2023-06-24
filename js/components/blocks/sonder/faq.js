@@ -7,21 +7,35 @@ const faq = ($) => {
 		return;
 	}
 
-	// const $faqItemSwitcher = $(`${faqItemSelector}-switcher`);
-	// $faqItemSwitcher.on('click', function () {
-	// 	const $thisParent = $(this).parent();
-	// 	const $thisParentFaqItem = $(this).parents(faqItemSelector);
+	const collapseItem = () => {
+		const $answer = $(`${faqItemSelector}-answer`);
 
-	// 	$thisParent.next().slideToggle();
-	// 	$thisParentFaqItem.toggleClass(`${faqItemClass}--extended`);
-	// });
+		$faqItem.removeClass(`${faqItemClass}--extended`);
+		$answer.slideUp();
+	};
+
+	const extendItem = ($thisItem, thisItemIsExtended = false) => {
+		if (thisItemIsExtended) {
+			return;
+		}
+
+		const $answer = $(`${faqItemSelector}-answer`, $thisItem);
+
+		$thisItem.addClass(`${faqItemClass}--extended`);
+		$answer.slideDown();
+	};
+
+	const faqItemClickHandler = ($thisItem) => {
+		const thisItemIsExtended = $thisItem.hasClass(
+			`${faqItemClass}--extended`
+		);
+
+		collapseItem();
+		extendItem($thisItem, thisItemIsExtended);
+	};
+
 	$faqItem.on('click', function () {
-		const $this = $(this);
-		const $thisQuestion = $(`${faqItemSelector}-question`, $this);
-		const $thisAnswer = $(`${faqItemSelector}-answer`, $this);
-
-		$thisQuestion.toggleClass(`${faqItemClass}--extended`);
-		$thisAnswer.slideToggle();
+		faqItemClickHandler($(this));
 	});
 };
 
