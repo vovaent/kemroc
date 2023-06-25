@@ -566,12 +566,33 @@ function kemroc_acf_init_block_types() {
 			'mode'            => 'edit',
 			'icon'            => 'welcome-learn-more',
 			'keywords'        => array( 'FAQ' ),
-			'post_types'      => array( 'page', 'post' ),
+			'post_types'      => array( 'post' ),
 			'example'         => array(
 				'attributes' => array(
 					'mode' => 'preview',
 					'data' => array(
 						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/faq/faq.png',
+					),
+				),
+			),
+		)
+	);
+	acf_register_block_type(
+		array(
+			'name'            => 'current-articles',
+			'title'           => __( 'Liste der aktuellen Artikel', 'kemroc' ),
+			'description'     => __( 'Liste der aktuellen Artikel', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/post/current-articles/current-articles.php',
+			'category'        => 'post',
+			'mode'            => 'edit',
+			'icon'            => 'admin-post',
+			'keywords'        => array( 'current-articles' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/post/current-articles/current-articles.png',
 					),
 				),
 			),

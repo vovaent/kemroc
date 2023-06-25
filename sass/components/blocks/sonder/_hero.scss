@@ -21,10 +21,12 @@
     }
 
     &--front-page {
+        min-height: 613px;
         padding: 144px 0;
 
         @include media-down-md {
             align-items: center;
+            min-height: 414px;
             padding: 88px 0;
         }
 

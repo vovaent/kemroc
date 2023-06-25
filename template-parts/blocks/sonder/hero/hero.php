@@ -47,9 +47,26 @@ if ( ! $is_preview ) {
 	?>
 	<section id="<?php echo esc_attr( $kemroc_hero_id ); ?>" class="<?php echo esc_attr( $kemroc_hero_class_name ); ?>">
 		<picture class="hero__bg-picture">
-			<source srcset="<?php echo esc_url( $kemroc_hero_bg_image['pc']['url'] ); ?>" media="(min-width: 1024px)">
-			<source srcset="<?php echo esc_url( $kemroc_hero_bg_image['tablet']['url'] ); ?>" media="(min-width: 743px)">
-			<img class="hero__bg-image" src="<?php echo esc_url( $kemroc_hero_bg_image['mobile']['url'] ); ?>" alt="<?php echo esc_url( $kemroc_hero_bg_image['pc']['alt'] ); ?>">
+
+			<?php if ( $kemroc_hero_bg_image['mobile'] ) : ?>
+				<source 
+					srcset="<?php echo esc_attr( $kemroc_hero_bg_image['mobile']['url'] ); ?>" 
+					media="(max-width: 739px)"
+				>
+			<?php endif; ?>
+			
+			<?php if ( $kemroc_hero_bg_image['tablet'] ) : ?>
+				<source 
+					srcset="<?php echo esc_attr( $kemroc_hero_bg_image['tablet']['url'] ); ?>" 
+					media="(max-width: 1179px)"
+			>
+			<?php endif; ?>
+
+			<img 
+				class="hero__bg-image" 
+				src="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['url'] ); ?>" 
+				alt="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['alt'] ); ?>"
+			>
 		</picture>
 		<!-- /.hero__bg-image -->
 		<div class="container hero__container">

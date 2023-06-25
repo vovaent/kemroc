@@ -173,6 +173,15 @@ function kemroc_scripts() {
 		)
 	);
 
+	wp_localize_script(
+		'kemroc-scripts',
+		'current_articles_object',
+		array(
+			'url'   => admin_url( 'admin-ajax.php' ),
+			'nonce' => wp_create_nonce( 'current-articles-nonce' ),
+		)
+	);
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -224,4 +233,4 @@ require get_template_directory() . '/inc/acf/acf.php';
 /**
  * AJAX
  */
-require get_template_directory() . '/inc/ajax.php';
+require get_template_directory() . '/inc/ajax/ajax.php';

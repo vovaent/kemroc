@@ -134,7 +134,7 @@ add_filter(
 	2
 );
 
-function excerpt( $limit, $post_id = false ) {
+function kemroc_the_excerpt( $limit = 30, $post_id = false ) {
 	if ( $post_id ) {
 		$excerpt = explode( ' ', get_the_excerpt( $post_id ), $limit );
 	} else {
@@ -151,7 +151,7 @@ function excerpt( $limit, $post_id = false ) {
 
 	$excerpt = preg_replace( '`\[[^\]]*\]`', '', $excerpt );
 
-	return $excerpt;
+	echo wp_kses_post( $excerpt );
 }
 
 function add_custom_block_categories( $block_categories, $editor_context ) {
@@ -191,6 +191,11 @@ function add_custom_block_categories( $block_categories, $editor_context ) {
 			array(
 				'slug'  => 'constacts',
 				'title' => esc_html__( 'Kontakte', 'kemroc' ),
+				'icon'  => null,
+			),
+			array(
+				'slug'  => 'post',
+				'title' => esc_html__( 'Artikel', 'kemroc' ),
 				'icon'  => null,
 			)
 		);
@@ -253,6 +258,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 				'acf/contacts-info',
 				'acf/contacts-form',
 				'acf/contacts-links',
+				'acf/current-articles',
 			)
 		);
 	} elseif ( 'post' === $editor_context->post->post_type ) {
@@ -267,3 +273,15 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 	return $allowed_blocks;
 }
 add_filter( 'allowed_block_types_all', 'allowed_block_types', 25, 2 );
+
+function kemroc_navigation_template_class_change( $template ) {
+	$template = '
+    <nav class="navigation %1$s" aria-label="%4$s">
+		<h2 class="screen-reader-text">%2$s</h2>
+		<div class="kemroc-navigation__nav-links">%3$s</div>
+	</nav>
+    ';
+	return $template;
+}
+
+add_filter( 'navigation_markup_template', 'kemroc_navigation_template_class_change', 10, 1 );
