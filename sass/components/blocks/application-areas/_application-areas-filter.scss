@@ -1,6 +1,8 @@
 .application-areas-filter {
     @include standard-block-margins;
 
+    overflow: hidden;
+
     &__title {
         font-family: $font__secondary;
         font-weight: 700;
@@ -30,6 +32,7 @@
         @include media-down-sm {
             flex-wrap: nowrap;
             margin-top: 16px;
+            margin-right: -100%;
             overflow: auto;
         }
     }
