@@ -1,7 +1,6 @@
+import { filterBtn } from '../modules/filter-btn';
+
 const applicationAreasFilter = ($) => {
-	const filterBtnClass = 'filter-btn';
-	const filterBtnSelector = '.' + filterBtnClass;
-	const $filterBtns = $(filterBtnSelector);
 	const $areaItems = $('.application-areas-filter__areas-item');
 	const $modelItems = $('.application-areas-filter__model-item');
 
@@ -14,19 +13,19 @@ const applicationAreasFilter = ($) => {
 			return;
 		}
 
-		const $filterBtnThis = $(filterBtnSelector, $(this));
-		const filterBtnClassActive = filterBtnClass + '--active';
+		const $this = $(this);
+		const $filterBtnThis = $(filterBtn.selector, $this);
 
-		if ($filterBtnThis.hasClass(filterBtnClassActive)) {
+		if ($filterBtnThis.hasClass(filterBtn.classActive)) {
 			return;
 		}
 
-		$filterBtns.removeClass(filterBtnClassActive);
-		$filterBtnThis.addClass(filterBtnClassActive);
+		filterBtn.$btns.removeClass(filterBtn.classActive);
+		$filterBtnThis.addClass(filterBtn.classActive);
 
-		const areaItemThisTermId = $(this).data('term-id');
+		const areaItemThisTermId = $this.data('term-id');
 
-		if (null === areaItemThisTermId) {
+		if ('all' === areaItemThisTermId) {
 			$modelItems.fadeIn();
 		} else {
 			$modelItems.hide();

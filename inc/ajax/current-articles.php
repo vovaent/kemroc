@@ -42,17 +42,26 @@ function kemroc_ajax_current_articles_action_callback() {
 		$articles_args['posts_per_page'] = $posts_per_page;
 	}
 
+	if ( isset( $_POST['cat'] ) ) {
+		$cat                  = sanitize_text_field( wp_unslash( $_POST['cat'] ) );
+		$articles_args['cat'] = $cat;
+	}
+
 	$articles_query = new WP_Query( $articles_args );
 
 	if ( $articles_query->have_posts() ) :
 		while ( $articles_query->have_posts() ) :
 			$articles_query->the_post(); 
 			
-			$articles_list[] = kemroc_get_template_part_content( 
+			$article_item  = '<div class="current-articles__item">';
+			$article_item .= kemroc_get_template_part_content( 
 				'template-parts/cards/article', 
 				null, 
-				array( 'class' => 'current-articles__item' ) 
+				array( 'class' => 'current-article' ) 
 			);
+			$article_item .= '</div><!-- /.current-articles__item -->';
+			
+			$articles_list[] = $article_item;
 		endwhile; 
 		wp_reset_postdata();
 

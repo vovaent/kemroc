@@ -8,4 +8,47 @@
     @include media-down-sm {
         margin: 64px 0;
     }
+
+    &__categories-list {
+        gap: 12px;
+    }
+
+    &__categories-item {
+        @include reset-li;
+    }
+
+    &__list {
+
+        &-skeleton,
+        &-original {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 56px 30px;
+            margin-top: 64px;
+
+            @include media-down-md {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px 30px;
+                margin-top: 32px;
+            }
+
+            @include media-down-sm {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 24px;
+                margin-top: 24px;
+            }
+        }
+
+        &-original {
+            display: none;
+        }
+    }
+
+    &__navigation {
+        margin-top: 64px;
+
+        @include media-down-sm {
+            margin-top: 40px;
+        }
+    }
 }

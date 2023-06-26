@@ -11,14 +11,23 @@ if ( ! function_exists( 'kemroc_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function kemroc_posted_on() {
-		$is_post_type_post = 'post' === get_post_type();
+	function kemroc_posted_on( $compact = false, $classes = array(
+		'main' => '',
+		'add'  => '',
+	) ) {
 		
-		if ( $is_post_type_post ) {
-			$entry_date_add_class = $is_post_type_post ? ' cp-article__meta-date' : '';
-			$time_string          = '<time class="entry-date published updated' . $entry_date_add_class . '" datetime="%1$s">%2$s</time>';
-		} else {
-			$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		$entry_date_add_class = 'entry-date published updated';
+
+		if ( ! empty( $classes['main'] ) ) {
+			$entry_date_add_class .= ' ' . $classes['main'] . '__meta-date';
+		}
+
+		if ( ! empty( $classes['add'] ) ) {
+			$entry_date_add_class .= ' ' . $classes['add'];
+		}
+
+		$time_string = '<time class="' . $entry_date_add_class . '" datetime="%1$s">%2$s</time>';
+		if ( ! $compact ) {
 			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 			}
@@ -32,7 +41,7 @@ if ( ! function_exists( 'kemroc_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		if ( $is_post_type_post ) {
+		if ( $compact ) {
 			$posted_on = $time_string;
 			echo $posted_on; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped    
 		} else {
@@ -193,6 +202,12 @@ if ( ! function_exists( 'kemroc_get_template_part_content' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'kemroc_the_template_part_content' ) ) :
+	function kemroc_the_template_part_content( $slug, $name = null, $args = array() ) {
+		echo kemroc_get_template_part_content( $slug, $name = null, $args = array() );//phpcs:ignore
+	}
+endif;
+
 if ( ! function_exists( 'kemroc_paginate_links' ) ) :
 	function kemroc_paginate_links( $args = '', $wp_query = null, $current_page = null ) {
 		if ( ! $wp_query ) {
@@ -295,7 +310,7 @@ if ( ! function_exists( 'kemroc_paginate_links' ) ) :
 			$prev_text_class = $args['class'] . '__page-numbers ' . $args['class'] . '__page-numbers--prev';
 
 			$page_links[] = sprintf(
-				'<a class="' . $prev_text_class . '" href="%s">%s</a>',
+				'<a class="' . $prev_text_class . '" href="%s" data-page-number="' . ( $current - 1 ) . '">%s</a>',
 				/**
 				* Filters the paginated links for the given archive pages.
 				*
@@ -331,7 +346,7 @@ if ( ! function_exists( 'kemroc_paginate_links' ) ) :
 					$link .= $args['add_fragment'];
 
 					$page_links[] = sprintf(
-						'<a class="' . $page_text_class . '" href="%s">%s</a>',
+						'<a class="' . $page_text_class . '" href="%s" data-page-number="' . ( $n ) . '">%s</a>',
 						/** This filter is documented in wp-includes/general-template.php */
 						esc_url( apply_filters( 'kemroc_paginate_links', $link ) ),
 						$args['before_page_number'] . number_format_i18n( $n ) . $args['after_page_number']
@@ -357,7 +372,7 @@ if ( ! function_exists( 'kemroc_paginate_links' ) ) :
 			$next_text_class = $args['class'] . '__page-numbers ' . $args['class'] . '__page-numbers--next';
 
 			$page_links[] = sprintf(
-				'<a class="' . $next_text_class . '" href="%s">%s</a>',
+				'<a class="' . $next_text_class . '" href="%s" data-page-number="' . ( $current + 1 ) . '">%s</a>',
 				/** This filter is documented in wp-includes/general-template.php */
 				esc_url( apply_filters( 'kemroc_paginate_links', $link ) ),
 				$args['next_text']
@@ -395,7 +410,7 @@ if ( ! function_exists( 'kemroc_paginate_links' ) ) :
 endif;
 
 if ( ! function_exists( 'kemroc_get_the_posts_pagination' ) ) :
-	function kemroc_get_the_posts_pagination( $args = array(), $wp_query = null, $current_page=null ) {
+	function kemroc_get_the_posts_pagination( $args = array(), $wp_query = null, $current_page = null ) {
 		if ( ! $wp_query ) {
 			global $wp_query;
 		}

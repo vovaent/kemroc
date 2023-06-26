@@ -1,68 +1,149 @@
+import { filterBtn } from '../modules/filter-btn';
+
 const currentArticles = ($) => {
-	/* global page_number, max_page, posts_per_page, page_slug */
+	/* global posts_per_page, page_number, max_page, page_slug */
 	/* eslint no-undef: "error" */
 
-	const $articlesList = $('.current-articles__list');
+	const $articlesListSkeleton = $('.current-articles__list-skeleton');
+	const $articlesListOriginal = $('.current-articles__list-original');
 	const $articlesNavigation = $('.current-articles__navigation');
 
-	if ($articlesList.length === 0) {
+	if ($articlesListOriginal.length === 0) {
 		return;
 	}
 
-	const loadArticles = (postsPerPage = null) => {
-		const data = {
+	let postsPerPage = 9;
+
+	if (typeof posts_per_page !== undefined) {
+		postsPerPage = posts_per_page;
+	}
+
+	let pageNumber = 1;
+
+	if (typeof page_number !== undefined) {
+		pageNumber = page_number;
+	}
+
+	if (postsPerPage > 6) {
+		const windowWidth = $(window).width();
+
+		if (windowWidth > 739 && windowWidth < 1180) {
+			postsPerPage = 6;
+		} else if (windowWidth < 740) {
+			postsPerPage = 4;
+		}
+	}
+
+	const articlesOutput = (resp) => {
+		if (
+			typeof resp.data.articles_list !== undefined &&
+			resp.data.articles_list.length !== 0
+		) {
+			$articlesListOriginal.html('');
+
+			$.each(resp.data.articles_list, (indexInArray, valueOfElement) => {
+				$articlesListOriginal.append($(valueOfElement));
+			});
+
+			$articlesListSkeleton.hide();
+			$articlesListOriginal.css('display', 'grid');
+		}
+
+		if (typeof resp.data.navigation !== undefined) {
+			$articlesNavigation.html(resp.data.navigation);
+			navigationHandler();
+		}
+	};
+
+	const ajaxSuccessHandler = (resp) => {
+		if (!resp.success) {
+			console.log('error:', resp);
+		} else {
+			articlesOutput(resp);
+		}
+	};
+
+	const loadArticles = (data) => {
+		$articlesListOriginal.hide();
+		$articlesListOriginal.html('');
+		$articlesListSkeleton.show();
+
+		const thisData = {
 			action: 'current_articles_action',
 			nonce: current_articles_object.nonce,
 			page_slug: page_slug,
+			posts_per_page: postsPerPage,
+			page_number: pageNumber,
+			...data,
 		};
-
-		if (page_number !== undefined) {
-			data.page_number = page_number;
-		}
-
-		if (postsPerPage !== null) {
-			data.posts_per_page = postsPerPage;
-		}
 
 		$.ajax({
 			type: 'POST',
 			url: current_articles_object.url,
-			data: data,
+			data: thisData,
 			dataType: 'json',
-			success: function (resp) {
-				if (!resp.success) {
-					console.log('error:', resp);
-				} else {
-					console.log('success:', resp);
-					if (
-						resp.data.articles_list !== undefined &&
-						resp.data.articles_list.length !== 0
-					) {
-						$articlesList.html('');
-
-						$.each(
-							resp.data.articles_list,
-							function (indexInArray, valueOfElement) {
-								$articlesList.append($(valueOfElement));
-							}
-						);
-					}
-
-					if (resp.data.navigation !== undefined) {
-						$articlesNavigation.html(resp.data.navigation);
-					}
-				}
-			},
+			success: (resp) => ajaxSuccessHandler(resp),
 		});
 	};
 
-	const windowWidth = $(window).width();
+	const categoriesFilterHandler = () => {
+		const $catItems = $('.current-articles__categories-item');
 
-	if (windowWidth > 739 && windowWidth < 1180) {
-		loadArticles(6);
-	} else if (windowWidth < 740) {
-		loadArticles(4);
-	}
+		if ($catItems.length === 0) {
+			return;
+		}
+
+		$catItems.on('click', function () {
+			const $this = $(this);
+			const $filterBtnThis = $(filterBtn.selector, $this);
+
+			if ($filterBtnThis.hasClass(filterBtn.classActive)) {
+				return;
+			}
+
+			filterBtn.$btns.removeClass(filterBtn.classActive);
+			$filterBtnThis.addClass(filterBtn.classActive);
+			$filterBtnThis.addClass(filterBtn.classActive);
+
+			const $thisTermId = $this.data('term-id');
+			loadArticles({ cat: $thisTermId });
+		});
+	};
+
+	const navigationHandler = () => {
+		const navigationPageNumbersClass = 'kemroc-navigation__page-numbers';
+		const $navigationPageNumbers = $('.' + navigationPageNumbersClass);
+
+		if ($navigationPageNumbers.length === 0) {
+			return;
+		}
+
+		$navigationPageNumbers.on('click', function (event) {
+			event.preventDefault();
+
+			const $this = $(this);
+
+			if (
+				$this.hasClass(navigationPageNumbersClass + '--dots') ||
+				$this.hasClass(navigationPageNumbersClass + '--current')
+			) {
+				return;
+			}
+
+			const thisPageNumber = $this.data('page-number');
+			const $catItemsActive = $(filterBtn.selectorActive).parent();
+			let currentCategory = $catItemsActive.data('term-id');
+
+			if (currentCategory === 'all') {
+				currentCategory = '';
+			}
+
+			loadArticles({ page_number: thisPageNumber, cat: currentCategory });
+		});
+	};
+
+	loadArticles();
+	categoriesFilterHandler();
 };
 
 export { currentArticles };

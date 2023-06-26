@@ -1,0 +1,25 @@
+.skeleton {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: whitesmoke;
+
+    &::before {
+        content: '';
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to right, transparent, transparent, #d7d7d7, transparent, transparent);
+        transform: translate(-100%);
+        animation: loading 1.2s infinite;
+    }
+}
+
+
+@keyframes loading {
+    100% {
+        transform: translate(100%);
+    }
+}
