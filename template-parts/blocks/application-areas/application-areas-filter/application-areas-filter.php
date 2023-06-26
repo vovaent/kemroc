@@ -59,10 +59,10 @@ if ( ! $is_preview ) :
 			<?php if ( $kemroc_aaf_term_children ) : ?>
 				<ul class="application-areas-filter__areas-list">
 					<li 
-						class="application-areas-filter__areas-item application-areas-filter__areas-item--active"
+						class="application-areas-filter__areas-item"
 						data-term-id="null"
 					>
-						<button>
+						<button class="filter-btn filter-btn--active">
 							<?php esc_html_e( 'Alle', 'kemroc' ); ?>
 						</button>
 					</li>
@@ -76,7 +76,7 @@ if ( ! $is_preview ) :
 							class="application-areas-filter__areas-item" 
 							data-term-id="<?php echo esc_attr( $kemroc_aaf_term_child ); ?>"
 						>
-							<button>
+							<button class="filter-btn">
 								<?php echo esc_html( $kemroc_aaf_term_obj->name ); ?>
 							</button>
 						</li>
