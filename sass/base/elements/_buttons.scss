@@ -183,7 +183,6 @@ input[type="submit"] {
 
     @include media-down-sm {
         flex-wrap: nowrap;
-        overflow: auto;
     }
 }
 
