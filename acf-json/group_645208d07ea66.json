@@ -178,14 +178,14 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
-                    "preview_size": "medium"
+                    "preview_size": "full"
                 },
                 {
                     "key": "field_648497f6d217a",
                     "label": "Bild für tablette",
                     "name": "tablet",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Optional",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -202,14 +202,14 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
-                    "preview_size": "medium"
+                    "preview_size": "full"
                 },
                 {
                     "key": "field_64520a1b7a3c3",
                     "label": "Bild für mobile",
                     "name": "mobile",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Optional",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -226,7 +226,7 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
-                    "preview_size": "medium"
+                    "preview_size": "full"
                 }
             ]
         }
@@ -249,5 +249,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686571974
+    "modified": 1687689562
 }
