@@ -39,38 +39,37 @@ if ( ! $is_preview ) {
 	$kemroc_hero_title         = 'custom_title' === $kemroc_hero_title_choice ? get_field( 'custom_title' ) : get_the_title();
 	$kemroc_hero_description   = get_field( 'description' );
 	$kemroc_hero_link          = get_field( 'link' );
-	$kemroc_hero_bg_image      = get_field( 'bg_image' );    
+	$kemroc_hero_bg_image      = get_field( 'bg_image' );
 
 	if ( $kemroc_hero_is_front_page ) {
 		$kemroc_hero_class_name .= ' hero--front-page';
 	}
 	?>
 	<section id="<?php echo esc_attr( $kemroc_hero_id ); ?>" class="<?php echo esc_attr( $kemroc_hero_class_name ); ?>">
-		<picture class="hero__bg-picture">
+		<figure class="hero__bg-picture-wrapper">
+			<picture class="hero__bg-picture">
 
-			<?php if ( $kemroc_hero_bg_image['mobile'] ) : ?>
-				<source 
-					srcset="<?php echo esc_attr( $kemroc_hero_bg_image['mobile']['url'] ); ?>" 
-					media="(max-width: 739px)"
-				>
-			<?php endif; ?>
+				<?php if ( $kemroc_hero_bg_image['mobile'] ) : ?>
+					<source srcset="<?php echo esc_attr( $kemroc_hero_bg_image['mobile']['url'] ); ?>"
+						media="(max-width: 739px)">
+				<?php endif; ?>
 
-			<?php if ( $kemroc_hero_bg_image['tablet'] ) : ?>
-				<source 
-					srcset="<?php echo esc_attr( $kemroc_hero_bg_image['tablet']['url'] ); ?>" 
-					media="(max-width: 1179px)"
-			>
-			<?php endif; ?>
+				<?php if ( $kemroc_hero_bg_image['tablet'] ) : ?>
+					<source srcset="<?php echo esc_attr( $kemroc_hero_bg_image['tablet']['url'] ); ?>"
+						media="(max-width: 1179px)">
+				<?php endif; ?>
 
-			<?php if ( $kemroc_hero_bg_image['pc'] ) : ?>
-				<img 
-					class="hero__bg-image" 
-					src="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['url'] ); ?>" 
-					alt="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['alt'] ); ?>"
-				>
-			<?php endif; ?>
-		</picture>
-		<!-- /.hero__bg-image -->
+				<?php if ( $kemroc_hero_bg_image['pc'] ) : ?>
+					<img class="hero__bg-image" src="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['url'] ); ?>"
+						alt="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['alt'] ); ?>">
+				<?php endif; ?>
+
+			</picture>
+			<!-- /.hero__bg-picture -->
+			<div class="hero__bg-picture-overlay"></div>
+			<!-- /.hero__bg-picture-overlay -->
+		</figure>
+		<!-- /.hero__bg-picture-wrapper -->
 		<div class="container hero__container">
 			<div class="hero__inner">
 				<?php if ( $kemroc_hero_above_title ) : ?>
@@ -90,7 +89,8 @@ if ( ! $is_preview ) {
 				<?php endif; ?>
 
 				<?php if ( $kemroc_hero_link ) : ?>
-					<a href="<?php echo esc_url( $kemroc_hero_link['url'] ); ?>" class="btn btn-accent btn-rounded arrow-right hero__readmore">
+					<a href="<?php echo esc_url( $kemroc_hero_link['url'] ); ?>"
+						class="btn btn-accent btn-rounded arrow-right hero__readmore">
 						<?php echo esc_html( $kemroc_hero_link['title'] ); ?>
 					</a>
 				<?php endif; ?>

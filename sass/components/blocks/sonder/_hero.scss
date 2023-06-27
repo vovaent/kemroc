@@ -44,6 +44,7 @@
         display: block;
         width: 100%;
         z-index: -1;
+
     }
 
     &__bg-image {
@@ -52,19 +53,23 @@
         height: 100%;
     }
 
+    &__bg-picture-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 100%);
+    }
+
+    &__container {
+        z-index: 1;
+    }
+
     &__inner {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        // width: 530px;
-
-        // @include media-down-md {
-        //     width: 500px;
-        // }
-
-        // @include media-down-sm {
-        //     width: 100%;
-        // }
     }
 
     &__above-title {
@@ -115,6 +120,10 @@
             width: 100%;
             font-size: 16px;
             line-height: 26px;
+        }
+
+        strong {
+            color: $accent;
         }
     }
 
