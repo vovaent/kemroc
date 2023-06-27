@@ -1,0 +1,33 @@
+.error404 {
+    .breadcrumbs {
+        display: none;
+    }
+}
+.page-404 {
+    text-align: center;
+    padding: 40px 0 128px 0;
+    @include media-down-md {
+        padding: 72px 0;
+    }
+    @include media-down-sm {
+        padding: 64px 0;
+    }
+    &__img {
+        display: flex;
+        max-width: max-content;
+        justify-content: center;
+        margin: 0 auto 32px auto;
+        @include media-down-sm {
+            margin-bottom: 24px;
+        }
+    }
+    &__text {
+        margin-top: 0;
+        margin-bottom: 32px;
+        @include media-down-sm {
+            font-size: 19px;
+            line-height: 140%;
+            margin-bottom: 24px;
+        }
+    }
+}
