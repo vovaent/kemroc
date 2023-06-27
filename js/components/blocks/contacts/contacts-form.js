@@ -36,7 +36,7 @@ const contactsForm = ($) => {
 		return emailReg.test(email);
 	};
 
-	const fieldСheck = (el) => {
+	const fieldCheck = (el) => {
 		let res = true;
 
 		const $this = $(el);
@@ -59,7 +59,7 @@ const contactsForm = ($) => {
 	};
 
 	$requiredField.on('blur', function () {
-		fieldСheck(this);
+		fieldCheck(this);
 	});
 
 	$requiredField.on('input', function () {
@@ -80,7 +80,7 @@ const contactsForm = ($) => {
 		let sendAllow = true;
 
 		$requiredField.each(function () {
-			const checkFieldRes = fieldСheck(this);
+			const checkFieldRes = fieldCheck(this);
 			if (!checkFieldRes) {
 				sendAllow = false;
 			}
