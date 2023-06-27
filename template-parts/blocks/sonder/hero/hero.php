@@ -54,7 +54,7 @@ if ( ! $is_preview ) {
 					media="(max-width: 739px)"
 				>
 			<?php endif; ?>
-			
+
 			<?php if ( $kemroc_hero_bg_image['tablet'] ) : ?>
 				<source 
 					srcset="<?php echo esc_attr( $kemroc_hero_bg_image['tablet']['url'] ); ?>" 
@@ -62,11 +62,13 @@ if ( ! $is_preview ) {
 			>
 			<?php endif; ?>
 
-			<img 
-				class="hero__bg-image" 
-				src="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['url'] ); ?>" 
-				alt="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['alt'] ); ?>"
-			>
+			<?php if ( $kemroc_hero_bg_image['pc'] ) : ?>
+				<img 
+					class="hero__bg-image" 
+					src="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['url'] ); ?>" 
+					alt="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['alt'] ); ?>"
+				>
+			<?php endif; ?>
 		</picture>
 		<!-- /.hero__bg-image -->
 		<div class="container hero__container">
