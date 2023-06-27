@@ -95,8 +95,8 @@ if ( ! $is_preview ) :
 								?>
 								<div class="current-articles__item">
 									<?php	                      
-									kemroc_the_template_part_content( 
-										'template-parts/cards/article-skeleton', 
+									get_template_part( 
+										'template-parts/cards/article/article', 
 										'skeleton'
 									);
 									?>
@@ -118,8 +118,8 @@ if ( ! $is_preview ) :
 								?>
 								<div class="current-articles__item">
 									<?php	                      
-									kemroc_the_template_part_content( 
-										'template-parts/cards/article-skeleton', 
+									get_template_part( 
+										'template-parts/cards/article/article', 
 										'skeleton'
 									);
 									?>
@@ -141,8 +141,8 @@ if ( ! $is_preview ) :
 								?>
 								<div class="current-articles__item">
 									<?php	                      
-									kemroc_the_template_part_content( 
-										'template-parts/cards/article-skeleton', 
+									get_template_part( 
+										'template-parts/cards/article/article', 
 										'skeleton'
 									);
 									?>

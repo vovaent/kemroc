@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying article card
+ * Template part for displaying current article card
  *
  * @package kemroc
  */

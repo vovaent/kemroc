@@ -55,8 +55,8 @@ function kemroc_ajax_current_articles_action_callback() {
 			
 			$article_item  = '<div class="current-articles__item">';
 			$article_item .= kemroc_get_template_part_content( 
-				'template-parts/cards/article', 
-				null, 
+				'template-parts/cards/article/article', 
+				'current', 
 				array( 'class' => 'current-article' ) 
 			);
 			$article_item .= '</div><!-- /.current-articles__item -->';
