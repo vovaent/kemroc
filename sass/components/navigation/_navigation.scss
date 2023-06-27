@@ -468,3 +468,74 @@
         flex: 1 0 50%;
     }
 }
+
+.kemroc-navigation {
+    &__nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+
+        @include media-down-sm {
+            gap: 4px;
+        }
+    }
+
+    &__page-numbers {
+        @include reset-a;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        padding: 10px;
+        border: 2px solid $color__border;
+        border-radius: 16px;
+        color: #000;
+        text-align: center;
+        font-size: 16px;
+        font-family: $font__secondary;
+        line-height: 130%;
+
+        @include media-down-sm {
+            width: 40px;
+            height: 40px;
+            font-size: 12px;
+        }
+
+        &:hover {
+            border-color: $accent;
+            color: $accent;
+        }
+
+        &--prev {
+            margin-right: 20px;
+            border-color: $accent;
+
+            @include media-down-sm {
+                margin-right: 8px;
+            }
+        }
+
+        &--next {
+            margin-left: 20px;
+            border-color: $accent;
+
+            @include media-down-sm {
+                margin-left: 8px;
+            }
+        }
+
+        &--current {
+            border-color: $accent;
+            color: $accent;
+        }
+
+        &--dots {
+            &:hover {
+                border-color: $color__border;
+                color: #000;
+            }
+        }
+    }
+}

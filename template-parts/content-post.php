@@ -28,7 +28,14 @@ $kemroc_headers_insides = kemroc_get_headers_insides_in_content( get_the_content
 	<header class="container cp-article__header">
 		<div class="cp-article__text">
 			<div class="cp-article__meta">
-				<?php kemroc_posted_on(); ?>
+				<?php 
+				kemroc_posted_on(
+					true,
+					array(
+						'main' => 'cp-article',
+					) 
+				); 
+				?>
 				<div class="cp-article__meta-mediator"></div>
 				<!-- /.cp-article__meta-mediator -->
 				<div class="cp-article__meta-text">

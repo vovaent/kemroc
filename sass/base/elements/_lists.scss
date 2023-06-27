@@ -86,3 +86,10 @@ dd {
         margin-left: 12px;
     }
 }
+
+
+.scroll-list-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
