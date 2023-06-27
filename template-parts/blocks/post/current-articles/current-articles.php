@@ -41,9 +41,9 @@ if ( ! $is_preview ) :
 	?>
 
 	<script>
-		var page_number = "<?php echo esc_html( $kemroc_ca_page_number ); ?>";
-		var posts_per_page = "<?php echo esc_html( $kemroc_ca_posts_per_page ); ?>";
-		var page_slug = "<?php echo esc_html( $kemroc_ca_page_slug ); ?>";
+		var pageNumberGlobal = "<?php echo esc_html( $kemroc_ca_page_number ); ?>";
+		var postsPerPageGlobal = "<?php echo esc_html( $kemroc_ca_posts_per_page ); ?>";
+		var pageSlugGlobal = "<?php echo esc_html( $kemroc_ca_page_slug ); ?>";
 	</script>
 
 	<section id="<?php echo esc_attr( $kemroc_ca_id ); ?>" class="<?php echo esc_attr( $kemroc_ca_class_name ); ?>">

@@ -175,7 +175,7 @@ function kemroc_scripts() {
 
 	wp_localize_script(
 		'kemroc-scripts',
-		'current_articles_object',
+		'currentArticlesObject',
 		array(
 			'url'   => admin_url( 'admin-ajax.php' ),
 			'nonce' => wp_create_nonce( 'current-articles-nonce' ),

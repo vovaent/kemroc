@@ -9,6 +9,6 @@ const filterBtn = {
 filterBtn.classActive = filterBtn.class + '--active';
 filterBtn.selector = '.' + filterBtn.class;
 filterBtn.selectorActive = '.' + filterBtn.classActive;
-filterBtn.$btns = $(filterBtn.selector);
+filterBtn.$btns = $( filterBtn.selector );
 
 export { filterBtn };
