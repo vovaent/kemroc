@@ -4,7 +4,7 @@ const currentArticles = ( $ ) => {
 	/* global postsPerPageGlobal, pageNumberGlobal, pageSlugGlobal, currentArticlesObject */
 	/* eslint no-undef: "error" */
 
-	const $articlesListSkeleton = $( '.current-articles__list-skeleton' );
+	const $articlesListSkeleton = $( '.current-articles__list-skeletons' );
 	const $articlesListOriginal = $( '.current-articles__list-original' );
 	const $articlesNavigation = $( '.current-articles__navigation' );
 

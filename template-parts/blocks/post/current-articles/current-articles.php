@@ -47,76 +47,126 @@ if ( ! $is_preview ) :
 	</script>
 
 	<section id="<?php echo esc_attr( $kemroc_ca_id ); ?>" class="<?php echo esc_attr( $kemroc_ca_class_name ); ?>">
-        <div class="current-articles__content">
+		<div class="current-articles__content">
 
-            <?php if ( $kemroc_ca_articles_categories ) : ?>
-                <div class="scroll-list-wrapper current-articles__categories-wrapper">
-                    <div class="container current-articles__categories-container">
-                        <ul class="filter-btns current-articles__categories-list">
-                            <li 
-                                class="current-articles__categories-item"
-                                data-term-id="all"
-                            >
-                                <button class="filter-btn filter-btn--active">
-                                    <?php esc_html_e( 'Alle Artikel', 'kemroc' ); ?>
-                                </button>
-                            </li>
-                            <!-- /.current-articles__categories-item -->
-                            
-                            <?php foreach ( $kemroc_ca_articles_categories as $kemroc_ca_articles_category ) : ?>
-                                <li 
-                                    class="current-articles__categories-item"
-                                    data-term-id="<?php echo esc_attr( $kemroc_ca_articles_category->term_id ); ?>"
-                                >
-                                    <button class="filter-btn">
-                                        <?php echo esc_html( $kemroc_ca_articles_category->name ); ?>
-                                    </button>
-                                </li>
-                                <!-- /.current-articles__categories-item -->
-                            <?php endforeach; ?>
-                            
-                        </ul>
-                        <!-- /.filter-btns current-articles__categories-list -->        
-                    </div>
-                    <!-- /.container current-articles__categories-container -->        
-                </div>
-                <!-- /.current-articles__categories-wrapper -->        
-            <?php endif; ?>
+			<?php if ( $kemroc_ca_articles_categories ) : ?>
+				<div class="scroll-list-wrapper current-articles__categories-wrapper">
+					<div class="container current-articles__categories-container">
+						<ul class="filter-btns current-articles__categories-list">
+							<li 
+								class="current-articles__categories-item"
+								data-term-id="all"
+							>
+								<button class="filter-btn filter-btn--active">
+									<?php esc_html_e( 'Alle Artikel', 'kemroc' ); ?>
+								</button>
+							</li>
+							<!-- /.current-articles__categories-item -->
 
-            <div class="container current-articles__list-container">
-                <div class="current-articles__list">				
-                    <div class="current-articles__list-skeleton">
+							<?php foreach ( $kemroc_ca_articles_categories as $kemroc_ca_articles_category ) : ?>
+								<li 
+									class="current-articles__categories-item"
+									data-term-id="<?php echo esc_attr( $kemroc_ca_articles_category->term_id ); ?>"
+								>
+									<button class="filter-btn">
+										<?php echo esc_html( $kemroc_ca_articles_category->name ); ?>
+									</button>
+								</li>
+								<!-- /.current-articles__categories-item -->
+							<?php endforeach; ?>
 
-                        <?php 
-                        $kemroc_ca_i = 1;
-                            
-                        while ( $kemroc_ca_i++ <= $kemroc_ca_posts_per_page ) :  
-                            ?>
-                            <div class="current-articles__item">
-                                <?php	                      
-                                kemroc_the_template_part_content( 
-                                    'template-parts/cards/article-skeleton', 
-                                    'skeleton'
-                                );
-                                ?>
-                            </div>
-                            <!-- /.current-articles__item -->   
-                            <?php
-                        endwhile; 
-                        wp_reset_postdata();
-                        ?>
+						</ul>
+						<!-- /.filter-btns current-articles__categories-list -->        
+					</div>
+					<!-- /.container current-articles__categories-container -->        
+				</div>
+				<!-- /.current-articles__categories-wrapper -->        
+			<?php endif; ?>
 
-                    </div>
-                    <!-- /.current-articles__list-skeleton -->
-                    <div class="current-articles__list-original"></div>
-                    <!-- /.current-articles__list-original -->
-                </div>
-                <!-- /.current-articles__list -->                
+			<div class="container current-articles__list-container">
+				<div class="current-articles__list">				
+					<div class="current-articles__list-skeletons">
+						<div class="current-articles__skeleton-item current-articles__skeleton-item--pc">
 
-                <div class="current-articles__navigation"></div>
-                <!-- /.current-articles__navigation -->
-            </div>
-            <!-- /.container current-articles__list-container -->
+							<?php 
+							$kemroc_ca_i = 1;
+								
+							while ( $kemroc_ca_i++ <= $kemroc_ca_posts_per_page ) :  
+								?>
+								<div class="current-articles__item">
+									<?php	                      
+									kemroc_the_template_part_content( 
+										'template-parts/cards/article-skeleton', 
+										'skeleton'
+									);
+									?>
+								</div>
+								<!-- /.current-articles__item -->   
+								<?php
+							endwhile; 
+							wp_reset_postdata();
+							?>
+
+						</div>
+						<!-- /.current-articles__skeleton-item current-articles__skeleton-item--pc -->
+						<div class="current-articles__skeleton-item current-articles__skeleton-item--tab">
+
+							<?php 
+							$kemroc_ca_i = 1;
+								
+							while ( $kemroc_ca_i++ <= 6 ) :  
+								?>
+								<div class="current-articles__item">
+									<?php	                      
+									kemroc_the_template_part_content( 
+										'template-parts/cards/article-skeleton', 
+										'skeleton'
+									);
+									?>
+								</div>
+								<!-- /.current-articles__item -->   
+								<?php
+							endwhile; 
+							wp_reset_postdata();
+							?>
+
+						</div>
+						<!-- /.current-articles__skeleton-item current-articles__skeleton-item--tab -->
+						<div class="current-articles__skeleton-item current-articles__skeleton-item--mob">
+
+							<?php 
+							$kemroc_ca_i = 1;
+								
+							while ( $kemroc_ca_i++ <= 4 ) :  
+								?>
+								<div class="current-articles__item">
+									<?php	                      
+									kemroc_the_template_part_content( 
+										'template-parts/cards/article-skeleton', 
+										'skeleton'
+									);
+									?>
+								</div>
+								<!-- /.current-articles__item -->   
+								<?php
+							endwhile; 
+							wp_reset_postdata();
+							?>
+
+						</div>
+						<!-- /.current-articles__list-skeletons--mob -->
+					   
+					</div>
+					<!-- /.current-articles__list-skeletons -->
+					<div class="current-articles__list-original"></div>
+					<!-- /.current-articles__list-original -->
+				</div>
+				<!-- /.current-articles__list -->                
+
+				<div class="current-articles__navigation"></div>
+				<!-- /.current-articles__navigation -->
+			</div>
+			<!-- /.container current-articles__list-container -->
 		</div>
 		<!-- /.current-articles__content -->
 	</section>
