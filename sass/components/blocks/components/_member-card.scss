@@ -25,6 +25,10 @@
     &:hover {
         border-width: 2px;
         border-color: $accent;
+
+        @include media-down-md {
+            border: 1px solid $color__border;
+        }
     }
 
     &__personal-info {
@@ -104,7 +108,8 @@
         height: 150px;
         border-radius: 50%;
         overflow: hidden;
-        transition: transform .3s ease-out;
+        // transition: transform .3s ease-out;
+        transition: scale .3s ease-out;
 
         @include media-down-md {
             margin-top: 0;
@@ -113,10 +118,12 @@
         }
 
         .member-card:hover & {
-            transform: scale(0.8);
+            // transform: scale(0.8);
+            scale: 0.8;
 
             @include media-down-md {
-                transform: none;
+                // transform: none;
+                scale: 1
             }
         }
 
@@ -154,6 +161,10 @@
 
         .member-card:hover & {
             transform: translateY(-22px);
+
+            @include media-down-md {
+                transform: translateY(0);
+            }
         }
     }
 
@@ -205,12 +216,26 @@
     &__numbers {
         display: flex;
         align-items: center;
-        gap: 17px;
+        // gap: 17px;
 
         @include media-down-md {
             flex-direction: column;
             align-items: flex-start;
-            gap: 8px;
+            // gap: 8px;
+        }
+    }
+
+    &__mobile-number {
+        display: flex;
+        align-items: center;
+        margin-left: 8px;
+
+        &::before {
+            content: '';
+            margin-right: 8px;
+            width: 1px;
+            height: 22px;
+            background-color: $color__border;
         }
     }
 
