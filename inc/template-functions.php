@@ -235,6 +235,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 				'acf/our-news',
 				'acf/section-header',
 				'acf/products',
+				'acf/application-areas-list',
 			)
 		);
 	} elseif ( 'page' === $editor_context->post->post_type ) {

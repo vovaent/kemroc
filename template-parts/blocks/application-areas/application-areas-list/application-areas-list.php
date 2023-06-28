@@ -30,11 +30,13 @@ if ( ! $is_preview ) :
 		$kemroc_aal_class_name .= ' align' . $block['align'];
 	}
 
+	$kemroc_aal_parent_page_id = get_field( 'parent_page_id' );
+
 	// Load values and assing defaults.
 	$kemroc_aal_args  = array(
 		'post_type'   => 'page',
 		'post_status' => 'published',
-		'post_parent' => get_the_ID(),
+		'post_parent' => $kemroc_aal_parent_page_id,
 	);
 	$kemroc_aal_areas = new WP_Query( $kemroc_aal_args );
 	?>
