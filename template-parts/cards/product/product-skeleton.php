@@ -14,7 +14,7 @@
 	<!-- /.product-card__figure -->
 	<div class="product-card__title skeleton"></div>
 	<!-- /.product-card__title -->
-	<div class="pseudo-link product-card__pseudo-link skeleton"></div>
-	<!-- /.product-card__pseudo-link -->
+	<div class="product-card__title product-card__title--2 skeleton"></div>
+	<!-- /.product-card__card__title -->
 </div>
 <!-- /.product-card -->
