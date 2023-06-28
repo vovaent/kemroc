@@ -1,12 +1,12 @@
 {
     "key": "group_64520c0b836b5",
-    "title": "Block | Our Products",
+    "title": "Block | Section Header",
     "fields": [
         {
             "key": "field_64520c0b67ecc",
             "label": "Titel",
             "name": "title",
-            "type": "textarea",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,9 +17,9 @@
             },
             "default_value": "",
             "maxlength": "",
-            "rows": "",
             "placeholder": "",
-            "new_lines": ""
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_64520c1a67ecd",
@@ -54,33 +54,6 @@
                 "id": ""
             },
             "return_format": "array"
-        },
-        {
-            "key": "field_64520c3267ecf",
-            "label": "Produkte",
-            "name": "products",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "products"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
-            ],
-            "return_format": "object",
-            "min": "",
-            "max": "",
-            "elements": ""
         }
     ],
     "location": [
@@ -88,7 +61,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/our-products"
+                "value": "acf\/section-header"
             }
         ]
     ],
@@ -101,5 +74,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685382347
+    "modified": 1687956360
 }

@@ -1,7 +1,6 @@
 .product-card {
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
     max-width: 270px;
     height: 100%;
     padding: 24px;
@@ -23,20 +22,16 @@
         align-items: center;
         flex-direction: column;
         margin-top: 0;
-        // min-width: 100%;
         min-height: 198px;
-        // padding: 40px 40px 18px;
         padding: 18px;
 
         @include media-down-md {
             min-height: 162px;
-            // padding: 11px 15px;
             padding: 11px;
         }
 
         @include media-down-sm {
             min-height: 118px;
-            // padding: 0;
             padding: 5px;
         }
 
@@ -95,6 +90,7 @@
         &--2 {
             &.skeleton {
                 margin-top: 14px;
+                margin-bottom: 3px;
             }
         }
     }

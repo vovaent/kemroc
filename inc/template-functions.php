@@ -174,8 +174,8 @@ function add_custom_block_categories( $block_categories, $editor_context ) {
 				'icon'  => null,
 			),
 			array(
-				'slug'  => 'sonder-modules',
-				'title' => __( 'Sonder module', 'kemroc' ),
+				'slug'  => 'sonder',
+				'title' => __( 'Sonder', 'kemroc' ),
 				'icon'  => null,
 			),
 			array(
@@ -233,6 +233,8 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 				'acf/our-company',
 				'acf/cta-bg',
 				'acf/our-news',
+				'acf/section-header',
+				'acf/products',
 			)
 		);
 	} elseif ( 'page' === $editor_context->post->post_type ) {
@@ -260,6 +262,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 				'acf/contacts-form',
 				'acf/contacts-links',
 				'acf/current-articles',
+				'acf/section-header',
 			)
 		);
 	} elseif ( 'post' === $editor_context->post->post_type ) {

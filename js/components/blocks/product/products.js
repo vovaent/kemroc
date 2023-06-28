@@ -1,7 +1,7 @@
 import { GetPostsAjax } from '../modules/GetPostsAjax';
 
 const products = ( $ ) => {
-	/* global parentPageIdGlobal, postsPerPageGlobal, pageNumberGlobal, pageSlugGlobal, productsObject */
+	/* global productsData, productsAjax */
 	/* eslint no-undef: "error" */
 
 	const $productsListSkeletons = $( '.products__list--skeletons' );
@@ -12,22 +12,25 @@ const products = ( $ ) => {
 		return;
 	}
 
-	let postsPerPage = 16;
+	let allProductsOutputIsEnabled;
+	let pageNumber;
+	let postsPerPage;
+	let pageSlug;
 
-	if ( typeof postsPerPageGlobal !== undefined ) {
-		postsPerPage = postsPerPageGlobal;
+	if ( typeof productsData.allProductsOutputIsEnabled !== undefined ) {
+		allProductsOutputIsEnabled = productsData.allProductsOutputIsEnabled;
 	}
 
-	let pageNumber = 1;
-
-	if ( typeof pageNumberGlobal !== undefined ) {
-		pageNumber = pageNumberGlobal;
+	if ( typeof productsData.postsPerPage !== undefined ) {
+		postsPerPage = productsData.postsPerPage;
 	}
 
-	let pageSlug = 1;
+	if ( typeof productsData.pageNumber !== undefined ) {
+		pageNumber = productsData.pageNumber;
+	}
 
-	if ( typeof pageSlugGlobal !== undefined ) {
-		pageSlug = pageSlugGlobal;
+	if ( typeof productsData.pageSlug !== undefined ) {
+		pageSlug = productsData.pageSlug;
 	}
 
 	const getPostsAjax = new GetPostsAjax( {
@@ -38,14 +41,15 @@ const products = ( $ ) => {
 		},
 		data: {
 			action: 'products_action',
-			nonce: productsObject.nonce,
-			parent_page_id: parentPageIdGlobal,
+			nonce: productsAjax.nonce,
+			parent_page_id: productsData.parentPageId,
 			page_slug: pageSlug,
+			all_products_output_is_enabled: allProductsOutputIsEnabled,
 			posts_per_page: postsPerPage,
 			page_number: pageNumber,
 		},
 		ajaxOptions: {
-			url: productsObject.url,
+			url: productsAjax.url,
 		},
 	} );
 

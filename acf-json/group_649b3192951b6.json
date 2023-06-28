@@ -5,50 +5,21 @@
         {
             "key": "field_649b3e233f353",
             "label": "Alle Produkte herausholen",
-            "name": "get_all_products_out",
+            "name": "all_products_output_is_enabled",
             "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 0
-        },
-        {
-            "key": "field_649b31933f352",
-            "label": "Gesamtzahl der Produkte",
-            "name": "total_products",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_649b3e233f353",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
                 "width": "50",
                 "class": "",
                 "id": ""
             },
-            "default_value": 16,
-            "min": "",
-            "max": "",
-            "placeholder": "",
-            "step": "",
-            "prepend": "",
-            "append": ""
+            "message": "Die Paginierung wird hinzugefügt",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_649b3eea9b9ff",
@@ -63,13 +34,35 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 16,
+            "default_value": "",
             "min": "",
             "max": "",
             "placeholder": "",
             "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_649c2e484c267",
+            "label": "Elternteil Seite",
+            "name": "parent_page_id",
+            "type": "post_object",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1
         }
     ],
     "location": [
@@ -90,5 +83,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687896135
+    "modified": 1687960965
 }

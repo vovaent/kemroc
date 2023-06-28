@@ -184,7 +184,7 @@ function kemroc_scripts() {
 
 	wp_localize_script(
 		'kemroc-scripts',
-		'productsObject',
+		'productsAjax',
 		array(
 			'url'   => admin_url( 'admin-ajax.php' ),
 			'nonce' => wp_create_nonce( 'products-nonce' ),

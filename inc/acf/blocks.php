@@ -31,27 +31,27 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
-	acf_register_block_type(
-		array(
-			'name'            => 'our-products',
-			'title'           => __( 'Our Products', 'kemroc' ),
-			'description'     => __( 'Our Products', 'kemroc' ),
-			'render_template' => 'template-parts/blocks/sonder/our-products.php',
-			'category'        => 'sonder',
-			'mode'            => 'edit',
-			'icon'            => 'format-gallery',
-			'keywords'        => array( 'products' ),
-			'post_types'      => array( 'page' ),
-			'example'         => array(
-				'attributes' => array(
-					'mode' => 'preview',
-					'data' => array(
-						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/our-products.png',
-					),
-				),
-			),
-		)
-	);
+	// acf_register_block_type(
+	// array(
+	// 'name'            => 'our-products',
+	// 'title'           => __( 'Our Products', 'kemroc' ),
+	// 'description'     => __( 'Our Products', 'kemroc' ),
+	// 'render_template' => 'template-parts/blocks/sonder/our-products.php',
+	// 'category'        => 'sonder',
+	// 'mode'            => 'edit',
+	// 'icon'            => 'format-gallery',
+	// 'keywords'        => array( 'products' ),
+	// 'post_types'      => array( 'page' ),
+	// 'example'         => array(
+	// 'attributes' => array(
+	// 'mode' => 'preview',
+	// 'data' => array(
+	// 'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/our-products.png',
+	// ),
+	// ),
+	// ),
+	// )
+	// );
 	acf_register_block_type(
 		array(
 			'name'            => 'cta-wide',
@@ -436,7 +436,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Unser Team', 'kemroc' ),
 			'description'     => __( 'Unser Team', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/sonder/our-team/our-team.php',
-			'category'        => 'sonder-modules',
+			'category'        => 'sonder',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'Team' ),
@@ -614,6 +614,27 @@ function kemroc_acf_init_block_types() {
 					'mode' => 'preview',
 					'data' => array(
 						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/product/products/products.png',
+					),
+				),
+			),
+		)
+	);
+	acf_register_block_type(
+		array(
+			'name'            => 'section-header',
+			'title'           => __( 'Sektionsüberschrift', 'kemroc' ),
+			'description'     => __( 'Sektionsüberschrift', 'kemroc' ),
+			'render_template' => '/template-parts/blocks/sonder/section-header/section-header.php',
+			'category'        => 'sonder',
+			'mode'            => 'edit',
+			'icon'            => 'heading',
+			'keywords'        => array( 'Kopfzeile', 'Sektion' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/section-header/section-header.png',
 					),
 				),
 			),

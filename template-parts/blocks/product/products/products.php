@@ -31,19 +31,29 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	$kemroc_p_products_per_page = get_field( 'products_per_page' );
-	$kemroc_p_page_number       = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-		
 	global $post;
-	$kemroc_p_page_id    = $post->ID;
-	$kemroc_ca_page_slug = $post->post_name;
+	$kemroc_ca_page_slug  = $post->post_name;
+	$kemroc_p_page_number = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	
+	$kemroc_p_all_products_output_is_enabled = get_field( 'all_products_output_is_enabled' );
+	$kemroc_p_products_per_page              = get_field( 'products_per_page' );
+	$kemroc_p_parent_page_id                 = get_field( 'parent_page_id' );
+
+	$kemroc_p_products_data = array(
+		'postsPerPage'               => $kemroc_p_products_per_page,
+		'parentPageId'               => $kemroc_p_parent_page_id,
+		'pageNumber'                 => $kemroc_p_page_number,
+		'pageSlug'                   => $kemroc_ca_page_slug,
+		'allProductsOutputIsEnabled' => $kemroc_p_all_products_output_is_enabled 
+											? $kemroc_p_all_products_output_is_enabled 
+											: 0,
+	);
+	
+	$kemroc_p_products_data_json = wp_json_encode( $kemroc_p_products_data );
 	?>
 
 	<script>
-		var parentPageIdGlobal = "<?php echo esc_html( $kemroc_p_page_id ); ?>";
-		var pageNumberGlobal = "<?php echo esc_html( $kemroc_p_page_number ); ?>";
-		var postsPerPageGlobal = "<?php echo esc_html( $kemroc_p_products_per_page ); ?>";
-		var pageSlugGlobal = "<?php echo esc_html( $kemroc_ca_page_slug ); ?>";
+		var productsData = <?php echo $kemroc_p_products_data_json; // phpcs:ignore ?>
 	</script>
 
 	<section id="<?php echo esc_attr( $kemroc_p_id ); ?>" class="<?php echo esc_attr( $kemroc_p_class_name ); ?>">
@@ -56,14 +66,14 @@ if ( ! $is_preview ) :
 				while ( $kemroc_p_i++ <= $kemroc_p_products_per_page ) :
 					?>
 					<div class="products__item">
-						
+
 						<?php
 						get_template_part(
 							'template-parts/cards/product/product',
 							'skeleton'
 						);
 						?>
-						
+
 					</div>
 					<!-- /.products__item -->
 					<?php
