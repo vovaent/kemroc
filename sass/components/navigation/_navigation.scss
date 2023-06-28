@@ -546,5 +546,9 @@
                 color: #000;
             }
         }
+
+        * {
+            pointer-events: none;
+        }
     }
 }

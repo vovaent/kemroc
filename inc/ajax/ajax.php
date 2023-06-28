@@ -10,3 +10,4 @@
  */
 require get_template_directory() . '/inc/ajax/contacts-form.php';
 require get_template_directory() . '/inc/ajax/current-articles.php';
+require get_template_directory() . '/inc/ajax/products.php';

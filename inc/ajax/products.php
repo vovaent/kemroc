@@ -1,16 +1,16 @@
 <?php
 /**
- * Current articles processing
+ * Products processing
  * 
  * @package kemroc 
  */
 
 /**
- * Ajax_current_articles_action_callback
+ * Ajax_products_action_callback
  */
-function kemroc_ajax_current_articles_action_callback() {
+function kemroc_ajax_products_action_callback() {
 	if ( isset( $_POST['nonce'] ) && 
-		! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'current-articles-nonce' ) 
+	! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'products-nonce' ) 
 	) {
 		$err_message['spam'] = esc_html__( 'Daten, die von einer fremden Adresse gesendet werden', 'kemroc' );
 	}
@@ -32,7 +32,7 @@ function kemroc_ajax_current_articles_action_callback() {
 	}
 
 	$args = array(
-		'post_type'      => 'post',
+		'post_type'      => 'page',
 		'post_status'    => 'published',
 		'paged'          => $page_number,
 	);
@@ -42,24 +42,23 @@ function kemroc_ajax_current_articles_action_callback() {
 		$args['posts_per_page'] = $posts_per_page;
 	}
 
-	if ( isset( $_POST['cat'] ) ) {
-		$cat         = sanitize_text_field( wp_unslash( $_POST['cat'] ) );
-		$args['cat'] = $cat;
+	if ( isset( $_POST['parent_page_id'] ) ) {
+		$parent_page_id      = sanitize_text_field( wp_unslash( $_POST['parent_page_id'] ) );
+		$args['post_parent'] = $parent_page_id;
 	}
 
 	$query = new WP_Query( $args );
-
 	if ( $query->have_posts() ) :
 		while ( $query->have_posts() ) :
 			$query->the_post(); 
 			
-			$article_item  = '<div class="current-articles__item">';
+			$article_item  = '<div class="products__item">';
 			$article_item .= kemroc_get_template_part_content( 
-				'template-parts/cards/article/article', 
-				'current', 
-				array( 'class' => 'current-article' ) 
+				'template-parts/cards/product/product', 
+				null, 
+				array( 'class' => 'product-card' ) 
 			);
-			$article_item .= '</div><!-- /.current-articles__item -->';
+			$article_item .= '</div><!-- /.products__item -->';
 			
 			$posts[] = $article_item;
 		endwhile; 
@@ -101,8 +100,8 @@ function kemroc_ajax_current_articles_action_callback() {
 
 	wp_die();
 }
-
+ 
 if ( wp_doing_ajax() ) {
-	add_action( 'wp_ajax_current_articles_action', 'kemroc_ajax_current_articles_action_callback' );
-	add_action( 'wp_ajax_nopriv_current_articles_action', 'kemroc_ajax_current_articles_action_callback' );
+	add_action( 'wp_ajax_products_action', 'kemroc_ajax_products_action_callback' );
+	add_action( 'wp_ajax_nopriv_products_action', 'kemroc_ajax_products_action_callback' );
 }

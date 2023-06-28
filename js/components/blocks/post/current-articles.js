@@ -1,4 +1,5 @@
-import { filterBtn } from '../modules/filter-btn';
+import { GetPostsAjax } from '../modules/GetPostsAjax';
+import { FilterBtn } from '../modules/FilterBtn';
 
 const currentArticles = ( $ ) => {
 	/* global postsPerPageGlobal, pageNumberGlobal, pageSlugGlobal, currentArticlesObject */
@@ -40,60 +41,24 @@ const currentArticles = ( $ ) => {
 		}
 	}
 
-	const articlesOutput = ( resp ) => {
-		if (
-			typeof resp.data.articles_list !== undefined &&
-			resp.data.articles_list.length !== 0
-		) {
-			$articlesListOriginal.html( '' );
-
-			$.each(
-				resp.data.articles_list,
-				( indexInArray, valueOfElement ) => {
-					$articlesListOriginal.append( $( valueOfElement ) );
-				}
-			);
-
-			$articlesListSkeleton.hide();
-			$articlesListOriginal.css( 'display', 'grid' );
-		}
-
-		if ( typeof resp.data.navigation !== undefined ) {
-			$articlesNavigation.html( resp.data.navigation );
-			navigationHandler();
-		}
-	};
-
-	const ajaxSuccessHandler = ( resp ) => {
-		if ( ! resp.success ) {
-			console.log( 'error:', resp );
-		} else {
-			articlesOutput( resp );
-		}
-	};
-
-	const loadArticles = ( data ) => {
-		$articlesListOriginal.hide();
-		$articlesListOriginal.html( '' );
-		$articlesListSkeleton.show();
-
-		const thisData = {
+	const getPostsAjax = new GetPostsAjax( {
+		els: {
+			$original: $articlesListOriginal,
+			$skeleton: $articlesListSkeleton,
+			$navigation: $articlesNavigation,
+		},
+		data: {
 			action: 'current_articles_action',
 			nonce: currentArticlesObject.nonce,
 			page_slug: pageSlug,
 			posts_per_page: postsPerPage,
 			page_number: pageNumber,
-			...data,
-		};
-
-		$.ajax( {
-			type: 'POST',
+		},
+		categoriesFilter: true,
+		ajaxOptions: {
 			url: currentArticlesObject.url,
-			data: thisData,
-			dataType: 'json',
-			success: ( resp ) => ajaxSuccessHandler( resp ),
-		} );
-	};
+		},
+	} );
 
 	const categoriesFilterHandler = () => {
 		const $catItems = $( '.current-articles__categories-item' );
@@ -104,57 +69,23 @@ const currentArticles = ( $ ) => {
 
 		$catItems.on( 'click', function () {
 			const $this = $( this );
-			const $filterBtnThis = $( filterBtn.selector, $this );
+			const $filterBtnThis = $( FilterBtn.selector, $this );
 
-			if ( $filterBtnThis.hasClass( filterBtn.classActive ) ) {
+			if ( $filterBtnThis.hasClass( FilterBtn.classActive ) ) {
 				return;
 			}
 
-			filterBtn.$btns.removeClass( filterBtn.classActive );
-			$filterBtnThis.addClass( filterBtn.classActive );
-			$filterBtnThis.addClass( filterBtn.classActive );
+			FilterBtn.$btns.removeClass( FilterBtn.classActive );
+			$filterBtnThis.addClass( FilterBtn.classActive );
+			$filterBtnThis.addClass( FilterBtn.classActive );
 
-			const $thisTermId = $this.data( 'term-id' );
-			loadArticles( { cat: $thisTermId } );
+			getPostsAjax.data.cat = $this.data( 'term-id' );
+			getPostsAjax.data.page_number = 1;
+			getPostsAjax.load();
 		} );
 	};
 
-	const navigationHandler = () => {
-		const navigationPageNumbersClass = 'kemroc-navigation__page-numbers';
-		const $navigationPageNumbers = $( '.' + navigationPageNumbersClass );
-
-		if ( $navigationPageNumbers.length === 0 ) {
-			return;
-		}
-
-		$navigationPageNumbers.on( 'click', function ( event ) {
-			event.preventDefault();
-
-			const $this = $( this );
-
-			if (
-				$this.hasClass( navigationPageNumbersClass + '--dots' ) ||
-				$this.hasClass( navigationPageNumbersClass + '--current' )
-			) {
-				return;
-			}
-
-			const thisPageNumber = $this.data( 'page-number' );
-			const $catItemsActive = $( filterBtn.selectorActive ).parent();
-			let currentCategory = $catItemsActive.data( 'term-id' );
-
-			if ( currentCategory === 'all' ) {
-				currentCategory = '';
-			}
-
-			loadArticles( {
-				page_number: thisPageNumber,
-				cat: currentCategory,
-			} );
-		} );
-	};
-
-	loadArticles();
+	getPostsAjax.load();
 	categoriesFilterHandler();
 };
 

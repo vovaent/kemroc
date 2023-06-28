@@ -7,17 +7,19 @@ import { contactsForm } from './contacts/contacts-form';
 import { lazyLoad } from './sonder/lazy-load';
 import { faq } from './sonder/faq';
 import { currentArticles } from './post/current-articles';
+import { products } from './product/products';
 
-const blocks = ($) => {
-	productModelList($);
-	modelInfo($);
+const blocks = ( $ ) => {
+	productModelList( $ );
+	modelInfo( $ );
 	serialProductGeneralInfo();
 	seriesGeneralInfo();
-	applicationAreasFilter($);
-	contactsForm($);
-	lazyLoad($);
-	faq($);
-	currentArticles($);
+	applicationAreasFilter( $ );
+	contactsForm( $ );
+	lazyLoad( $ );
+	faq( $ );
+	currentArticles( $ );
+	products( $ );
 };
 
 export { blocks };

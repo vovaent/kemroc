@@ -182,6 +182,15 @@ function kemroc_scripts() {
 		)
 	);
 
+	wp_localize_script(
+		'kemroc-scripts',
+		'productsObject',
+		array(
+			'url'   => admin_url( 'admin-ajax.php' ),
+			'nonce' => wp_create_nonce( 'products-nonce' ),
+		)
+	);
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

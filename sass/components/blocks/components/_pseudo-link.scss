@@ -8,6 +8,11 @@
     font-size: 14px;
     line-height: 18px;
 
+    @include media-down-sm {
+        font-size: 11px;
+        line-height: 15px;
+    }
+
     &>svg {
         margin-left: 6px;
         width: 5px;

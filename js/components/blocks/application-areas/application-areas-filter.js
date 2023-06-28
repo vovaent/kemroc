@@ -1,45 +1,45 @@
-import { filterBtn } from '../modules/filter-btn';
+import { FilterBtn } from '../modules/FilterBtn';
 
-const applicationAreasFilter = ($) => {
-	const $areaItems = $('.application-areas-filter__areas-item');
-	const $modelItems = $('.application-areas-filter__model-item');
+const applicationAreasFilter = ( $ ) => {
+	const $areaItems = $( '.application-areas-filter__areas-item' );
+	const $modelItems = $( '.application-areas-filter__model-item' );
 
-	if (0 === $areaItems.length) {
+	if ( 0 === $areaItems.length ) {
 		return;
 	}
 
-	$areaItems.on('click', function () {
-		if (0 === $modelItems.length) {
+	$areaItems.on( 'click', function () {
+		if ( 0 === $modelItems.length ) {
 			return;
 		}
 
-		const $this = $(this);
-		const $filterBtnThis = $(filterBtn.selector, $this);
+		const $this = $( this );
+		const $filterBtnThis = $( FilterBtn.selector, $this );
 
-		if ($filterBtnThis.hasClass(filterBtn.classActive)) {
+		if ( $filterBtnThis.hasClass( FilterBtn.classActive ) ) {
 			return;
 		}
 
-		filterBtn.$btns.removeClass(filterBtn.classActive);
-		$filterBtnThis.addClass(filterBtn.classActive);
+		FilterBtn.$btns.removeClass( FilterBtn.classActive );
+		$filterBtnThis.addClass( FilterBtn.classActive );
 
-		const areaItemThisTermId = $this.data('term-id');
+		const areaItemThisTermId = $this.data( 'term-id' );
 
-		if ('all' === areaItemThisTermId) {
+		if ( 'all' === areaItemThisTermId ) {
 			$modelItems.fadeIn();
 		} else {
 			$modelItems.hide();
 
-			$modelItems.each(function () {
-				const $modelItemThis = $(this);
-				const modelItemThisTermId = $modelItemThis.data('term-id');
+			$modelItems.each( function () {
+				const $modelItemThis = $( this );
+				const modelItemThisTermId = $modelItemThis.data( 'term-id' );
 
-				if (modelItemThisTermId === areaItemThisTermId) {
+				if ( modelItemThisTermId === areaItemThisTermId ) {
 					$modelItemThis.fadeIn();
 				}
-			});
+			} );
 		}
-	});
+	} );
 };
 
 export { applicationAreasFilter };
