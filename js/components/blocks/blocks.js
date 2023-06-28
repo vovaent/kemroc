@@ -6,7 +6,7 @@ import { applicationAreasFilter } from './application-areas/application-areas-fi
 import { contactsForm } from './contacts/contacts-form';
 import { lazyLoad } from './sonder/lazy-load';
 import { faq } from './sonder/faq';
-import { currentArticles } from './post/current-articles';
+import { allNews } from './news/all-news';
 import { products } from './product/products';
 
 const blocks = ( $ ) => {
@@ -18,7 +18,7 @@ const blocks = ( $ ) => {
 	contactsForm( $ );
 	lazyLoad( $ );
 	faq( $ );
-	currentArticles( $ );
+	allNews( $ );
 	products( $ );
 };
 

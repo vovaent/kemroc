@@ -18,12 +18,6 @@ if ( 'multiple' === $kemroc_article_navigation_option ) {
 $kemroc_headers_insides = kemroc_get_headers_insides_in_content( get_the_content(), $kemroc_header_tag );
 ?>
 
-<?php if ( ! empty( $kemroc_header_tag ) ) : ?>
-	<script>
-		var headerTag = '<?php echo esc_html( $kemroc_header_tag ); ?>';
-	</script>   
-<?php endif; ?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'cp-article' ); ?>>
 	<header class="container cp-article__header">
 		<div class="cp-article__text">
@@ -133,5 +127,12 @@ $kemroc_headers_insides = kemroc_get_headers_insides_in_content( get_the_content
 		
 	</div>
 	<!-- /.container cp-article__inner -->
+	
+	<?php if ( ! empty( $kemroc_header_tag ) ) : ?>
+		<script>
+			var headerTag = '<?php echo esc_html( $kemroc_header_tag ); ?>';
+		</script>   
+	<?php endif; ?>
+
 </article>
 <!-- #post-<?php the_ID(); ?> -->

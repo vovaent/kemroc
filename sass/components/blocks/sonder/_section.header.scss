@@ -1,6 +1,12 @@
 .section-header {
     @include standard-block-margins;
 
+    margin-bottom: 64px;
+
+    @include media-down-md {
+        margin-bottom: 32px;
+    }
+
     &__content {
         display: flex;
         gap: 80px;

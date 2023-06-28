@@ -1,13 +1,13 @@
 import { GetPostsAjax } from '../modules/GetPostsAjax';
 import { FilterBtn } from '../modules/FilterBtn';
 
-const currentArticles = ( $ ) => {
-	/* global postsPerPageGlobal, pageNumberGlobal, pageSlugGlobal, currentArticlesObject */
+const allNews = ( $ ) => {
+	/* global postsPerPageGlobal, pageNumberGlobal, pageSlugGlobal, allNewsAjax */
 	/* eslint no-undef: "error" */
 
-	const $articlesListSkeleton = $( '.current-articles__list-skeletons' );
-	const $articlesListOriginal = $( '.current-articles__list-original' );
-	const $articlesNavigation = $( '.current-articles__navigation' );
+	const $articlesListSkeleton = $( '.all-news__list-skeletons' );
+	const $articlesListOriginal = $( '.all-news__list-original' );
+	const $articlesNavigation = $( '.all-news__navigation' );
 
 	if ( $articlesListOriginal.length === 0 ) {
 		return;
@@ -48,20 +48,20 @@ const currentArticles = ( $ ) => {
 			$navigation: $articlesNavigation,
 		},
 		data: {
-			action: 'current_articles_action',
-			nonce: currentArticlesObject.nonce,
+			action: 'all_news_action',
+			nonce: allNewsAjax.nonce,
 			page_slug: pageSlug,
 			posts_per_page: postsPerPage,
 			page_number: pageNumber,
 		},
 		categoriesFilter: true,
 		ajaxOptions: {
-			url: currentArticlesObject.url,
+			url: allNewsAjax.url,
 		},
 	} );
 
 	const categoriesFilterHandler = () => {
-		const $catItems = $( '.current-articles__categories-item' );
+		const $catItems = $( '.all-news__categories-item' );
 
 		if ( $catItems.length === 0 ) {
 			return;
@@ -89,4 +89,4 @@ const currentArticles = ( $ ) => {
 	categoriesFilterHandler();
 };
 
-export { currentArticles };
+export { allNews };

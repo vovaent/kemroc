@@ -1,16 +1,16 @@
 <?php
 /**
- * Current articles processing
+ * All News processing
  * 
  * @package kemroc 
  */
 
 /**
- * Ajax_current_articles_action_callback
+ * Ajax_all_news_action_callback
  */
-function kemroc_ajax_current_articles_action_callback() {
+function kemroc_ajax_all_news_action_callback() {
 	if ( isset( $_POST['nonce'] ) && 
-		! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'current-articles-nonce' ) 
+		! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'all-news-nonce' ) 
 	) {
 		$err_message['spam'] = esc_html__( 'Daten, die von einer fremden Adresse gesendet werden', 'kemroc' );
 	}
@@ -53,14 +53,14 @@ function kemroc_ajax_current_articles_action_callback() {
 		while ( $query->have_posts() ) :
 			$query->the_post(); 
 			
-			$article_item  = '<div class="current-articles__item">';
-			$article_item .= kemroc_get_template_part_content( 
-				'template-parts/cards/article/article', 
+			// $new_item  = '<div class="all-news__item">';
+			$new_item = kemroc_get_template_part_content( 
+				'template-parts/cards/news/new', 
 				'card'
 			);
-			$article_item .= '</div><!-- /.current-articles__item -->';
+			// $new_item .= '</div><!-- /.all-news__item -->';
 			
-			$posts[] = $article_item;
+			$posts[] = $new_item;
 		endwhile; 
 		wp_reset_postdata();
 
@@ -102,6 +102,6 @@ function kemroc_ajax_current_articles_action_callback() {
 }
 
 if ( wp_doing_ajax() ) {
-	add_action( 'wp_ajax_current_articles_action', 'kemroc_ajax_current_articles_action_callback' );
-	add_action( 'wp_ajax_nopriv_current_articles_action', 'kemroc_ajax_current_articles_action_callback' );
+	add_action( 'wp_ajax_all_news_action', 'kemroc_ajax_all_news_action_callback' );
+	add_action( 'wp_ajax_nopriv_all_news_action', 'kemroc_ajax_all_news_action_callback' );
 }

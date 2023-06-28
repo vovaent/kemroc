@@ -9,25 +9,25 @@ import 'swiper/css';
  */
 import { lazyLoad } from '../sonder/lazy-load';
 
-const modelInfo = ($) => {
-	const $modelInfoTab = $('.model-tabs__tab');
-	const $modelInfoInset = $('.model-tabs__inset');
+const modelInfo = ( $ ) => {
+	const $modelInfoTab = $( '.model-tabs__tab' );
+	const $modelInfoInset = $( '.model-tabs__inset' );
 
 	const modelInfoToggleTab = function () {
-		const $this = $(this);
+		const $this = $( this );
 
-		$modelInfoTab.removeClass('model-tabs__tab--active');
-		$this.addClass('model-tabs__tab--active');
-		$modelInfoInset.removeClass('model-tabs__inset--visible');
+		$modelInfoTab.removeClass( 'model-tabs__tab--active' );
+		$this.addClass( 'model-tabs__tab--active' );
+		$modelInfoInset.removeClass( 'model-tabs__inset--visible' );
 		$modelInfoInset
-			.eq($this.index())
-			.addClass('model-tabs__inset--visible');
+			.eq( $this.index() )
+			.addClass( 'model-tabs__inset--visible' );
 	};
 
-	$modelInfoTab.on('click', modelInfoToggleTab);
+	$modelInfoTab.on( 'click', modelInfoToggleTab );
 
-	new Swiper('.model-tabs__slider.swiper-single-slide', {
-		modules: [Navigation, Pagination],
+	new Swiper( '.model-tabs__slider.swiper-single-slide', {
+		modules: [ Navigation, Pagination ],
 
 		slidesPerView: 1,
 		spaceBetween: 10,
@@ -42,9 +42,9 @@ const modelInfo = ($) => {
 			el: '.model-tabs__slider + .swiper-single-slide__pagination',
 			clickable: true,
 		},
-	});
+	} );
 
-	lazyLoad($);
+	lazyLoad( $ );
 };
 
 export { modelInfo };

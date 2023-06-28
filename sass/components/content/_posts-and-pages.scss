@@ -350,124 +350,124 @@
     }
 }
 
-.our-areas {
-    margin-top: 128px;
-    margin-bottom: 128px;
+// .our-areas {
+//     margin-top: 128px;
+//     margin-bottom: 128px;
 
-    @include media-down-md {
-        margin: 72px 0;
-    }
+//     @include media-down-md {
+//         margin: 72px 0;
+//     }
 
-    @include media-down-sm {
-        margin: 64px 0;
+//     @include media-down-sm {
+//         margin: 64px 0;
 
-    }
+//     }
 
-    .section-header {
-        &__title {
-            .title {
-                @include media-down-md {
-                    font-size: 28px;
-                }
-            }
-        }
-    }
+//     .section-header {
+//         &__title {
+//             .title {
+//                 @include media-down-md {
+//                     font-size: 28px;
+//                 }
+//             }
+//         }
+//     }
 
-    &__inner {
-        gap: 64px;
-        display: flex;
-        flex-direction: column;
+//     &__inner {
+//         gap: 64px;
+//         display: flex;
+//         flex-direction: column;
 
-        @include media-down-md {
-            gap: 32px;
-        }
-    }
+//         @include media-down-md {
+//             gap: 32px;
+//         }
+//     }
 
-    &__content {
-        .item {
-            position: relative;
-            padding: 0;
-            border-radius: 16px;
-            overflow: hidden;
-            height: 340px;
+//     &__content {
+//         .item {
+//             position: relative;
+//             padding: 0;
+//             border-radius: 16px;
+//             overflow: hidden;
+//             height: 340px;
 
-            @include media-down-md {
-                height: 260px;
-            }
+//             @include media-down-md {
+//                 height: 260px;
+//             }
 
-            @include media-down-sm {
-                height: 180px;
-            }
+//             @include media-down-sm {
+//                 height: 180px;
+//             }
 
-            &__inner {
-                padding: 24px;
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
+//             &__inner {
+//                 padding: 24px;
+//                 display: flex;
+//                 flex-direction: column;
+//                 position: absolute;
+//                 bottom: 0;
+//                 left: 0;
+//                 right: 0;
 
-                @include media-down-md {
-                    padding: 20px;
-                }
+//                 @include media-down-md {
+//                     padding: 20px;
+//                 }
 
-                @include media-down-sm {
-                    padding: 12px;
-                }
-            }
+//                 @include media-down-sm {
+//                     padding: 12px;
+//                 }
+//             }
 
-            &:before {
-                content: "";
-                display: block;
-                position: absolute;
-                left: 0;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20.83%, rgba(0, 0, 0, 0.84) 100%);
-            }
+//             &:before {
+//                 content: "";
+//                 display: block;
+//                 position: absolute;
+//                 left: 0;
+//                 top: 0;
+//                 right: 0;
+//                 bottom: 0;
+//                 background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20.83%, rgba(0, 0, 0, 0.84) 100%);
+//             }
 
-            .product-image {
-                display: block;
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
+//             .product-image {
+//                 display: block;
+//                 height: 100%;
+//                 width: 100%;
+//                 object-fit: cover;
+//             }
 
-            .product-name {
-                position: relative;
-                color: #fff;
-                top: 20px;
-                transition: 0.2s ease;
+//             .product-name {
+//                 position: relative;
+//                 color: #fff;
+//                 top: 20px;
+//                 transition: 0.2s ease;
 
-                @include media-down-md {
-                    font-size: 15px;
-                }
-            }
+//                 @include media-down-md {
+//                     font-size: 15px;
+//                 }
+//             }
 
-            .more-link {
-                position: relative;
-                visibility: hidden;
-                opacity: 0;
-                transition: 0.2s ease;
-            }
+//             .more-link {
+//                 position: relative;
+//                 visibility: hidden;
+//                 opacity: 0;
+//                 transition: 0.2s ease;
+//             }
 
-            &:hover {
+//             &:hover {
 
-                .more-link {
-                    visibility: visible;
-                    opacity: 1;
-                }
+//                 .more-link {
+//                     visibility: visible;
+//                     opacity: 1;
+//                 }
 
-                .product-name {
-                    position: relative;
-                    top: 0px;
-                }
-            }
-        }
-    }
-}
+//                 .product-name {
+//                     position: relative;
+//                     top: 0px;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 .cta-bg {
     margin-top: 64px;
@@ -664,13 +664,13 @@
 .our-news {
     @include standard-block-margins;
 
-    .section-header {
-        margin-bottom: 64px;
+    // .section-header {
+    //     margin-bottom: 64px;
 
-        @include media-down-md {
-            margin-bottom: 32px;
-        }
-    }
+    //     @include media-down-md {
+    //         margin-bottom: 32px;
+    //     }
+    // }
 
     .swiper-wrapper {
         display: flex;
@@ -736,5 +736,13 @@
     .article-date {
         margin-top: 16px;
         margin-bottom: 8px;
+    }
+}
+
+.section-header+section {
+    margin-top: 64px;
+
+    @include media-down-md {
+        margin-top: 32px;
     }
 }

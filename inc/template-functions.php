@@ -179,8 +179,8 @@ function add_custom_block_categories( $block_categories, $editor_context ) {
 				'icon'  => null,
 			),
 			array(
-				'slug'  => 'product',
-				'title' => esc_html__( 'Produkt', 'kemroc' ),
+				'slug'  => 'products',
+				'title' => esc_html__( 'Produkte', 'kemroc' ),
 				'icon'  => null,
 			),
 			array(
@@ -194,8 +194,8 @@ function add_custom_block_categories( $block_categories, $editor_context ) {
 				'icon'  => null,
 			),
 			array(
-				'slug'  => 'post',
-				'title' => esc_html__( 'Artikel', 'kemroc' ),
+				'slug'  => 'aktuelles',
+				'title' => esc_html__( 'Aktuelles', 'kemroc' ),
 				'icon'  => null,
 			)
 		);
@@ -227,15 +227,13 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 			$general_blocks,
 			array(
 				'acf/hero',
-				'acf/our-products',
 				'acf/cta-wide',
-				'acf/our-areas',
 				'acf/our-company',
 				'acf/cta-bg',
-				'acf/our-news',
 				'acf/section-header',
 				'acf/products',
 				'acf/application-areas-list',
+				'acf/front-page-news',
 			)
 		);
 	} elseif ( 'page' === $editor_context->post->post_type ) {
@@ -262,7 +260,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 				'acf/contacts-info',
 				'acf/contacts-form',
 				'acf/contacts-links',
-				'acf/current-articles',
+				'acf/all-news',
 				'acf/section-header',
 			)
 		);

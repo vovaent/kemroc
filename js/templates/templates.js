@@ -1,7 +1,7 @@
 import { contentPost } from './post/content-post';
 
-const templates = ($) => {
-	contentPost($);
+const templates = ( $ ) => {
+	contentPost( $ );
 };
 
 export { templates };

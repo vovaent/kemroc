@@ -31,27 +31,6 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
-	// acf_register_block_type(
-	// array(
-	// 'name'            => 'our-products',
-	// 'title'           => __( 'Our Products', 'kemroc' ),
-	// 'description'     => __( 'Our Products', 'kemroc' ),
-	// 'render_template' => 'template-parts/blocks/sonder/our-products.php',
-	// 'category'        => 'sonder',
-	// 'mode'            => 'edit',
-	// 'icon'            => 'format-gallery',
-	// 'keywords'        => array( 'products' ),
-	// 'post_types'      => array( 'page' ),
-	// 'example'         => array(
-	// 'attributes' => array(
-	// 'mode' => 'preview',
-	// 'data' => array(
-	// 'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/our-products.png',
-	// ),
-	// ),
-	// ),
-	// )
-	// );
 	acf_register_block_type(
 		array(
 			'name'            => 'cta-wide',
@@ -138,10 +117,10 @@ function kemroc_acf_init_block_types() {
 	);
 	acf_register_block_type(
 		array(
-			'name'            => 'our-news',
-			'title'           => __( 'Our News', 'kemroc' ),
-			'description'     => __( 'Our News', 'kemroc' ),
-			'render_template' => 'template-parts/blocks/sonder/our-news.php',
+			'name'            => 'front-page-news',
+			'title'           => __( 'Neuigkeiten auf der Startseite', 'kemroc' ),
+			'description'     => __( 'Neuigkeiten auf der Startseite', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/news/front-page-news/front-page-news.php',
 			'category'        => 'sonder',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
@@ -151,7 +130,7 @@ function kemroc_acf_init_block_types() {
 				'attributes' => array(
 					'mode' => 'preview',
 					'data' => array(
-						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/our-news.png',
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/news/front-page-news/front-page-news.png',
 					),
 				),
 			),
@@ -163,7 +142,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Allgemeine Produktinformationen', 'kemroc' ),
 			'description'     => __( 'Allgemeine Produktinformationen', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/product/product-general-info/product-general-info.php',
-			'category'        => 'product',
+			'category'        => 'products',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'Produkt' ),
@@ -184,7 +163,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Technische Produktinformationen', 'kemroc' ),
 			'description'     => __( 'Technische Produktinformationen', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/product/product-tech-info/product-tech-info.php',
-			'category'        => 'product',
+			'category'        => 'products',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'Produkt' ),
@@ -205,7 +184,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Produkt Modellliste', 'kemroc' ),
 			'description'     => __( 'Produkt Modellliste', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/product/product-model-list/product-model-list.php',
-			'category'        => 'product',
+			'category'        => 'products',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'Produkt' ),
@@ -226,7 +205,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Modellinformationen', 'kemroc' ),
 			'description'     => __( 'Modellinformationen', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/model/model-info.php',
-			'category'        => 'product',
+			'category'        => 'products',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'Modell' ),
@@ -247,7 +226,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Serienprodukt Allgemeine Informationen', 'kemroc' ),
 			'description'     => __( 'Serienprodukt Allgemeine Informationen', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/serial-product/serial-product-general-info/serial-product-general-info.php',
-			'category'        => 'product',
+			'category'        => 'products',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'Serienprodukt' ),
@@ -268,7 +247,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Serielle Produktbeschreibungen', 'kemroc' ),
 			'description'     => __( 'Serielle Produktbeschreibungen', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/serial-product/serial-product-descriptions/serial-product-descriptions.php',
-			'category'        => 'product',
+			'category'        => 'products',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'Serienprodukt' ),
@@ -289,7 +268,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Serienproduktvergleich', 'kemroc' ),
 			'description'     => __( 'Serienproduktvergleich', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php',
-			'category'        => 'product',
+			'category'        => 'products',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'Serienprodukt' ),
@@ -310,7 +289,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Allgemeine Informationen zur Serie', 'kemroc' ),
 			'description'     => __( 'Allgemeine Informationen zur Serie', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/serial-product/series-general-info/series-general-info.php',
-			'category'        => 'product',
+			'category'        => 'products',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'Serienprodukt' ),
@@ -331,7 +310,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Technische Informationen zur Serie', 'kemroc' ),
 			'description'     => __( 'Technische Informationen zur Serie', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/serial-product/series-tech-info/series-tech-info.php',
-			'category'        => 'product',
+			'category'        => 'products',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'Serienprodukt' ),
@@ -579,20 +558,20 @@ function kemroc_acf_init_block_types() {
 	);
 	acf_register_block_type(
 		array(
-			'name'            => 'current-articles',
-			'title'           => __( 'Liste der aktuellen Artikel', 'kemroc' ),
-			'description'     => __( 'Liste der aktuellen Artikel', 'kemroc' ),
-			'render_template' => 'template-parts/blocks/post/current-articles/current-articles.php',
+			'name'            => 'all-news',
+			'title'           => __( 'Aktuelles', 'kemroc' ),
+			'description'     => __( 'Aktuelles', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/news/all-news/all-news.php',
 			'category'        => 'post',
 			'mode'            => 'edit',
 			'icon'            => 'admin-post',
-			'keywords'        => array( 'Aktuellen', 'Artikel' ),
+			'keywords'        => array( 'Aktuelles' ),
 			'post_types'      => array( 'page' ),
 			'example'         => array(
 				'attributes' => array(
 					'mode' => 'preview',
 					'data' => array(
-						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/post/current-articles/current-articles.png',
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/news/all-news/all-news.png',
 					),
 				),
 			),
@@ -604,7 +583,7 @@ function kemroc_acf_init_block_types() {
 			'title'           => __( 'Liste der Produkte', 'kemroc' ),
 			'description'     => __( 'Liste der Produkte', 'kemroc' ),
 			'render_template' => 'template-parts/blocks/product/products/products.php',
-			'category'        => 'product',
+			'category'        => 'products',
 			'mode'            => 'edit',
 			'icon'            => 'format-gallery',
 			'keywords'        => array( 'Produkte', 'Liste der Produkte' ),

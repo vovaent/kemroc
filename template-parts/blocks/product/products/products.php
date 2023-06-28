@@ -36,8 +36,10 @@ if ( ! $is_preview ) :
 	$kemroc_p_page_number = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 	
 	$kemroc_p_all_products_output_is_enabled = get_field( 'all_products_output_is_enabled' );
-	$kemroc_p_products_per_page              = get_field( 'products_per_page' );
 	$kemroc_p_parent_page_id                 = get_field( 'parent_page_id' );
+	$kemroc_p_products_per_page              = get_field( 'products_per_page' ) 
+													? get_field( 'products_per_page' ) 
+													: get_option( 'posts_per_page' );
 
 	$kemroc_p_products_data = array(
 		'postsPerPage'               => $kemroc_p_products_per_page,
@@ -51,10 +53,6 @@ if ( ! $is_preview ) :
 	
 	$kemroc_p_products_data_json = wp_json_encode( $kemroc_p_products_data );
 	?>
-
-	<script>
-		var productsData = <?php echo $kemroc_p_products_data_json; // phpcs:ignore ?>
-	</script>
 
 	<section id="<?php echo esc_attr( $kemroc_p_id ); ?>" class="<?php echo esc_attr( $kemroc_p_class_name ); ?>">
 		<div class="container products__content">
@@ -89,6 +87,11 @@ if ( ! $is_preview ) :
 			<!-- /.kemroc-navigation products__navigation -->
 		</div>
 		<!-- /.container products__content -->
+		
+		<script>
+            var productsData = <?php echo $kemroc_p_products_data_json; // phpcs:ignore ?>
+		</script>
+
 	</section>
 	<!-- /.products -->
 

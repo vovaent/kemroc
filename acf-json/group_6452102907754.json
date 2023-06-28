@@ -1,64 +1,11 @@
 {
     "key": "group_6452102907754",
-    "title": "Block | Our news",
+    "title": "Block | Front Page News",
     "fields": [
         {
-            "key": "field_6452102945bb2",
-            "label": "Titel",
-            "name": "title",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_6452103445bb3",
-            "label": "Text",
-            "name": "info",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_6452103e45bb4",
-            "label": "Link",
-            "name": "link",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
             "key": "field_6452105045bb5",
-            "label": "Beiträge zählen",
-            "name": "ppp",
+            "label": "Anzahl der Nachrichten",
+            "name": "posts_per_page",
             "type": "number",
             "instructions": "",
             "required": 0,
@@ -68,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": 3,
             "min": "",
             "max": "",
             "placeholder": "",
@@ -82,7 +29,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/our-news"
+                "value": "acf\/front-page-news"
             }
         ]
     ],
@@ -95,5 +42,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685382344
+    "modified": 1687991249
 }

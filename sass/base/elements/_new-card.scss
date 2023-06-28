@@ -1,10 +1,31 @@
-.article-card {
+.new-card {
+    flex-shrink: 0;
+    max-width: 370px;
+
+    @include media-down-md {
+        max-width: 329px;
+    }
+
+    @include media-down-sm {
+        max-width: 312px;
+        width: 100%;
+    }
+
+    .front-page-news & {
+        @include media-down-md {
+            width: 300px;
+        }
+
+        @include media-down-sm {
+            max-width: 280px;
+        }
+    }
+
     &__image {
         overflow: hidden;
 
         &.skeleton {
             min-height: 250px;
-            // border-radius: 16px;
 
             @include media-down-sm {
                 min-height: 208px;

@@ -175,10 +175,10 @@ function kemroc_scripts() {
 
 	wp_localize_script(
 		'kemroc-scripts',
-		'currentArticlesObject',
+		'allNewsAjax',
 		array(
 			'url'   => admin_url( 'admin-ajax.php' ),
-			'nonce' => wp_create_nonce( 'current-articles-nonce' ),
+			'nonce' => wp_create_nonce( 'all-news-nonce' ),
 		)
 	);
 

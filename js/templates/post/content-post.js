@@ -1,13 +1,13 @@
-const contentPost = ($) => {
+const contentPost = ( $ ) => {
 	/* global headerTag */
 	/* eslint no-undef: "error" */
 
-	const $window = $(window);
+	const $window = $( window );
 	let windowWidth = $window.width();
 
-	const $articleContent = $('.cp-article__content');
+	const $articleContent = $( '.cp-article__content' );
 
-	if ($articleContent.length === 0) {
+	if ( $articleContent.length === 0 ) {
 		return;
 	}
 
@@ -15,38 +15,41 @@ const contentPost = ($) => {
 		typeof headerTag !== 'undefined' && headerTag.length !== 0
 			? headerTag
 			: ':header';
-	const $articleTitles = $(`.cp-article__content > ${articleTitlesSelector}`);
+	const $articleTitles = $(
+		`.cp-article__content > ${ articleTitlesSelector }`
+	);
 	const navLinkSelector = '.cp-article-navigation__item-link';
-	const $articleNavlinks = $(navLinkSelector);
+	const $articleNavlinks = $( navLinkSelector );
 	const articleContentTopPos = $articleContent.offset().top;
 
 	const articleNavlinkAnchorHandler = () => {
-		$articleTitles.each(function (index) {
-			if ($articleNavlinks.eq(index).length === 0) {
+		$articleTitles.each( function ( index ) {
+			if ( $articleNavlinks.eq( index ).length === 0 ) {
 				return;
 			}
 
 			const articleNavlinkAnchor = $articleNavlinks
-				.eq(index)
-				.attr('href');
-			const thisId = articleNavlinkAnchor.replace('#', '');
+				.eq( index )
+				.attr( 'href' );
+			const thisId = articleNavlinkAnchor.replace( '#', '' );
 
-			$(this).attr('id', thisId);
-		});
+			$( this ).attr( 'id', thisId );
+		} );
 
-		$articleNavlinks.on('click', function (event) {
+		$articleNavlinks.on( 'click', function ( event ) {
 			event.preventDefault();
 
-			const thisIndex = $(this).index(navLinkSelector);
-			const articleHeaderPos = $articleTitles.eq(thisIndex).offset().top;
+			const thisIndex = $( this ).index( navLinkSelector );
+			const articleHeaderPos = $articleTitles.eq( thisIndex ).offset()
+				.top;
 			const srollToPos = articleHeaderPos - 20;
 
-			$('html, body').animate({ scrollTop: srollToPos }, 500);
-		});
+			$( 'html, body' ).animate( { scrollTop: srollToPos }, 500 );
+		} );
 	};
 
 	const synchronizationHandler = () => {
-		if (windowWidth < 1024) {
+		if ( windowWidth < 1024 ) {
 			return;
 		}
 
@@ -59,68 +62,67 @@ const contentPost = ($) => {
 			articleContentTopPos + $articleContent.height();
 		const windowScrollTopPos = $window.scrollTop();
 
-		$articleTitles.each(function () {
-			const $thisTitle = $(this);
+		$articleTitles.each( function () {
+			const $thisTitle = $( this );
 
 			const thisTitleTopPos = $thisTitle.offset().top - 60;
-			const thisTitleId = $thisTitle.attr('id');
+			const thisTitleId = $thisTitle.attr( 'id' );
 
-			if (windowScrollTopPos > thisTitleTopPos) {
+			if ( windowScrollTopPos > thisTitleTopPos ) {
 				$articleNavlinks
-					.parent(activeNavItemSelector)
-					.removeClass(activeNavItemClassName);
+					.parent( activeNavItemSelector )
+					.removeClass( activeNavItemClassName );
 
-				$('a[href="#' + thisTitleId + '"]')
-					.parent(navItemSelector)
-					.addClass(activeNavItemClassName);
+				$( 'a[href="#' + thisTitleId + '"]' )
+					.parent( navItemSelector )
+					.addClass( activeNavItemClassName );
 			}
-		});
+		} );
 
-		$window.scroll(function () {
-			const windowScrollTopPos = $(this).scrollTop();
+		$window.scroll( function () {
+			const currentWindowScrollTopPos = $( this ).scrollTop();
 
-			if (windowScrollTopPos > articleContentBottomPos) {
+			if ( currentWindowScrollTopPos > articleContentBottomPos ) {
 				return;
 			}
 
-			$articleTitles.each(function (index) {
-				const $thisTitle = $(this);
+			$articleTitles.each( function ( index ) {
+				const $thisTitle = $( this );
 				const isLastTitle = index === $articleTitles.length - 1;
 				const thisTitleTopPos = $thisTitle.offset().top - 60;
-				const thisTitleId = $thisTitle.attr('id');
+				const thisTitleId = $thisTitle.attr( 'id' );
 
 				let thisTitleBottomPos = 0;
-				if (isLastTitle) {
+				if ( isLastTitle ) {
 					thisTitleBottomPos =
 						thisTitleTopPos + articleContentBottomPos;
 				} else {
-					thisTitleBottomPos = $articleTitles
-						.eq(++index)
-						.offset().top;
+					thisTitleBottomPos = $articleTitles.eq( ++index ).offset()
+						.top;
 				}
 
 				if (
-					windowScrollTopPos > thisTitleTopPos &&
-					windowScrollTopPos < thisTitleBottomPos
+					currentWindowScrollTopPos > thisTitleTopPos &&
+					currentWindowScrollTopPos < thisTitleBottomPos
 				) {
 					$articleNavlinks
-						.parent(activeNavItemSelector)
-						.removeClass(activeNavItemClassName);
+						.parent( activeNavItemSelector )
+						.removeClass( activeNavItemClassName );
 
-					$('a[href="#' + thisTitleId + '"]')
-						.parent(navItemSelector)
-						.addClass(activeNavItemClassName);
-				} else if (windowScrollTopPos < thisTitleTopPos) {
-					$('a[href="#' + thisTitleId + '"]')
-						.parent(navItemSelector)
-						.removeClass(activeNavItemClassName);
+					$( 'a[href="#' + thisTitleId + '"]' )
+						.parent( navItemSelector )
+						.addClass( activeNavItemClassName );
+				} else if ( currentWindowScrollTopPos < thisTitleTopPos ) {
+					$( 'a[href="#' + thisTitleId + '"]' )
+						.parent( navItemSelector )
+						.removeClass( activeNavItemClassName );
 				}
-			});
-		});
+			} );
+		} );
 	};
 
 	const articleNavigationHandler = () => {
-		if ($articleNavlinks.length === 0 || $articleTitles.length === 0) {
+		if ( $articleNavlinks.length === 0 || $articleTitles.length === 0 ) {
 			return;
 		}
 
@@ -129,76 +131,76 @@ const contentPost = ($) => {
 	};
 
 	const articleShareHandler = () => {
-		const $articleShare = $('.cp-article__share');
+		const $articleShare = $( '.cp-article__share' );
 
-		if ($articleShare.length === 0) {
+		if ( $articleShare.length === 0 ) {
 			return;
 		}
 
-		$articleShare.css('opacity', '1');
+		$articleShare.css( 'opacity', '1' );
 
-		const $articleSticky = $('.cp-article__sticky');
+		const $articleSticky = $( '.cp-article__sticky' );
 		const $articleShareParent = $articleShare.parent();
 
-		if (windowWidth <= 1024) {
-			if ($articleShareParent[0] === $articleSticky[0]) {
+		if ( windowWidth <= 1024 ) {
+			if ( $articleShareParent[ 0 ] === $articleSticky[ 0 ] ) {
 				$articleShare
 					.clone()
-					.appendTo($articleContent)
-					.css('display', 'flex');
+					.appendTo( $articleContent )
+					.css( 'display', 'flex' );
 				$articleShare.remove();
 			}
-		} else {
-			if ($articleShareParent[0] === $articleContent[0]) {
-				$articleShare
-					.clone()
-					.appendTo($articleSticky)
-					.css('display', 'flex');
-				$articleShare.remove();
-			}
+		} else if ( $articleShareParent[ 0 ] === $articleContent[ 0 ] ) {
+			$articleShare
+				.clone()
+				.appendTo( $articleSticky )
+				.css( 'display', 'flex' );
+			$articleShare.remove();
 		}
 	};
 
 	const wpBlockFileHandler = () => {
-		const $wpBlockFileLink = $('.wp-block-file a');
+		const $wpBlockFileLink = $( '.wp-block-file a' );
 
-		if ($wpBlockFileLink.length > 0) {
-			const wpBlockFileLinkHref = $wpBlockFileLink.attr('href');
-			const extensionStartPosition = wpBlockFileLinkHref.lastIndexOf('.');
+		if ( $wpBlockFileLink.length > 0 ) {
+			const wpBlockFileLinkHref = $wpBlockFileLink.attr( 'href' );
+			const extensionStartPosition = wpBlockFileLinkHref.lastIndexOf(
+				'.'
+			);
 
-			if (extensionStartPosition !== -1) {
+			if ( extensionStartPosition !== -1 ) {
 				const extension = wpBlockFileLinkHref.slice(
 					extensionStartPosition
 				);
 				$wpBlockFileLink.append(
-					`<span class="wp-block-file__extension">${extension}</span>`
+					`<span class="wp-block-file__extension">${ extension }</span>`
 				);
 			}
 		}
 	};
 
 	const goToReadHandler = () => {
-		const $goToRead = $('.cp-article__to-read');
-		if ($goToRead.length === 0) {
+		const $goToRead = $( '.cp-article__to-read' );
+		if ( $goToRead.length === 0 ) {
 			return;
 		}
 
-		$goToRead.on('click', (event) => {
+		$goToRead.on( 'click', ( event ) => {
 			event.preventDefault();
 
 			const srollToPos = articleContentTopPos - 20;
 
-			$('html, body').animate({ scrollTop: srollToPos }, 500);
-		});
+			$( 'html, body' ).animate( { scrollTop: srollToPos }, 500 );
+		} );
 	};
 
 	const windowResizeHandler = () => {
-		$window.resize(function () {
+		$window.resize( function () {
 			windowWidth = $window.width();
 
 			synchronizationHandler();
 			articleShareHandler();
-		});
+		} );
 	};
 
 	articleNavigationHandler();

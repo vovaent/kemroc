@@ -5,23 +5,26 @@ import Swiper, { Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 
 const seriesGeneralInfo = () => {
-	new Swiper('.series-general-info__slider.swiper-single-slide', {
-		modules: [Pagination, Navigation],
+	new Swiper( '.series-general-info__slider.swiper-single-slide', {
+		modules: [ Pagination, Navigation ],
 
 		slidesPerView: 1,
 		spaceBetween: 5,
 		loop: true,
 
 		pagination: {
-			el: '.series-general-info__slider + .swiper-single-slide__pagination',
+			el:
+				'.series-general-info__slider + .swiper-single-slide__pagination',
 			clickable: true,
 		},
 
 		navigation: {
-			nextEl: '.series-general-info__slider .swiper-single-slide__arrow--next',
-			prevEl: '.series-general-info__slider .swiper-single-slide__arrow--prev',
+			nextEl:
+				'.series-general-info__slider .swiper-single-slide__arrow--next',
+			prevEl:
+				'.series-general-info__slider .swiper-single-slide__arrow--prev',
 		},
-	});
+	} );
 };
 
 export { seriesGeneralInfo };
