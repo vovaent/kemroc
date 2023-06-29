@@ -131,14 +131,14 @@ if ( ! function_exists( 'kemroc_entry_footer' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'kemroc_post_thumbnail' ) ) :
+if ( ! function_exists( 'kemroc_the_post_thumbnail' ) ) :
 	/**
 	 * Displays an optional post thumbnail.
 	 *
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function kemroc_post_thumbnail( $size = 'post-thumbnail', $attr = '', $wrapper_classes = '' ) {
+	function kemroc_the_post_thumbnail( $size = 'post-thumbnail', $attr = '', $wrapper_classes = '' ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -147,22 +147,25 @@ if ( ! function_exists( 'kemroc_post_thumbnail' ) ) :
 			?>
 
 			<div class="post-thumbnail<?php echo ' ' . esc_attr( $wrapper_classes ); ?>">
-				<?php the_post_thumbnail(); ?>
+				<?php the_post_thumbnail( 'post-thumbnail', $attr ); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
 
-			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<a class="post-thumbnail<?php echo ' ' . esc_attr( $wrapper_classes ); ?>" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 				<?php
 					the_post_thumbnail(
 						'post-thumbnail',
-						array(
-							'alt' => the_title_attribute(
-								array(
-									'echo' => false,
-								)
+						array_merge(
+							array(
+								'alt' => the_title_attribute(
+									array(
+										'echo' => false,
+									)
+								),
 							),
-						)
+							$attr
+						)                       
 					);
 				?>
 			</a>

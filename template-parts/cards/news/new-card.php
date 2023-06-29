@@ -8,7 +8,7 @@
 ?>
 <article class="new-card">
 	<div class="new-card__image">
-		<?php kemroc_post_thumbnail(); ?>
+		<?php kemroc_the_post_thumbnail(); ?>
 	</div>
 	<!-- /.new-card__image -->
 
