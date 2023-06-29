@@ -9,6 +9,27 @@
  * @package kemroc
  */
 
+$kemroc_no_current_lang_flag = '';
+$kemroc_no_current_lang_url  = '';
+$kemroc_no_current_lang_name = '';
+
+if ( function_exists( 'pll_languages_list' ) ) {
+	$kemroc_langs = pll_the_languages( array( 'raw' => 1 ) );
+
+	foreach ( $kemroc_langs as $kemroc_lang ) {
+		if ( ! $kemroc_lang['current_lang'] ) {
+			$kemroc_no_current_lang_flag = $kemroc_lang['flag'];
+			$kemroc_no_current_lang_url  = $kemroc_lang['url'];
+			$kemroc_no_current_lang_name = $kemroc_lang['name'];
+		}
+	}
+}
+
+$logo         = get_field( 'header_logo', 'option' );
+$header_phone = get_field( 'header_phone', 'option' );
+$cta_link     = get_field( 'cta_link', 'option' );
+$rental_link  = get_field( 'rental_link', 'option' );
+$store_link   = get_field( 'store_link', 'option' );
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -23,23 +44,16 @@
 
 <body <?php body_class(); ?>>
 	<div class="page-wrapper">
-		<?php
-		$logo         = get_field( 'header_logo', 'option' );
-		$header_phone = get_field( 'header_phone', 'option' );
-		$cta_link     = get_field( 'cta_link', 'option' );
-		$rental_link  = get_field( 'rental_link', 'option' );
-		$store_link   = get_field( 'store_link', 'option' );
-		?>
 		<header class="header desktop">
 			<div class="container">
 				<div class="header__top header-top">
 					<div class="header-top__left">
-						<a href="<?php echo site_url(); ?>" class="site-logo">
+						<a href="<?php echo pll_home_url(); ?>" class="site-logo">
 							<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
 						</a>
-						<button class="lang-switcher">
-							<?php get_template_part( 'template-parts/icons/english-flag' ); ?>
-						</button>
+						<a href="<?php echo esc_url( $kemroc_no_current_lang_url ); ?>" class="lang-switcher">
+							<img src="<?php echo esc_attr( $kemroc_no_current_lang_flag ); ?>" class="lang-switcher__icon" alt="<?php echo esc_attr( $kemroc_no_current_lang_name ); ?>">
+						</a>
 					</div>
 
 					<div class="header__top-btns">
@@ -87,12 +101,12 @@
 						<button class="toggle-nav header-top__toggle-nav">
 							<?php get_template_part( 'template-parts/icons/toggle-nav-burger' ); ?>
 						</button>
-						<a href="<?php echo site_url(); ?>" class="site-logo header-top__logo">
+						<a href="<?php echo pll_home_url(); ?>" class="site-logo header-top__logo">
 							<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
 						</a>
-						<button class="lang-switcher header-top__lang-switcher">
-							<?php get_template_part( 'template-parts/icons/english-flag' ); ?>
-						</button>
+						<a href="<?php echo esc_url( $kemroc_no_current_lang_url ); ?>" class="lang-switcher header-top__lang-switcher">
+							<img src="<?php echo esc_attr( $kemroc_no_current_lang_flag ); ?>" class="lang-switcher__icon" alt="<?php echo esc_attr( $kemroc_no_current_lang_name ); ?>">
+						</a>
 						<a class="site-search header-top__site-search"></a>
 					</div>
 					<div class="header-top__right top-right">
