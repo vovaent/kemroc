@@ -49,7 +49,7 @@ function kemroc_ajax_products_action_callback() {
 	if ( isset( $_POST['parent_page_id'] ) ) {
 		$args['post_parent'] = sanitize_text_field( wp_unslash( $_POST['parent_page_id'] ) );
 	}
-	// wp_send_json_error( $args );
+
 	$query = new WP_Query( $args );
 	if ( $query->have_posts() ) :
 		while ( $query->have_posts() ) :
@@ -58,7 +58,7 @@ function kemroc_ajax_products_action_callback() {
 			$article_item  = '<div class="products__item">';
 			$article_item .= kemroc_get_template_part_content( 
 				'template-parts/cards/product/product', 
-				null, 
+				'card', 
 				array( 'class' => 'product-card' ) 
 			);
 			$article_item .= '</div><!-- /.products__item -->';

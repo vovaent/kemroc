@@ -7,11 +7,11 @@
 
 ?>
 <div class="product-card">
-	<div class="product-card__figure">
+	<div class="product-card__thumbnail">
 		<div class="product-card__image skeleton"></div>
 		<!-- /.product-card__image -->
 	</div>
-	<!-- /.product-card__figure -->
+	<!-- /.product-card__thumbnail -->
 	<div class="product-card__title skeleton"></div>
 	<!-- /.product-card__title -->
 	<div class="product-card__title product-card__title--2 skeleton"></div>

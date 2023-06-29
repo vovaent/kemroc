@@ -16,32 +16,37 @@
         padding: 12px;
     }
 
-    &__figure {
+    &__thumbnail {
         display: flex;
         justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 0;
+        align-items: flex-end;
         min-height: 198px;
-        padding: 18px;
+        padding-bottom: 18px;
 
         @include media-down-md {
             min-height: 162px;
-            padding: 11px;
+            padding-bottom: 11px;
         }
 
         @include media-down-sm {
             min-height: 118px;
-            padding: 5px;
+            padding-bottom: 5px;
         }
-
     }
 
     &__image {
+        height: 140px;
+
+        @include media-down-sm {
+            height: 110px;
+        }
 
         &.skeleton {
-            width: 100%;
-            height: 140px;
+            width: 140px;
+
+            @include media-down-sm {
+                width: 110px;
+            }
         }
     }
 
@@ -50,6 +55,7 @@
     }
 
     &__title {
+        font-family: $font__main;
         font-size: 19px;
         font-weight: 600;
         line-height: 160%;
