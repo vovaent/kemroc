@@ -67,7 +67,7 @@
                     "label": "Wert",
                     "name": "value",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Nur den Wert ohne Einheiten eingeben",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -398,5 +398,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687523093
+    "modified": 1688071772
 }

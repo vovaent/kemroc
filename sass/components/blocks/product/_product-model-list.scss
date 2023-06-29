@@ -29,12 +29,11 @@
         @include reset-ul;
 
         display: flex;
-        // overflow: auto;
     }
 
-    // &__item {
-    //     @include reset-li;
-    // }
+    &__item {
+        @include reset-li;
+    }
 
     &__control {
         position: absolute;

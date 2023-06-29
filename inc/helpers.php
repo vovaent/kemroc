@@ -116,10 +116,11 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 					$params_key_title_post_id = 'params_' . $i . '_title';
 					$params_key_title_post    = get_post( $block_data[ $params_key_title_post_id ] );
 					$params_title             = $params_key_title_post->post_title;
+					$params_measure_units     = get_field( 'measure_units', $params_key_title_post->ID );
 					
 					$params_value = 'params_' . $i . '_value';
 					
-					$params[ $params_title ] = $block_data[ $params_value ];
+					$params[ $params_title ] = $block_data[ $params_value ] . ' ' . $params_measure_units;
 				}
 				break;
 			}

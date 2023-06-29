@@ -34,7 +34,6 @@ if ( ! $is_preview ) :
 	$kemroc_mi_params     = get_field( 'params' );
 	$kemroc_mi_drawing_id = get_field( 'drawing' );
 	$kemroc_mi_descr      = get_field( 'descr' );
-	$kemroc_mi_drawing_id = get_field( 'drawing' );
 	$kemroc_mi_video      = get_field( 'video' );
 	$kemroc_mi_photos     = get_field( 'photos' );
 
@@ -115,7 +114,10 @@ if ( ! $is_preview ) :
 											</div>
 											<!-- /.arrow-list-item-full__property -->
 											<div class="arrow-list-item-full__value">
-												<?php echo esc_html( $kemroc_mi_param['value'] ); ?>
+												<?php 
+												echo esc_html( $kemroc_mi_param['value'] ) . '&nbsp;';
+												the_field( 'measure_units', $kemroc_mi_param['title']->ID )
+												?>
 											</div>
 											<!-- /.arrow-list-item-full__value -->
 										</li>
