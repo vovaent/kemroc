@@ -30,7 +30,7 @@ class GetPostsAjax {
 
 	output( resp ) {
 		if (
-			typeof resp.data.posts !== undefined &&
+			typeof resp.data.posts !== 'undefined' &&
 			resp.data.posts.length !== 0
 		) {
 			this.els.$original.html( '' );
@@ -39,11 +39,12 @@ class GetPostsAjax {
 				this.els.$original.append( $( valueOfElement ) );
 			} );
 
-			this.els.$skeleton.hide();
 			this.els.$original.css( 'display', 'grid' );
 		}
 
-		if ( typeof resp.data.navigation !== undefined ) {
+		this.els.$skeleton.hide();
+
+		if ( typeof resp.data.navigation !== 'undefined' ) {
 			this.els.$navigation.html( resp.data.navigation );
 			this.navigationHandler();
 		}

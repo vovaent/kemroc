@@ -17,19 +17,19 @@ const products = ( $ ) => {
 	let postsPerPage;
 	let pageSlug;
 
-	if ( typeof productsData.allProductsOutputIsEnabled !== undefined ) {
+	if ( typeof productsData.allProductsOutputIsEnabled !== 'undefined' ) {
 		allProductsOutputIsEnabled = productsData.allProductsOutputIsEnabled;
 	}
 
-	if ( typeof productsData.postsPerPage !== undefined ) {
+	if ( typeof productsData.postsPerPage !== 'undefined' ) {
 		postsPerPage = productsData.postsPerPage;
 	}
 
-	if ( typeof productsData.pageNumber !== undefined ) {
+	if ( typeof productsData.pageNumber !== 'undefined' ) {
 		pageNumber = productsData.pageNumber;
 	}
 
-	if ( typeof productsData.pageSlug !== undefined ) {
+	if ( typeof productsData.pageSlug !== 'undefined' ) {
 		pageSlug = productsData.pageSlug;
 	}
 

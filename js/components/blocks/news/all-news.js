@@ -15,19 +15,19 @@ const allNews = ( $ ) => {
 
 	let postsPerPage = 9;
 
-	if ( typeof postsPerPageGlobal !== undefined ) {
+	if ( typeof postsPerPageGlobal !== 'undefined' ) {
 		postsPerPage = postsPerPageGlobal;
 	}
 
 	let pageNumber = 1;
 
-	if ( typeof pageNumberGlobal !== undefined ) {
+	if ( typeof pageNumberGlobal !== 'undefined' ) {
 		pageNumber = pageNumberGlobal;
 	}
 
 	let pageSlug = 1;
 
-	if ( typeof pageSlugGlobal !== undefined ) {
+	if ( typeof pageSlugGlobal !== 'undefined' ) {
 		pageSlug = pageSlugGlobal;
 	}
 
