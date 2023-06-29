@@ -10,8 +10,8 @@
 	<?php 
 	kemroc_the_post_thumbnail(
 		'post-thumbnail', 
-		array( 'class' => 'product-card__image' ),
-		'product-card__thumbnail'
+		'product-card__thumbnail',
+		array( 'class' => 'product-card__image' )
 	);
 	?>
 	<!-- /.product-card__figure -->

@@ -53,7 +53,7 @@ $kemroc_headers_insides = kemroc_get_headers_insides_in_content( get_the_content
 			<!-- /.cp-article__to-read -->			
 		</div>
 		<!-- /.cp-article__text -->
-		<?php kemroc_the_post_thumbnail( 'medium_large', '', 'cp-article__post-thumbnail' ); ?>
+		<?php kemroc_the_post_thumbnail( 'medium_large', 'cp-article__post-thumbnail' ); ?>
 		<!-- /.cp-article__image -->
 	</header>
 	<!-- /.cp-article__header -->

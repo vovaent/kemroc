@@ -138,12 +138,12 @@ if ( ! function_exists( 'kemroc_the_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function kemroc_the_post_thumbnail( $size = 'post-thumbnail', $attr = '', $wrapper_classes = '' ) {
+	function kemroc_the_post_thumbnail( $size = 'post-thumbnail', $wrapper_classes = '', $attr = array() ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
 
-		if ( is_singular() ) :
+		if ( is_singular() && ! is_front_page() ) :
 			?>
 
 			<div class="post-thumbnail<?php echo ' ' . esc_attr( $wrapper_classes ); ?>">
