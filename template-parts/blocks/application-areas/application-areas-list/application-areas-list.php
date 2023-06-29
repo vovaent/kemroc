@@ -33,61 +33,64 @@ if ( ! $is_preview ) :
 	$kemroc_aal_parent_page_id = get_field( 'parent_page_id' );
 
 	// Load values and assing defaults.
-	$kemroc_aal_args  = array(
-		'post_type'   => 'page',
-		'post_status' => 'published',
-		'post_parent' => $kemroc_aal_parent_page_id,
-	);
-	$kemroc_aal_areas = new WP_Query( $kemroc_aal_args );
+	if ( $kemroc_aal_parent_page_id ) {
+		$kemroc_aal_args  = array(
+			'post_type'   => 'page',
+			'post_status' => 'published',
+			'post_parent' => $kemroc_aal_parent_page_id,
+		);
+		$kemroc_aal_areas = new WP_Query( $kemroc_aal_args );
+	}
 	?>
 
-	<section id="<?php echo esc_attr( $kemroc_aal_id ); ?>" class="<?php echo esc_attr( $kemroc_aal_class_name ); ?>">
-		<div class="container application-areas-list__content">
+	<?php if ( $kemroc_aal_parent_page_id ) : ?>
+		<section id="<?php echo esc_attr( $kemroc_aal_id ); ?>" class="<?php echo esc_attr( $kemroc_aal_class_name ); ?>">
+			<div class="container application-areas-list__content">
 
-			<?php if ( $kemroc_aal_areas ) : ?>
-				<ul class="application-areas-list__list">
+				<?php if ( $kemroc_aal_areas ) : ?>
+					<ul class="application-areas-list__list">
 
-					<?php
-					while ( $kemroc_aal_areas->have_posts() ) : 
-						$kemroc_aal_areas->the_post();
-						
-						$kemroc_aal_post_id = get_the_ID();
+						<?php
+						while ( $kemroc_aal_areas->have_posts() ) : 
+							$kemroc_aal_areas->the_post();
+							
+							$kemroc_aal_post_id = get_the_ID();
+							?>
+							<li class="application-areas-list__item application-areas-item">
+								<a href="<?php the_permalink( $kemroc_aal_post_id ); ?>" class="application-areas-item__link">
+									<figure class="application-areas-item__figure">
+										<?php echo get_the_post_thumbnail( $kemroc_aal_post_id, 'medium', array( 'class' => 'application-areas-item__image' ) ); ?>
+										<figcaption class="application-areas-item__caption">
+											<h6 class="application-areas-item__title">
+												<?php the_title(); ?>
+											</h6>
+											<!-- /.application-areas-item__title -->										
+										</figcaption>
+										<!-- /.application-areas-item__caption -->
+										<p class="pseudo-link application-areas-item__pseudo-link">
+											<?php esc_html_e( 'Mehr', 'kemroc' ); ?>
+											<?php get_template_part( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ); ?>
+										</p>
+										<!-- /.application-areas-item__pseudo-link -->
+									</figure>
+									<!-- /.application-areas-item__figure -->
+								</a>
+								<!-- /.application-areas-item__link -->
+							</li>
+							<!-- /.application-areas-list__item -->
+							<?php 
+						endwhile;
+						wp_reset_postdata() 
 						?>
-						<li class="application-areas-list__item application-areas-item">
-							<a href="<?php the_permalink( $kemroc_aal_post_id ); ?>" class="application-areas-item__link">
-								<figure class="application-areas-item__figure">
-									<?php echo get_the_post_thumbnail( $kemroc_aal_post_id, 'medium', array( 'class' => 'application-areas-item__image' ) ); ?>
-									<figcaption class="application-areas-item__caption">
-										<h6 class="application-areas-item__title">
-											<?php the_title(); ?>
-										</h6>
-										<!-- /.application-areas-item__title -->										
-									</figcaption>
-									<!-- /.application-areas-item__caption -->
-									<p class="pseudo-link application-areas-item__pseudo-link">
-										<?php esc_html_e( 'Mehr', 'kemroc' ); ?>
-										<?php get_template_part( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ); ?>
-									</p>
-									<!-- /.application-areas-item__pseudo-link -->
-								</figure>
-								<!-- /.application-areas-item__figure -->
-							</a>
-							<!-- /.application-areas-item__link -->
-						</li>
-						<!-- /.application-areas-list__item -->
-						<?php 
-					endwhile;
-					wp_reset_postdata() 
-					?>
 
-				</ul>
-				<!-- /.application-areas-list__list -->
-			<?php endif; ?>				
+					</ul>
+					<!-- /.application-areas-list__list -->
+				<?php endif; ?>				
 
-		</div>
-		<!-- /.container application-areas-list__content -->
-	</section>
-	<!-- /.application-areas-list -->
-
+			</div>
+			<!-- /.container application-areas-list__content -->
+		</section>
+		<!-- /.application-areas-list -->
+	<?php endif; ?>
 	<?php
 endif;

@@ -16,6 +16,7 @@ const products = ( $ ) => {
 	let pageNumber;
 	let postsPerPage;
 	let pageSlug;
+	let parentPageId;
 
 	if ( typeof productsData.allProductsOutputIsEnabled !== 'undefined' ) {
 		allProductsOutputIsEnabled = productsData.allProductsOutputIsEnabled;
@@ -33,6 +34,16 @@ const products = ( $ ) => {
 		pageSlug = productsData.pageSlug;
 	}
 
+	if (
+		typeof productsData.parentPageId !== 'undefined' &&
+		productsData.parentPageId
+	) {
+		parentPageId = productsData.parentPageId;
+	} else {
+		$productsListSkeletons.hide();
+		return;
+	}
+
 	const getPostsAjax = new GetPostsAjax( {
 		els: {
 			$original: $productsListOriginal,
@@ -42,7 +53,7 @@ const products = ( $ ) => {
 		data: {
 			action: 'products_action',
 			nonce: productsAjax.nonce,
-			parent_page_id: productsData.parentPageId,
+			parent_page_id: parentPageId,
 			page_slug: pageSlug,
 			all_products_output_is_enabled: allProductsOutputIsEnabled,
 			posts_per_page: postsPerPage,
