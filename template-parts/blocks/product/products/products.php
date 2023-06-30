@@ -36,7 +36,7 @@ if ( ! $is_preview ) :
 	$kemroc_p_page_number = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 	
 	$kemroc_p_all_products_output_is_enabled = get_field( 'all_products_output_is_enabled' );
-	$kemroc_p_parent_page_id                 = false;
+	$kemroc_p_parent_page_id                 = get_field( 'parent_page_id' );
 	$kemroc_p_products_per_page              = get_field( 'products_per_page' ) 
 													? get_field( 'products_per_page' ) 
 													: get_option( 'posts_per_page' );
