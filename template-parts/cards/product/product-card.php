@@ -14,7 +14,6 @@
 		array( 'class' => 'product-card__image' )
 	);
 	?>
-	<!-- /.product-card__figure -->
 	<a href="<?php the_permalink(); ?>" class="product-card__text">
 		<h6 class="product-card__title">
 			<?php the_title(); ?>
