@@ -1,0 +1,100 @@
+.search-area {
+    position: absolute;
+    top: 156px;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    z-index: 99;
+
+    &__content {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        padding-top: 80px;
+        padding-bottom: 140px;
+
+        @include media-down-md {
+            gap: 24px;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        @include media-down-sm {
+            flex-direction: column;
+            gap: 16px;
+            padding-top: 64px;
+            padding-bottom: 64px;
+        }
+    }
+
+    &__close {
+        @include reset-btn;
+
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        width: 24px;
+        height: 24px;
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImZpLWJyLWNyb3NzLXNtYWxsIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTE0LjEyMTMgMTEuOTk5OEwxOC4wMDAzIDguMTE2ODJDMTguMjUyMiA3LjgzMDU4IDE4LjM4NTYgNy40NTkxOCAxOC4zNzM0IDcuMDc4MTFDMTguMzYxMiA2LjY5NzA1IDE4LjIwNDQgNi4zMzQ5MSAxNy45MzQ4IDYuMDY1MzJDMTcuNjY1MiA1Ljc5NTczIDE3LjMwMzEgNS42Mzg5MSAxNi45MjIgNS42MjY3NEMxNi41NDEgNS42MTQ1OCAxNi4xNjk2IDUuNzQ3OTcgMTUuODgzMyA1Ljk5OTgyTDEyLjAwMDMgOS44Nzg4Mkw4LjExMDMyIDUuOTg3ODJDNy45NzA5OSA1Ljg0ODQ5IDcuODA1NTggNS43Mzc5NiA3LjYyMzUzIDUuNjYyNTZDNy40NDE0OCA1LjU4NzE1IDcuMjQ2MzcgNS41NDgzNCA3LjA0OTMyIDUuNTQ4MzRDNi44NTIyOCA1LjU0ODM0IDYuNjU3MTYgNS41ODcxNSA2LjQ3NTExIDUuNjYyNTZDNi4yOTMwNyA1LjczNzk2IDYuMTI3NjUgNS44NDg0OSA1Ljk4ODMyIDUuOTg3ODJDNS44NDg5OSA2LjEyNzE1IDUuNzM4NDYgNi4yOTI1NiA1LjY2MzA2IDYuNDc0NjFDNS41ODc2NSA2LjY1NjY2IDUuNTQ4ODQgNi44NTE3NyA1LjU0ODg0IDcuMDQ4ODJDNS41NDg4NCA3LjI0NTg3IDUuNTg3NjUgNy40NDA5OCA1LjY2MzA2IDcuNjIzMDNDNS43Mzg0NiA3LjgwNTA4IDUuODQ4OTkgNy45NzA0OSA1Ljk4ODMyIDguMTA5ODJMOS44NzkzMiAxMS45OTk4TDYuMDAwMzIgMTUuODgxOEM1Ljg0ODE5IDE2LjAxNzggNS43MjU0MSAxNi4xODM0IDUuNjM5NDggMTYuMzY4NUM1LjU1MzU2IDE2LjU1MzYgNS41MDYzIDE2Ljc1NDIgNS41MDA1OSAxNi45NTgyQzUuNDk0ODggMTcuMTYyMSA1LjUzMDg1IDE3LjM2NTEgNS42MDYyOSAxNy41NTQ3QzUuNjgxNzMgMTcuNzQ0MyA1Ljc5NTA2IDE3LjkxNjUgNS45MzkzNCAxOC4wNjA4QzYuMDgzNjIgMTguMjA1MSA2LjI1NTgzIDE4LjMxODQgNi40NDU0MiAxOC4zOTM5QzYuNjM1MDEgMTguNDY5MyA2LjgzNzk5IDE4LjUwNTMgNy4wNDE5NiAxOC40OTk2QzcuMjQ1OTMgMTguNDkzOCA3LjQ0NjU5IDE4LjQ0NjYgNy42MzE2NiAxOC4zNjA3QzcuODE2NzQgMTguMjc0NyA3Ljk4MjMzIDE4LjE1MTkgOC4xMTgzMiAxNy45OTk4TDEyLjAwMDMgMTQuMTIwOEwxNS44NzgzIDE3Ljk5OThDMTYuMTU5NyAxOC4yODEyIDE2LjU0MTQgMTguNDM5MyAxNi45MzkzIDE4LjQzOTNDMTcuMzM3MyAxOC40MzkzIDE3LjcxODkgMTguMjgxMiAxOC4wMDAzIDE3Ljk5OThDMTguMjgxNyAxNy43MTg0IDE4LjQzOTggMTcuMzM2OCAxOC40Mzk4IDE2LjkzODhDMTguNDM5OCAxNi41NDA5IDE4LjI4MTcgMTYuMTU5MiAxOC4wMDAzIDE1Ljg3NzhMMTQuMTIxMyAxMS45OTk4WiIgZmlsbD0iIzFBMUExQSIvPgo8L2c+Cjwvc3ZnPgo=');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        cursor: pointer;
+
+        @include media-down-md {
+            right: 18px;
+        }
+
+        @include media-down-sm {
+            right: 15px;
+        }
+    }
+
+    &__form {
+        width: 100%;
+        max-width: 626px;
+
+        @include media-down-md {
+            max-width: 349px;
+        }
+    }
+
+    &__cta {
+        @include reset-a(#fff);
+
+        flex-shrink: 0;
+        padding: 30.5px 40px;
+        font-size: 23px;
+        font-family: $font__secondary;
+        font-weight: 700;
+        line-height: 160%;
+
+        @include media-down-md {
+            padding: 20px 40px;
+            font-size: 19px;
+        }
+
+        @include media-down-sm {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 16px;
+        }
+    }
+
+    &__result-list {
+        position: absolute;
+        top: 190px;
+        right: 50%;
+        width: 970px;
+        height: 446px;
+        padding: 24px;
+        border-radius: 16px;
+        border: 1px solid #EBEBEB;
+        background: #FFF;
+        transform: translateX(50%);
+        box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.25);
+    }
+}

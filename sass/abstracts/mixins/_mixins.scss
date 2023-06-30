@@ -126,3 +126,9 @@
         margin: 64px 0;
     }
 }
+
+@mixin reset-btn () {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}

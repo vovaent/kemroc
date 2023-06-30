@@ -1,11 +1,13 @@
 .header {
-    &.desktop {
+    position: relative;
+
+    &__desktop {
         @include media-down-md {
             display: none;
         }
     }
 
-    &.mobile {
+    &__mobile {
         display: none;
 
         @include media-down-md {
@@ -126,8 +128,10 @@
     }
 }
 
-.header__cta {
+.btn.header__cta {
     font-size: 14px;
+    border-radius: 12px;
+    padding: 12px 14px;
 }
 
 .header__top-btns {

@@ -288,3 +288,12 @@ function kemroc_navigation_template_class_change( $template ) {
 }
 
 add_filter( 'navigation_markup_template', 'kemroc_navigation_template_class_change', 10, 1 );
+
+function kemroc_home_url( $lang = '' ) {
+	$home_url = home_url();
+
+	if ( function_exists( 'pll_home_url' ) ) {
+		$home_url = pll_home_url( $lang );
+	}
+	return $home_url;
+}

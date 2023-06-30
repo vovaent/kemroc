@@ -1,0 +1,38 @@
+.search-card {
+    display: flex;
+    border-bottom: 1px solid #EEE;
+    padding: 32px 0;
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    &__thumbnail {
+        width: 170px;
+        height: 114px;
+        border-radius: 12px;
+        background-color: #eee;
+    }
+
+    &__text {
+        @include reset-a;
+
+        flex-shrink: 0;
+        margin-left: 16px;
+    }
+
+    // &__title {}
+
+    &__excerpt {
+        margin-top: 2px;
+    }
+
+    &__pseudo-link {
+        margin-top: 8px;
+    }
+}
