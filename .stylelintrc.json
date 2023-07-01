@@ -4,8 +4,7 @@
     ],
     "ignoreFiles": [
         "sass/_normalize.scss",
-        "**/style.css",
-        "**/*.min.css",
+        "**/*/*.css",
         "js/build/**/*.css",
         "js/build/**/*.min.css"
     ],

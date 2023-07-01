@@ -189,78 +189,63 @@ $store_link   = get_field( 'store_link', 'option' );
 					</div>
 					<!-- /.search-area__form -->
 
-					<?php if ( $cta_link ) : ?>
-						<a class="btn btn-accent btn-rounded arrow-right search-area__cta"
-							href="<?php echo $cta_link['url']; ?>">
-							<?php echo $cta_link['title']; ?>
-						</a>
-						<!-- /.search-area__cta -->
-					<?php endif; ?>
-
 					<div class="search-area__result-list">
 						<?php // get_template_part( 'template-parts/cards/search' ); ?>
-						<article class="search-card">
+						<?php
+						/*
+						 <article class="search-card">
 							<div class="search-card__thumbnail">
-								<?php
-								kemroc_the_post_thumbnail(
-									'post-thumbnail',
-									'',
-									array( 'class' => 'search-card__image' )
-								);
-								?>
+							<img src="<?php echo get_template_directory_uri() . '/images/no-image.jpg'; ?>" alt="" class="search-card__image">
+						</div>
+						<!-- /.search-card__thumbnail -->
+						<a href="<?php the_permalink(); ?>" class="search-card__text">
+							<h6 class="search-card__title">
+								KRD-Querschneidkopffräse am 30-t-Bagger
+							</h6>
+							<!-- /.search-card__title -->
+							<div class="search-card__excerpt">
+								KEMROC-Kettenfräse EK 110 bei Rohde
 							</div>
-							<!-- /.search-card__thumbnail -->
-							<a href="<?php the_permalink(); ?>" class="search-card__text">
-								<h6 class="search-card__title">
-									KRD-Querschneidkopffräse am 30-t-Bagger
-								</h6>
-								<!-- /.search-card__title -->
-								<div class="search-card__excerpt">
-									KEMROC-Kettenfräse EK 110 bei Rohde
-								</div>
-								<!-- /.search-card__excerpt -->
-								<p class="btn btn-arrow-rounded search-card__pseudo-link">
-									<?php esc_html_e( 'Alle produkte', 'kemroc' ); ?>
-									<span>
-										<?php get_template_part( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ); ?>
-									</span>
-								</p>
-								<!-- /.btn btn-arrow-rounded search-card__pseudo-link -->
-							</a>
-							<!-- /.search-card__text -->
+							<!-- /.search-card__excerpt -->
+							<p class="btn btn-arrow-rounded search-card__pseudo-link">
+								<?php esc_html_e( 'Alle produkte', 'kemroc' ); ?>
+								<span>
+									<?php get_template_part( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ); ?>
+								</span>
+							</p>
+							<!-- /.btn btn-arrow-rounded search-card__pseudo-link -->
+						</a>
+						<!-- /.search-card__text -->
 						</article>
 						<!-- /.search-card -->
 						<article class="search-card">
-							<div class="search-card__thumbnail">
-								<?php
-								kemroc_the_post_thumbnail(
-									'post-thumbnail',
-									'',
-									array( 'class' => 'search-card__image' )
-								);
-								?>
+						<div class="search-card__thumbnail">
+							<img src="<?php echo get_template_directory_uri() . '/images/no-image.jpg'; ?>" alt="" class="search-card__image">
+						</div>
+						<!-- /.search-card__thumbnail -->
+						<a href="<?php the_permalink(); ?>" class="search-card__text">
+							<h6 class="search-card__title">
+								KRD-Querschneidkopffräse am 30-t-Bagger
+							</h6>
+							<!-- /.search-card__title -->
+							<div class="search-card__excerpt">
+								KEMROC-Kettenfräse EK 110 bei Rohde
 							</div>
-							<!-- /.search-card__thumbnail -->
-							<a href="<?php the_permalink(); ?>" class="search-card__text">
-								<h6 class="search-card__title">
-									KRD-Querschneidkopffräse am 30-t-Bagger
-								</h6>
-								<!-- /.search-card__title -->
-								<div class="search-card__excerpt">
-									KEMROC-Kettenfräse EK 110 bei Rohde
-								</div>
-								<!-- /.search-card__excerpt -->
-								<p class="btn btn-arrow-rounded search-card__pseudo-link">
-									<?php esc_html_e( 'Alle produkte', 'kemroc' ); ?>
-									<span>
-										<?php get_template_part( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ); ?>
-									</span>
-								</p>
-								<!-- /.btn btn-arrow-rounded search-card__pseudo-link -->
-							</a>
-							<!-- /.search-card__text -->
+							<!-- /.search-card__excerpt -->
+							<p class="btn btn-arrow-rounded search-card__pseudo-link">
+								<?php esc_html_e( 'Alle produkte', 'kemroc' ); ?>
+								<span>
+									<?php get_template_part( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ); ?>
+								</span>
+							</p>
+							<!-- /.btn btn-arrow-rounded search-card__pseudo-link -->
+						</a>
+						<!-- /.search-card__text -->
 						</article>
 						<!-- /.search-card -->
+						*/
+						?>
+						
 						<!-- /.search-area__result-item -->
 					</div>
 					<!-- /.search-area__live-result -->

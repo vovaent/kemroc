@@ -129,6 +129,8 @@
 }
 
 .btn.header__cta {
+    @include reset-a(#fff);
+
     font-size: 14px;
     border-radius: 12px;
     padding: 12px 14px;

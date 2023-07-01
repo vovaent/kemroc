@@ -304,6 +304,14 @@
                 justify-content: center;
             }
 
+            .btn-rounded {
+                color: #fff;
+            }
+
+            .btn-border-accent {
+                color: $accent;
+            }
+
             .cta-wide--footer & {
                 @include media-down-md {
                     width: 31%;

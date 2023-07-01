@@ -4,12 +4,15 @@
 		<input 
 			type="search" 
 			class="search-form__field" 
-			placeholder="<?php echo esc_attr_x( 'Suche', 'placeholder', 'kemroc' ); ?> …" 
+			placeholder="<?php echo esc_attr_x( 'Suche …', 'placeholder', 'kemroc' ); ?>" 
 			value="<?php echo get_search_query(); ?>" 
 			name="s" 
 			autocomplete="off"
 			title="<?php esc_html_x( 'Suche nach:', 'label', 'kemroc' ); ?>" 
 		/>
+		<span class="search-form__icon"></span>
 	</label>
-	<button class="search-form__submit"></button>
+	<button class="btn btn-accent btn-rounded arrow-right search-form__submit">
+		<?php echo esc_attr_x( 'Suche', 'button', 'kemroc' ); ?>
+	</button>
 </form>

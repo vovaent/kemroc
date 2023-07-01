@@ -128,6 +128,8 @@
     }
 
     &__readmore {
+        @include reset-a(#fff);
+
         width: max-content;
         margin-top: 36px;
 

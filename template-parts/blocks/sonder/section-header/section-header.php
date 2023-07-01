@@ -46,7 +46,7 @@ if ( ! $is_preview ) :
 				<?php endif; ?>
 				<?php if ( $kemroc_sh_link ) : ?>
 					<div class="readmore desktop">
-						<a href="<?php echo esc_url( $kemroc_sh_link['url'] ); ?>" class="btn btn-arrow-rounded">
+						<a href="<?php echo esc_url( $kemroc_sh_link['url'] ); ?>" class="btn btn-arrow-rounded readmore__link">
 							<?php echo esc_html( $kemroc_sh_link['title'] ); ?>
 							<span>
 								<?php

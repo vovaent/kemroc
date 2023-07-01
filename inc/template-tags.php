@@ -138,42 +138,61 @@ if ( ! function_exists( 'kemroc_the_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function kemroc_the_post_thumbnail( $size = 'post-thumbnail', $wrapper_classes = '', $attr = array() ) {
+	function kemroc_get_the_post_thumbnail( $size = 'post-thumbnail', $wrapper_classes = '', $attr = array() ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
 
+		$post_id    = get_the_ID();
+		$post_thumb = '';
+
 		if ( is_singular() && ! is_front_page() ) :
-			?>
+			$post_thumb = get_the_post_thumbnail( $post_id, $size, $attr );
 
-			<div class="post-thumbnail<?php echo ' ' . esc_attr( $wrapper_classes ); ?>">
-				<?php the_post_thumbnail( 'post-thumbnail', $attr ); ?>
-			</div><!-- .post-thumbnail -->
+			if ( '' === $post_thumb ) {
+				$post_thumb = 'no-image';
+			} 
 
-		<?php else : ?>
+			$html = '<div class="post-thumbnail ' . esc_attr( $wrapper_classes ) . '">' .
+						$post_thumb .
+					'</div><!-- .post-thumbnail -->';
 
-			<a class="post-thumbnail<?php echo ' ' . esc_attr( $wrapper_classes ); ?>" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-				<?php
-					the_post_thumbnail(
-						'post-thumbnail',
-						array_merge(
+		else :
+			$post_thumb = get_the_post_thumbnail(
+				$post_id,
+				'post-thumbnail',
+				array_merge(
+					array(
+						'alt' => the_title_attribute(
 							array(
-								'alt' => the_title_attribute(
-									array(
-										'echo' => false,
-									)
-								),
-							),
-							$attr
-						)                       
-					);
-				?>
-			</a>
+								'echo' => false,
+							)
+						),
+					),
+					$attr
+				)
+			);
 
-			<?php
+			if ( '' === $post_thumb ) {
+				$post_thumb = 'no-image';
+			} 
+
+			$html = '<a class="post-thumbnail ' . esc_attr( $wrapper_classes ) . '" href="' . get_the_permalink() . '" aria-hidden="true" tabindex="-1">' .
+						$post_thumb . '
+                    </a>';      
 		endif; // End is_singular().
+		// var_dump( $post_thumb );
+		
+		return $html;
 	}
 endif;
+
+if ( ! function_exists( 'kemroc_the_post_thumbnail' ) ) :
+	function kemroc_the_post_thumbnail( $size = 'post-thumbnail', $wrapper_classes = '', $attr = array() ) {
+		echo wp_kses_post( kemroc_get_the_post_thumbnail( $size, $wrapper_classes, $attr ) );
+	}
+endif;
+
 
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**

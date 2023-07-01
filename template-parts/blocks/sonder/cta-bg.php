@@ -39,7 +39,7 @@ if ( ! $is_preview ) {
 				<?php endif; ?>
 				<?php if ( $link ) : ?>
 				<div class="cta-more">
-					<a href="<?php echo $link['url']; ?>" class="btn btn-accent btn-border-accent btn-rounded arrow-right"><?php echo $link['title']; ?></a>
+					<a href="<?php echo $link['url']; ?>" class="btn btn-accent btn-rounded btn-border-accent arrow-right"><?php echo $link['title']; ?></a>
 				</div>
 				<?php endif; ?>
 			</div>
