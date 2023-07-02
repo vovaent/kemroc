@@ -3,6 +3,10 @@
     border-bottom: 1px solid #EEE;
     padding: 32px 0;
 
+    @include media-down-md {
+        flex-direction: column;
+    }
+
     &:first-child {
         padding-top: 0;
     }
@@ -13,11 +17,22 @@
     }
 
     &__thumbnail {
+        flex-shrink: 0;
         width: 170px;
         height: 114px;
         border-radius: 12px;
         background-color: #eee;
         overflow: hidden;
+
+        @include media-down-md {
+            width: 114px;
+            height: 76px;
+        }
+
+        @include media-down-sm {
+            width: 84px;
+            height: 56px;
+        }
     }
 
     &__text {
@@ -25,9 +40,19 @@
 
         flex-shrink: 0;
         margin-left: 16px;
+
+        @include media-down-md {
+            margin-left: 0;
+            margin-top: 16px;
+        }
     }
 
-    // &__title {}
+    &__title {
+        @include media-down-md {
+            font-size: 16px;
+            line-height: 140%;
+        }
+    }
 
     &__excerpt {
         margin-top: 2px;
@@ -35,5 +60,16 @@
 
     &__pseudo-link {
         margin-top: 8px;
+
+        @include media-down-sm {
+            font-size: 14px;
+        }
+
+        span {
+            width: unset;
+            height: unset;
+            border: unset;
+            border-radius: 0;
+        }
     }
 }

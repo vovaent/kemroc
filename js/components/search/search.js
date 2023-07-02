@@ -1,20 +1,36 @@
-import 'jquery-autocomplete';
-import 'jquery-autocomplete/jquery.autocomplete.css';
-
 /* global searchAjax */
 /* eslint no-undef: "error" */
 
 const search = ( $ ) => {
+	const $searchArea = $( '.search-area' );
+	const $searchFormField = $( '.search-form__field' );
+	const searchAreaResultWrapperSelector = '.search-area__result-wrapper';
+
+	const searchIconClickHandler = () => {
+		if ( $searchArea.length === 0 ) {
+			return;
+		}
+		if ( $searchFormField.length === 0 ) {
+			return;
+		}
+
+		$searchArea.fadeIn();
+		$searchFormField.focus();
+	};
+
 	const searchAreaHandler = () => {
 		const $searchIcon = $( '.site-search' );
-		const $searchArea = $( '.search-area' );
 		const $searchAreaClose = $( '.search-area__close' );
 
 		if ( $searchIcon.length === 0 ) {
 			return;
 		}
 
-		$searchIcon.on( 'click', () => $searchArea.fadeIn() );
+		if ( $searchAreaClose.length === 0 ) {
+			return;
+		}
+
+		$searchIcon.on( 'click', searchIconClickHandler );
 		$searchAreaClose.on( 'click', () => $searchArea.fadeOut() );
 	};
 
@@ -22,7 +38,7 @@ const search = ( $ ) => {
 		if ( request === '' || typeof searchAjax === 'undefined' ) {
 			return;
 		}
-		console.log( request );
+
 		$.ajax( {
 			url: searchAjax.url,
 			data: {
@@ -30,39 +46,67 @@ const search = ( $ ) => {
 				term: request.term,
 			},
 			success( data ) {
-				console.log( { data } );
 				response( data );
 			},
 		} );
 	};
 
 	const goToPost = ( event, ui ) => {
-		console.log( { ui } );
 		window.location = ui.item.url;
 	};
 
 	const autocompleteHandler = function ( $inputField ) {
+		$.widget( 'ui.autocomplete', $.ui.autocomplete, {
+			_renderItem( ul, item ) {
+				$( ul ).addClass( 'search-area__result-list' );
+
+				const $searchCardText = $( '<div>', {
+					class: 'search-card__text',
+				} )
+					.append( item.value )
+					.append( item.excerpt )
+					.append( item.more );
+
+				item.value = item.label;
+
+				return $( '<li>', {
+					class: 'search-area__result-item',
+				} )
+					.addClass( 'search-card' )
+					.append( item.thumb )
+					.append( $searchCardText )
+					.appendTo( ul );
+			},
+		} );
+
 		$inputField.autocomplete( {
 			delay: 500,
-			appendTo: 'search-area__result-list',
+			appendTo: searchAreaResultWrapperSelector,
 			minLength: 3,
+			position: {
+				of: $( searchAreaResultWrapperSelector ),
+				using( hash, params ) {
+					params.element.top = 0;
+					params.element.left = 0;
+					params.element.width = '100%';
+				},
+			},
+			open() {
+				$( searchAreaResultWrapperSelector ).fadeIn();
+			},
+			close() {
+				$( searchAreaResultWrapperSelector ).hide();
+			},
 			source: ( request, response ) => ajaxRequest( request, response ),
 			select: ( event, ui ) => goToPost( event, ui ),
 		} );
 	};
 
 	const onInputHandler = function () {
-		// setTimeout( () => autocompleteHandler( $( this ) ), 2000 );
 		autocompleteHandler( $( this ) );
 	};
 
 	const inputFieldHandler = () => {
-		const $searchFormField = $( '.search-form__field' );
-
-		if ( $searchFormField.length === 0 ) {
-			return;
-		}
-
 		$searchFormField.on( 'input', onInputHandler );
 	};
 

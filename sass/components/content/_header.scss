@@ -214,6 +214,8 @@
 }
 
 .top-right__cta {
+    @include reset-a(#fff);
+
     font-size: 14px;
 
     @include media-down-sm {

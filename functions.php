@@ -155,11 +155,12 @@ function kemroc_scripts() {
 	wp_style_add_data( 'kemroc-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'jquery-ui-autocomplete' );
 
 	wp_enqueue_script(
 		'kemroc-scripts',
 		get_template_directory_uri() . '/js/build/scripts.js',
-		array( 'jquery' ),
+		array( 'jquery', 'jquery-ui-autocomplete' ),
 		$main_asset['version'],
 		true 
 	);

@@ -6477,11 +6477,6 @@ joi@^17.3.0:
     "@sideway/formula" "^3.0.1"
     "@sideway/pinpoint" "^2.0.0"
 
-jquery-autocomplete@^1.2.8:
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/jquery-autocomplete/-/jquery-autocomplete-1.2.8.tgz#9927c5d752cf73fc5b6c707431197e16997cc653"
-  integrity sha512-dbpkpEglcOnNH6NJPe8NUm4cTBsuyf33xk2Rr69o1ki93XxnKph3HNjEOff/oo+SLKMJQyxO7pQ6ACL2ZrA4JQ==
-
 js-base64@^2.4.9:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.6.4.tgz#f4e686c5de1ea1f867dbcad3d46d969428df98c4"

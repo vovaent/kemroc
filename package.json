@@ -54,7 +54,6 @@
         "bundle": "dir-archiver --src . --dest ../kemroc.zip --exclude .git .DS_Store node_modules vendor"
     },
     "dependencies": {
-        "jquery-autocomplete": "^1.2.8",
         "swiper": "^9.3.2"
     }
 }

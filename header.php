@@ -180,7 +180,7 @@ $store_link   = get_field( 'store_link', 'option' );
 				</div>
 			</div>
 
-			<aside class="search-area">
+			<aside class="search-area search-area--pos-abslt">
 				<div class="container search-area__content">
 					<button class="search-area__close"></button>
 					<!-- /.search-area__close -->
@@ -188,67 +188,8 @@ $store_link   = get_field( 'store_link', 'option' );
 						<?php get_search_form(); ?>
 					</div>
 					<!-- /.search-area__form -->
-
-					<div class="search-area__result-list">
-						<?php // get_template_part( 'template-parts/cards/search' ); ?>
-						<?php
-						/*
-						 <article class="search-card">
-							<div class="search-card__thumbnail">
-							<img src="<?php echo get_template_directory_uri() . '/images/no-image.jpg'; ?>" alt="" class="search-card__image">
-						</div>
-						<!-- /.search-card__thumbnail -->
-						<a href="<?php the_permalink(); ?>" class="search-card__text">
-							<h6 class="search-card__title">
-								KRD-Querschneidkopffräse am 30-t-Bagger
-							</h6>
-							<!-- /.search-card__title -->
-							<div class="search-card__excerpt">
-								KEMROC-Kettenfräse EK 110 bei Rohde
-							</div>
-							<!-- /.search-card__excerpt -->
-							<p class="btn btn-arrow-rounded search-card__pseudo-link">
-								<?php esc_html_e( 'Alle produkte', 'kemroc' ); ?>
-								<span>
-									<?php get_template_part( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ); ?>
-								</span>
-							</p>
-							<!-- /.btn btn-arrow-rounded search-card__pseudo-link -->
-						</a>
-						<!-- /.search-card__text -->
-						</article>
-						<!-- /.search-card -->
-						<article class="search-card">
-						<div class="search-card__thumbnail">
-							<img src="<?php echo get_template_directory_uri() . '/images/no-image.jpg'; ?>" alt="" class="search-card__image">
-						</div>
-						<!-- /.search-card__thumbnail -->
-						<a href="<?php the_permalink(); ?>" class="search-card__text">
-							<h6 class="search-card__title">
-								KRD-Querschneidkopffräse am 30-t-Bagger
-							</h6>
-							<!-- /.search-card__title -->
-							<div class="search-card__excerpt">
-								KEMROC-Kettenfräse EK 110 bei Rohde
-							</div>
-							<!-- /.search-card__excerpt -->
-							<p class="btn btn-arrow-rounded search-card__pseudo-link">
-								<?php esc_html_e( 'Alle produkte', 'kemroc' ); ?>
-								<span>
-									<?php get_template_part( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ); ?>
-								</span>
-							</p>
-							<!-- /.btn btn-arrow-rounded search-card__pseudo-link -->
-						</a>
-						<!-- /.search-card__text -->
-						</article>
-						<!-- /.search-card -->
-						*/
-						?>
-						
-						<!-- /.search-area__result-item -->
-					</div>
-					<!-- /.search-area__live-result -->
+					<div class="search-area__result-wrapper"></div>
+					<!-- /.search-area__result-wrapper -->
 				</div>
 				<!-- /.container search-area__content -->
 			</aside>

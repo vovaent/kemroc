@@ -135,6 +135,10 @@ add_filter(
 );
 
 function kemroc_the_excerpt( $limit = 30, $post_id = false ) {
+	echo kemroc_get_the_excerpt( $limit, $post_id ); //phpcs:ignore
+}
+
+function kemroc_get_the_excerpt( $limit = 30, $post_id = false ) {
 	if ( $post_id ) {
 		$excerpt = explode( ' ', get_the_excerpt( $post_id ), $limit );
 	} else {
@@ -151,7 +155,7 @@ function kemroc_the_excerpt( $limit = 30, $post_id = false ) {
 
 	$excerpt = preg_replace( '`\[[^\]]*\]`', '', $excerpt );
 
-	echo wp_kses_post( $excerpt );
+	return $excerpt;
 }
 
 function add_custom_block_categories( $block_categories, $editor_context ) {
