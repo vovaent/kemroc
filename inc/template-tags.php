@@ -138,19 +138,20 @@ if ( ! function_exists( 'kemroc_the_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function kemroc_get_the_post_thumbnail( $size = 'post-thumbnail', $wrapper_classes = '', $attr = array() ) {
-		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+	function kemroc_get_the_post_thumbnail( $size = 'post-thumbnail', $wrapper_classes = '', $attr = array(), $no_image = false ) {
+		if ( post_password_required() || is_attachment() || ( ! has_post_thumbnail() && ! $no_image ) ) {
 			return;
 		}
 
-		$post_id    = get_the_ID();
-		$post_thumb = '';
+		$post_id       = get_the_ID();
+		$post_no_image = '<img src="' . get_template_directory_uri() . '/images/no-image.jpg" alt="" class="search-card__image">';
+		$post_thumb    = '';
 
 		if ( is_singular() && ! is_front_page() ) :
 			$post_thumb = get_the_post_thumbnail( $post_id, $size, $attr );
 
 			if ( '' === $post_thumb ) {
-				$post_thumb = 'no-image';
+				$post_thumb = $post_no_image;
 			} 
 
 			$html = '<div class="post-thumbnail ' . esc_attr( $wrapper_classes ) . '">' .
@@ -174,22 +175,21 @@ if ( ! function_exists( 'kemroc_the_post_thumbnail' ) ) :
 			);
 
 			if ( '' === $post_thumb ) {
-				$post_thumb = 'no-image';
+				$post_thumb = $post_no_image;
 			} 
 
 			$html = '<a class="post-thumbnail ' . esc_attr( $wrapper_classes ) . '" href="' . get_the_permalink() . '" aria-hidden="true" tabindex="-1">' .
 						$post_thumb . '
-                    </a>';      
+                    </a>';
 		endif; // End is_singular().
-		// var_dump( $post_thumb );
 		
 		return $html;
 	}
 endif;
 
 if ( ! function_exists( 'kemroc_the_post_thumbnail' ) ) :
-	function kemroc_the_post_thumbnail( $size = 'post-thumbnail', $wrapper_classes = '', $attr = array() ) {
-		echo wp_kses_post( kemroc_get_the_post_thumbnail( $size, $wrapper_classes, $attr ) );
+	function kemroc_the_post_thumbnail( $size = 'post-thumbnail', $wrapper_classes = '', $attr = array(), $no_image = false ) {
+		echo wp_kses_post( kemroc_get_the_post_thumbnail( $size, $wrapper_classes, $attr, $no_image ) );
 	}
 endif;
 
@@ -449,10 +449,10 @@ if ( ! function_exists( 'kemroc_get_the_posts_pagination' ) ) :
 				$args,
 				array(
 					'mid_size'           => 1,
-					'prev_text'          => _x( 'Previous', 'previous set of posts' ),
-					'next_text'          => _x( 'Next', 'next set of posts' ),
-					'screen_reader_text' => __( 'Posts navigation' ),
-					'aria_label'         => __( 'Posts' ),
+					'prev_text'          => _x( 'Vorherige', 'previous set of posts', 'kemroc' ),
+					'next_text'          => _x( 'Weiter', 'next set of posts', 'kemroc' ),
+					'screen_reader_text' => __( 'Beiträge Navigation', 'kemroc' ),
+					'aria_label'         => __( 'Beiträge', 'kemroc' ),
 					'class'              => 'pagination',
 				)
 			);
@@ -487,5 +487,11 @@ if ( ! function_exists( 'kemroc_get_the_posts_pagination' ) ) :
 		}
 
 		return $navigation;
+	}
+endif;
+
+if ( ! function_exists( 'kemroc_the_posts_pagination' ) ) :
+	function kemroc_the_posts_pagination( $args = array(), $wp_query = null, $current_page = null ) {
+		echo wp_kses_post( kemroc_get_the_posts_pagination( $args, $wp_query, $current_page ) );
 	}
 endif;

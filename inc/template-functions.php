@@ -301,3 +301,19 @@ function kemroc_home_url( $lang = '' ) {
 	}
 	return $home_url;
 }
+
+function kemroc_change_search_posts_count( $query ) {
+	if ( is_admin() ) {
+		return;
+	}
+	if ( ! $query->is_main_query() ) {
+		return;
+	}
+	if ( ! is_search() ) {
+		return;
+	}
+
+	$query->set( 'posts_per_page', 6 );
+	$query->set( 'post_type', array( 'post', 'page' ) );
+}
+add_action( 'pre_get_posts', 'kemroc_change_search_posts_count' );

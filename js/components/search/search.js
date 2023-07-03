@@ -3,19 +3,91 @@
 
 const search = ( $ ) => {
 	const $searchArea = $( '.search-area' );
-	const $searchFormField = $( '.search-form__field' );
+	const $headerSearchFormField = $( '.search-form__field', '.header' );
 	const searchAreaResultWrapperSelector = '.search-area__result-wrapper';
+	const $mainSearchFormField = $( '.search-form__field', '.site-main' );
+	const searchResultsResultWrapperSelector =
+		'.search-results__result-wrapper';
+
+	const minLength = 3;
+	const autocompleteOptions = {
+		delay: 500,
+		minLength,
+		source: ( request, response ) => ajaxRequest( request, response ),
+		select: ( event, ui ) => goToPost( event, ui ),
+	};
+	const headerAutocompleteOptions = {
+		...autocompleteOptions,
+		appendTo: searchAreaResultWrapperSelector,
+		position: {
+			of: $( searchAreaResultWrapperSelector ),
+			using( hash, params ) {
+				params.element.top = 0;
+				params.element.left = 0;
+				params.element.width = '100%';
+			},
+		},
+		open() {
+			$( searchAreaResultWrapperSelector ).fadeIn();
+		},
+		close() {
+			$( searchAreaResultWrapperSelector ).hide();
+		},
+	};
+	const mainAutocompleteOptions = {
+		...autocompleteOptions,
+		appendTo: searchResultsResultWrapperSelector,
+		position: {
+			of: $( searchResultsResultWrapperSelector ),
+			using( hash, params ) {
+				params.element.top = 0;
+				params.element.left = 0;
+				params.element.width = '100%';
+			},
+		},
+		open() {
+			$( searchResultsResultWrapperSelector ).fadeIn();
+		},
+		close() {
+			$( searchResultsResultWrapperSelector ).hide();
+		},
+	};
+
+	const modificationUiAutocomplete = () => {
+		$.widget( 'ui.autocomplete', $.ui.autocomplete, {
+			_renderItem( ul, item ) {
+				$( ul ).addClass( 'search-result-list' );
+
+				const $searchCardText = $( '<div>', {
+					class: 'search-card__text',
+				} )
+					.append( item.value )
+					.append( item.excerpt )
+					.append( item.more );
+
+				item.value = item.label;
+
+				return $( '<li>', {
+					class: 'search-result-list__item',
+				} )
+					.addClass( 'search-card search-card--wide' )
+					.append( item.thumb )
+					.append( $searchCardText )
+					.appendTo( ul );
+			},
+		} );
+	};
 
 	const searchIconClickHandler = () => {
 		if ( $searchArea.length === 0 ) {
 			return;
 		}
-		if ( $searchFormField.length === 0 ) {
+		if ( $headerSearchFormField.length === 0 ) {
 			return;
 		}
 
 		$searchArea.fadeIn();
-		$searchFormField.focus();
+		$headerSearchFormField.focus();
 	};
 
 	const searchAreaHandler = () => {
@@ -55,62 +127,62 @@ const search = ( $ ) => {
 		window.location = ui.item.url;
 	};
 
-	const autocompleteHandler = function ( $inputField ) {
-		$.widget( 'ui.autocomplete', $.ui.autocomplete, {
-			_renderItem( ul, item ) {
-				$( ul ).addClass( 'search-area__result-list' );
-
-				const $searchCardText = $( '<div>', {
-					class: 'search-card__text',
-				} )
-					.append( item.value )
-					.append( item.excerpt )
-					.append( item.more );
-
-				item.value = item.label;
-
-				return $( '<li>', {
-					class: 'search-area__result-item',
-				} )
-					.addClass( 'search-card' )
-					.append( item.thumb )
-					.append( $searchCardText )
-					.appendTo( ul );
-			},
-		} );
-
-		$inputField.autocomplete( {
-			delay: 500,
-			appendTo: searchAreaResultWrapperSelector,
-			minLength: 3,
-			position: {
-				of: $( searchAreaResultWrapperSelector ),
-				using( hash, params ) {
-					params.element.top = 0;
-					params.element.left = 0;
-					params.element.width = '100%';
-				},
-			},
-			open() {
-				$( searchAreaResultWrapperSelector ).fadeIn();
-			},
-			close() {
-				$( searchAreaResultWrapperSelector ).hide();
-			},
-			source: ( request, response ) => ajaxRequest( request, response ),
-			select: ( event, ui ) => goToPost( event, ui ),
-		} );
+	const autocompleteHandler = function ( $inputField, options ) {
+		$inputField.autocomplete( options );
 	};
 
-	const onInputHandler = function () {
-		autocompleteHandler( $( this ) );
+	const headerFieldOnInputHandler = function () {
+		autocompleteHandler( $( this ), headerAutocompleteOptions );
+	};
+
+	const mainFieldOnInputHandler = function () {
+		autocompleteHandler( $( this ), mainAutocompleteOptions );
+	};
+
+	const headerFieldOnFocusHandler = function () {
+		if ( this.value.length > minLength ) {
+			const autocompeteIsInit =
+				typeof $( this ).autocomplete( 'instance' ) !== 'undefined';
+
+			this.setSelectionRange( this.value.length, this.value.length );
+
+			if ( autocompeteIsInit ) {
+				$( this ).autocomplete( 'search' );
+			} else {
+				$( this ).autocomplete( headerAutocompleteOptions );
+				$( this ).autocomplete( 'search' );
+			}
+
+			$( this ).autocomplete( 'widget' ).show();
+		}
+	};
+	const mainFieldOnFocusHandler = function () {
+		if ( this.value.length > minLength ) {
+			const autocompeteIsInit =
+				typeof $( this ).autocomplete( 'instance' ) !== 'undefined';
+
+			this.setSelectionRange( this.value.length, this.value.length );
+
+			if ( autocompeteIsInit ) {
+				$( this ).autocomplete( 'search' );
+			} else {
+				$( this ).autocomplete( mainAutocompleteOptions );
+				$( this ).autocomplete( 'search' );
+			}
+
+			$( this ).autocomplete( 'widget' ).show();
+		}
 	};
 
 	const inputFieldHandler = () => {
-		$searchFormField.on( 'input', onInputHandler );
+		$headerSearchFormField.on( 'input', headerFieldOnInputHandler );
+		$headerSearchFormField.on( 'focus', headerFieldOnFocusHandler );
+		$mainSearchFormField.on( 'input', mainFieldOnInputHandler );
+		$mainSearchFormField.on( 'focus', mainFieldOnFocusHandler );
 	};
 
 	searchAreaHandler();
+	modificationUiAutocomplete();
 	inputFieldHandler();
 };
 

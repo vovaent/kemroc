@@ -8,7 +8,7 @@ function true_search() {
  
 	$posts = get_posts(
 		array(
-			'posts_per_page' => 20,
+			'posts_per_page' => 6,
 			'post_type'      => array( 'post', 'page' ),
 			's'              => $search_term,
 		) 
@@ -34,7 +34,7 @@ function true_search() {
 				'value'   => '<h6 class="search-card__title">' . $post->post_title . '</h6><!-- /.search-card__title -->',
 				'url'     => get_permalink( $post->ID ),
 				'more'    => '<p class="btn btn-arrow-rounded search-card__pseudo-link">' .
-									esc_html__( 'Alle produkte', 'kemroc' ) .
+									esc_html__( 'Mehr lesen', 'kemroc' ) .
 									'<span>' .
 										kemroc_get_template_part_content( 'template-parts/icons/arrow', 'right', array( 'fill' => '#ff6000' ) ) .
 									'</span>

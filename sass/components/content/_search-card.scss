@@ -1,19 +1,29 @@
 .search-card {
     display: flex;
-    border-bottom: 1px solid #EEE;
-    padding: 32px 0;
+    padding: 32px;
+    border-radius: 24px;
+    border: 1px solid var(--stroke-divider, $color__border);
 
-    @include media-down-md {
+    @include media-down-sm {
         flex-direction: column;
+        padding: 24px;
     }
 
-    &:first-child {
-        padding-top: 0;
-    }
+    &--wide {
+        width: 100%;
+        padding: 32px 0;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid #EEE;
 
-    &:last-child {
-        padding-bottom: 0;
-        border-bottom: none;
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
     }
 
     &__thumbnail {
@@ -24,26 +34,37 @@
         background-color: #eee;
         overflow: hidden;
 
-        @include media-down-md {
-            width: 114px;
-            height: 76px;
-        }
-
         @include media-down-sm {
             width: 84px;
             height: 56px;
+        }
+
+        .search-card--wide & {
+            @include media-down-md {
+                width: 114px;
+                height: 76px;
+            }
         }
     }
 
     &__text {
         @include reset-a;
 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
         flex-shrink: 0;
         margin-left: 16px;
+        max-width: 319px;
 
-        @include media-down-md {
+        @include media-down-sm {
             margin-left: 0;
             margin-top: 16px;
+        }
+
+        .search-card--wide & {
+            max-width: 100%;
         }
     }
 
@@ -56,6 +77,10 @@
 
     &__excerpt {
         margin-top: 2px;
+
+        @include media-down-md {
+            margin-top: 0;
+        }
     }
 
     &__pseudo-link {
@@ -65,11 +90,22 @@
             font-size: 14px;
         }
 
-        span {
-            width: unset;
-            height: unset;
-            border: unset;
-            border-radius: 0;
+        &>span {
+            @include media-down-sm {
+                width: unset;
+                height: unset;
+                border: unset;
+                border-radius: 0;
+            }
+
+            .search-card--wide & {
+                @include media-down-md {
+                    width: unset;
+                    height: unset;
+                    border: unset;
+                    border-radius: 0;
+                }
+            }
         }
     }
 }

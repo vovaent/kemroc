@@ -188,8 +188,8 @@ $store_link   = get_field( 'store_link', 'option' );
 						<?php get_search_form(); ?>
 					</div>
 					<!-- /.search-area__form -->
-					<div class="search-area__result-wrapper"></div>
-					<!-- /.search-area__result-wrapper -->
+					<div class="search-results-wrapper search-area__result-wrapper"></div>
+					<!-- /.search-results-wrapper search-area__result-wrapper -->
 				</div>
 				<!-- /.container search-area__content -->
 			</aside>
