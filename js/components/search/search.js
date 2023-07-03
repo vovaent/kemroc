@@ -5,9 +5,16 @@ const search = ( $ ) => {
 	const $searchArea = $( '.search-area' );
 	const $headerSearchFormField = $( '.search-form__field', '.header' );
 	const searchAreaResultWrapperSelector = '.search-area__result-wrapper';
-	const $mainSearchFormField = $( '.search-form__field', '.site-main' );
-	const searchResultsResultWrapperSelector =
-		'.search-results__result-wrapper';
+	const $resultsSearchFormField = $(
+		'.search-form__field',
+		'.search-results'
+	);
+	const resultsResultWrapperSelector = '.search-results__result-wrapper';
+	const $noResultsSearchFormField = $(
+		'.search-form__field',
+		'.search-no-results'
+	);
+	const noResultsResultWrapperSelector = '.search-no-results__result-wrapper';
 
 	const minLength = 3;
 	const autocompleteOptions = {
@@ -34,11 +41,11 @@ const search = ( $ ) => {
 			$( searchAreaResultWrapperSelector ).hide();
 		},
 	};
-	const mainAutocompleteOptions = {
+	const resultsAutocompleteOptions = {
 		...autocompleteOptions,
-		appendTo: searchResultsResultWrapperSelector,
+		appendTo: resultsResultWrapperSelector,
 		position: {
-			of: $( searchResultsResultWrapperSelector ),
+			of: $( resultsResultWrapperSelector ),
 			using( hash, params ) {
 				params.element.top = 0;
 				params.element.left = 0;
@@ -46,10 +53,29 @@ const search = ( $ ) => {
 			},
 		},
 		open() {
-			$( searchResultsResultWrapperSelector ).fadeIn();
+			$( resultsResultWrapperSelector ).fadeIn();
 		},
 		close() {
-			$( searchResultsResultWrapperSelector ).hide();
+			$( resultsResultWrapperSelector ).hide();
+		},
+	};
+
+	const noResultsAutocompleteOptions = {
+		...autocompleteOptions,
+		appendTo: noResultsResultWrapperSelector,
+		position: {
+			of: $( noResultsResultWrapperSelector ),
+			using( hash, params ) {
+				params.element.top = 0;
+				params.element.left = 0;
+				params.element.width = '100%';
+			},
+		},
+		open() {
+			$( noResultsResultWrapperSelector ).fadeIn();
+		},
+		close() {
+			$( noResultsResultWrapperSelector ).hide();
 		},
 	};
 
@@ -127,58 +153,52 @@ const search = ( $ ) => {
 		window.location = ui.item.url;
 	};
 
-	const autocompleteHandler = function ( $inputField, options ) {
-		$inputField.autocomplete( options );
-	};
-
-	const headerFieldOnInputHandler = function () {
-		autocompleteHandler( $( this ), headerAutocompleteOptions );
-	};
-
-	const mainFieldOnInputHandler = function () {
-		autocompleteHandler( $( this ), mainAutocompleteOptions );
-	};
-
-	const headerFieldOnFocusHandler = function () {
-		if ( this.value.length > minLength ) {
+	const fieldOnFocusHandler = function ( elField, options ) {
+		if ( elField.value.length > minLength ) {
+			const $this = $( elField );
 			const autocompeteIsInit =
-				typeof $( this ).autocomplete( 'instance' ) !== 'undefined';
+				typeof $this.autocomplete( 'instance' ) !== 'undefined';
 
-			this.setSelectionRange( this.value.length, this.value.length );
+			elField.setSelectionRange(
+				elField.value.length,
+				elField.value.length
+			);
 
 			if ( autocompeteIsInit ) {
-				$( this ).autocomplete( 'search' );
+				$this.autocomplete( 'search' );
 			} else {
-				$( this ).autocomplete( headerAutocompleteOptions );
-				$( this ).autocomplete( 'search' );
+				$this.autocomplete( options );
+				$this.autocomplete( 'search' );
 			}
 
-			$( this ).autocomplete( 'widget' ).show();
-		}
-	};
-	const mainFieldOnFocusHandler = function () {
-		if ( this.value.length > minLength ) {
-			const autocompeteIsInit =
-				typeof $( this ).autocomplete( 'instance' ) !== 'undefined';
-
-			this.setSelectionRange( this.value.length, this.value.length );
-
-			if ( autocompeteIsInit ) {
-				$( this ).autocomplete( 'search' );
-			} else {
-				$( this ).autocomplete( mainAutocompleteOptions );
-				$( this ).autocomplete( 'search' );
-			}
-
-			$( this ).autocomplete( 'widget' ).show();
+			$this.autocomplete( 'widget' ).show();
 		}
 	};
 
 	const inputFieldHandler = () => {
-		$headerSearchFormField.on( 'input', headerFieldOnInputHandler );
-		$headerSearchFormField.on( 'focus', headerFieldOnFocusHandler );
-		$mainSearchFormField.on( 'input', mainFieldOnInputHandler );
-		$mainSearchFormField.on( 'focus', mainFieldOnFocusHandler );
+		$headerSearchFormField.on( 'input', function () {
+			$( this ).autocomplete( headerAutocompleteOptions );
+		} );
+
+		$headerSearchFormField.on( 'focus', function () {
+			fieldOnFocusHandler( this, headerAutocompleteOptions );
+		} );
+
+		$resultsSearchFormField.on( 'input', function () {
+			$( this ).autocomplete( resultsAutocompleteOptions );
+		} );
+
+		$resultsSearchFormField.on( 'focus', function () {
+			fieldOnFocusHandler( this, resultsAutocompleteOptions );
+		} );
+
+		$noResultsSearchFormField.on( 'input', function () {
+			$( this ).autocomplete( noResultsAutocompleteOptions );
+		} );
+
+		$noResultsSearchFormField.on( 'focus', function () {
+			fieldOnFocusHandler( this, noResultsAutocompleteOptions );
+		} );
 	};
 
 	searchAreaHandler();
