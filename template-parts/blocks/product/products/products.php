@@ -32,7 +32,7 @@ if ( ! $is_preview ) :
 
 	// Load values and assing defaults.
 	global $post;
-	$kemroc_ca_page_slug  = $post->post_name;
+	$kemroc_p_page_slug   = $post->post_name;
 	$kemroc_p_page_number = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 	
 	$kemroc_p_all_products_output_is_enabled = get_field( 'all_products_output_is_enabled' );
@@ -45,7 +45,7 @@ if ( ! $is_preview ) :
 		'postsPerPage'               => $kemroc_p_products_per_page,
 		'parentPageId'               => $kemroc_p_parent_page_id,
 		'pageNumber'                 => $kemroc_p_page_number,
-		'pageSlug'                   => $kemroc_ca_page_slug,
+		'pageSlug'                   => $kemroc_p_page_slug,
 		'allProductsOutputIsEnabled' => $kemroc_p_all_products_output_is_enabled 
 											? $kemroc_p_all_products_output_is_enabled 
 											: 0,
