@@ -152,8 +152,8 @@ const search = ( $ ) => {
 			success( resp ) {
 				if ( ! resp.success ) {
 					console.log( 'error:', resp );
-				} else {
-					response( resp );
+				} else if ( resp.data ) {
+					response( resp.data );
 				}
 			},
 		} );
