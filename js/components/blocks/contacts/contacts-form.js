@@ -102,7 +102,7 @@ const contactsForm = ( $ ) => {
 		data.append( 'action', 'contacts_action' );
 		data.append( 'nonce', contacts_object.nonce );
 
-		if ( customEmailTo !== 'undefined' ) {
+		if ( typeof customEmailTo !== 'undefined' ) {
 			data.append( 'custom_email_to', customEmailTo );
 		}
 

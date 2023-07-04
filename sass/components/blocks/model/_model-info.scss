@@ -99,10 +99,12 @@
 
     &__tech-info {
         display: flex;
+        align-items: flex-start;
         gap: 30px;
 
         @include media-down-md {
             flex-direction: column;
+            align-items: stretch;
         }
     }
 

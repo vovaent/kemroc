@@ -1,10 +1,25 @@
 <?php
-add_action( 'wp_ajax_search_action', 'true_search' );
-add_action( 'wp_ajax_nopriv_search_action', 'true_search' );
- 
-function true_search() {
- 
-	$search_term = isset( $_GET['term'] ) ? $_GET['term'] : '';
+/**
+ * Search processing
+ * 
+ * @package kemroc 
+ */
+
+/**
+ * Ajax_products_action_callback
+ */
+function kemroc_live_search_callback() {
+	if ( isset( $_GET['nonce'] ) && 
+		! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['nonce'] ) ), 'products-nonce' ) 
+	) {
+		$err_message['spam'] = esc_html__( 'Daten, die von einer fremden Adresse gesendet werden', 'kemroc' );
+	}
+	
+	$search_term = isset( $_GET['term'] ) ? sanitize_text_field( wp_unslash( $_GET['term'] ) ) : '';
+
+	if ( 500 < $search_term ) {
+		$search_term = substr( $search_term, 0, 500 );
+	}
  
 	$posts = get_posts(
 		array(
@@ -44,6 +59,16 @@ function true_search() {
 		}   
 	}
  
-	wp_send_json( $results );
- 
+	if ( $err_message ) {
+		wp_send_json_error( $err_message );
+	} else {
+		wp_send_json_success( $results );
+	}
+
+	wp_die(); 
+}
+
+if ( wp_doing_ajax() ) {
+	add_action( 'wp_ajax_search_action', 'kemroc_live_search_callback' );
+	add_action( 'wp_ajax_nopriv_search_action', 'kemroc_live_search_callback' );
 }

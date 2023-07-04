@@ -26,6 +26,14 @@
         @include media-down-sm {
             font-size: 28px;
         }
+
+        span {
+            word-break: break-word;
+        }
+
+        a {
+            @include reset-a(#131313);
+        }
     }
 
     &__note {
@@ -136,6 +144,10 @@
             @include media-down-md {
                 display: block;
             }
+        }
+
+        span {
+            word-break: break-word;
         }
     }
 

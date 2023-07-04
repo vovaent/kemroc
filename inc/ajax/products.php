@@ -10,7 +10,7 @@
  */
 function kemroc_ajax_products_action_callback() {
 	if ( isset( $_POST['nonce'] ) && 
-	! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'products-nonce' ) 
+		! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'products-nonce' ) 
 	) {
 		$err_message['spam'] = esc_html__( 'Daten, die von einer fremden Adresse gesendet werden', 'kemroc' );
 	}
@@ -38,7 +38,6 @@ function kemroc_ajax_products_action_callback() {
 	);
 
 	if ( isset( $_POST['all_products_output_is_enabled'] ) ) {
-		// $args['nopaging'] = ! ( sanitize_text_field( wp_unslash( $_POST['all_products_output_is_enabled'] ) ) );
 		$nopaging = ! ( sanitize_text_field( wp_unslash( $_POST['all_products_output_is_enabled'] ) ) );
 	}
 
@@ -102,7 +101,7 @@ function kemroc_ajax_products_action_callback() {
 
 	wp_die();
 }
- 
+
 if ( wp_doing_ajax() ) {
 	add_action( 'wp_ajax_products_action', 'kemroc_ajax_products_action_callback' );
 	add_action( 'wp_ajax_nopriv_products_action', 'kemroc_ajax_products_action_callback' );

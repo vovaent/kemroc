@@ -86,6 +86,8 @@
     }
 
     &__contacts-item {
+        @include reset-li;
+
         display: flex;
         gap: 5px;
     }

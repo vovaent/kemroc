@@ -47,11 +47,11 @@ if ( ! $is_preview ) :
 					
 					<?php foreach ( $kemroc_spd_serial_products as $kemroc_spd_serial_product ) : ?>
 						<li class="serial-product-compare__item sp-item">
-							<div class="sp-item__photo">
-								<?php echo wp_get_attachment_image( $kemroc_spd_serial_product['photo'] ); ?>
-							</div>
-							<!-- /.sp-item__photo -->
-							<div class="sp-item__text">
+							<div class="sp-item__header">
+								<div class="sp-item__photo">
+									<?php echo wp_get_attachment_image( $kemroc_spd_serial_product['photo'] ); ?>
+								</div>
+								<!-- /.sp-item__photo -->
 								<h6 class="sp-item__title">
 									<?php echo esc_html( $kemroc_spd_serial_product['page']->post_title ); ?>
 								</h6>
@@ -60,12 +60,16 @@ if ( ! $is_preview ) :
 									<?php echo esc_html( $kemroc_spd_serial_product['subtitle'] ); ?>
 								</div>
 								<!-- /.sp-item__subtitle -->
-
+							</div>
+							<!-- /.sp-item__header -->
+							
+							<div class="sp-item__text">
+							
 								<?php if ( $kemroc_spd_serial_product['params'] ) : ?>
 									<ul class="sp-item__params">
 
 										<?php foreach ( $kemroc_spd_serial_product['params'] as $kemroc_spd_serial_product_param ) : ?>
-											<li class="sp-item__param arrow-list-item-full">
+											<li class=" arrow-list-item-full sp-item__param">
 												<div class="arrow-list-item-full__property">
 													<div class="arrow-list-item-full__arrow">
 														<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
@@ -79,7 +83,7 @@ if ( ! $is_preview ) :
 												</div>
 												<!-- /.arrow-list-item-full__value -->
 											</li>
-											<!-- /.sp-item__param arrow-list-item-full -->
+											<!-- /. arrow-list-item-full sp-item__param -->
 										<?php endforeach; ?>
 										
 									</ul>

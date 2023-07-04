@@ -17,6 +17,7 @@ $kemroc_sf_add_class = ! empty( $args['add_class'] ) ? ' ' . $args['add_class'] 
 			value="<?php echo get_search_query(); ?>" 
 			name="s" 
 			autocomplete="off"
+			maxlength="500"
 			title="<?php esc_html_x( 'Suche nach:', 'label', 'kemroc' ); ?>" 
 		/>
 		<span class="search-form__icon"></span>

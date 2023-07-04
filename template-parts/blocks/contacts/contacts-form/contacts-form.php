@@ -35,10 +35,10 @@ if ( ! $is_preview ) :
 	$kemroc_cf_form_data = get_field( 'form_data' );
 
 	$kemroc_cf_form_messages = array(
-		'empty_field'         => ! empty( $kemroc_cf_form_data['error_text_empty_field'] ) ? $kemroc_cf_form_data['error_text_empty_field'] : esc_html__( 'dieses Feld darf nicht leer sein', 'kemroc' ),
+		'empty_field'         => ! empty( $kemroc_cf_form_data['error_text_empty_field'] ) ? $kemroc_cf_form_data['error_text_empty_field'] : esc_html__( 'Dieses Feld darf nicht leer sein', 'kemroc' ),
 		'invalid_email'       => ! empty( $kemroc_cf_form_data['error_text_invalid_email'] ) ? $kemroc_cf_form_data['error_text_invalid_email'] : esc_html__( 'E-Mail-Feld wird nicht korrekt ausgefüllt', 'kemroc' ),
 		'empty_checkbox'      => ! empty( $kemroc_cf_form_data['error_text_empty_checkbox'] ) ? $kemroc_cf_form_data['error_text_empty_checkbox'] : esc_html__( 'Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!', 'kemroc' ),
-		'agree_text'          => ! empty( $kemroc_cf_form_data['agree_text'] ) ? $kemroc_cf_form_data['agree_text'] : esc_html__( 'Durch das Absenden dieses Kontaktformulars erklären Sie sich damit einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in unserer Datenschutzerklärung.', 'kemroc' ),
+		'agree_text'          => ! empty( $kemroc_cf_form_data['agree_text'] ) ? $kemroc_cf_form_data['agree_text'] : esc_html__( 'Durch das Absenden Dieses Kontaktformulars erklären Sie sich damit einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in unserer Datenschutzerklärung.', 'kemroc' ),
 		'success_submit_text' => ! empty( $kemroc_cf_form_data['success_submit_text'] ) ? $kemroc_cf_form_data['success_submit_text'] : esc_html__( 'Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!', 'kemroc' ),
 	);
 	?>
@@ -54,7 +54,7 @@ if ( ! $is_preview ) :
 					<div class="cf-form__left">
 						<label class="cf-form__label">
 							<?php esc_html_e( 'Name', 'kemroc' ); ?> *
-							<input type="text" name="name" class="cf-form__field cf-form__field--required" placeholder="<?php esc_html_e( 'Name', 'kemroc' ); ?>" required>
+							<input type="text" name="name" class="cf-form__field cf-form__field--required" maxlength="1000" placeholder="<?php esc_html_e( 'Name', 'kemroc' ); ?>" required>
 							<span class="cf-form__error-notice">
 								<?php echo esc_html( $kemroc_cf_form_messages['empty_field'] ); ?>
 							</span>
@@ -62,22 +62,22 @@ if ( ! $is_preview ) :
 						<!-- /.cf-form__label -->
 						<label class="cf-form__label cf-form__label--street">
 							<?php esc_html_e( 'Straße', 'kemroc' ); ?>
-							<input type="text" name="street" class="cf-form__field" placeholder="<?php esc_html_e( 'Straße', 'kemroc' ); ?>">
+							<input type="text" name="street" class="cf-form__field" maxlength="1000" placeholder="<?php esc_html_e( 'Straße', 'kemroc' ); ?>">
 						</label>
 						<!-- /.cf-form__label -->
 						<label class="cf-form__label cf-form__label--house">
 							<?php esc_html_e( 'Hausnummer', 'kemroc' ); ?>
-							<input type="text" name="house" class="cf-form__field" placeholder="<?php esc_html_e( 'Hausnummer', 'kemroc' ); ?>">
+							<input type="number" name="house" class="cf-form__field" maxlength="1000" placeholder="<?php esc_html_e( 'Hausnummer', 'kemroc' ); ?>">
 						</label>
 						<!-- /.cf-form__label -->
 						<label class="cf-form__label cf-form__label--zipcode">
 							<?php esc_html_e( 'PLZ', 'kemroc' ); ?>
-							<input type="text" name="zip_code" class="cf-form__field" placeholder="<?php esc_html_e( 'PLZ', 'kemroc' ); ?>">
+							<input type="number" name="zip_code" class="cf-form__field" maxlength="1000" placeholder="<?php esc_html_e( 'PLZ', 'kemroc' ); ?>">
 						</label>
 						<!-- /.cf-form__label -->
 						<label class="cf-form__label cf-form__label--location">
 							<?php esc_html_e( 'Ort', 'kemroc' ); ?>
-							<input type="text" name="location" class="cf-form__field" placeholder="<?php esc_html_e( 'Ort', 'kemroc' ); ?>">
+							<input type="text" name="location" class="cf-form__field" maxlength="1000" placeholder="<?php esc_html_e( 'Ort', 'kemroc' ); ?>">
 						</label>
 						<!-- /.cf-form__label -->
 					</div>
@@ -85,12 +85,12 @@ if ( ! $is_preview ) :
 					<div class="cf-form__right">
 						<label class="cf-form__label">
 							<?php esc_html_e( 'Unternehmen', 'kemroc' ); ?>
-							<input type="text" name="company" class="cf-form__field" placeholder="<?php esc_html_e( 'Unternehmen', 'kemroc' ); ?>">
+							<input type="text" name="company" class="cf-form__field" maxlength="1000" placeholder="<?php esc_html_e( 'Unternehmen', 'kemroc' ); ?>">
 						</label>
 						<!-- /.cf-form__label -->
 						<label class="cf-form__label cf-form__label--phone">
 							<?php esc_html_e( 'Telefon', 'kemroc' ); ?> *
-							<input type="tel" name="phone" class="cf-form__field cf-form__field--required" placeholder="<?php esc_html_e( 'Telefon', 'kemroc' ); ?>" required>
+							<input type="number" name="phone" class="cf-form__field cf-form__field--required" maxlength="15" minlength="5" placeholder="<?php esc_html_e( 'Telefon', 'kemroc' ); ?>" required>
 							<span class="cf-form__error-notice">
 								<?php echo esc_html( $kemroc_cf_form_messages['empty_field'] ); ?>
 							</span>
@@ -98,12 +98,12 @@ if ( ! $is_preview ) :
 						<!-- /.cf-form__label -->
 						<label class="cf-form__label cf-form__label--add-phone">
 							<?php esc_html_e( 'Telefon alternativ', 'kemroc' ); ?>
-							<input type="tel" name="add_phone" class="cf-form__field" placeholder="<?php esc_html_e( 'Telefon alternativ', 'kemroc' ); ?>">
+							<input type="number" name="add_phone" class="cf-form__field" maxlength="15" minlength="5" placeholder="<?php esc_html_e( 'Telefon alternativ', 'kemroc' ); ?>">
 						</label>
 						<!-- /.cf-form__label -->
 						<label class="cf-form__label cf-form__label--email">
 							<?php esc_html_e( 'E-Mail', 'kemroc' ); ?> *
-							<input type="email" name="email" class="cf-form__field cf-form__field--required" placeholder="<?php esc_html_e( 'E-Mail', 'kemroc' ); ?>" required>
+							<input type="email" name="email" class="cf-form__field cf-form__field--required" maxlength="1000" placeholder="<?php esc_html_e( 'E-Mail', 'kemroc' ); ?>" required>
 							<span class="cf-form__error-notice">
 								<?php echo esc_html( $kemroc_cf_form_messages['empty_field'] ); ?>
 							</span>
@@ -114,7 +114,7 @@ if ( ! $is_preview ) :
 						<!-- /.cf-form__label -->
 						<label class="cf-form__label cf-form__label--fax">
 							<?php esc_html_e( 'Fax', 'kemroc' ); ?>
-							<input type="text" name="fax" class="cf-form__field" placeholder="<?php esc_html_e( 'Fax', 'kemroc' ); ?>">
+							<input type="number" name="fax" class="cf-form__field" maxlength="1000" placeholder="<?php esc_html_e( 'Fax', 'kemroc' ); ?>">
 						</label>
 						<!-- /.cf-form__label -->
 					</div>
@@ -124,7 +124,7 @@ if ( ! $is_preview ) :
 				<div class="cf-form__middle">
 					<label class="cf-form__label cf-form__label--subject">
 						<?php esc_html_e( 'Betreff', 'kemroc' ); ?> *
-						<input type="text" name="subject" class="cf-form__field cf-form__field--required" placeholder="<?php esc_html_e( 'Betreff', 'kemroc' ); ?>" required>
+						<input type="text" name="subject" class="cf-form__field cf-form__field--required" maxlength="1000" placeholder="<?php esc_html_e( 'Betreff', 'kemroc' ); ?>" required>
 						<span class="cf-form__error-notice">
 							<?php echo esc_html( $kemroc_cf_form_messages['empty_field'] ); ?>
 						</span>
@@ -132,7 +132,7 @@ if ( ! $is_preview ) :
 					<!-- /.cf-form__label -->
 					<label class="cf-form__label cf-form__label--textarea">
 						<?php esc_html_e( 'Nachricht', 'kemroc' ); ?> *
-						<textarea name="message" class="cf-form__field cf-form__field--textarea cf-form__field--required" name="message" placeholder="<?php esc_html_e( 'Nachricht', 'kemroc' ); ?>" required></textarea>
+						<textarea name="message" class="cf-form__field cf-form__field--textarea cf-form__field--required" name="message" maxlength="5000" placeholder="<?php esc_html_e( 'Nachricht', 'kemroc' ); ?>" required></textarea>
 						<span class="cf-form__error-notice">
 							<?php echo esc_html( $kemroc_cf_form_messages['empty_field'] ); ?>
 						</span>
@@ -141,22 +141,28 @@ if ( ! $is_preview ) :
 				</div>
 				<!-- /.cf-form__middle -->
 				<div class="cf-form__bottom">
-					<div class="cf-form__agree">
-						<input id="agree-checkbox" type="checkbox" name="agree" class="cf-form__agree-checkbox cf-form__agree-checkbox--required" required>
-						<label for="agree-checkbox" class="cf-form__agree-label"></label>
-						<div class="cf-form__agree-text">
-							<?php echo esc_html( $kemroc_cf_form_messages['agree_text'] ); ?> *
+					<div class="cf-form__bottom-content">
+						<div class="cf-form__agree">
+							<div class="cf-form__agree-content">
+								<input id="agree-checkbox" type="checkbox" name="agree" class="cf-form__agree-checkbox cf-form__agree-checkbox--required" required>
+								<label for="agree-checkbox" class="cf-form__agree-label"></label>
+								<div class="cf-form__agree-text">
+									<?php echo esc_html( $kemroc_cf_form_messages['agree_text'] ); ?> *
+								</div>
+								<!-- /.cf-form__agree-text -->
+							</div>
+							<!-- /.cf-form__agree-content -->
+							<div class="cf-form__error-notice cf-form__error-notice--checkbox">
+								<?php echo esc_html( $kemroc_cf_form_messages['empty_checkbox'] ); ?>
+							</div>
 						</div>
-						<!-- /.cf-form__agree-text -->
-						<div class="cf-form__error-notice cf-form__error-notice--checkbox">
-							<?php echo esc_html( $kemroc_cf_form_messages['empty_checkbox'] ); ?>
-						</div>
+						<!-- /.cf-form__agree -->					
+						<button class="btn btn-accent btn-rounded arrow-right cf-form__button">
+							<?php esc_html_e( 'Formular senden', 'kemroc' ); ?>
+						</button>
+						<!-- /.cf-form__button -->
 					</div>
-					<!-- /.cf-form__agree -->					
-					<button class="btn btn-accent btn-rounded arrow-right cf-form__button">
-						<?php esc_html_e( 'Formular senden', 'kemroc' ); ?>
-					</button>
-					<!-- /.cf-form__button -->
+					<!-- /.cf-form__bottom-content -->
 					<div class="cf-form__success-message">
 						<?php echo esc_html( $kemroc_cf_form_messages['success_submit_text'] ); ?>
 					</div>

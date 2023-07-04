@@ -137,14 +137,24 @@ const search = ( $ ) => {
 			return;
 		}
 
+		let rqstTerm = request.term;
+
+		if ( rqstTerm.length > 500 ) {
+			rqstTerm = rqstTerm.substr( 0, 500 );
+		}
+
 		$.ajax( {
 			url: searchAjax.url,
 			data: {
 				action: 'search_action',
-				term: request.term,
+				term: rqstTerm,
 			},
-			success( data ) {
-				response( data );
+			success( resp ) {
+				if ( ! resp.success ) {
+					console.log( 'error:', resp );
+				} else {
+					response( resp );
+				}
 			},
 		} );
 	};

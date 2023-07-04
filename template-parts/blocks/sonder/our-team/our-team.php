@@ -137,7 +137,9 @@ if ( ! $is_preview ) :
 									<?php if ( $kemroc_ot_phone_number ) : ?>
 										<div class="member-card__phone-number">
 											<?php get_template_part( 'template-parts/icons/phone' ); ?>
-											<?php echo esc_html( $kemroc_ot_phone_number ); ?>
+											<a href="tel:<?php echo esc_html( $kemroc_ot_phone_number ); ?>">
+												<?php echo esc_html( $kemroc_ot_phone_number ); ?>
+											</a>
 										</div>
 										<!-- /.member-card__phone-number -->
 									<?php endif; ?>
@@ -145,7 +147,9 @@ if ( ! $is_preview ) :
 									<?php if ( $kemroc_ot_mobile_number ) : ?>
 										<div class="member-card__mobile-number">
 											<?php esc_html_e( 'mob.:', 'kemroc' ); ?>
-											<?php echo esc_html( $kemroc_ot_mobile_number ); ?>
+											<a href="tel:<?php echo esc_html( $kemroc_ot_mobile_number ); ?>">
+												<?php echo esc_html( $kemroc_ot_mobile_number ); ?>
+											</a>
 										</div>
 										<!-- /.member-card__mobile-number -->
 									<?php endif; ?>
@@ -156,7 +160,9 @@ if ( ! $is_preview ) :
 								<?php if ( $kemroc_ot_email ) : ?>
 									<div class="member-card__email">
 										<?php get_template_part( 'template-parts/icons/email' ); ?>
-										<?php echo esc_html( $kemroc_ot_email ); ?>
+										<a href="mailto:<?php echo esc_html( $kemroc_ot_email ); ?>">
+											<?php echo esc_html( $kemroc_ot_email ); ?>
+										</a>										
 									</div>
 									<!-- /.member-card__email -->
 								<?php endif; ?>

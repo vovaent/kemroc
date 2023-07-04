@@ -241,5 +241,10 @@
 
     .breadcrumb_last {
         color: #B6B6B6;
+        word-break: break-word;
+
+        a {
+            @include reset-a(#B6B6B6);
+        }
     }
 }

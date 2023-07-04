@@ -4,11 +4,6 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 
-/**
- * Internal
- */
-import { lazyLoad } from '../sonder/lazy-load';
-
 const modelInfo = ( $ ) => {
 	const $modelInfoTab = $( '.model-tabs__tab' );
 	const $modelInfoInset = $( '.model-tabs__inset' );
@@ -43,8 +38,6 @@ const modelInfo = ( $ ) => {
 			clickable: true,
 		},
 	} );
-
-	lazyLoad( $ );
 };
 
 export { modelInfo };

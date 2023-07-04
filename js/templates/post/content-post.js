@@ -162,20 +162,22 @@ const contentPost = ( $ ) => {
 	const wpBlockFileHandler = () => {
 		const $wpBlockFileLink = $( '.wp-block-file a' );
 
-		if ( $wpBlockFileLink.length > 0 ) {
-			const wpBlockFileLinkHref = $wpBlockFileLink.attr( 'href' );
-			const extensionStartPosition = wpBlockFileLinkHref.lastIndexOf(
-				'.'
-			);
+		if ( $wpBlockFileLink.length === 0 ) {
+			return;
+		}
 
-			if ( extensionStartPosition !== -1 ) {
-				const extension = wpBlockFileLinkHref.slice(
-					extensionStartPosition
-				);
-				$wpBlockFileLink.append(
-					`<span class="wp-block-file__extension">${ extension }</span>`
-				);
-			}
+		$wpBlockFileLink.attr( 'target', '_blank' );
+
+		const wpBlockFileLinkHref = $wpBlockFileLink.attr( 'href' );
+		const extensionStartPosition = wpBlockFileLinkHref.lastIndexOf( '.' );
+
+		if ( extensionStartPosition !== -1 ) {
+			const extension = wpBlockFileLinkHref.slice(
+				extensionStartPosition
+			);
+			$wpBlockFileLink.append(
+				`<span class="wp-block-file__extension">${ extension }</span>`
+			);
 		}
 	};
 
