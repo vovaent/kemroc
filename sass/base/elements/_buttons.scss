@@ -35,6 +35,8 @@ input[type="submit"] {
 }
 
 .btn-accent {
+    @include reset-a(#fff);
+
     background-color: $accent;
     color: #fff;
     padding: 16.4px 18px;

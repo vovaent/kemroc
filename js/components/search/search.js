@@ -3,31 +3,34 @@
 
 const search = ( $ ) => {
 	const $searchArea = $( '.search-area' );
-	const $headerSearchFormField = $( '.search-form__field', '.header' );
-	const searchAreaResultWrapperSelector = '.search-area__result-wrapper';
+	const $headerSearchFormField = $(
+		'.search-form__field',
+		'.search-form--on-header'
+	);
 	const $resultsSearchFormField = $(
 		'.search-form__field',
-		'.search-results'
+		'.search-form--on-page'
 	);
-	const resultsResultWrapperSelector = '.search-results__result-wrapper';
-	const $noResultsSearchFormField = $(
-		'.search-form__field',
-		'.search-no-results'
-	);
-	const noResultsResultWrapperSelector = '.search-no-results__result-wrapper';
 
-	const minLength = 3;
+	const wrapperOnHeaderSelector =
+		'.search-form--on-header .search-form__result-wrapper';
+	const $wrapperOnHeader = $( wrapperOnHeaderSelector );
+
+	const wrapperOnPageSelector =
+		'.search-form--on-page .search-form__result-wrapper';
+	const $wrapperOnPage = $( wrapperOnPageSelector );
+
 	const autocompleteOptions = {
 		delay: 500,
-		minLength,
+		minLength: 3,
 		source: ( request, response ) => ajaxRequest( request, response ),
 		select: ( event, ui ) => goToPost( event, ui ),
 	};
-	const headerAutocompleteOptions = {
+	const autocompleteOnHeaderOptions = {
 		...autocompleteOptions,
-		appendTo: searchAreaResultWrapperSelector,
+		appendTo: wrapperOnHeaderSelector,
 		position: {
-			of: $( searchAreaResultWrapperSelector ),
+			of: $wrapperOnHeader,
 			using( hash, params ) {
 				params.element.top = 0;
 				params.element.left = 0;
@@ -35,17 +38,17 @@ const search = ( $ ) => {
 			},
 		},
 		open() {
-			$( searchAreaResultWrapperSelector ).fadeIn();
+			$wrapperOnHeader.fadeIn();
 		},
 		close() {
-			$( searchAreaResultWrapperSelector ).hide();
+			$wrapperOnHeader.hide();
 		},
 	};
-	const resultsAutocompleteOptions = {
+	const autocompleteOnPageOptions = {
 		...autocompleteOptions,
-		appendTo: resultsResultWrapperSelector,
+		appendTo: wrapperOnPageSelector,
 		position: {
-			of: $( resultsResultWrapperSelector ),
+			of: $wrapperOnPage,
 			using( hash, params ) {
 				params.element.top = 0;
 				params.element.left = 0;
@@ -53,29 +56,10 @@ const search = ( $ ) => {
 			},
 		},
 		open() {
-			$( resultsResultWrapperSelector ).fadeIn();
+			$wrapperOnPage.fadeIn();
 		},
 		close() {
-			$( resultsResultWrapperSelector ).hide();
-		},
-	};
-
-	const noResultsAutocompleteOptions = {
-		...autocompleteOptions,
-		appendTo: noResultsResultWrapperSelector,
-		position: {
-			of: $( noResultsResultWrapperSelector ),
-			using( hash, params ) {
-				params.element.top = 0;
-				params.element.left = 0;
-				params.element.width = '100%';
-			},
-		},
-		open() {
-			$( noResultsResultWrapperSelector ).fadeIn();
-		},
-		close() {
-			$( noResultsResultWrapperSelector ).hide();
+			$wrapperOnPage.hide();
 		},
 	};
 
@@ -164,7 +148,7 @@ const search = ( $ ) => {
 	};
 
 	const fieldOnFocusHandler = function ( elField, options ) {
-		if ( elField.value.length > minLength ) {
+		if ( elField.value.length > autocompleteOptions.minLength ) {
 			const $this = $( elField );
 			const autocompeteIsInit =
 				typeof $this.autocomplete( 'instance' ) !== 'undefined';
@@ -187,27 +171,19 @@ const search = ( $ ) => {
 
 	const inputFieldHandler = () => {
 		$headerSearchFormField.on( 'input', function () {
-			$( this ).autocomplete( headerAutocompleteOptions );
+			$( this ).autocomplete( autocompleteOnHeaderOptions );
 		} );
 
 		$headerSearchFormField.on( 'focus', function () {
-			fieldOnFocusHandler( this, headerAutocompleteOptions );
+			fieldOnFocusHandler( this, autocompleteOnHeaderOptions );
 		} );
 
 		$resultsSearchFormField.on( 'input', function () {
-			$( this ).autocomplete( resultsAutocompleteOptions );
+			$( this ).autocomplete( autocompleteOnPageOptions );
 		} );
 
 		$resultsSearchFormField.on( 'focus', function () {
-			fieldOnFocusHandler( this, resultsAutocompleteOptions );
-		} );
-
-		$noResultsSearchFormField.on( 'input', function () {
-			$( this ).autocomplete( noResultsAutocompleteOptions );
-		} );
-
-		$noResultsSearchFormField.on( 'focus', function () {
-			fieldOnFocusHandler( this, noResultsAutocompleteOptions );
+			fieldOnFocusHandler( this, autocompleteOnPageOptions );
 		} );
 	};
 

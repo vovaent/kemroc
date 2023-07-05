@@ -40,6 +40,7 @@ if ( ! $is_preview ) :
 		get_post_type(), 
 		get_the_ID()
 	);
+	$kemroc_sgi_app_areas     = wp_get_post_terms( get_the_ID(), 'einsatzbereich' );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_sgi_id ); ?>" class="<?php echo esc_attr( $kemroc_sgi_class_name ); ?>">
@@ -83,13 +84,20 @@ if ( ! $is_preview ) :
 			<?php if ( $kemroc_sgi_photos ) : ?>
 				<div class="series-general-info__slider-wrapper">
 					<div class="swiper series-general-info__slider swiper-single-slide">
-						<div class="application-area-in-image application-area-in-image--absolute series-general-info__area">
+						<!-- <div class="application-area-in-image application-area-in-image--absolute series-general-info__area">
 							Bohren
-						</div>
+						</div> -->
+						
+						<?php if ( isset( $kemroc_sgi_app_areas[0] ) ) : ?>
+							<div class="application-area-in-image application-area-in-image--absolute pseries-general-info__area">
+								<?php echo esc_html( $kemroc_sgi_app_areas[0]->name ); ?>
+							</div>
+						<?php endif; ?>
+				
 						<ul class="swiper-wrapper swiper-single-slide__container">
 
 							<?php foreach ( $kemroc_sgi_photos as $kemroc_sgi_photo ) : ?>
-								<li class="swiper-slide swiper-single-slide__slide">
+								<li class="swiper-slide swiper-single-slide__slide">									
 									<?php echo wp_get_attachment_image( $kemroc_sgi_photo['photo'], 'medium_large' ); ?>
 								</li>
 								<!-- /.swiper-slide swiper-single-slide__slide -->

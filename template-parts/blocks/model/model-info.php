@@ -103,26 +103,36 @@ if ( ! $is_preview ) :
 							<?php if ( $kemroc_mi_params ) : ?>
 								<ul class="model-tabs__params">
 
-									<?php foreach ( $kemroc_mi_params as $kemroc_mi_param ) : ?>
-										<li class="arrow-list-item-full model-tabs__param arrow-list-item-full">
-											<div class="arrow-list-item-full__property">
-												<div class="arrow-list-item-full__arrow">
-													<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
+									<?php 
+									foreach ( $kemroc_mi_params as $kemroc_mi_param ) : 
+										if ( $kemroc_mi_param['title'] && $kemroc_mi_param['value'] ) :
+											?>
+											<li class="arrow-list-item-full model-tabs__param arrow-list-item-full">
+												<div class="arrow-list-item-full__property">
+													<div class="arrow-list-item-full__arrow">
+												<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
+													</div>
+													<!-- /.arrow-list-item-full__arrow -->
+
+													<?php
+													echo esc_html( $kemroc_mi_param['title']->post_title );
+													?>
+													
 												</div>
-												<!-- /.arrow-list-item-full__arrow -->
-												<?php echo esc_html( $kemroc_mi_param['title']->post_title ); ?>
-											</div>
-											<!-- /.arrow-list-item-full__property -->
-											<div class="arrow-list-item-full__value">
-												<?php 
-												echo esc_html( $kemroc_mi_param['value'] ) . '&nbsp;';
-												the_field( 'measure_units', $kemroc_mi_param['title']->ID )
-												?>
-											</div>
-											<!-- /.arrow-list-item-full__value -->
-										</li>
-										<!-- /.model-tabs__param model-tabs-param -->
-									<?php endforeach; ?>
+												<!-- /.arrow-list-item-full__property -->
+												<div class="arrow-list-item-full__value">
+													<?php 
+													echo esc_html( $kemroc_mi_param['value'] ) . '&nbsp;';
+													the_field( 'measure_units', $kemroc_mi_param['title']->ID )
+													?>
+												</div>
+												<!-- /.arrow-list-item-full__value -->
+											</li>
+											<!-- /.model-tabs__param model-tabs-param -->
+											<?php 
+										endif;
+									endforeach; 
+									?>
 
 								</ul>
 								<!-- /.model-tabs__params -->

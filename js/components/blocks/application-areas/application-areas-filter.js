@@ -9,10 +9,6 @@ const applicationAreasFilter = ( $ ) => {
 	}
 
 	$areaItems.on( 'click', function () {
-		if ( 0 === $modelItems.length ) {
-			return;
-		}
-
 		const $this = $( this );
 		const $filterBtnThis = $( FilterBtn.selector, $this );
 
@@ -24,6 +20,10 @@ const applicationAreasFilter = ( $ ) => {
 		$filterBtnThis.addClass( FilterBtn.classActive );
 
 		const areaItemThisTermId = $this.data( 'term-id' );
+
+		if ( 0 === $modelItems.length ) {
+			return;
+		}
 
 		if ( 'all' === areaItemThisTermId ) {
 			$modelItems.fadeIn();

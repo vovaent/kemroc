@@ -101,6 +101,7 @@
 
     &__amount {
         margin-top: 32px;
+        cursor: pointer;
 
         @include media-down-sm {
             margin-top: 24px;

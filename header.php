@@ -45,6 +45,8 @@ $store_link   = get_field( 'store_link', 'option' );
 
 <body <?php body_class(); ?>>
 	<div class="page-wrapper">
+		<div class="header-substitute"></div>
+		<!-- /.header-substitute -->
 		<header class="header">
 			<div class="header__desktop">
 				<div class="container">
@@ -185,7 +187,7 @@ $store_link   = get_field( 'store_link', 'option' );
 					<button class="search-area__close"></button>
 					<!-- /.search-area__close -->
 					<div class="search-area__form">
-						<?php get_search_form(); ?>
+						<?php get_template_part( 'searchform', null, array( 'add_class' => 'search-form--on-header' ) ); ?>
 					</div>
 					<!-- /.search-area__form -->
 					<div class="search-results-wrapper search-area__result-wrapper"></div>
@@ -194,9 +196,11 @@ $store_link   = get_field( 'store_link', 'option' );
 				<!-- /.container search-area__content -->
 			</aside>
 			<!-- /.search-area -->
-
-			<?php
-			if ( function_exists( 'yoast_breadcrumb' ) ) :
+		</header>
+		
+		<main id="primary" class="site-main">
+			<?php if ( function_exists( 'yoast_breadcrumb' ) ) : ?>
+				<?php
 				if ( is_front_page() ) {
 					return;
 				}
@@ -209,4 +213,3 @@ $store_link   = get_field( 'store_link', 'option' );
 				</section>
 				<!-- /.breadcrumbs -->
 			<?php endif; ?>
-		</header>

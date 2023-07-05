@@ -35,9 +35,10 @@ if ( ! $is_preview ) :
 	// Load values and assing defaults.
 	if ( $kemroc_aal_parent_page_id ) {
 		$kemroc_aal_args  = array(
-			'post_type'   => 'page',
-			'post_status' => 'published',
-			'post_parent' => $kemroc_aal_parent_page_id,
+			'post_type'      => 'page',
+			'post_status'    => 'published',
+			'posts_per_page' => -1, // phpcs:ignore
+			'post_parent'    => $kemroc_aal_parent_page_id,
 		);
 		$kemroc_aal_areas = new WP_Query( $kemroc_aal_args );
 	}

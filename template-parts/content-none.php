@@ -90,15 +90,13 @@
 				</div>
 				<!-- /.search-no-results__recomendation -->
 				<div class="search-no-results__form">
-					<?php get_template_part( 'searchform', null, array( 'add_class' => 'search-form--on-page' ) ); ?>
+					<?php get_template_part( 'searchform', null, array( 'add_class' => 'search-form--on-page search-form--on-page-no-results' ) ); ?>
 				</div>
-				<!-- /.search-no-results__form -->
-				<div class="search-results-wrapper search-no-results__result-wrapper"></div>
-				<!-- /.search-results-wrapper search-no-results__result-wrapper -->
+				<!-- /.search-no-results__form -->				
 			</div>
 			<!-- /.search-no-results__text -->
 			<div class="search-no-results__image">
-				<img src="<?php echo get_template_directory_uri() . '/images/search-no-results.png'; ?>" alt="search-no-results">
+				<img src="<?php echo get_template_directory_uri() . '/images/search-no-results.png'; //phpcs:ignore ?>" alt="search-no-results">
 			</div>
 			<!-- /.search-no-results__image -->
 		</div>

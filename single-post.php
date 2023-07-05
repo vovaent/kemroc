@@ -20,7 +20,6 @@ $kemroc_headers_insides = kemroc_get_headers_insides_in_content( get_the_content
 get_header();
 ?>
 
-<main id="primary" class="site-main">
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'cp-article' ); ?>>
 		<header class="container cp-article__header">
 			<div class="cp-article__text">
@@ -140,7 +139,6 @@ get_header();
 
 	</article>
 	<!-- #post-<?php the_ID(); ?> -->
-</main><!-- #main -->
 
 <?php
 get_footer();
