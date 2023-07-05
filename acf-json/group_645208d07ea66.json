@@ -45,7 +45,7 @@
             "label": "Titelauswahl",
             "name": "title_choice",
             "type": "radio",
-            "instructions": "Использовать название страницы или ввести индивидуальное название?",
+            "instructions": "Den Seitentitel verwenden oder einen eigenen Titel eingeben?",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -249,5 +249,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687890104
+    "modified": 1688541953
 }
