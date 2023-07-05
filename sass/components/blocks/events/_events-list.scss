@@ -1,46 +1,181 @@
 .events-list {
     max-width: 770px;
     margin: 0 auto 64px auto;
+
     @include media-down-md {
         padding-top: 40px;
     }
+
     @include media-down-sm {
         padding-top: 32px;
     }
+
     &__item {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         min-height: 154px;
         border-radius: 24px;
         background: #EEEEEE;
         padding: 32px;
         margin-bottom: 30px;
+
         @include media-down-sm {
             margin-bottom: 24px;
         }
+
         &:last-child {
             margin-bottom: 0;
         }
+
         &:hover {
             .item-title {
                 color: #FF6000;
             }
         }
     }
+
     .item-date {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        max-width: -webkit-max-content;
+        max-width: -moz-max-content;
         max-width: max-content;
         color: #444;
         font-size: 14px;
         font-weight: 600;
         line-height: 160%;
+
         img {
             margin-right: 8px;
         }
     }
+
     .item-title {
         margin-top: 8px;
+        -webkit-transition: 0.2s ease;
+        -o-transition: 0.2s ease;
         transition: 0.2s ease;
     }
+}
+
+.navigation {
+    margin-bottom: 128px;
+}
+
+.prev,
+.next {
+    background-image: url('images/navigation.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.next {
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -ms-transform: matrix(-1, 0, 0, 1, 0, 0);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.kemroc-navigation__nav-links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+@media (max-width: 739px) {
+    .kemroc-navigation__nav-links {
+        gap: 4px;
+    }
+}
+
+.page-numbers {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    border: 2px solid #EBEBEB;
+    border-radius: 16px;
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Eurostile Candy W02 Bold";
+    line-height: 130%;
+}
+
+.page-numbers,
+.page-numbers:link,
+.page-numbers:active,
+.page-numbers:hover,
+.page-numbers:visited {
+    text-decoration: none;
+    color: #444444;
+}
+
+@media (max-width: 739px) {
+    .page-numbers {
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
+    }
+}
+
+.page-numbers:hover {
+    border-color: #FF6000;
+    color: #FF6000;
+}
+
+.prev {
+    margin-right: 20px;
+    border-color: #FF6000;
+}
+
+@media (max-width: 739px) {
+    .prev {
+        margin-right: 8px;
+    }
+}
+
+.next {
+    margin-left: 20px;
+    border-color: #FF6000;
+}
+
+@media (max-width: 739px) {
+    .next {
+        margin-left: 8px;
+    }
+}
+
+.current {
+    border-color: #FF6000;
+    color: #FF6000;
+}
+
+.dots:hover {
+    border-color: #EBEBEB;
+    color: #000;
+}
+
+.page-numbers * {
+    pointer-events: none;
 }
