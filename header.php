@@ -187,7 +187,7 @@ $store_link   = get_field( 'store_link', 'option' );
 					<button class="search-area__close"></button>
 					<!-- /.search-area__close -->
 					<div class="search-area__form">
-						<?php get_search_form(); ?>
+						<?php get_template_part( 'searchform', null, array( 'add_class' => 'search-form--on-header' ) ); ?>
 					</div>
 					<!-- /.search-area__form -->
 					<div class="search-results-wrapper search-area__result-wrapper"></div>

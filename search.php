@@ -57,9 +57,7 @@ get_header();
 					<div class="search-results__form">
 						<?php get_template_part( 'searchform', null, array( 'add_class' => 'search-form--on-page' ) ); ?>
 					</div>
-					<!-- /.search-results__form -->
-					<div class="search-results-wrapper search-results__result-wrapper"></div>
-					<!-- /.search-results-wrapper search-results__result-wrapper -->
+					<!-- /.search-results__form -->					
 				</header><!-- .search-results__header -->
 
 				<section class="search-results__list">

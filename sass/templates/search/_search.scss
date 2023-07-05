@@ -46,22 +46,6 @@
         margin-top: 24px;
     }
 
-    &__result-wrapper {
-        position: absolute;
-        top: 174px;
-        left: 0;
-        display: none;
-        z-index: 99;
-
-        @include media-down-md {
-            top: 265px;
-        }
-
-        @include media-down-sm {
-            top: 325px;
-        }
-    }
-
     &__list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
