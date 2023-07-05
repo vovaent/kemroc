@@ -35,10 +35,11 @@ if ( ! $is_preview ) :
 	$kemroc_ot_cta           = get_field( 'cta' );
 
 	$kemroc_ot_args  = array(
-		'post_type'   => 'member',
-		'post_status' => 'publish',
-		'order'       => 'ASC',
-		'orderby'     => 'menu_order',
+		'post_type'      => 'member',
+		'post_status'    => 'publish',
+		'posts_per_page' => -1, // phpcs:ignore
+		'order'          => 'ASC',
+		'orderby'        => 'menu_order',
 	);
 	$kemroc_ot_query = new WP_Query( $kemroc_ot_args );
 	?>

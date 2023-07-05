@@ -1,5 +1,16 @@
 .header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    transform: translateY(0);
+    transition: transform .5s ease;
+    z-index: 999;
+
+    &--translate-to-up {
+        width: 100%;
+        transform: translateY(-100%);
+    }
 
     &__desktop {
         @include media-down-md {
@@ -246,5 +257,17 @@
         a {
             @include reset-a(#B6B6B6);
         }
+    }
+}
+
+.header-substitute {
+    height: 157.19px;
+
+    @include media-down-md {
+        height: 90.19px;
+    }
+
+    @include media-down-sm {
+        height: 64px;
     }
 }

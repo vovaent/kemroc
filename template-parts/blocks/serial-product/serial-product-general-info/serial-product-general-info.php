@@ -36,6 +36,7 @@ if ( ! $is_preview ) :
 	$kemroc_spgi_subtitle     = get_field( 'subtitle' );
 	$kemroc_spgi_description  = get_field( 'description' );
 	$kemroc_spgi_photos       = get_field( 'photos' );
+	$kemroc_spgi_app_areas    = wp_get_post_terms( get_the_ID(), 'einsatzbereich' );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_spgi_id ); ?>" class="<?php echo esc_attr( $kemroc_spgi_class_name ); ?>">
@@ -63,6 +64,20 @@ if ( ! $is_preview ) :
 
 							<?php foreach ( $kemroc_spgi_photos as $kemroc_spgi_photo ) : ?>
 								<li class="swiper-slide swiper-single-slide__slide">
+									
+									<?php if ( $kemroc_spgi_app_areas ) : ?>
+										<div class="swiper-single-slide__areas">
+
+											<?php foreach ( $kemroc_spgi_app_areas as $kemroc_spgi_app_area ) : ?>
+												<div class="application-area-in-image product-general-info__area">
+													<?php echo esc_html( $kemroc_spgi_app_area->name ); ?>
+												</div>
+											<?php endforeach; ?>
+
+										</div>
+										<!-- /.swiper-single-slide__areas -->										
+									<?php endif; ?>
+				
 									<?php echo wp_get_attachment_image( $kemroc_spgi_photo['photo'], 'medium_large' ); ?>
 								</li>
 								<!-- /.swiper-slide swiper-single-slide__slide -->

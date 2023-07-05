@@ -31,7 +31,13 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	$kemroc_pml_models          = kemroc_get_models_compare( get_post_type() );
+	$kemroc_pml_models       = kemroc_get_models_compare( get_post_type() );
+	$kemroc_pml_model_params = array();
+
+	foreach ( $kemroc_pml_models as $kemroc_pml_model ) :
+		$kemroc_pml_model_params = array_merge( $kemroc_pml_model_params, $kemroc_pml_model['params'] );
+	endforeach;
+
 	$kemroc_pml_slides_per_view = 5;
 	$kemroc_pml_count_models    = count( $kemroc_pml_models );
 	$kemroc_pml_remainder       = $kemroc_pml_count_models % $kemroc_pml_slides_per_view;
@@ -47,7 +53,7 @@ if ( ! $is_preview ) :
 	<section id="<?php echo esc_attr( $kemroc_pml_id ); ?>" class="<?php echo esc_attr( $kemroc_pml_class_name ); ?>">
 		<div class="container product-model-list__content">
 			
-					<?php if ( $kemroc_pml_models ) : ?>
+			<?php if ( $kemroc_pml_models ) : ?>
 				<div class="product-model-list__card pml-model-card">
 					<div class="pml-model-card__title">
 						<?php echo wp_kses_post( __( '<span>MODELLE</span> VERGLEICHEN', 'kemroc' ) ); ?>
@@ -57,16 +63,13 @@ if ( ! $is_preview ) :
 						<ul class="pml-model-card__params">
 
 							<?php 
-							foreach ( $kemroc_pml_models as $kemroc_pml_model ) :
-								foreach ( $kemroc_pml_model['params'] as $kemroc_pml_param_title => $kemroc_pml_param_value ) : 
-									?>
-									<li class="pml-model-card__param">
-										<?php echo esc_html( $kemroc_pml_param_title ); ?>
-									</li>
-									<!-- /.pml-model-card__param -->
-									<?php 
-								endforeach;
-								break;
+							foreach ( $kemroc_pml_model_params as $kemroc_pml_param_title => $kemroc_pml_param_value ) : 
+								?>
+								<li class="pml-model-card__param">
+									<?php echo esc_html( $kemroc_pml_param_title ); ?>
+								</li>
+								<!-- /.pml-model-card__param -->
+								<?php 
 							endforeach;
 							?>
 

@@ -21,8 +21,7 @@ $kemroc_s_next_arrow  = kemroc_get_template_part_content(
 	array( 'fill' => '#ff6000' )
 );
 $kemroc_s_navigation  = kemroc_get_the_posts_pagination(
-    //phpcs:ignore
-    array(
+	array(
 		'class'     => 'kemroc-navigation',
 		'prev_text' => $kemroc_s_prev_arrow,
 		'next_text' => $kemroc_s_next_arrow,
@@ -33,8 +32,6 @@ $kemroc_s_navigation  = kemroc_get_the_posts_pagination(
 
 get_header();
 ?>
-
-<main id="primary" class="site-main">
 
 	<?php if ( have_posts() ) : ?>
 		<section class="search-results">

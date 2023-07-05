@@ -58,6 +58,7 @@
         &--pc {
             transform: translateY(-68px);
             transition: transform .3s ease-out;
+            will-change: transform;
 
             @include media-down-md {
                 display: none;
@@ -109,6 +110,7 @@
         border-radius: 50%;
         overflow: hidden;
         transition: scale .3s ease-out;
+        will-change: scale;
 
         @include media-down-md {
             margin-top: 0;
@@ -128,6 +130,7 @@
             scale: 1.1;
             transition: scale .4s ease-out;
             border-radius: inherit;
+            will-change: scale;
 
             @include media-down-md {
                 scale: none;
@@ -149,6 +152,7 @@
         padding: 0 15px;
         text-align: center;
         transition: transform .3s ease-out;
+        will-change: transform;
 
         @include media-down-md {
             margin-top: 0;
@@ -200,6 +204,7 @@
         color: #000000;
         transform: translateY(84px);
         transition: transform .3s ease-out;
+        will-change: transform;
 
         .member-card:hover & {
             transform: translateY(0);

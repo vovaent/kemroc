@@ -22,6 +22,8 @@ $footer_nav = get_field( 'footer_nav', 'option' ); // title links-link
 
 ?>
 
+</main><!-- #main -->
+
 <footer class="footer">
 	<? if ($footer_cta && !$footer_cta['hide']) : ?>
 		<section class="cta-wide cta-wide--footer">

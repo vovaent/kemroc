@@ -26,10 +26,15 @@ const navigation = ( $ ) => {
 			$( this ).parents( '.sub-menu' ).removeClass( 'active' );
 		}
 	);
-	$( document ).on( 'click', '.header__mobile li > a', function ( e ) {
-		e.preventDefault();
-		$( this ).next( '.sub-menu' ).addClass( 'active' );
-	} );
+	$( document ).on(
+		'click',
+		'.header__mobile li.menu-item-has-children > a',
+		function ( e ) {
+			console.log( 'click' );
+			e.preventDefault();
+			$( this ).next( '.sub-menu' ).addClass( 'active' );
+		}
+	);
 };
 
 export { navigation };

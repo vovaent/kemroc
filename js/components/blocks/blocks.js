@@ -8,18 +8,20 @@ import { lazyLoad } from './sonder/lazy-load';
 import { faq } from './sonder/faq';
 import { allNews } from './news/all-news';
 import { products } from './product/products';
+import { ourTeam } from './sonder/our-team';
 
 const blocks = ( $ ) => {
 	productModelList( $ );
 	modelInfo( $ );
-	serialProductGeneralInfo();
-	seriesGeneralInfo();
+	serialProductGeneralInfo( $ );
+	seriesGeneralInfo( $ );
 	applicationAreasFilter( $ );
 	contactsForm( $ );
 	lazyLoad( $ );
 	faq( $ );
 	allNews( $ );
 	products( $ );
+	ourTeam( $ );
 };
 
 export { blocks };
