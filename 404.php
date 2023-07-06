@@ -17,7 +17,7 @@ get_header();
 					<img src="<?php echo get_template_directory_uri() . '/images/icon-404.svg'; ?>" alt="icon-404">
 				</div>
 				<h4 class="page-404__text"><?php _e( 'Seite nicht gefunden', 'kemroc' ); ?></h4>
-				<a href="<?php echo home_url(); ?>" class="page-404__homelink btn btn-accent btn-rounded arrow-right">
+				<a href="<?php echo kemroc_home_url(); ?>" class="page-404__homelink btn btn-accent btn-rounded arrow-right">
 					<?php _e( 'Zur Startseite', 'kemroc' ); ?>
 				</a>
 			</div>

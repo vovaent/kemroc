@@ -7,7 +7,7 @@
 
 $kemroc_sf_add_class = ! empty( $args['add_class'] ) ? ' ' . $args['add_class'] : '';
 ?>
-<form role="search" method="get" class="search-form<?php echo esc_attr( $kemroc_sf_add_class ); ?>" action="<?php echo esc_attr( pll_home_url() ); ?>">
+<form role="search" method="get" class="search-form<?php echo esc_attr( $kemroc_sf_add_class ); ?>" action="<?php echo esc_attr( kemroc_home_url() ); ?>">
 	<div class="search-form__inner">
 		<label class="search-form__label">
 			<span class="screen-reader-text">
