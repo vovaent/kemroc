@@ -3,18 +3,22 @@
 	background: #eee;
 	padding: 64px;
 	margin: 50px auto 32px auto;
+
 	@include media-down-md {
 		padding: 32px;
 	}
+
 	&__wrap {
 		&.two-columns {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			grid-gap: 30px;
+
 			@include media-down-sm {
 				grid-template-columns: 100%;
 				grid-gap: 0;
 			}
+
 			h6 {
 				margin-bottom: 40px;
 			}
@@ -35,6 +39,7 @@
 		font-weight: 500;
 		line-height: 160%;
 		margin-bottom: 16px;
+
 		@include media-down-sm {
 			font-size: 16px;
 		}
@@ -42,6 +47,7 @@
 
 	h6 {
 		margin-top: 0;
+
 		@include media-down-md {
 			font-size: 16px;
 			line-height: 140%;
@@ -49,7 +55,11 @@
 	}
 
 	a {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
+		max-width: -webkit-max-content;
+		max-width: -moz-max-content;
 		max-width: max-content;
 		color: #000;
 		font-size: 19px;
@@ -57,10 +67,12 @@
 		font-weight: 700;
 		line-height: 160%;
 		margin-bottom: 12px;
+
 		&:hover {
 			color: #ff6000;
 		}
 	}
+
 	p {
 		margin-bottom: 8px;
 	}
@@ -70,43 +82,114 @@
 		margin-top: 32px;
 		border: 1px solid #fff;
 		border-radius: 24px;
+
 		tr {
 			&:nth-child(odd) {
 				background: rgba(255, 255, 255, 0.4);
 			}
-            &:last-child {
-                td {
-                    &:first-child {
-                        border-radius: 0 0 0 24px;
-                    }
-                    &:last-child {
-                        border-radius: 0 0 24px 0;
-                    }
-                }
-            }
-            &:hover {
-                background: #FFF;
-            }
+
+			&:last-child {
+				td {
+					&:first-child {
+						border-radius: 0 0 0 24px;
+					}
+
+					&:last-child {
+						border-radius: 0 0 24px 0;
+					}
+				}
+			}
+
+			&:hover {
+				background: #FFF;
+			}
+
 			th {
 				background: #ffffff;
 				padding: 17px 32px;
+
 				&:first-child {
 					border-radius: 24px 0 0 0;
 				}
+
 				&:last-child {
 					border-radius: 0 24px 0 0;
 				}
 			}
+
 			td {
 				padding: 24px 32px;
 			}
 		}
+
 		a {
-            font-family: "Asap", sans-serif;
+			font-family: "Asap", sans-serif;
 			color: #ff6000;
 			font-size: 16px;
 			line-height: 160%;
+			-webkit-text-decoration-line: underline;
 			text-decoration-line: underline;
 		}
+	}
+}
+
+.cookies-table {
+	margin-top: -150px;
+
+	.grayplate-text {
+		overflow: scroll;
+	}
+}
+
+.absatztext, .cookies-table, .impressum{
+.container {
+
+@media (max-width: 1179px){
+    max-width: 1139px;
+	padding: 0 40px;
+}
+@media (max-width: 739px){
+    max-width: 700px;
+}
+}
+
+h1{
+	font-size: 40px;
+}
+
+h1{
+	@media (max-width: 768px){
+		font-size: 32px;
+	}
+	@media (max-width: 360px){
+		font-size: 18px;
+		padding: 0 25px;
+	}
+}
+}
+
+.absatztext{
+	ul li::before{
+	background-color: #444444;
+}
+
+h3{
+	font-size: 23px;
+	margin-top: 32px;
+}
+
+h3 + h5{
+	margin-top: 0;
+}
+
+h2{
+	font-size: 33px;
+	@media (max-width: 360px){
+		font-size: 18px;
+		padding: 0 25px;
+	}}
+	h5{
+		font-size: 19px;
+		margin-top: 32px;
 	}
 }

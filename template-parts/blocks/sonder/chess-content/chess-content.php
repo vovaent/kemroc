@@ -34,6 +34,9 @@ if ( ! $is_preview ) :
 	$kemroc_cc_left       = get_field( 'left' );
 	$kemroc_cc_right      = get_field( 'right' );
 	$kemroc_cc_image_type = $kemroc_cc_right['image_type'];
+	$kemroc_cc_figcaption = ! empty( $kemroc_cc_right['caption'] ) 
+								? $kemroc_cc_right['caption'] 
+								: wp_get_attachment_caption( $kemroc_cc_right['image'] );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_cc_id ); ?>" class="<?php echo esc_attr( $kemroc_cc_class_name ); ?>">
@@ -64,13 +67,16 @@ if ( ! $is_preview ) :
 					</div>
 					<!-- /.cc-right__image -->
 				<?php elseif ( 'drawing' === $kemroc_cc_image_type ) : ?>
-					<figure class="cc-right__image">
-						<?php echo wp_get_attachment_image( $kemroc_cc_right['image'], 'medium_large' ); ?>
-						<figcaption>
-							<?php echo esc_html( wp_get_attachment_caption( $kemroc_cc_right['image'] ) ); ?>
+					<figure class="cc-right__figure">
+						<div class="cc-right__image">
+							<?php echo wp_get_attachment_image( $kemroc_cc_right['image'], 'medium_large' ); ?>
+						</div>
+						<!-- /.cc-right__image -->
+						<figcaption class="cc-right__image-caption">
+							<?php echo esc_html( $kemroc_cc_figcaption ); ?>
 						</figcaption>
 					</figure>
-					<!-- /.cc-right__image -->
+					<!-- /.cc-right__figure -->
 				<?php endif; ?>
 
 				<div class="cc-right__description">

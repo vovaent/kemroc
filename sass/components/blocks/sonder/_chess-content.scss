@@ -45,6 +45,7 @@
         font-size: 40px;
         line-height: 52px;
         color: #000000;
+        word-wrap: break-word;
 
         @include media-down-sm {
             font-size: 28px;
@@ -135,6 +136,11 @@
         img {
             height: 100%;
             border-radius: 24px;
+        }
+
+        &-caption {
+            margin-top: 16px;
+            color: #939393;
         }
     }
 

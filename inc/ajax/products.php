@@ -33,7 +33,7 @@ function kemroc_ajax_products_action_callback() {
 
 	$args = array(
 		'post_type'      => 'page',
-		'post_status'    => 'published',
+		'post_status'    => 'publish',
 		'paged'          => $page_number,
 	);
 

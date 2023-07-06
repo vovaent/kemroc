@@ -52,7 +52,7 @@ function kemroc_get_models_amount( $post_type = 'page', $post_id = null ) {
 
 	$models_args  = array(
 		'post_type'      => $post_type,
-		'post_status'    => 'published',
+		'post_status'    => 'publish',
 		'posts_per_page' => -1, // phpcs:ignore
 		'post_parent'    => $post_id,
 	);
@@ -83,7 +83,7 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 
 	$models_args = array(
 		'post_type'      => $post_type,
-		'post_status'    => 'published',
+		'post_status'    => 'publish',
 		'posts_per_page' => -1, // phpcs:ignore
 		'post_parent'    => $post_id,
 		'orderby'        => 'menu_order',

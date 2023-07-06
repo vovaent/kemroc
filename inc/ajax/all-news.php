@@ -33,7 +33,7 @@ function kemroc_ajax_all_news_action_callback() {
 
 	$args = array(
 		'post_type'      => 'post',
-		'post_status'    => 'published',
+		'post_status'    => 'publish',
 		'paged'          => $page_number,
 	);
 
@@ -53,12 +53,10 @@ function kemroc_ajax_all_news_action_callback() {
 		while ( $query->have_posts() ) :
 			$query->the_post(); 
 			
-			// $new_item  = '<div class="all-news__item">';
 			$new_item = kemroc_get_template_part_content( 
 				'template-parts/cards/news/new', 
 				'card'
 			);
-			// $new_item .= '</div><!-- /.all-news__item -->';
 			
 			$posts[] = $new_item;
 		endwhile; 
