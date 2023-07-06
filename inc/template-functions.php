@@ -267,6 +267,14 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 				'acf/all-news',
 				'acf/section-header',
 				'acf/events',
+				'acf/stellenangebote-list',
+				'acf/absatztext',
+				'acf/cookies-table',
+				'acf/impressum',
+				'acf/columns-text',
+				'acf/pdf-kataloge',
+				'acf/page-404',
+				'acf/farbiger-text',
 			)
 		);
 	} elseif ( 'post' === $editor_context->post->post_type ) {
