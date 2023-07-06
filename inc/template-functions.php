@@ -268,6 +268,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 				'acf/section-header',
 				'acf/events',
 				'acf/stellenangebote-list',
+				'acf/stellenangebot-info',
 				'acf/absatztext',
 				'acf/cookies-table',
 				'acf/impressum',

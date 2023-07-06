@@ -17,59 +17,62 @@ if ( isset( $block['data']['gutenberg_preview_image'] ) && $is_preview ) {
 
 if ( ! $is_preview ) :
 	// Create id attribute allowing for custom "anchor" value.
-	$kemroc_stellenangebote_list_id = 'stellenangebote-list-' . $block['id'];
+	$kemroc_sl_id = 'stellenangebote-list-' . $block['id'];
 	if ( ! empty( $block['anchor'] ) ) {
-		$kemroc_stellenangebote_list_id = $block['anchor'];
+		$kemroc_sl_id = $block['anchor'];
 	}
 
 	// Create class attribute allowing for custom "className" and "align" values.
-	$kemroc_stellenangebote_list_class_name = 'stellenangebote-list';
+	$kemroc_sl_class_name = 'stellenangebote-list';
 	if ( ! empty( $block['className'] ) ) {
-		$kemroc_stellenangebote_list_class_name .= ' ' . $block['className'];
+		$kemroc_sl_class_name .= ' ' . $block['className'];
 	}
 	if ( ! empty( $block['align'] ) ) {
-		$kemroc_stellenangebote_list_class_name .= ' align' . $block['align'];
+		$kemroc_sl_class_name .= ' align' . $block['align'];
 	}
 
-	$current    = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-	$the_query  = new WP_Query(
+	$kemroc_sl_parent_page = get_field( 'parent_page' );
+
+	$kemroc_sl_current    = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+	$kemroc_sl_the_query  = new WP_Query(
 		array(
-			'post_type'      => 'stellenangebot',
+			'post_type'      => 'page',
 			'posts_per_page' => 6,
 			'post_status'    => 'publish',
 			'orderby'        => 'date',
 			'order'          => 'DESC',
-			'paged'          => $current,
+			'post_parent'    => $kemroc_sl_parent_page,
+			'paged'          => $kemroc_sl_current,
 		)
 	);
-	$prev_arrow = kemroc_get_template_part_content(
+	$kemroc_sl_prev_arrow = kemroc_get_template_part_content(
 		'template-parts/icons/arrow-left',
 		null,
 		array( 'fill' => '#ff6000' ) 
 	);
-	$next_arrow = kemroc_get_template_part_content(
+	$kemroc_sl_next_arrow = kemroc_get_template_part_content(
 		'template-parts/icons/arrow-right',
 		null,
 		array( 'fill' => '#ff6000' ) 
 	);
-    $navigation = kemroc_get_the_posts_pagination( //phpcs:ignore
+    $kemroc_sl_navigation = kemroc_get_the_posts_pagination( //phpcs:ignore
 		array(
 			'class'     => 'kemroc-navigation',
-			'prev_text' => $prev_arrow, 
-			'next_text' => $next_arrow,
+			'prev_text' => $kemroc_sl_prev_arrow, 
+			'next_text' => $kemroc_sl_next_arrow,
 		),
-		$the_query,
-		$current
+		$kemroc_sl_the_query,
+		$kemroc_sl_current
 	);
 	?>
 
-	<section id="<?php echo esc_attr( $kemroc_stellenangebote_list_id ); ?>" class="jobs">
+	<section id="<?php echo esc_attr( $kemroc_sl_id ); ?>" class="jobs">
 		<div class="container">
 			<div class="jobs-list">
-				<?php if ( $the_query->have_posts() ) : ?>
+				<?php if ( $kemroc_sl_the_query->have_posts() ) : ?>
 					<?php 
-					while ( $the_query->have_posts() ) :
-						$the_query->the_post(); 
+					while ( $kemroc_sl_the_query->have_posts() ) :
+						$kemroc_sl_the_query->the_post(); 
 						?>
 						<?php
 						$post_dringlichkeit = get_field( 'dringlichkeit', get_the_ID() );
@@ -94,7 +97,7 @@ if ( ! $is_preview ) :
 				?>
 			</div>
 			<div class="jobs-navigation">
-				<?php echo $navigation; ?>
+				<?php echo wp_kses_post( $kemroc_sl_navigation ); ?>
 			</div>
 		</div>
 	</section>

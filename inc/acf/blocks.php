@@ -663,6 +663,27 @@ function kemroc_acf_init_block_types() {
 	);
 	acf_register_block_type(
 		array(
+			'name'            => 'stellenangebot-info',
+			'title'           => __( 'Stellenangebot info', 'kemroc' ),
+			'description'     => __( 'Stellenangebot info', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php',
+			'category'        => 'stellenangebote',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Stellenangebote' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.png',
+					),
+				),
+			),
+		)
+	);
+	acf_register_block_type(
+		array(
 			'name'            => 'absatztext',
 			'title'           => __( 'Absatztext', 'kemroc' ),
 			'description'     => __( 'Absatztext', 'kemroc' ),
