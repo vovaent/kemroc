@@ -640,5 +640,179 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
+	acf_register_block_type(
+		array(
+			'name'            => 'stellenangebote-list',
+			'title'           => __( 'Stellenangebote list', 'kemroc' ),
+			'description'     => __( 'Stellenangebote list', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/stellenangebote/stellenangebote-list/stellenangebote-list.php',
+			'category'        => 'stellenangebote',
+			'mode'            => 'edit',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'Stellenangebote' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/stellenangebote/stellenangebote-list/stellenangebote-list.png',
+					),
+				),
+			),
+		)
+	);
+	acf_register_block_type(
+		array(
+			'name'            => 'absatztext',
+			'title'           => __( 'Absatztext', 'kemroc' ),
+			'description'     => __( 'Absatztext', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/info/absatztext.php',
+			'category'        => 'text-modules',
+			'mode'            => 'edit',
+			'icon'            => 'welcome-learn-more',
+			'keywords'        => array( 'Absatztext' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/info/absatztext.png',
+					),
+				),
+			),
+		)
+	);
+
+	acf_register_block_type(
+		array(
+			'name'            => 'cookies-table',
+			'title'           => __( 'Cookies table', 'kemroc' ),
+			'description'     => __( 'Cookies table', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/info/cookies-table.php',
+			'category'        => 'text-modules',
+			'mode'            => 'edit',
+			'icon'            => 'welcome-learn-more',
+			'keywords'        => array( 'Cookies table' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/info/cookies-table.png',
+					),
+				),
+			),
+		)
+	);
+
+	acf_register_block_type(
+		array(
+			'name'            => 'impressum',
+			'title'           => __( 'Impressum', 'kemroc' ),
+			'description'     => __( 'Impressum', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/info/impressum.php',
+			'category'        => 'text-modules',
+			'mode'            => 'edit',
+			'icon'            => 'welcome-learn-more',
+			'keywords'        => array( 'Impressum' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/info/impressum.png',
+					),
+				),
+			),
+		)
+	);
+
+	acf_register_block_type(
+		array(
+			'name'            => 'columns-text',
+			'title'           => __( 'Columns text', 'kemroc' ),
+			'description'     => __( 'Columns text', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/info/columns-text.php',
+			'category'        => 'text-modules',
+			'mode'            => 'edit',
+			'icon'            => 'welcome-learn-more',
+			'keywords'        => array( 'Columns text' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/info/columns-text.png',
+					),
+				),
+			),
+		)
+	);
+
+	acf_register_block_type(
+		array(
+			'name'            => 'pdf-kataloge',
+			'title'           => __( 'PDF-Kataloge', 'kemroc' ),
+			'description'     => __( 'PDF-Kataloge', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/info/pdf-kataloge.php',
+			'category'        => 'text-modules',
+			'mode'            => 'edit',
+			'icon'            => 'welcome-learn-more',
+			'keywords'        => array( 'PDF-Kataloge' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/info/pdf-kataloge.png',
+					),
+				),
+			),
+		)
+	);
+
+	acf_register_block_type(
+		array(
+			'name'            => 'page-404',
+			'title'           => __( 'Page 404', 'kemroc' ),
+			'description'     => __( 'Page 404', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/info/page-404.php',
+			'category'        => 'text-modules',
+			'mode'            => 'edit',
+			'icon'            => 'welcome-learn-more',
+			'keywords'        => array( 'Page 404' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/info/page-404.png',
+					),
+				),
+			),
+		)
+	);
+
+	acf_register_block_type(
+		array(
+			'name'            => 'farbiger-text',
+			'title'           => __( 'Farbiger text', 'kemroc' ),
+			'description'     => __( 'Farbiger text', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/info/farbiger-text.php',
+			'category'        => 'text-modules',
+			'mode'            => 'edit',
+			'icon'            => 'welcome-learn-more',
+			'keywords'        => array( 'Farbiger text' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/info/farbiger-text.png',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'kemroc_acf_init_block_types' );

@@ -1,0 +1,90 @@
+.pdf_kataloge {
+    margin: 128px 0;
+
+    .container {
+        .list-pdf__wrap {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            gap: 32px;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+
+            @media (max-width: 768px) {
+                gap: 24px;
+            }
+
+            .list-pdf__item {
+                -ms-flex-preferred-size: calc((100% - 32px) / 2);
+                flex-basis: calc((100% - 32px) / 2);
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                padding: 24px 32px;
+                gap: 10px;
+                border-radius: 6px;
+                border: 2px solid #F73;
+                background: #FFF;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+
+                @media (max-width: 900px) {
+                    -ms-flex-preferred-size: 100%;
+                    flex-basis: 100%;
+                }
+
+                .item-info {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    gap: 10px;
+
+                    @media (max-width: 360px) {
+                        display: block;
+                    }
+                }
+
+                img {
+                    width: 23.333px;
+                    height: 16px;
+                }
+
+                p {
+                    color: #131313;
+                    font-size: 16px;
+                    font-family: 'Eurostile Candy LT Pro';
+                    font-weight: 700;
+                    line-height: 130%;
+                    margin: 0;
+
+                    span {
+                        color: #B6B6B6;
+                        font-size: 16px;
+                        font-family: 'Eurostile Candy LT Pro';
+                        font-weight: 700;
+                        line-height: 130%;
+                    }
+                }
+            }
+        }
+    }
+
+    .container {
+        @media (max-width: 1190px) {
+            max-width: 1100px;
+            padding: 0 40px;
+        }
+
+        @media (max-width: 750px) {
+            max-width: 700px;
+            padding: 0 25px;
+        }
+    }
+}
