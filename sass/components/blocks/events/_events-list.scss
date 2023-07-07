@@ -1,3 +1,7 @@
+.termine {
+    @include standard-block-margins;
+}
+
 .events-list {
     max-width: 770px;
     margin: 0 auto 64px auto;
@@ -67,9 +71,9 @@
     }
 }
 
-.navigation {
-    margin-bottom: 128px;
-}
+// .navigation {
+//     margin-bottom: 128px;
+// }
 
 .prev,
 .next {

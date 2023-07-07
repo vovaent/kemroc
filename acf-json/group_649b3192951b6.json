@@ -3,9 +3,9 @@
     "title": "Block | Products",
     "fields": [
         {
-            "key": "field_649b3e233f353",
-            "label": "Alle Produkte herausholen",
-            "name": "all_products_output_is_enabled",
+            "key": "field_64a8433bc0f5a",
+            "label": "Paginierung verwenden?",
+            "name": "use_pagination",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Die Paginierung wird hinzugefügt",
+            "message": "Falls ausgewählt, werden alle Produkte mit Paginierung angezeigt. Wenn nicht ausgewählt, wird nur die angegebene Anzahl von Produkten angezeigt",
             "default_value": 1,
             "ui": 0,
             "ui_on_text": "",
@@ -83,5 +83,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687969095
+    "modified": 1688749280
 }

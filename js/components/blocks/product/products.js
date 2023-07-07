@@ -5,6 +5,7 @@ const products = ( $ ) => {
 	/* eslint no-undef: "error" */
 
 	const $productsListSkeletons = $( '.products__list--skeletons' );
+	const $productsSection = $( '.products' );
 	const $productsListOriginal = $( '.products__list--original' );
 	const $productsNavigation = $( '.products__navigation' );
 
@@ -46,6 +47,7 @@ const products = ( $ ) => {
 
 	const getPostsAjax = new GetPostsAjax( {
 		els: {
+			$section: $productsSection,
 			$original: $productsListOriginal,
 			$skeleton: $productsListSkeletons,
 			$navigation: $productsNavigation,

@@ -835,5 +835,26 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
+	acf_register_block_type(
+		array(
+			'name'            => 'partners',
+			'title'           => __( 'Unsere Partner', 'kemroc' ),
+			'description'     => __( 'Unsere Partner', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/sonder/partners/partners.php',
+			'category'        => 'sonder',
+			'mode'            => 'edit',
+			'icon'            => 'welcome-learn-more',
+			'keywords'        => array( 'Unsere Partner' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/partners/partners.png',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'kemroc_acf_init_block_types' );

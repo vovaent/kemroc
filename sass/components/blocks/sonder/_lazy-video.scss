@@ -4,6 +4,9 @@
 
     &__figure {
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-top: 0;
         height: 392px;
         overflow: hidden;
@@ -65,7 +68,7 @@
 
     &__source {
         position: relative;
-        object-fit: cover;
+        object-fit: contain;
         z-index: 2;
 
         &--model-page {

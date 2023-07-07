@@ -130,10 +130,11 @@ const contactsForm = ( $ ) => {
 					} else if ( typeof resp.data === 'string' ) {
 						$errorMessage.text( '' ).text( resp.data );
 						$errorMessage.fadeIn( 400, function () {
-							const srollToPos = $errorMessage.offset().top - 500;
+							const scrollToPos =
+								$errorMessage.offset().top - 500;
 
 							$( 'html, body' ).animate(
-								{ scrollTop: srollToPos },
+								{ scrollTop: scrollToPos },
 								500
 							);
 						} );
@@ -143,10 +144,10 @@ const contactsForm = ( $ ) => {
 					}
 				} else {
 					$successMessage.fadeIn( 400, function () {
-						const srollToPos = $successMessage.offset().top - 500;
+						const scrollToPos = $successMessage.offset().top - 500;
 
 						$( 'html, body' ).animate(
-							{ scrollTop: srollToPos },
+							{ scrollTop: scrollToPos },
 							500
 						);
 					} );

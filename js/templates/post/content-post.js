@@ -121,6 +121,27 @@ const contentPost = ( $ ) => {
 		} );
 	};
 
+	const moveArticleStickyHandler = () => {
+		const $articleSticky = $( '.cp-article__sticky' );
+
+		if ( $articleSticky.length === 0 ) {
+			return;
+		}
+
+		const $header = $( '.header' );
+
+		if ( ! $header.hasClass( 'header--translate-to-up' ) ) {
+			$articleSticky.css( 'top', '160px' );
+		}
+
+		$( document ).on( 'headerIsVisible', function () {
+			$articleSticky.css( 'top', '160px' );
+		} );
+		$( document ).on( 'headerIsHidden', function () {
+			$articleSticky.css( 'top', '20px' );
+		} );
+	};
+
 	const articleNavigationHandler = () => {
 		if ( $articleNavlinks.length === 0 || $articleTitles.length === 0 ) {
 			return;
@@ -128,6 +149,7 @@ const contentPost = ( $ ) => {
 
 		articleNavlinkAnchorHandler();
 		synchronizationHandler();
+		moveArticleStickyHandler();
 	};
 
 	const articleShareHandler = () => {

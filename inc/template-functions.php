@@ -276,6 +276,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 				'acf/pdf-kataloge',
 				'acf/page-404',
 				'acf/farbiger-text',
+				'acf/partners',
 			)
 		);
 	} elseif ( 'post' === $editor_context->post->post_type ) {

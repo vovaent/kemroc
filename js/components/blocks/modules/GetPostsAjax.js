@@ -55,6 +55,7 @@ class GetPostsAjax {
 			console.log( 'error:', resp );
 		} else {
 			this.output( resp );
+			this.goToSectionTop();
 		}
 	}
 
@@ -92,6 +93,12 @@ class GetPostsAjax {
 			this.data.page_number = $this.data( 'page-number' );
 			this.load();
 		} );
+	}
+
+	goToSectionTop() {
+		const $sectionAllNews = $( '.all-news' );
+		const scrollToPos = this.els.$section.offset().top - 180;
+		$( 'html, body' ).animate( { scrollTop: scrollToPos }, 500 );
 	}
 }
 

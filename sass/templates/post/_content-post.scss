@@ -92,6 +92,9 @@
     }
 
     &__post-thumbnail {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         flex-shrink: 0;
         width: 570px;
         height: 386px;
@@ -105,6 +108,10 @@
 
         @include media-down-sm {
             height: 208px;
+        }
+
+        img {
+            width: 100%;
         }
     }
 
@@ -150,6 +157,7 @@
     &__sticky {
         position: sticky;
         top: 20px;
+        transition: top .2s ease-in;
     }
 
     // &__navigation {}

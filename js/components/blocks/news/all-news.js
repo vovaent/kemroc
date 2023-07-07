@@ -5,11 +5,12 @@ const allNews = ( $ ) => {
 	/* global postsPerPageGlobal, pageNumberGlobal, pageSlugGlobal, allNewsAjax */
 	/* eslint no-undef: "error" */
 
+	const $articlesSection = $( '.all-news' );
 	const $articlesListSkeleton = $( '.all-news__list-skeletons' );
 	const $articlesListOriginal = $( '.all-news__list-original' );
 	const $articlesNavigation = $( '.all-news__navigation' );
 
-	if ( $articlesListOriginal.length === 0 ) {
+	if ( $articlesSection.length === 0 ) {
 		return;
 	}
 
@@ -43,6 +44,7 @@ const allNews = ( $ ) => {
 
 	const getPostsAjax = new GetPostsAjax( {
 		els: {
+			$section: $articlesSection,
 			$original: $articlesListOriginal,
 			$skeleton: $articlesListSkeleton,
 			$navigation: $articlesNavigation,

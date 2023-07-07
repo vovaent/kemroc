@@ -35,6 +35,7 @@ if ( ! $is_preview ) :
 	$kemroc_si_form_messages = array(
 		'empty_field'         => ! empty( $kemroc_si_form_data['error_text_empty_field'] ) ? $kemroc_si_form_data['error_text_empty_file'] : esc_html__( 'Dieses Feld darf nicht leer sein', 'kemroc' ),
 		'invalid_email'       => ! empty( $kemroc_si_form_data['error_text_invalid_email'] ) ? $kemroc_si_form_data['error_text_invalid_email'] : esc_html__( 'E-Mail-Feld wird nicht korrekt ausgefüllt', 'kemroc' ),
+		'file_oversize'       => ! empty( $kemroc_si_form_data['file_oversize'] ) ? $kemroc_si_form_data['file_oversize'] : esc_html__( 'Die Dateigröße sollte 1 MB nicht überschreiten.', 'kemroc' ),
 		'empty_checkbox'      => ! empty( $kemroc_si_form_data['error_text_empty_checkbox'] ) ? $kemroc_si_form_data['error_text_empty_checkbox'] : esc_html__( 'Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!', 'kemroc' ),
 		'agree_text'          => ! empty( $kemroc_si_form_data['agree_text'] ) ? $kemroc_si_form_data['agree_text'] : esc_html__( 'Durch das Absenden dieses Kontaktformulars erklären Sie sich damit einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in unserer Datenschutzerklärung.', 'kemroc' ),
 		'success_submit_text' => ! empty( $kemroc_si_form_data['success_submit_text'] ) ? $kemroc_si_form_data['success_submit_text'] : esc_html__( 'Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!', 'kemroc' ),
@@ -99,7 +100,9 @@ if ( ! $is_preview ) :
 				</section>
 				<section class="posts__unsere_benefits">
 					<?php if ( get_field( 'unsere_benefits' ) ) : ?>
-						<h4><?php esc_html_e( 'Unsere Benefits', 'kemroc' ); ?></h4>
+						<h4>
+							<?php esc_html_e( 'Unsere Benefits', 'kemroc' ); ?>
+						</h4>
 						<div class="unsere_benefits_wrap">
 							<?php
 							$rows = get_field( 'unsere_benefits' );
@@ -143,16 +146,8 @@ if ( ! $is_preview ) :
 								<label class="cf-form__label">
 									<?php esc_html_e( 'Name', 'kemroc' ); ?> *
 									<input type="text" name="name" class="cf-form__field cf-form__field--required"
-										placeholder="<?php esc_html_e( 'Name', 'kemroc' ); ?>" maxlength="15" minlength="2" required>
-									<span class="cf-form__error-notice">
-										<?php echo esc_html( $kemroc_si_form_messages['empty_field'] ); ?>
-									</span>
-								</label>
-								<!-- /.cf-form__label -->
-								<label class="cf-form__label cf-form__label--phone">
-									<?php esc_html_e( 'Telefon', 'kemroc' ); ?> *
-									<input type="number" name="phone" class="cf-form__field cf-form__field--required"
-										placeholder="<?php esc_html_e( 'Telefon', 'kemroc' ); ?>" maxlength="15" minlength="5" required>
+										placeholder="<?php esc_html_e( 'Name', 'kemroc' ); ?>" maxlength="15" minlength="2"
+										required>
 									<span class="cf-form__error-notice">
 										<?php echo esc_html( $kemroc_si_form_messages['empty_field'] ); ?>
 									</span>
@@ -161,7 +156,8 @@ if ( ! $is_preview ) :
 								<label class="cf-form__label cf-form__label--email">
 									<?php esc_html_e( 'E-Mail', 'kemroc' ); ?> *
 									<input type="email" name="email" class="cf-form__field cf-form__field--required"
-										placeholder="<?php esc_html_e( 'E-Mail', 'kemroc' ); ?>" maxlength="50" minlength="5" required>
+										placeholder="<?php esc_html_e( 'E-Mail', 'kemroc' ); ?>" maxlength="50"
+										minlength="5" required>
 									<span class="cf-form__error-notice">
 										<?php echo esc_html( $kemroc_si_form_messages['empty_field'] ); ?>
 									</span>
@@ -171,13 +167,15 @@ if ( ! $is_preview ) :
 								</label>
 								<!-- /.cf-form__label -->
 
-								<label for="resumeFile" id="resumeFileLabel" class="cf-form__label cf-form__label--file">
-										<?php esc_html_e( 'Laden Sie Ihren Lebenslauf hoch', 'kemroc' ); ?>
+								<label id="resumeFileLabel" class="cf-form__label cf-form__label--file">
+									<?php esc_html_e( 'Laden Sie Ihren Lebenslauf hoch', 'kemroc' ); ?>
+									<input type="file" name="resume" size="40" class="cf-form__field cf-form__field--file"
+									id="resumeFile" accept=".pdf,.doc,.docx">
 								</label>
-								<input type="file" name="resume" size="40" class="cf-form__field cf-form__field--file"
-									id="resumeFile" accept=".pdf,.txt,.doc,.docx,.jpg,.png">
+								
 								<div id="resumeFileArea" class="cf-form__label cf-form__label--resume">
-									<p id="resumeFileAreaLinkText">
+									<span class="cross cf-form__file-clear"></span>
+									<p id="resumeFileAreaText">
 										<?php
 										echo wp_kses(
 											__( '<a>Klicken Sie auf eine Datei und wählen Sie sie aus</a>, oder ziehen Sie eine <b>DOC-</b>, <b>DOCX-</b> oder <b>PDF-Datei</b> per Drag & Drop. Die maximale Dateigröße beträgt <b>1 Mb</b>.', 'kemroc' ),
@@ -188,8 +186,13 @@ if ( ! $is_preview ) :
 										);
 										?>
 									</p>
+									<div class="cf-form__error-notice cf-form__error-notice--file">
+										<?php echo esc_html( $kemroc_si_form_messages['file_oversize'] ); ?>
+									</div>
+									<!-- ./cf-form__error-notice cf-form__error-notice--file -->
 								</div>
 								<!-- /.cf-form__label -->
+
 								<button class="btn btn-accent btn-rounded arrow-right cf-form__button">
 									<?php esc_html_e( 'Formular senden', 'kemroc' ); ?>
 								</button>
@@ -200,7 +203,6 @@ if ( ! $is_preview ) :
 								<!-- /.cf-form__success-message -->
 								<div class="cf-form__error-message"></div>
 								<!-- /.cf-form__error-message -->
-
 								<div class="cf-form__agree">
 									<input id="agree-checkbox" type="checkbox" name="agree"
 										class="cf-form__agree-checkbox cf-form__agree-checkbox--required" required>
@@ -227,10 +229,12 @@ if ( ! $is_preview ) :
 									<?php endif; ?>
 								</div>
 								<!-- /.cf-form__bottom -->
-								<input type="checkbox" name="anticheck" style="display: none !important;" value="true" checked="checked" />
+								<input type="checkbox" name="anticheck" style="display: none !important;" value="true"
+									checked="checked" />
 								<input type="text" name="submitted" value="" style="display: none !important;" />
-								<input type="hidden" name="MAX_FILE_SIZE" value="3145728" />
+								<input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
 							</div>
+						</div>
 					</form>
 					<!-- /.contacts-form__form cf-form -->
 

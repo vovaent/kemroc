@@ -9,6 +9,13 @@ const stellenangebotForm = ( $ ) => {
 	const $resumeFile = $( '#resumeFile', $form );
 	const $successMessage = $( '.cf-form__success-message', $form );
 	const $errorMessage = $( '.cf-form__error-message', $form );
+	const elResumeFile = document.getElementById( 'resumeFile' );
+	const elResumeFileLabel = document.getElementById( 'resumeFileLabel' );
+	const elResumeFileArea = document.getElementById( 'resumeFileArea' );
+	const elResumeFileAreaText = document.getElementById(
+		'resumeFileAreaText'
+	);
+	const $fileClear = $( '.cf-form__file-clear' );
 
 	const showError = ( $el, type ) => {
 		$el.addClass( 'cf-form__field--error' );
@@ -16,11 +23,14 @@ const stellenangebotForm = ( $ ) => {
 		if ( type === 'empty' ) {
 			$el.siblings( '.cf-form__error-notice' )
 				.not( '.cf-form__error-notice--email' )
+				.not( 'cf-form__error-notice--file' )
 				.show();
 		} else if ( type === 'invalidEmail' ) {
 			$el.siblings( '.cf-form__error-notice--email' ).show();
 		} else if ( type === 'checkbox' ) {
 			$( '.cf-form__error-notice--checkbox' ).show();
+		} else if ( type === 'file' ) {
+			$( '.cf-form__error-notice--file' ).show();
 		}
 	};
 
@@ -30,6 +40,9 @@ const stellenangebotForm = ( $ ) => {
 			$el.siblings( '.cf-form__error-notice' ).hide();
 		} else if ( type === 'checkbox' ) {
 			$( '.cf-form__error-notice--checkbox' ).hide();
+		} else if ( type === 'file' ) {
+			$el.removeClass( 'cf-form__field--error' );
+			$( '.cf-form__error-notice--file' ).hide();
 		}
 	};
 
@@ -106,7 +119,11 @@ const stellenangebotForm = ( $ ) => {
 			const resumeFileData = $resumeFile.prop( 'files' )[ 0 ];
 
 			if ( typeof resumeFileData !== 'undefined' ) {
-				data.append( 'resume', resumeFileData );
+				if ( resumeFileData.size <= 1000 ) {
+					data.append( 'resume', resumeFileData );
+				} else {
+					showError();
+				}
 			}
 		}
 
@@ -169,10 +186,6 @@ const stellenangebotForm = ( $ ) => {
 	} );
 
 	const loadFileHandler = () => {
-		const elResumeFile = document.getElementById( 'resumeFile' );
-		const elResumeFileArea = document.getElementById( 'resumeFileArea' );
-		const elResumeFileLabel = document.getElementById( 'resumeFileLabel' );
-
 		if ( elResumeFile === null ) {
 			return;
 		}
@@ -186,22 +199,36 @@ const stellenangebotForm = ( $ ) => {
 		}
 
 		const labelText = elResumeFileLabel.textContent;
+		const fileAreaHtml = elResumeFileAreaText.innerHTML;
 
-		elResumeFile.onchange = function ( e ) {
-			const target = e.target;
-			const fullFileName = target.value;
-			const fileName =
-				fullFileName.replace( /\\/g, '/' ).split( '/' ).pop() ||
-				labelText;
-			elResumeFileLabel.textContent = fileName;
-			elResumeFileArea.innerHTML = fileName;
+		elResumeFile.onchange = function () {
+			if ( this.files.length === 0 ) {
+				return;
+			}
+
+			$fileClear.addClass( 'cf-form__file-clear--visible' );
+
+			const file = this.files[ 0 ];
+
+			elResumeFileLabel.textContent = file.name;
+			elResumeFileAreaText.innerHTML = file.name;
+
+			if ( file.size > 1000 ) {
+				showError( $( elResumeFileArea ), 'file' );
+			}
 		};
 
-		const elResumeFileAreaLinkText = document.getElementById(
-			'resumeFileAreaLinkText'
-		);
+		$fileClear.on( 'click', function () {
+			elResumeFile.value = '';
+			elResumeFileLabel.textContent = labelText;
+			elResumeFileAreaText.innerHTML = fileAreaHtml;
 
-		elResumeFileAreaLinkText.addEventListener( 'click', () => {
+			hideError( $( elResumeFileArea ), 'file' );
+
+			$( this ).removeClass( 'cf-form__file-clear--visible' );
+		} );
+
+		elResumeFileAreaText.addEventListener( 'click', () => {
 			elResumeFile.click();
 		} );
 
@@ -230,27 +257,29 @@ const stellenangebotForm = ( $ ) => {
 
 		let files;
 
-		[ 'dragleave', 'drop' ].forEach( ( eventName ) => {
-			elResumeFileArea.addEventListener(
-				eventName,
-				function ( e ) {
-					this.classList.remove( 'cf-form__label--resume--over' );
-					// this.classList.add( 'wpcf7-form__file-area--drop' );
+		elResumeFileArea.addEventListener(
+			'dragleave',
+			function () {
+				this.classList.remove( 'cf-form__label--resume--over' );
+			},
+			false
+		);
 
-					const dt = e.dataTransfer;
-					files = dt.files;
+		elResumeFileArea.addEventListener(
+			'drop',
+			function ( e ) {
+				this.classList.remove( 'cf-form__label--resume--over' );
 
-					if ( files.length > 1 ) return;
+				const dt = e.dataTransfer;
+				files = dt.files;
 
-					if ( typeof files[ 0 ] !== 'undefined' ) {
-						const file = files[ 0 ];
-						this.textContent = file.name;
-						elResumeFile.files = files;
-					}
-				},
-				false
-			);
-		} );
+				if ( files.length > 1 ) return;
+
+				elResumeFile.files = files;
+				$( elResumeFile ).trigger( 'change' );
+			},
+			false
+		);
 	};
 
 	loadFileHandler();
