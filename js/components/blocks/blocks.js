@@ -9,6 +9,7 @@ import { faq } from './sonder/faq';
 import { allNews } from './news/all-news';
 import { products } from './product/products';
 import { ourTeam } from './sonder/our-team';
+import { stellenangebotForm } from './stellenangebot/stellenangebot-form';
 
 const blocks = ( $ ) => {
 	productModelList( $ );
@@ -22,6 +23,7 @@ const blocks = ( $ ) => {
 	allNews( $ );
 	products( $ );
 	ourTeam( $ );
+	stellenangebotForm( $ );
 };
 
 export { blocks };

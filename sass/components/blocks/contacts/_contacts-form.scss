@@ -326,7 +326,22 @@
         width: 100%;
         padding: 20px;
         border-radius: 16px;
-        border: 1px solid $accent;
+        border: 1px solid rgb(75, 170, 75);
+        font-family: $font__third;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 26px;
+        color: $color__text-main;
+        text-align: center;
+    }
+
+    &__error-message {
+        display: none;
+        margin-top: 20px;
+        width: 100%;
+        padding: 20px;
+        border-radius: 16px;
+        border: 1px solid rgb(231, 76, 76);
         font-family: $font__third;
         font-weight: 600;
         font-size: 18px;

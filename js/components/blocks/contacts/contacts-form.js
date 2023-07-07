@@ -2,10 +2,12 @@ const contactsForm = ( $ ) => {
 	/* global contacts_object, customEmailTo */
 	/* eslint no-undef: "error"*/
 
-	const $form = $( '#cf-form' );
-	const $button = $( '.cf-form__button' );
-	const $requiredField = $( '.cf-form__field--required' );
-	const $checkbox = $( '.cf-form__agree-checkbox' );
+	const $form = $( '#cf-form-contacts' );
+	const $button = $( '.cf-form__button', $form );
+	const $requiredField = $( '.cf-form__field--required', $form );
+	const $checkbox = $( '.cf-form__agree-checkbox', $form );
+	const $successMessage = $( '.cf-form__success-message', $form );
+	const $errorMessage = $( '.cf-form__error-message', $form );
 
 	const showError = ( $el, type ) => {
 		$el.addClass( 'cf-form__field--error' );
@@ -115,18 +117,31 @@ const contactsForm = ( $ ) => {
 			processData: false,
 			success( resp ) {
 				if ( ! resp.success ) {
-					$.each(
-						resp.data,
-						function ( indexInArray, valueOfElement ) {
-							showError(
-								$( `input[name=${ indexInArray }]` ),
-								valueOfElement
-							);
-						}
-					);
-				} else {
-					const $successMessage = $( '.cf-form__success-message' );
+					if ( typeof resp.data === 'object' ) {
+						$.each(
+							resp.data,
+							function ( indexInArray, valueOfElement ) {
+								showError(
+									$( `input[name=${ indexInArray }]` ),
+									valueOfElement
+								);
+							}
+						);
+					} else if ( typeof resp.data === 'string' ) {
+						$errorMessage.text( '' ).text( resp.data );
+						$errorMessage.fadeIn( 400, function () {
+							const srollToPos = $errorMessage.offset().top - 500;
 
+							$( 'html, body' ).animate(
+								{ scrollTop: srollToPos },
+								500
+							);
+						} );
+						setTimeout( () => {
+							$errorMessage.fadeOut();
+						}, 5000 );
+					}
+				} else {
 					$successMessage.fadeIn( 400, function () {
 						const srollToPos = $successMessage.offset().top - 500;
 

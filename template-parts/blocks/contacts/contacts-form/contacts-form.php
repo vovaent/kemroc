@@ -37,7 +37,7 @@ if ( ! $is_preview ) :
 	$kemroc_cf_form_messages = array(
 		'empty_field'         => ! empty( $kemroc_cf_form_data['error_text_empty_field'] ) ? $kemroc_cf_form_data['error_text_empty_field'] : esc_html__( 'Dieses Feld darf nicht leer sein', 'kemroc' ),
 		'invalid_email'       => ! empty( $kemroc_cf_form_data['error_text_invalid_email'] ) ? $kemroc_cf_form_data['error_text_invalid_email'] : esc_html__( 'E-Mail-Feld wird nicht korrekt ausgefüllt', 'kemroc' ),
-		'empty_checkbox'      => ! empty( $kemroc_cf_form_data['error_text_empty_checkbox'] ) ? $kemroc_cf_form_data['error_text_empty_checkbox'] : esc_html__( 'Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!', 'kemroc' ),
+		'empty_checkbox'      => ! empty( $kemroc_cf_form_data['error_text_empty_checkbox'] ) ? $kemroc_cf_form_data['error_text_empty_checkbox'] : esc_html__( 'Um das Formular abzuschicken, müssen Sie die Vereinbarung akzeptieren und das Kästchen ankreuzen.', 'kemroc' ),
 		'agree_text'          => ! empty( $kemroc_cf_form_data['agree_text'] ) ? $kemroc_cf_form_data['agree_text'] : esc_html__( 'Durch das Absenden Dieses Kontaktformulars erklären Sie sich damit einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in unserer Datenschutzerklärung.', 'kemroc' ),
 		'success_submit_text' => ! empty( $kemroc_cf_form_data['success_submit_text'] ) ? $kemroc_cf_form_data['success_submit_text'] : esc_html__( 'Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!', 'kemroc' ),
 	);
@@ -49,7 +49,7 @@ if ( ! $is_preview ) :
 				<?php echo esc_html( $kemroc_cf_title ); ?>
 			</h2>
 			<!-- /.contacts-form__title -->
-			<form id="cf-form" class="contacts-form__form cf-form">
+			<form id="cf-form-contacts" class="contacts-form__form cf-form">
 				<div class="cf-form__top">
 					<div class="cf-form__left">
 						<label class="cf-form__label">
@@ -167,6 +167,8 @@ if ( ! $is_preview ) :
 						<?php echo esc_html( $kemroc_cf_form_messages['success_submit_text'] ); ?>
 					</div>
 					<!-- /.cf-form__success-message -->
+					<div class="cf-form__error-message"></div>
+					<!-- /.cf-form__error-message -->
 				</div>
 				<!-- /.cf-form__bottom -->
 				<input type="checkbox" name="anticheck" style="display: none !important;" value="true" checked="checked"/>

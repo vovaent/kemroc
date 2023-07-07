@@ -229,21 +229,6 @@
                 width: 100%;
             }
         }
-
-        &__success-message {
-            display: none;
-            margin-top: 20px;
-            width: 100%;
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid $accent;
-            font-family: $font__third;
-            font-weight: 600;
-            font-size: 18px;
-            line-height: 26px;
-            color: $color__text-main;
-            text-align: center;
-        }
     }
 
     .cf-form__agree-text {
@@ -312,6 +297,10 @@
         border: 1px dashed #EBEBEB;
         background: #FFF;
 
+        &--over {
+            border: 2px dotted;
+        }
+
         p {
             margin-top: 0;
             font-weight: 400;
@@ -327,7 +316,12 @@
             line-height: 140%;
             -webkit-text-decoration-line: underline;
             text-decoration-line: underline;
+            cursor: pointer;
         }
+    }
+
+    .cf-form__label--file {
+        display: none;
     }
 
     .cf-form__field--file {

@@ -161,6 +161,43 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_64a7aa17fd37d",
+                    "label": "Individuelle E-Mail (copy)",
+                    "name": "custom_email_copy",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "Aktivieren Sie dieses Kontrollkästchen, wenn Sie E-Mails an eine andere E-Mail-Adresse als die des Administrators erhalten möchten",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_64a7aa3548ac6",
+                    "label": "E-Mail an (copy)",
+                    "name": "email_to_copy",
+                    "type": "email",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_64a73f6ade243",
                     "label": "Formulartitel",
                     "name": "title",
@@ -235,6 +272,101 @@
                     "tabs": "all",
                     "toolbar": "full",
                     "media_upload": 1
+                },
+                {
+                    "key": "field_64a7aa6489cd5",
+                    "label": "Fehlertext: \"Leeres Feld\".",
+                    "name": "error_text_empty_field",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_64a7aa6889cd6",
+                    "label": "Fehlertext: \"Falsche E-Mail\"",
+                    "name": "error_text_invalid_email",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_64a7aa6d89cd7",
+                    "label": "Fehlertext: \"Kontrollkästchen nicht angekreuzt\"",
+                    "name": "error_text_empty_checkbox",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_64a7aa7089cd8",
+                    "label": "Text zustimmen",
+                    "name": "agree_text",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_64a7aa7689cd9",
+                    "label": "Text zum erfolgreichen Absenden des Formulars",
+                    "name": "success_submit_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         }
@@ -257,5 +389,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688683423
+    "modified": 1688710408
 }
