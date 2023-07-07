@@ -173,15 +173,15 @@ const stellenangebotForm = ( $ ) => {
 		const elResumeFileArea = document.getElementById( 'resumeFileArea' );
 		const elResumeFileLabel = document.getElementById( 'resumeFileLabel' );
 
-		if ( typeof elResumeFile === 'undefined' ) {
+		if ( elResumeFile === null ) {
 			return;
 		}
 
-		if ( typeof elResumeFileArea === 'undefined' ) {
+		if ( elResumeFileArea === null ) {
 			return;
 		}
 
-		if ( typeof elResumeFileLabel === 'undefined' ) {
+		if ( elResumeFileLabel === null ) {
 			return;
 		}
 
