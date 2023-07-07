@@ -143,7 +143,7 @@ if ( ! $is_preview ) :
 								<label class="cf-form__label">
 									<?php esc_html_e( 'Name', 'kemroc' ); ?> *
 									<input type="text" name="name" class="cf-form__field cf-form__field--required"
-										placeholder="<?php esc_html_e( 'Name', 'kemroc' ); ?>" required>
+										placeholder="<?php esc_html_e( 'Name', 'kemroc' ); ?>" maxlength="15" minlength="2" required>
 									<span class="cf-form__error-notice">
 										<?php echo esc_html( $kemroc_si_form_messages['empty_field'] ); ?>
 									</span>
@@ -151,8 +151,8 @@ if ( ! $is_preview ) :
 								<!-- /.cf-form__label -->
 								<label class="cf-form__label cf-form__label--phone">
 									<?php esc_html_e( 'Telefon', 'kemroc' ); ?> *
-									<input type="tel" name="phone" class="cf-form__field cf-form__field--required"
-										placeholder="<?php esc_html_e( 'Telefon', 'kemroc' ); ?>" required>
+									<input type="number" name="phone" class="cf-form__field cf-form__field--required"
+										placeholder="<?php esc_html_e( 'Telefon', 'kemroc' ); ?>" maxlength="15" minlength="5" required>
 									<span class="cf-form__error-notice">
 										<?php echo esc_html( $kemroc_si_form_messages['empty_field'] ); ?>
 									</span>
@@ -161,7 +161,7 @@ if ( ! $is_preview ) :
 								<label class="cf-form__label cf-form__label--email">
 									<?php esc_html_e( 'E-Mail', 'kemroc' ); ?> *
 									<input type="email" name="email" class="cf-form__field cf-form__field--required"
-										placeholder="<?php esc_html_e( 'E-Mail', 'kemroc' ); ?>" required>
+										placeholder="<?php esc_html_e( 'E-Mail', 'kemroc' ); ?>" maxlength="50" minlength="5" required>
 									<span class="cf-form__error-notice">
 										<?php echo esc_html( $kemroc_si_form_messages['empty_field'] ); ?>
 									</span>
