@@ -55,7 +55,8 @@ class GetPostsAjax {
 			console.log( 'error:', resp );
 		} else {
 			this.output( resp );
-			this.goToSectionTop();
+
+			this.goToSectionTopHandler();
 		}
 	}
 
@@ -95,10 +96,20 @@ class GetPostsAjax {
 		} );
 	}
 
-	goToSectionTop() {
-		const $sectionAllNews = $( '.all-news' );
-		const scrollToPos = this.els.$section.offset().top - 180;
-		$( 'html, body' ).animate( { scrollTop: scrollToPos }, 500 );
+	goToSectionTopHandler() {
+		const isHomePage = $( 'body' ).hasClass( 'home' );
+
+		if ( ! isHomePage ) {
+			const scrollToPos = this.els.$section.offset().top - 180;
+			const paginationIsPresent =
+				$( '.kemroc-navigation__nav-links' ).length !== 0;
+			const scrollPositionBelowSection =
+				$( document ).scrollTop() > scrollToPos;
+
+			if ( paginationIsPresent && scrollPositionBelowSection ) {
+				$( 'html, body' ).animate( { scrollTop: scrollToPos }, 500 );
+			}
+		}
 	}
 }
 
