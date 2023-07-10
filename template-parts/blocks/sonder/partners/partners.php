@@ -56,15 +56,18 @@ if ( ! $is_preview ) :
 
 						<?php foreach ( $kemroc_ps_list as $kemroc_ps_item ) : ?>
 							<li class="our-partners__item">
-								<?php echo wp_get_attachment_image( $kemroc_ps_item['partner_logo'] ); ?>
+								<a href="<?php echo esc_url( $kemroc_ps_item['partner_link'] ); ?>" class="our-partners__item-link">
+									<?php echo wp_get_attachment_image( $kemroc_ps_item['partner_logo'] ); ?>
+								</a>
+								<!-- /.our-partners__item-link -->
 							</li>
 							<!-- /.our-partners__item -->
 						<?php endforeach; ?>
-					
-				   </ul>
+
+					</ul>
 					<!-- /.our-partners__list -->
 				<?php endif; ?>
-				
+
 			</div>
 			<!-- /.our-partners__inner -->
 		</div>

@@ -46,30 +46,6 @@
             "append": ""
         },
         {
-            "key": "field_64a821f214103",
-            "label": "Partnerlogo",
-            "name": "partner_logo",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
-        },
-        {
             "key": "field_64a8223014104",
             "label": "Liste",
             "name": "list",
@@ -114,6 +90,22 @@
                     "mime_types": "",
                     "preview_size": "medium",
                     "parent_repeater": "field_64a8223014104"
+                },
+                {
+                    "key": "field_64abdf1c79a9d",
+                    "label": "Partner link",
+                    "name": "partner_link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "parent_repeater": "field_64a8223014104"
                 }
             ]
         }
@@ -136,5 +128,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688740573
+    "modified": 1688985414
 }
