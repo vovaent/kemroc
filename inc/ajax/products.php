@@ -69,21 +69,11 @@ function kemroc_ajax_products_action_callback() {
 		$result['posts'] = $posts;
 
 		if ( ! $nopaging ) {
-			$prev_arrow = kemroc_get_template_part_content(
-				'template-parts/icons/arrow-left',
-				null,
-				array( 'fill' => '#ff6000' ) 
-			);
-			$next_arrow = kemroc_get_template_part_content(
-				'template-parts/icons/arrow-right',
-				null,
-				array( 'fill' => '#ff6000' ) 
-			);
             $navigation = kemroc_get_the_posts_pagination( //phpcs:ignore
 				array(
 					'class'     => 'kemroc-navigation',
-					'prev_text' => $prev_arrow, 
-					'next_text' => $next_arrow,
+					'prev_text' => '', 
+					'next_text' => '',
 				),
 				$query,
 				$page_number

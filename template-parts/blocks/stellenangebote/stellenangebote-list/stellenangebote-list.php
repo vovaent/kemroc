@@ -45,21 +45,11 @@ if ( ! $is_preview ) :
 			'paged'          => $kemroc_sl_current,
 		)
 	);
-	$kemroc_sl_prev_arrow = kemroc_get_template_part_content(
-		'template-parts/icons/arrow-left',
-		null,
-		array( 'fill' => '#ff6000' ) 
-	);
-	$kemroc_sl_next_arrow = kemroc_get_template_part_content(
-		'template-parts/icons/arrow-right',
-		null,
-		array( 'fill' => '#ff6000' ) 
-	);
     $kemroc_sl_navigation = kemroc_get_the_posts_pagination( //phpcs:ignore
 		array(
 			'class'     => 'kemroc-navigation',
-			'prev_text' => $kemroc_sl_prev_arrow, 
-			'next_text' => $kemroc_sl_next_arrow,
+			'prev_text' => '', 
+			'next_text' => '',
 		),
 		$kemroc_sl_the_query,
 		$kemroc_sl_current

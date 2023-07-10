@@ -1,9 +1,10 @@
 <?php
 /**
  * Termine Block Template.
+ * 
+ * @package kemroc
  */
 
-global $wp_query;
 if ( isset( $block['data']['gutenberg_preview_image'] ) && $is_preview ) {
 	echo '<img src="' . esc_url( $block['data']['gutenberg_preview_image'] ) . '" style="max-width:100%; height:auto;">';
 }
@@ -36,7 +37,7 @@ if ( ! $is_preview ) :
 	?>
 
 	<?php
-	$the_query = new WP_Query(
+	$the_query  = new WP_Query(
 		array(
 			'post_type'      => 'termin',
 			'posts_per_page' => 6,
@@ -45,6 +46,15 @@ if ( ! $is_preview ) :
 			'order'          => 'ASC',
 			'paged'          => $current,
 		)
+	);
+    $navigation = kemroc_get_the_posts_pagination( //phpcs:ignore
+		array(
+			'class'     => 'kemroc-navigation',
+			'prev_text' => '', 
+			'next_text' => '',
+		),
+		$the_query,
+		$current
 	);
 	?>
 
@@ -74,24 +84,10 @@ if ( ! $is_preview ) :
 				</div>
 				<?php
 				wp_reset_postdata();
-				$restore_wp_query = $wp_query;
-				$wp_query         = $the_query;
 				?>
-				<?php
-				$args = array(
-					'show_all'           => false,
-					'end_size'           => 1,
-					'mid_size'           => 1,
-					'prev_next'          => true,
-					'prev_text'          => __( '' ),
-					'next_text'          => __( '' ),
-					'add_args'           => false,
-					'add_fragment'       => '',
-					'screen_reader_text' => __( 'Posts navigation' ),
-					'class'              => 'pagination',
-				);
-				the_posts_pagination( $args );
-				?>
+				<div class="jobs-navigation">
+					<?php echo $navigation; ?>
+				</div>
 			<?php } ?>
 		</div>
 	</section>

@@ -10,21 +10,12 @@
 global $wp_query;
 $kemroc_s_post_count  = $wp_query->found_posts;
 $kemroc_s_page_number = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-$kemroc_s_prev_arrow  = kemroc_get_template_part_content(
-	'template-parts/icons/arrow-left',
-	null,
-	array( 'fill' => '#ff6000' )
-);
-$kemroc_s_next_arrow  = kemroc_get_template_part_content(
-	'template-parts/icons/arrow-right',
-	null,
-	array( 'fill' => '#ff6000' )
-);
-$kemroc_s_navigation  = kemroc_get_the_posts_pagination(
+
+$kemroc_s_navigation = kemroc_get_the_posts_pagination(
 	array(
 		'class'     => 'kemroc-navigation',
-		'prev_text' => $kemroc_s_prev_arrow,
-		'next_text' => $kemroc_s_next_arrow,
+		'prev_text' => '',
+		'next_text' => '',
 	),
 	null,
 	$kemroc_s_page_number
