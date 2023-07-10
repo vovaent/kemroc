@@ -201,6 +201,14 @@ const contentPost = ( $ ) => {
 				`<span class="wp-block-file__extension">${ extension }</span>`
 			);
 		}
+
+		const $downloadLink = $( '<a>', {
+			class: 'wp-block-file__download-link',
+			href: wpBlockFileLinkHref,
+			download: true,
+		} );
+
+		$wpBlockFileLink.after( $downloadLink );
 	};
 
 	const goToReadHandler = () => {

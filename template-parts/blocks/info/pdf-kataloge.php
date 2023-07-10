@@ -35,27 +35,25 @@ if ( ! $is_preview ) :
 						<?php if ( isset( $row['file']['url'] ) ) : ?>
 
 							<div class="list-pdf__item">
-								<div class="item-info">
+								<a class="item-info" href="<?php echo $row['file']['url']; ?>" target="_blank">
 									<?php if ( $row['bild'] ) : ?>
 										<img src="<?php echo $row['bild']; ?>">
 									<?php endif; ?>
 									<?php if ( isset( $row['file']['url'] ) ) : ?>
-										<a href="<?php echo $row['file']['url']; ?>" target="_blank">
-											<?php if ( $row['title'] ) : ?>
-												<p>
-													<?php echo $row['title']; ?> <span>.pdf</span>
-												</p>
-											<?php endif; ?>
-										</a>
+										<?php if ( $row['title'] ) : ?>
+											<p>
+												<?php echo $row['title']; ?> <span>.pdf</span>
+											</p>
+										<?php endif; ?>
 									<?php endif; ?>
-								</div>
-								<div class="item-icon">
-									<?php if ( isset( $row['file']['url'] ) ) : ?>
-										<a href="<?php echo $row['file']['url']; ?>" download>
-											<img src="<?php echo get_template_directory_uri(); ?>/images/download-01.svg" alt="download">
-										</a>
-									<?php endif; ?>
-								</div>
+								</a>
+								<!-- <div class="item-icon"> -->
+								<?php if ( isset( $row['file']['url'] ) ) : ?>
+									<a class="item-icon" href="<?php echo $row['file']['url']; ?>" download>
+										<img src="<?php echo get_template_directory_uri(); ?>/images/download-01.svg" alt="download">
+									</a>
+								<?php endif; ?>
+								<!-- </div> -->
 							</div>
 						<?php endif; ?>
 
