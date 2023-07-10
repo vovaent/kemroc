@@ -164,6 +164,14 @@
 
         .lazy-video__figure {
             height: 520px;
+
+            @include media-down-md {
+                height: 387px;
+            }
+
+            @include media-down-sm {
+                height: 175.5px;
+            }
         }
     }
 }
