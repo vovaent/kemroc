@@ -14,6 +14,7 @@
         gap: 70px;
 
         @include media-down-md {
+            flex-direction: column;
             gap: 32px;
         }
 
@@ -23,42 +24,23 @@
     }
 
     &__picture {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: relative;
         flex: 1 0 auto;
         width: 600px;
-        height: 640px;
         margin: 0;
         border-radius: 16px;
         overflow: hidden;
 
         @include media-down-md {
-            width: 328px;
-        }
-
-        @include media-down-sm {
             width: 100%;
-            height: 370px;
         }
 
         img {
-            border-radius: 16px;
-            overflow: hidden;
-
-            @include media-down-md {
-                position: absolute;
-                top: 0;
-                right: -42px;
-                max-width: unset;
-                width: 555px;
-                height: 640px;
-                object-fit: unset;
-            }
-
-            @include media-down-sm {
-                right: -23px;
-                width: 360px;
-                height: 395px;
-            }
+            width: 100%;
+            height: 100%;
         }
     }
 
@@ -71,6 +53,10 @@
         @include media-down-md {
             font-size: 28px;
             line-height: 140%;
+        }
+
+        @include media-down-sm {
+            font-size: 24px;
         }
     }
 

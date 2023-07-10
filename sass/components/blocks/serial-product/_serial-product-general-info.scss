@@ -46,6 +46,10 @@
             font-size: 28px;
             line-height: 39px;
         }
+
+        @include media-down-sm {
+            font-size: 24px;
+        }
     }
 
     &__subtitle {
