@@ -1,6 +1,6 @@
 <?php
 /**
- * Stellenangebot form processing
+ * Stellenangebot info processing
  * 
  * @package kemroc 
  */
@@ -53,6 +53,8 @@ function kemroc_ajax_stellenangebot_action_callback() {
 
 		if ( isset( $_FILES['resume']['error'] ) && 0 < $resume_file['error'] ) {
 			$err_message['resume'] = sanitize_text_field( wp_unslash( $resume_file['error'] ) );
+		} elseif ( 1000000 < $resume_file['size'] ) {
+			$err_message['resume'] = 'file';        
 		} else {
 			$upload_dir       = wp_upload_dir();
 			$uploads_path     = $upload_dir['path'];

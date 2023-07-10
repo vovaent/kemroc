@@ -1,4 +1,4 @@
-const stellenangebotForm = ( $ ) => {
+const stellenangebotInfo = ( $ ) => {
 	/* global stellenangebotAjax, customEmailTo */
 	/* eslint no-undef: "error"*/
 
@@ -23,7 +23,6 @@ const stellenangebotForm = ( $ ) => {
 		if ( type === 'empty' ) {
 			$el.siblings( '.cf-form__error-notice' )
 				.not( '.cf-form__error-notice--email' )
-				.not( 'cf-form__error-notice--file' )
 				.show();
 		} else if ( type === 'invalidEmail' ) {
 			$el.siblings( '.cf-form__error-notice--email' ).show();
@@ -55,7 +54,8 @@ const stellenangebotForm = ( $ ) => {
 		let res = true;
 
 		const $this = $( el );
-		const thisValue = $this.val();
+		// const thisValue = $this.val();
+		const thisValue = el.value;
 		const thisType = $this.attr( 'type' );
 
 		if ( thisValue === '' ) {
@@ -119,11 +119,11 @@ const stellenangebotForm = ( $ ) => {
 			const resumeFileData = $resumeFile.prop( 'files' )[ 0 ];
 
 			if ( typeof resumeFileData !== 'undefined' ) {
-				if ( resumeFileData.size <= 1000 ) {
-					data.append( 'resume', resumeFileData );
-				} else {
-					showError();
-				}
+				// if ( resumeFileData.size <= 1000000 ) {
+				data.append( 'resume', resumeFileData );
+				// } else {
+				// 	showError();
+				// }
 			}
 		}
 
@@ -147,6 +147,14 @@ const stellenangebotForm = ( $ ) => {
 						$.each(
 							resp.data,
 							function ( indexInArray, valueOfElement ) {
+								if ( indexInArray === 'resume' ) {
+									showError(
+										$( elResumeFileArea ),
+										valueOfElement
+									);
+									return;
+								}
+
 								showError(
 									$( `input[name=${ indexInArray }]` ),
 									valueOfElement
@@ -198,32 +206,34 @@ const stellenangebotForm = ( $ ) => {
 			return;
 		}
 
-		const labelText = elResumeFileLabel.textContent;
 		const fileAreaHtml = elResumeFileAreaText.innerHTML;
 
 		elResumeFile.onchange = function () {
-			if ( this.files.length === 0 ) {
+			if ( this.files.length === 0 || this.value === '' ) {
+				hideError( $( elResumeFileArea ), 'file' );
+				showError( $( elResumeFileArea ), 'empty' );
+
 				return;
 			}
+
+			hideError( $( elResumeFileArea ), 'empty' );
 
 			$fileClear.addClass( 'cf-form__file-clear--visible' );
 
 			const file = this.files[ 0 ];
 
-			elResumeFileLabel.textContent = file.name;
 			elResumeFileAreaText.innerHTML = file.name;
 
-			if ( file.size > 1000 ) {
+			if ( file.size > 1000000 ) {
 				showError( $( elResumeFileArea ), 'file' );
 			}
 		};
 
 		$fileClear.on( 'click', function () {
 			elResumeFile.value = '';
-			elResumeFileLabel.textContent = labelText;
 			elResumeFileAreaText.innerHTML = fileAreaHtml;
 
-			hideError( $( elResumeFileArea ), 'file' );
+			$( elResumeFile ).trigger( 'change' );
 
 			$( this ).removeClass( 'cf-form__file-clear--visible' );
 		} );
@@ -285,4 +295,4 @@ const stellenangebotForm = ( $ ) => {
 	loadFileHandler();
 };
 
-export { stellenangebotForm };
+export { stellenangebotInfo };

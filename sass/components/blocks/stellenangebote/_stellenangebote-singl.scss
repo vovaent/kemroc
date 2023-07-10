@@ -177,8 +177,10 @@
         }
 
         .cf-form__agree {
-            display: -webkit-box;
-            display: -ms-flexbox;
+            margin-top: 24px;
+        }
+
+        .cf-form__agree-content {
             display: flex;
         }
 
@@ -293,7 +295,21 @@
         }
     }
 
-    .cf-form__label--resume {
+    .cf-form__label--email,
+    .cf-form__label--phone {
+        width: calc(50% - 10px);
+
+        @include media-down-sm {
+            width: 100%;
+        }
+    }
+
+    .cf-form__file-field-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    .cf-form__field--resume {
         position: relative;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -342,7 +358,7 @@
 
     .cf-form__label--file {
         position: relative;
-        display: none;
+        // display: none;
     }
 
     .cf-form__field--file {

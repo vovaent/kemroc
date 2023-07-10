@@ -166,33 +166,44 @@ if ( ! $is_preview ) :
 									</span>
 								</label>
 								<!-- /.cf-form__label -->
-
-								<label id="resumeFileLabel" class="cf-form__label cf-form__label--file">
-									<?php esc_html_e( 'Laden Sie Ihren Lebenslauf hoch', 'kemroc' ); ?>
-									<input type="file" name="resume" size="40" class="cf-form__field cf-form__field--file"
-									id="resumeFile" accept=".pdf,.doc,.docx">
+								<label class="cf-form__label cf-form__label--phone">
+									<?php esc_html_e( 'Telefon', 'kemroc' ); ?> *
+									<input type="number" name="phone" class="cf-form__field cf-form__field--required" maxlength="15" minlength="5" placeholder="<?php esc_html_e( 'Telefon', 'kemroc' ); ?>" required>
+									<span class="cf-form__error-notice">
+										<?php echo esc_html( $kemroc_si_form_messages['empty_field'] ); ?>
+									</span>
 								</label>
-								
-								<div id="resumeFileArea" class="cf-form__label cf-form__label--resume">
-									<span class="cross cf-form__file-clear"></span>
-									<p id="resumeFileAreaText">
-										<?php
-										echo wp_kses(
-											__( '<a>Klicken Sie auf eine Datei und wählen Sie sie aus</a>, oder ziehen Sie eine <b>DOC-</b>, <b>DOCX-</b> oder <b>PDF-Datei</b> per Drag & Drop. Die maximale Dateigröße beträgt <b>1 Mb</b>.', 'kemroc' ),
-											array(
-												'a' => array(),
-												'b' => array(),
-											)
-										);
-										?>
-									</p>
-									<div class="cf-form__error-notice cf-form__error-notice--file">
-										<?php echo esc_html( $kemroc_si_form_messages['file_oversize'] ); ?>
-									</div>
-									<!-- ./cf-form__error-notice cf-form__error-notice--file -->
-								</div>
 								<!-- /.cf-form__label -->
-
+								<div class="cf-form__file-field-wrapper">                                
+									<label for="resumeFile" id="resumeFileLabel" class="cf-form__label cf-form__label--file">
+										<?php esc_html_e( 'Resume', 'kemroc' ); ?> *										
+									</label>
+									<input type="file" name="resume" size="40" class="cf-form__field cf-form__field--file cf-form__field--required"
+										id="resumeFile" accept=".pdf,.doc,.docx" required>
+									<div id="resumeFileArea" class="cf-form__field cf-form__field--resume cf-form__field--required">
+										<span class="cross cf-form__file-clear"></span>
+										<p id="resumeFileAreaText">
+											<?php
+											echo wp_kses(
+												__( '<a>Klicken Sie auf eine Datei und wählen Sie sie aus</a>, oder ziehen Sie eine <b>DOC-</b>, <b>DOCX-</b> oder <b>PDF-Datei</b> per Drag & Drop. Die maximale Dateigröße beträgt <b>1 Mb</b>.', 'kemroc' ),
+												array(
+													'a' => array(),
+													'b' => array(),
+												)
+											);
+											?>
+										</p>										
+										<div class="cf-form__error-notice cf-form__error-notice--file">
+											<?php echo esc_html( $kemroc_si_form_messages['file_oversize'] ); ?>
+										</div>
+										<!-- ./cf-form__error-notice cf-form__error-notice--file -->
+									</div>
+									<!-- /.cf-form__field -->									
+									<span class="cf-form__error-notice">
+										<?php echo esc_html( $kemroc_si_form_messages['empty_field'] ); ?>
+									</span>
+								</div>
+								<!-- /.cf-form__file-field-wrapper -->
 								<button class="btn btn-accent btn-rounded arrow-right cf-form__button">
 									<?php esc_html_e( 'Formular senden', 'kemroc' ); ?>
 								</button>
@@ -204,18 +215,24 @@ if ( ! $is_preview ) :
 								<div class="cf-form__error-message"></div>
 								<!-- /.cf-form__error-message -->
 								<div class="cf-form__agree">
-									<input id="agree-checkbox" type="checkbox" name="agree"
-										class="cf-form__agree-checkbox cf-form__agree-checkbox--required" required>
-									<label for="agree-checkbox" class="cf-form__agree-label"></label>
-									<div class="cf-form__agree-text">
-										<?php echo esc_html( $kemroc_si_form_messages['agree_text'] ); ?> *
+									<div class="cf-form__agree-content">
+										<input id="agree-checkbox" type="checkbox" name="agree"
+											class="cf-form__agree-checkbox cf-form__agree-checkbox--required" required>
+										<label for="agree-checkbox" class="cf-form__agree-label"></label>
+										<div class="cf-form__agree-text">
+											<?php echo esc_html( $kemroc_si_form_messages['agree_text'] ); ?> *
+										</div>
+										<!-- /.cf-form__agree-text -->
 									</div>
-									<!-- /.cf-form__agree-text -->
+									<!-- /.cf-form__agree-content -->
 									<div class="cf-form__error-notice cf-form__error-notice--checkbox">
 										<?php echo esc_html( $kemroc_si_form_messages['empty_checkbox'] ); ?>
 									</div>
 								</div>
 								<!-- /.cf-form__agree -->
+								<div class="cf-form__error-notice">
+									<?php echo esc_html( $kemroc_si_form_messages['empty_field'] ); ?>
+								</div>
 								<div class="cf-form_beschreibung">
 									<?php if ( ! empty( $kemroc_si_form['cta'] ) ) : ?>
 										<div class="cf-form_beschreibung-title">
