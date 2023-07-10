@@ -94,10 +94,10 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_648c502b028a1",
-                    "label": "Titel",
-                    "name": "title",
-                    "type": "text",
+                    "key": "field_64abd7923cb97",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -106,31 +106,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_648c4f2e028a0"
-                },
-                {
-                    "key": "field_648c5043028a2",
-                    "label": "Kontakt",
-                    "name": "contact",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
+                    "return_format": "array",
                     "parent_repeater": "field_648c4f2e028a0"
                 }
             ]
@@ -173,5 +149,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688763744
+    "modified": 1688984334
 }

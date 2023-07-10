@@ -56,17 +56,15 @@ if ( ! $is_preview ) :
 					<ul class="contacts-info__contacts-list">
 						
 						<?php foreach ( $kemroc_ci_contacts as $kemroc_ci_contact ) : ?>
-							<li class="contacts-info__contacts-item">
-								<span class="contacts-info__contacts-title">
-									<?php echo esc_html( $kemroc_ci_contact['title'] ); ?>
-								</span>
-								<!-- /.contacts-info__contacts-title -->
-								<span class="contacts-info__contacts-contact">
-									<?php echo esc_html( $kemroc_ci_contact['contact'] ); ?>
-								</span>
-								<!-- /.contacts-info__contacts-contact -->
-							</li>
-							<!-- /.contacts-info__contacts-item -->
+							<?php if ( ! empty( $kemroc_ci_contact['link']['url'] ) && ! empty( $kemroc_ci_contact['link']['title'] ) ) : ?>
+								<li class="contacts-info__contacts-item">
+									<a href="<?php echo esc_html( $kemroc_ci_contact['link']['url'] ); ?>" class="contacts-info__contacts-contact">
+										<?php echo esc_html( $kemroc_ci_contact['link']['title'] ); ?>
+									</a>
+									<!-- /.contacts-info__contacts-contact -->
+								</li>
+								<!-- /.contacts-info__contacts-item -->
+							<?php endif; ?>
 						<?php endforeach; ?>
 						
 					</ul>
@@ -76,14 +74,6 @@ if ( ! $is_preview ) :
 			</div>
 			<!-- /.contacts-info__text -->
 			<div class="contacts-info__map">
-				<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2520.7229441983714!2d10.161076399999999!3d50.81777169999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a366d4879c54a7%3A0xdeccbd0ec6d842c2!2zQWhvcm5zdHJhw59lIDYsIDM2NDY5IEJhZCBTYWx6dW5nZW4sINCT0LXRgNC80LDQvdC40Y8!5e0!3m2!1sru!2sua!4v1688735318007!5m2!1sru!2sua" 
-					width="570" 
-					height="475" 
-					style="border:0;" 
-					allowfullscreen="" 
-					loading="lazy" 
-					referrerpolicy="no-referrer-when-downgrade"
-				></iframe> -->
 				<?php echo do_shortcode( $kemroc_ci_google_map_shortcode ); ?>
 			</div>
 			<!-- /.contacts-info__map -->

@@ -92,6 +92,10 @@
         gap: 5px;
     }
 
+    &__contacts-contact {
+        @include reset-a;
+    }
+
     &__map {
         position: relative;
         max-width: 570px;
