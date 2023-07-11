@@ -97,7 +97,7 @@ const productModelList = ( $ ) => {
 
 		$sliderArrows.css( {
 			top: `${ sliderArrowsPositionTop }px`,
-			transform: 'translateY(-10%)',
+			transform: 'translateY(-6%)',
 		} );
 	};
 
