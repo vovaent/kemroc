@@ -21,7 +21,7 @@ const modelInfo = ( $ ) => {
 
 	$modelInfoTab.on( 'click', modelInfoToggleTab );
 
-	new Swiper( '.model-tabs__slider.swiper-single-slide', {
+	const miSlider = new Swiper( '.model-tabs__slider.swiper-single-slide', {
 		modules: [ Navigation, Pagination ],
 
 		slidesPerView: 1,
@@ -38,6 +38,17 @@ const modelInfo = ( $ ) => {
 			clickable: true,
 		},
 	} );
+
+	const isNullPrevEl = null === miSlider.navigation.prevEl;
+	const isNullNextEl = null === miSlider.navigation.nextEl;
+
+	if ( ! isNullPrevEl && ! isNullNextEl ) {
+		if ( 1 === miSlider.slides.length ) {
+			$( miSlider.navigation.nextEl ).hide();
+			$( miSlider.navigation.prevEl ).hide();
+			$( miSlider.pagination.el ).hide();
+		}
+	}
 };
 
 export { modelInfo };

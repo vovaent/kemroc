@@ -80,8 +80,8 @@ if ( ! $is_preview ) :
 					<!-- /.model-tabs__tab -->
 
 					<?php 
-					if ( ( 'youtube' === $kemroc_mi_video['yt_or_file_load'] && $kemroc_mi_video['id'] )
-						|| ( 'videofile' === $kemroc_mi_video['yt_or_file_load'] && $kemroc_mi_video['videofile'] )
+					if ( ( 'youtube' === $kemroc_mi_video['yt_or_file_load'] && ! empty( $kemroc_mi_video['id'] ) )
+						|| ( 'videofile' === $kemroc_mi_video['yt_or_file_load'] && ! empty( $kemroc_mi_video['videofile'] ) )
 					) : 
 						?>
 						<div class="model-tabs__tab">
@@ -90,10 +90,13 @@ if ( ! $is_preview ) :
 						<!-- /.model-tabs__tab -->
 					<?php endif; ?>
 
-					<div class="model-tabs__tab">
-						<?php esc_html_e( 'FOTOS', 'kemroc' ); ?>
-					</div>
-					<!-- /.model-tabs__tab -->
+					<?php if ( $kemroc_mi_photos && $kemroc_mi_photos[0]['photo'] ) : ?>
+						<div class="model-tabs__tab">
+							<?php esc_html_e( 'FOTOS', 'kemroc' ); ?>
+						</div>
+						<!-- /.model-tabs__tab -->
+					<?php endif; ?>
+
 				</div>
 				<!-- /.model-tabs__head -->
 				<div class="model-tabs__body">
@@ -228,12 +231,18 @@ if ( ! $is_preview ) :
 						<!-- /.model-tabs__inset -->
 					<?php endif; ?>
 
-					<?php if ( $kemroc_mi_photos ) : ?>
+					<?php if ( $kemroc_mi_photos && $kemroc_mi_photos[0]['photo'] ) : ?>
 						<div class="model-tabs__inset">
 							<div class="swiper model-tabs__slider swiper-single-slide swiper-single-slide--big-slider">
 								<ul class="swiper-wrapper swiper-single-slide__container">
 
 									<?php foreach ( $kemroc_mi_photos as $kemroc_mi_photo ) : ?>
+										<?php 
+										if ( ! $kemroc_mi_photo['photo'] ) {
+											continue;
+										} 
+										?>
+																				
 										<li class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--big-slider-slide">
 											<?php
 											echo wp_get_attachment_image(
