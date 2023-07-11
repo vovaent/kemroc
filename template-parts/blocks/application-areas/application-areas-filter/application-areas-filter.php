@@ -107,10 +107,22 @@ if ( ! $is_preview ) :
 						while ( $kemroc_aaf_models_query->have_posts() ) :
 							$kemroc_aaf_models_query->the_post();
 							
-							$kemroc_aaf_model_id      = get_the_ID();
-							$kemroc_aaf_model_weight  = get_field( 'weight', $kemroc_aaf_model_id );
-							$kemroc_aaf_model_terms   = get_the_terms( $kemroc_aaf_model_id, $kemroc_aaf_application_area->taxonomy );
-							$kemroc_aaf_model_term_id = isset( $kemroc_aaf_model_terms[0] ) ? $kemroc_aaf_model_terms[0]->term_id : null;
+							$kemroc_aaf_model_id     = get_the_ID();
+							$kemroc_aaf_model_weight = get_field( 'weight', $kemroc_aaf_model_id );
+							$kemroc_aaf_model_terms  = get_the_terms( $kemroc_aaf_model_id, $kemroc_aaf_application_area->taxonomy );
+							
+							if ( $kemroc_aaf_application_area && ! empty( $kemroc_aaf_model_terms ) ) {
+								if ( 1 < count( $kemroc_aaf_model_terms ) ) {
+									foreach ( $kemroc_aaf_model_terms as $kemroc_aaf_model_term ) {
+										if ( $kemroc_aaf_model_term->parent !== $kemroc_aaf_application_area->term_id ) {
+											continue;
+										}
+										$kemroc_aaf_model_term_id = $kemroc_aaf_model_term->term_id;
+									}
+								} else {
+									$kemroc_aaf_model_term_id = $kemroc_aaf_model_terms[0]->term_id;
+								}
+							}
 							?>
 							<li 
 								class="application-areas-filter__model-item application-areas-item application-areas-item--model"
