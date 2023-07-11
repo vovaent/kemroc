@@ -39,7 +39,6 @@ if ( ! $is_preview ) :
 		'post_status'    => 'publish',
 		'posts_per_page' => -1, // phpcs:ignore
 		'order'          => 'ASC',
-		'orderby'        => 'menu_order',
 	);
 	$kemroc_ot_query = new WP_Query( $kemroc_ot_args );
 	?>
