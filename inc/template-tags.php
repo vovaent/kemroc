@@ -266,8 +266,8 @@ if ( ! function_exists( 'kemroc_paginate_links' ) ) :
 			'aria_current'       => 'page',
 			'show_all'           => false,
 			'prev_next'          => true,
-			'prev_text'          => __( '&laquo; Previous' ),
-			'next_text'          => __( 'Next &raquo;' ),
+			'prev_text'          => __( '&laquo; Vorherige', 'kemroc' ),
+			'next_text'          => __( 'Weiter &raquo;', 'kemroc' ),
 			'end_size'           => 1,
 			'mid_size'           => 2,
 			'type'               => 'plain',
@@ -376,7 +376,7 @@ if ( ! function_exists( 'kemroc_paginate_links' ) ) :
 
 					$dots = true;
 				elseif ( $dots && ! $args['show_all'] ) :
-					$page_links[] = '<span class="' . $dots_class . '">' . __( '&hellip;' ) . '</span>';
+					$page_links[] = '<span class="' . $dots_class . '">' . __( '&hellip;', 'kemroc' ) . '</span>';
 
 					$dots = false;
 				endif;
