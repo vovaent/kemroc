@@ -35,7 +35,9 @@ if ( ! $is_preview ) :
 	$kemroc_p_page_slug   = $post->post_name;
 	$kemroc_p_page_number = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 	
-	$kemroc_p_all_products_output_is_enabled = get_field( 'use_pagination' );
+	$kemroc_p_all_products_output_is_enabled = get_field( 'use_pagination' ) 
+													? get_field( 'use_pagination' ) 
+													: 1;
 	$kemroc_p_parent_page_id                 = get_field( 'parent_page_id' );
 	$kemroc_p_products_per_page              = get_field( 'products_per_page' ) 
 													? get_field( 'products_per_page' ) 
@@ -46,9 +48,7 @@ if ( ! $is_preview ) :
 		'parentPageId'               => $kemroc_p_parent_page_id,
 		'pageNumber'                 => $kemroc_p_page_number,
 		'pageSlug'                   => $kemroc_p_page_slug,
-		'allProductsOutputIsEnabled' => $kemroc_p_all_products_output_is_enabled 
-											? $kemroc_p_all_products_output_is_enabled 
-											: 0,
+		'allProductsOutputIsEnabled' => $kemroc_p_all_products_output_is_enabled,
 	);
 	
 	$kemroc_p_products_data_json = '{}';
