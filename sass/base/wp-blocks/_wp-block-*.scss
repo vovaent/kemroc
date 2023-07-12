@@ -1,0 +1,18 @@
+.page .site-main {
+
+    &>.wp-block-heading,
+    &>p {
+        margin: 0 auto;
+        max-width: 1200px;
+        width: 100%;
+        padding: 0 15px;
+
+        @include media-down-md {
+            max-width: 718px;
+        }
+
+        @include media-down-sm {
+            max-width: 342px;
+        }
+    }
+}
