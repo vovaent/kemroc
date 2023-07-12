@@ -44,7 +44,7 @@
             "key": "field_649dd4b0b6b65",
             "label": "Beschreibung",
             "name": "beschreibung",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -54,16 +54,16 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
+            "delay": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
         },
         {
             "key": "field_649dd4e2b6b66",
             "label": "Ihr Profil",
             "name": "ihr_profil",
-            "type": "repeater",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -72,41 +72,17 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Row",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_649dd600cee27",
-                    "label": "Beschreibung",
-                    "name": "beschreibung",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_649dd4e2b6b66"
-                }
-            ]
+            "default_value": "",
+            "delay": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
         },
         {
             "key": "field_649dd56dfe2d3",
             "label": "Unsere Benefits",
             "name": "unsere_benefits",
-            "type": "repeater",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -115,35 +91,11 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Row",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_649dd63fc0feb",
-                    "label": "Beschreibung",
-                    "name": "beschreibung",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_649dd56dfe2d3"
-                }
-            ]
+            "default_value": "",
+            "delay": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
         },
         {
             "key": "field_64a73ff7a95ca",
@@ -162,8 +114,8 @@
             "sub_fields": [
                 {
                     "key": "field_64a7aa17fd37d",
-                    "label": "Individuelle E-Mail (copy)",
-                    "name": "custom_email_copy",
+                    "label": "Individuelle E-Mail",
+                    "name": "custom_email",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -181,12 +133,20 @@
                 },
                 {
                     "key": "field_64a7aa3548ac6",
-                    "label": "E-Mail an (copy)",
-                    "name": "email_to_copy",
+                    "label": "E-Mail an",
+                    "name": "email_to",
                     "type": "email",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_64a7aa17fd37d",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -389,5 +349,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688710408
+    "modified": 1689159752
 }

@@ -102,7 +102,7 @@
         }
 
         .ihr_profil_wrap {
-            margin-top: 22px;
+            margin-top: 8px;
         }
     }
 
@@ -121,7 +121,7 @@
         }
 
         .unsere_benefits_wrap {
-            margin-top: 22px;
+            margin-top: 8px;
         }
     }
 
@@ -377,6 +377,31 @@
             display: block;
             width: 24px;
             height: 24px;
+        }
+    }
+}
+
+.stellenangebot-info {
+    ul {
+        margin-top: 0;
+
+        &>li {
+            padding-left: 20px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 8px;
+                left: 4px;
+                display: inline-block;
+                width: 6px;
+                height: 10px;
+                border-radius: 0;
+                background-color: #fff;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDYgMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGlkPSJhcnJvdy1yaWdodCIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wLjI5Mjg5MyAwLjI5Mjg5M0MwLjY4MzQxNyAtMC4wOTc2MzExIDEuMzE2NTggLTAuMDk3NjMxMSAxLjcwNzExIDAuMjkyODkzTDUuNzA3MTEgNC4yOTI4OUM2LjA5NzYzIDQuNjgzNDIgNi4wOTc2MyA1LjMxNjU4IDUuNzA3MTEgNS43MDcxMUwxLjcwNzExIDkuNzA3MTFDMS4zMTY1OCAxMC4wOTc2IDAuNjgzNDE3IDEwLjA5NzYgMC4yOTI4OTMgOS43MDcxMUMtMC4wOTc2MzExIDkuMzE2NTggLTAuMDk3NjMxMSA4LjY4MzQyIDAuMjkyODkzIDguMjkyODlMMy41ODU3OSA1TDAuMjkyODkzIDEuNzA3MTFDLTAuMDk3NjMxMSAxLjMxNjU4IC0wLjA5NzYzMTEgMC42ODM0MTcgMC4yOTI4OTMgMC4yOTI4OTNaIiBmaWxsPSIjRkY2MDAwIi8+Cjwvc3ZnPgo=);
+                background-repeat: no-repeat;
+                background-position: center;
+            }
         }
     }
 }

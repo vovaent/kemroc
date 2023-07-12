@@ -31,6 +31,8 @@ if ( ! $is_preview ) :
 	}
 	$kemroc_si_above_title = get_field( 'above_title' );
 	$kemroc_si_form        = get_field( 'form' );
+	$ihr_profil            = get_field( 'ihr_profil' );
+	$unsere_benefits       = get_field( 'unsere_benefits' );
 
 	$kemroc_si_form_messages = array(
 		'empty_field'         => ! empty( $kemroc_si_form_data['error_text_empty_field'] ) ? $kemroc_si_form_data['error_text_empty_file'] : esc_html__( 'Dieses Feld darf nicht leer sein', 'kemroc' ),
@@ -72,57 +74,23 @@ if ( ! $is_preview ) :
 						</div>
 					<?php endif; ?>
 				</section>
-				<section class="posts__ihr_profil">
-					<?php if ( get_field( 'ihr_profil' ) ) : ?>
-						<h4>Ihr Profil</h4>
+				<?php if ( get_field( 'ihr_profil' ) ) : ?>
+					<section class="posts__ihr_profil">
+						<h4>
+							<?php esc_html_e( 'Ihr Profil', 'kemroc' ); ?>
+						</h4>
 						<div class="ihr_profil_wrap">
-							<?php
-							$rows = get_field( 'ihr_profil' );
-							if ( $rows ) {
-								foreach ( $rows as $row ) {
-									?>
-									<div class="ihr_profil_item">
-										<div class="job-link"><svg width="6" height="10" viewBox="0 0 6 10" fill="none"
-												xmlns="http://www.w3.org/2000/svg">
-												<path fill-rule="evenodd" clip-rule="evenodd"
-													d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L5.70711 4.29289C6.09763 4.68342 6.09763 5.31658 5.70711 5.70711L1.70711 9.70711C1.31658 10.0976 0.683417 10.0976 0.292893 9.70711C-0.0976311 9.31658 -0.0976311 8.68342 0.292893 8.29289L3.58579 5L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
-													fill="#FF6000" />
-											</svg>
-										</div>
-										<div class="ihr_profil_text">
-											<?php echo $row['beschreibung']; ?>
-										</div>
-									</div>
-								<?php } ?>
-						<?php } ?>
+							<?php echo wp_kses_post( $ihr_profil ); ?>
 						</div>
-					<?php endif; ?>
-				</section>
+					</section>
+				<?php endif; ?>
 				<section class="posts__unsere_benefits">
 					<?php if ( get_field( 'unsere_benefits' ) ) : ?>
 						<h4>
 							<?php esc_html_e( 'Unsere Benefits', 'kemroc' ); ?>
 						</h4>
 						<div class="unsere_benefits_wrap">
-							<?php
-							$rows = get_field( 'unsere_benefits' );
-							if ( $rows ) {
-								foreach ( $rows as $row ) {
-									?>
-									<div class="unsere_benefits_item">
-										<div class="job-link"><svg width="6" height="10" viewBox="0 0 6 10" fill="none"
-												xmlns="http://www.w3.org/2000/svg">
-												<path fill-rule="evenodd" clip-rule="evenodd"
-													d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L5.70711 4.29289C6.09763 4.68342 6.09763 5.31658 5.70711 5.70711L1.70711 9.70711C1.31658 10.0976 0.683417 10.0976 0.292893 9.70711C-0.0976311 9.31658 -0.0976311 8.68342 0.292893 8.29289L3.58579 5L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
-													fill="#FF6000" />
-											</svg>
-										</div>
-										<div class="unsere_benefits_text">
-											<?php echo $row['beschreibung']; ?>
-										</div>
-									</div>
-								<?php } ?>
-						<?php } ?>
+							<?php echo wp_kses_post( $unsere_benefits ); ?>
 						</div>
 					<?php endif; ?>
 				</section>
@@ -168,19 +136,24 @@ if ( ! $is_preview ) :
 								<!-- /.cf-form__label -->
 								<label class="cf-form__label cf-form__label--phone">
 									<?php esc_html_e( 'Telefon', 'kemroc' ); ?> *
-									<input type="number" name="phone" class="cf-form__field cf-form__field--required" maxlength="15" minlength="5" placeholder="<?php esc_html_e( 'Telefon', 'kemroc' ); ?>" required>
+									<input type="number" name="phone" class="cf-form__field cf-form__field--required"
+										maxlength="15" minlength="5"
+										placeholder="<?php esc_html_e( 'Telefon', 'kemroc' ); ?>" required>
 									<span class="cf-form__error-notice">
 										<?php echo esc_html( $kemroc_si_form_messages['empty_field'] ); ?>
 									</span>
 								</label>
 								<!-- /.cf-form__label -->
-								<div class="cf-form__file-field-wrapper">                                
-									<label for="resumeFile" id="resumeFileLabel" class="cf-form__label cf-form__label--file">
-										<?php esc_html_e( 'Resume', 'kemroc' ); ?> *										
+								<div class="cf-form__file-field-wrapper">
+									<label for="resumeFile" id="resumeFileLabel"
+										class="cf-form__label cf-form__label--file">
+										<?php esc_html_e( 'Resume', 'kemroc' ); ?> *
 									</label>
-									<input type="file" name="resume" size="40" class="cf-form__field cf-form__field--file cf-form__field--required"
-										id="resumeFile" accept=".pdf,.doc,.docx" required>
-									<div id="resumeFileArea" class="cf-form__field cf-form__field--resume cf-form__field--required">
+									<input type="file" name="resume" size="40"
+										class="cf-form__field cf-form__field--file cf-form__field--required" id="resumeFile"
+										accept=".pdf,.doc,.docx" required>
+									<div id="resumeFileArea"
+										class="cf-form__field cf-form__field--resume cf-form__field--required">
 										<span class="cross cf-form__file-clear"></span>
 										<p id="resumeFileAreaText">
 											<?php
@@ -192,13 +165,13 @@ if ( ! $is_preview ) :
 												)
 											);
 											?>
-										</p>										
+										</p>
 										<div class="cf-form__error-notice cf-form__error-notice--file">
 											<?php echo esc_html( $kemroc_si_form_messages['file_oversize'] ); ?>
 										</div>
 										<!-- ./cf-form__error-notice cf-form__error-notice--file -->
 									</div>
-									<!-- /.cf-form__field -->									
+									<!-- /.cf-form__field -->
 									<span class="cf-form__error-notice">
 										<?php echo esc_html( $kemroc_si_form_messages['empty_field'] ); ?>
 									</span>
