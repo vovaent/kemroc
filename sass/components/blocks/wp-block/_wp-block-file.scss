@@ -40,9 +40,6 @@
     a:first-child {
         @include reset-a($color__background);
 
-        display: flex;
-        align-items: center;
-        order: 1;
         padding: 24px 32px;
     }
 }
