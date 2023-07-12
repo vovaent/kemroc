@@ -6,7 +6,7 @@
             "key": "field_64523a6f5ff49",
             "label": "Bild",
             "name": "image",
-            "type": "image",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,16 +15,11 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 0
         }
     ],
     "location": [
@@ -32,7 +27,14 @@
             {
                 "param": "nav_menu_item",
                 "operator": "==",
-                "value": "location\/main_menu"
+                "value": "3"
+            }
+        ],
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "61"
             }
         ]
     ],
@@ -45,5 +47,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685382350
+    "modified": 1689175320
 }
