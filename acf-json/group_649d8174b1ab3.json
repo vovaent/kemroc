@@ -60,8 +60,27 @@
             "media_upload": 1
         },
         {
+            "key": "field_64aeca95cd9f6",
+            "label": "Ihr Profil - titel",
+            "name": "ihr_profil_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_649dd4e2b6b66",
-            "label": "Ihr Profil",
+            "label": "Ihr Profil - text",
             "name": "ihr_profil",
             "type": "wysiwyg",
             "instructions": "",
@@ -79,8 +98,27 @@
             "media_upload": 1
         },
         {
+            "key": "field_64aecad5cd9f7",
+            "label": "Unsere Benefits - titel",
+            "name": "unsere_benefits_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_649dd56dfe2d3",
-            "label": "Unsere Benefits",
+            "label": "Unsere Benefits - text",
             "name": "unsere_benefits",
             "type": "wysiwyg",
             "instructions": "",
@@ -349,5 +387,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689159752
+    "modified": 1689176841
 }

@@ -32,7 +32,9 @@ if ( ! $is_preview ) :
 	$kemroc_si_above_title = get_field( 'above_title' );
 	$kemroc_si_form        = get_field( 'form' );
 	$ihr_profil            = get_field( 'ihr_profil' );
+	$ihr_profil_titel      = get_field( 'ihr_profil_titel' );
 	$unsere_benefits       = get_field( 'unsere_benefits' );
+	$unsere_benefits_titel = get_field( 'unsere_benefits_titel' );
 
 	$kemroc_si_form_messages = array(
 		'empty_field'         => ! empty( $kemroc_si_form_data['error_text_empty_field'] ) ? $kemroc_si_form_data['error_text_empty_file'] : esc_html__( 'Dieses Feld darf nicht leer sein', 'kemroc' ),
@@ -77,23 +79,23 @@ if ( ! $is_preview ) :
 				<?php if ( get_field( 'ihr_profil' ) ) : ?>
 					<section class="posts__ihr_profil">
 						<h4>
-							<?php esc_html_e( 'Ihr Profil', 'kemroc' ); ?>
+							<?php echo esc_html( $ihr_profil_titel ); ?>
 						</h4>
 						<div class="ihr_profil_wrap">
 							<?php echo wp_kses_post( $ihr_profil ); ?>
 						</div>
 					</section>
 				<?php endif; ?>
-				<section class="posts__unsere_benefits">
-					<?php if ( get_field( 'unsere_benefits' ) ) : ?>
+				<?php if ( get_field( 'unsere_benefits' ) ) : ?>
+					<section class="posts__unsere_benefits">
 						<h4>
-							<?php esc_html_e( 'Unsere Benefits', 'kemroc' ); ?>
+							<?php echo esc_html( $unsere_benefits_titel ); ?>
 						</h4>
 						<div class="unsere_benefits_wrap">
 							<?php echo wp_kses_post( $unsere_benefits ); ?>
 						</div>
-					<?php endif; ?>
-				</section>
+					</section>
+				<?php endif; ?>
 			</div>
 			<div class="contacts-form">
 				<div class="contacts-form__content">
