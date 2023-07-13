@@ -138,7 +138,7 @@ if ( ! $is_preview ) :
 								<!-- /.cf-form__label -->
 								<label class="cf-form__label cf-form__label--phone">
 									<?php esc_html_e( 'Telefon', 'kemroc' ); ?> *
-									<input type="number" name="phone" class="cf-form__field cf-form__field--required"
+									<input type="tel" name="phone" class="cf-form__field cf-form__field--required"
 										maxlength="15" minlength="5"
 										placeholder="<?php esc_html_e( 'Telefon', 'kemroc' ); ?>" required>
 									<span class="cf-form__error-notice">
