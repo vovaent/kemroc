@@ -86,7 +86,7 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 		'post_status'    => 'publish',
 		'posts_per_page' => -1, // phpcs:ignore
 		'post_parent'    => $post_id,
-		'orderby'        => 'menu_order',
+		'orderby'        => 'title',
 		'order'          => 'ASC',
 	);
 	
