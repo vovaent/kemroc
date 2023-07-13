@@ -225,6 +225,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 		'core/buttons',
 		'core/separator',
 		'core/file',
+		'core/html',
 		'acf/lazy-video',
 	);
 
