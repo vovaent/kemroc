@@ -67,7 +67,7 @@ if ( ! $is_preview ) :
 						<!-- /.cf-form__label -->
 						<label class="cf-form__label cf-form__label--house">
 							<?php esc_html_e( 'Hausnummer', 'kemroc' ); ?>
-							<input type="number" name="house" class="cf-form__field" maxlength="1000" placeholder="<?php esc_html_e( 'Hausnummer', 'kemroc' ); ?>">
+							<input type="text" name="house" class="cf-form__field" maxlength="10" placeholder="<?php esc_html_e( 'Hausnummer', 'kemroc' ); ?>">
 						</label>
 						<!-- /.cf-form__label -->
 						<label class="cf-form__label cf-form__label--zipcode">
