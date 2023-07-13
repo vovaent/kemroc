@@ -52,9 +52,11 @@ $store_link   = get_field( 'store_link', 'option' );
 				<div class="container">
 					<div class="header__top header-top">
 						<div class="header-top__left">
-							<a href="<?php echo kemroc_home_url(); ?>" class="site-logo">
+							<?php if ( $logo ) : ?>
+								<a href="<?php echo kemroc_home_url(); ?>" class="site-logo">
 								<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
-							</a>
+								</a>
+							<?php endif; ?>							
 							<a href="<?php echo esc_url( $kemroc_no_current_lang_url ); ?>" class="lang-switcher">
 								<img src="<?php echo esc_attr( $kemroc_no_current_lang_flag ); ?>"
 									class="lang-switcher__icon"
