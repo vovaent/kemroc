@@ -59,7 +59,7 @@
                 p {
                     color: #131313;
                     font-size: 16px;
-                    font-family: 'Eurostile Candy LT Pro';
+                    font-family: $font__secondary;
                     font-weight: 700;
                     line-height: 130%;
                     margin: 0;
@@ -67,7 +67,7 @@
                     span {
                         color: #B6B6B6;
                         font-size: 16px;
-                        font-family: 'Eurostile Candy LT Pro';
+                        font-family: $font__secondary;
                         font-weight: 700;
                         line-height: 130%;
                     }
