@@ -36,30 +36,14 @@ if ( ! $is_preview ) :
 	$kemroc_pgi_title_choice  = get_field( 'title_choice' );
 	$kemroc_pgi_title         = 'custom_title' === $kemroc_pgi_title_choice ? get_field( 'custom_title' ) : get_the_title();
 	$kemroc_pgi_subtitle      = get_field( 'subtitle' );
-
-	$kemroc_pgi_app_areas = wp_get_post_terms( get_the_ID(), 'einsatzbereich' );
+	
+	$kemroc_pgi_app_areas            = wp_get_post_terms( get_the_ID(), 'einsatzbereich' );
+	$kemroc_pgi_list_benefits_chunks = array_chunk( $kemroc_pgi_list_benefits, round( count( $kemroc_pgi_list_benefits ) / 2 ) );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_pgi_id ); ?>" class="<?php echo esc_attr( $kemroc_pgi_class_name ); ?>">
 		<div class="container product-general-info__content">
 			
-			<?php if ( $kemroc_pgi_figure['image'] ) : ?>
-				<figure class="product-general-info__picture">
-
-					<?php if ( isset( $kemroc_pgi_app_areas[0] ) ) : ?>
-						<div class="application-area-in-image application-area-in-image--absolute product-general-info__area">
-							<?php echo esc_html( $kemroc_pgi_app_areas[0]->name ); ?>
-						</div>
-					<?php endif; ?>
-				
-					<?php echo wp_get_attachment_image( $kemroc_pgi_figure['image'], 'medium_large' ); ?>
-					<figcaption>
-						<?php echo wp_kses_post( wp_get_attachment_caption( $kemroc_pgi_figure['image'] ) ); ?>
-					</figcaption>
-				</figure>
-				<!-- /.product-general-info__picture -->
-			<?php endif; ?>	
-
 			<div class="product-general-info__text">
 				<h1 class="product-general-info__title">
 					<?php echo esc_html( $kemroc_pgi_title ); ?>
@@ -69,27 +53,70 @@ if ( ! $is_preview ) :
 					<?php echo wp_kses_post( $kemroc_pgi_subtitle ); ?>
 				</h3>
 				<!-- /.product-general-info__subtitle -->
-
-				<?php if ( $kemroc_pgi_list_benefits ) : ?>
-					<ul class="product-general-info__benefits">
-
-						<?php foreach ( $kemroc_pgi_list_benefits as $kemroc_pgi_benefit ) : ?>
-							<li class="arrow-list-item product-general-info__benefit">
-								<span class="arrow-list-item__arrow">
-									<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
-								</span>
-								<!-- /.arrow-list-item__arrow -->
-								<?php echo wp_kses_post( $kemroc_pgi_benefit['benefit'] ); ?>
-							</li>
-							<!-- /.arrow-list-item product-general-info__benefit -->
-						<?php endforeach; ?>
-
-					</ul>
-					<!-- /.product-general-info__benefits -->
-				<?php endif; ?>
-
 			</div>
 			<!-- /.product-general-info__text -->
+
+			<?php if ( $kemroc_pgi_figure['image'] ) : ?>
+				<figure class="product-general-info__picture">
+
+					<?php if ( isset( $kemroc_pgi_app_areas[0] ) ) : ?>
+						<div class="application-area-in-image application-area-in-image--absolute product-general-info__area">
+							<?php echo esc_html( $kemroc_pgi_app_areas[0]->name ); ?>
+						</div>
+					<?php endif; ?>
+				
+					<?php echo wp_get_attachment_image( $kemroc_pgi_figure['image'], 'full' ); ?>
+					<figcaption>
+						<?php echo wp_kses_post( wp_get_attachment_caption( $kemroc_pgi_figure['image'] ) ); ?>
+					</figcaption>
+				</figure>
+				<!-- /.product-general-info__picture -->
+			<?php endif; ?>	
+
+			<?php if ( $kemroc_pgi_list_benefits ) : ?>
+				<div class="product-general-info__benefits-wrapper">
+
+					<?php if ( isset( $kemroc_pgi_list_benefits_chunks[0] ) ) : ?>
+						<ul class="product-general-info__benefits">
+
+							<?php foreach ( $kemroc_pgi_list_benefits_chunks[0] as $kemroc_pgi_benefit ) : ?>
+								<li class="arrow-list-item product-general-info__benefit">
+									<span class="arrow-list-item__arrow">
+										<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
+									</span>
+									<!-- /.arrow-list-item__arrow -->
+									<?php echo wp_kses_post( $kemroc_pgi_benefit['benefit'] ); ?>
+								</li>
+								<!-- /.arrow-list-item product-general-info__benefit -->
+							<?php endforeach; ?>
+
+						</ul>
+						<!-- /.product-general-info__benefits -->
+					<?php endif; ?>                    
+
+					<?php if ( isset( $kemroc_pgi_list_benefits_chunks[1] ) ) : ?>
+						<ul class="product-general-info__benefits">
+
+							<?php foreach ( $kemroc_pgi_list_benefits_chunks[1] as $kemroc_pgi_benefit ) : ?>
+								<li class="arrow-list-item product-general-info__benefit">
+									<span class="arrow-list-item__arrow">
+										<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
+									</span>
+									<!-- /.arrow-list-item__arrow -->
+									<?php echo wp_kses_post( $kemroc_pgi_benefit['benefit'] ); ?>
+								</li>
+								<!-- /.arrow-list-item product-general-info__benefit -->
+							<?php endforeach; ?>
+
+						</ul>
+						<!-- /.product-general-info__benefits -->
+					<?php endif; ?>
+
+				</div>
+				<!-- /.product-general-info__benefits-wrapper -->
+				
+			<?php endif; ?>
+
 		</div>
 		<!-- /.container product-general-info__content -->
 	</section>
