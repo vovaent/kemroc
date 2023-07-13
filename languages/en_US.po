@@ -10,41 +10,114 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2023-07-11T08:39:13+00:00\n"
-"PO-Revision-Date: 2023-07-13 06:43+0000\n"
+"PO-Revision-Date: 2023-07-13 11:30+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: kemroc\n"
 "Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Loco-Version: 2.6.4; wp-6.2.2"
 
-#. Theme Name of the theme
-msgid "kemroc"
+#. translators: %1$d: post count; %2$s: search query.
+#: search.php:45
+msgid "%1$d Suchergebnisse für: %2$s"
+msgstr "%1$d Search results for: %2$s"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:82
+msgid ", "
 msgstr ""
 
-#. Theme URI of the theme
-#. Author URI of the theme
-msgid "http://underscores.me/"
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:181
+msgid ""
+"<a>Klicken Sie auf eine Datei und wählen Sie sie aus</a>, oder ziehen Sie "
+"eine <b>DOC-</b>, <b>DOCX-</b> oder <b>PDF-Datei</b> per Drag & Drop. Die "
+"maximale Dateigröße beträgt <b>1 Mb</b>."
+msgstr ""
+"<a>Click and select a file </a> or drag and drop a <b>DOC</b>, <b>DOCX</b> "
+"or <b>PDF file</b>. The maximal file size is <b>1 Mb</b>."
+
+#: template-parts/blocks/product/product-model-list/product-model-list.php:59
+#| msgid "<span>MODELLE</span> VERGLEICHEN"
+msgid "<strong>MODELLE</strong> VERGLEICHEN"
+msgstr "<strong>MODELS</strong> COMPARE"
+
+#: inc/acf/blocks.php:688 inc/acf/blocks.php:689
+msgid "Absatztext"
+msgstr "Absatztext"
+
+#: functions.php:127
+msgid "Add widgets here."
 msgstr ""
 
-#. Description of the theme
-msgid "Description"
+#: inc/acf/blocks.php:562 inc/acf/blocks.php:563 inc/template-functions.php:202
+msgid "Aktuelles"
+msgstr "News"
+
+#: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:72
+msgid "Alle"
+msgstr "All"
+
+#: template-parts/blocks/news/all-news/all-news.php:55
+msgid "Alle Artikel"
+msgstr "All articles"
+
+#: inc/acf/blocks.php:289 inc/acf/blocks.php:290
+msgid "Allgemeine Informationen zur Serie"
+msgstr "General information about the series"
+
+#: inc/acf/blocks.php:142 inc/acf/blocks.php:143
+msgid "Allgemeine Produktinformationen"
+msgstr "General product information"
+
+#: template-parts/blocks/info/impressum.php:47
+msgid "Anschrift"
+msgstr "Address"
+
+#: inc/template-tags.php:455
+msgid "Beiträge"
+msgstr "Articles"
+
+#: inc/template-tags.php:454
+msgid "Beiträge Navigation"
+msgstr "Articles Navigation"
+
+#: template-parts/blocks/stellenangebote/stellenangebote-list/stellenangebote-list.php:81
+msgid "Bereichern Sie unser Team als"
+msgstr "Join our team as"
+
+#: inc/ajax/contacts-form.php:113
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:126
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:127
+msgid "Betreff"
+msgstr "Subject"
+
+#: inc/acf/blocks.php:394 inc/acf/blocks.php:395
+msgid "Bild in voller Breite mit abgerundeten Kanten"
+msgstr "Full-width image with rounded edges"
+
+#: inc/template-functions.php:167
+msgid "Bild-Module"
 msgstr ""
 
-#. Author of the theme
-msgid "Underscores.me"
+#: inc/template-functions.php:172
+msgid "Bild/Text module"
 msgstr ""
 
-#: 404.php:19
-msgid "Seite nicht gefunden"
+#: inc/ajax/contacts-form.php:127 inc/ajax/stellenangebot-form.php:100
+msgid "Brief nicht abgeschickt"
+msgstr "Mail not sent"
+
+#: searchform.php:33
+msgctxt "button"
+msgid "Suche"
 msgstr ""
 
-#: 404.php:21
-msgid "Zur Startseite"
+#: inc/acf/blocks.php:754 inc/acf/blocks.php:755
+msgid "Columns text"
 msgstr ""
 
-#. translators: 1: title.
-#: comments.php:35
-msgid "One thought on &ldquo;%1$s&rdquo;"
+#: comments.php:68
+msgid "Comments are closed."
 msgstr ""
 
 #. translators: 1: comment count number, 2: title.
@@ -55,116 +128,209 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:68
-msgid "Comments are closed."
+#. translators: %s: Name of current post. Only visible to screen readers
+#: single-post.php:69 template-parts/content.php:40
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: functions.php:52
-msgid "Primary"
-msgstr ""
-
-#: functions.php:125
-msgid "Sidebar"
-msgstr ""
-
-#: functions.php:127
-msgid "Add widgets here."
-msgstr ""
-
-#: inc/acf/acf.php:21 inc/acf/acf.php:22
-msgid "Themen Einstellungen"
-msgstr ""
-
-#: inc/acf/blocks.php:16 inc/acf/blocks.php:17
-msgid "Held"
-msgstr ""
-
-#: inc/acf/blocks.php:37
-msgid "CTA v1"
+#: inc/acf/blocks.php:710 inc/acf/blocks.php:711
+msgid "Cookies table"
 msgstr ""
 
 #: inc/acf/blocks.php:38 inc/acf/blocks.php:101
 msgid "CTA"
 msgstr ""
 
-#: inc/acf/blocks.php:58 inc/acf/blocks.php:59
-msgid "Our Areas"
-msgstr ""
-
-#: inc/acf/blocks.php:79 inc/acf/blocks.php:80
-msgid "Our Company"
+#: inc/acf/blocks.php:37
+msgid "CTA v1"
 msgstr ""
 
 #: inc/acf/blocks.php:100
 msgid "CTA v2"
 msgstr ""
 
-#: inc/acf/blocks.php:121 inc/acf/blocks.php:122
-msgid "Neuigkeiten auf der Startseite"
+#: inc/ajax/contacts-form.php:122 inc/ajax/stellenangebot-form.php:95
+msgid "Daten erfolgreich gesendet"
+msgstr "Data was sent successfully"
+
+#: inc/ajax/all-news.php:15 inc/ajax/contacts-form.php:13
+#: inc/ajax/products.php:15 inc/ajax/search.php:15
+#: inc/ajax/stellenangebot-form.php:13
+msgid "Daten, die von einer fremden Adresse gesendet werden"
+msgstr "Data that are sent from a foreign address"
+
+#. Description of the theme
+msgid "Description"
 msgstr ""
 
-#: inc/acf/blocks.php:142 inc/acf/blocks.php:143
-msgid "Allgemeine Produktinformationen"
-msgstr "General product information"
-
-#: inc/acf/blocks.php:163 inc/acf/blocks.php:164
-msgid "Technische Produktinformationen"
+#: template-parts/blocks/product/product-model-list/product-model-list.php:108
+#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:126
+msgid "Details"
 msgstr ""
 
-#: inc/acf/blocks.php:184 inc/acf/blocks.php:185
-msgid "Produkt Modellliste"
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:38
+msgid "Die Dateigröße sollte 1 MB nicht überschreiten."
 msgstr ""
 
-#: inc/acf/blocks.php:205 inc/acf/blocks.php:206
-msgid "Modellinformationen"
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:38
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:36
+msgid "Dieses Feld darf nicht leer sein"
 msgstr ""
 
-#: inc/acf/blocks.php:226 inc/acf/blocks.php:227
-msgid "Serienprodukt Allgemeine Informationen"
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:41
+msgid ""
+"Durch das Absenden Dieses Kontaktformulars erklären Sie sich damit "
+"einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage "
+"elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung "
+"jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere "
+"Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in "
+"unserer Datenschutzerklärung."
 msgstr ""
 
-#: inc/acf/blocks.php:247 inc/acf/blocks.php:248
-msgid "Serielle Produktbeschreibungen"
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:40
+msgid ""
+"Durch das Absenden dieses Kontaktformulars erklären Sie sich damit "
+"einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage "
+"elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung "
+"jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere "
+"Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in "
+"unserer Datenschutzerklärung."
 msgstr ""
 
-#: inc/acf/blocks.php:268 inc/acf/blocks.php:269
-msgid "Serienproduktvergleich"
+#: inc/ajax/contacts-form.php:111 inc/ajax/stellenangebot-form.php:86
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:105
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:106
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:157
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:159
+msgid "E-Mail"
 msgstr ""
 
-#: inc/acf/blocks.php:289 inc/acf/blocks.php:290
-msgid "Allgemeine Informationen zur Serie"
-msgstr "General information about the series"
-
-#: inc/acf/blocks.php:310 inc/acf/blocks.php:311
-msgid "Technische Informationen zur Serie"
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:39
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:37
+msgid "E-Mail-Feld wird nicht korrekt ausgefüllt"
 msgstr ""
 
-#: inc/acf/blocks.php:331 inc/acf/blocks.php:332
-msgid "Liste der Einsatzbereiche"
+#: template-parts/blocks/info/impressum.php:60
+msgid "E-mail:"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: inc/template-tags.php:119 template-parts/content-page.php:39
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#: inc/template-functions.php:192
+msgid "Einsatzbereiche"
 msgstr ""
 
 #: inc/acf/blocks.php:352 inc/acf/blocks.php:353
 msgid "Einsatzbereiche Beschreibung"
 msgstr ""
 
-#: inc/acf/blocks.php:373 inc/acf/blocks.php:374
-msgid "Schachinhalt"
-msgstr ""
-
-#: inc/acf/blocks.php:394 inc/acf/blocks.php:395
-msgid "Bild in voller Breite mit abgerundeten Kanten"
-msgstr "Full-width image with rounded edges"
-
-#: inc/acf/blocks.php:415 inc/acf/blocks.php:416
-msgid "Unser Team"
-msgstr ""
-
 #: inc/acf/blocks.php:436 inc/acf/blocks.php:437
 msgid "Einsatzbereiche Filter"
 msgstr ""
 
-#: inc/acf/blocks.php:457 inc/acf/blocks.php:458
-msgid "Kontaktinformationen"
+#: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:92
+msgid "Einsatzgebiete"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:61
+msgid "Eintrag im Handelsregister"
+msgstr ""
+
+#: template-parts/content-none.php:72
+msgid ""
+"Entschuldigung, aber kein Eintrag erfüllt Deine Suchkriterien. Bitte starte "
+"eine neue Suche. Um bessere Suchergebnisse zu erzielen, beachte bitte "
+"folgende Hinweise:"
+msgstr ""
+
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:42
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:39
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:41
+msgid "Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!"
+msgstr ""
+
+#: template-parts/content-none.php:68
+msgid "Es konnte leider nichts gefunden werden"
+msgstr ""
+
+#: inc/acf/blocks.php:541 inc/acf/blocks.php:542
+msgid "FAQ"
+msgstr ""
+
+#: inc/acf/blocks.php:820 inc/acf/blocks.php:821
+msgid "Farbiger text"
+msgstr ""
+
+#: inc/acf/blocks.php:520 inc/acf/blocks.php:521
+msgid "Faulenzer-Video"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:112
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:116
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:117
+#: template-parts/blocks/info/impressum.php:59
+msgid "Fax"
+msgstr ""
+
+#: inc/template-functions.php:97
+msgid "Footer Menu"
+msgstr ""
+
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:161
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:197
+msgid "Formular senden"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:94
+msgid "FOTOS"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:65
+msgid "Geschäftsführer"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:105
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:69
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:70
+msgid "Hausnummer"
+msgstr ""
+
+#: inc/acf/blocks.php:16 inc/acf/blocks.php:17
+msgid "Held"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:43
+msgid "Herausgeber"
+msgstr "Publisher"
+
+#. Theme URI of the theme
+#. Author URI of the theme
+msgid "http://underscores.me/"
+msgstr ""
+
+#: inc/acf/blocks.php:732 inc/acf/blocks.php:733
+msgid "Impressum"
+msgstr ""
+
+#: single-post.php:86
+msgid "Inhaltsverzeichnis"
+msgstr ""
+
+#: template-parts/content-none.php:119
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#. Theme Name of the theme
+msgid "kemroc"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:57
+msgid "Kontakt"
 msgstr ""
 
 #: inc/acf/blocks.php:478 inc/acf/blocks.php:479
@@ -175,78 +341,93 @@ msgstr ""
 msgid "Kontakt-Links"
 msgstr ""
 
-#: inc/acf/blocks.php:520 inc/acf/blocks.php:521
-msgid "Faulenzer-Video"
+#: inc/template-functions.php:197
+msgid "Kontakte"
 msgstr ""
 
-#: inc/acf/blocks.php:541 inc/acf/blocks.php:542
-msgid "FAQ"
+#: inc/acf/blocks.php:457 inc/acf/blocks.php:458
+msgid "Kontaktinformationen"
 msgstr ""
 
-#: inc/acf/blocks.php:562 inc/acf/blocks.php:563 inc/template-functions.php:202
-msgid "Aktuelles"
-msgstr "News"
+#: searchform.php:14 searchform.php:25
+msgctxt "label"
+msgid "Suche nach:"
+msgstr ""
+
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:171
+msgid "Laden Sie Ihren Lebenslauf hoch"
+msgstr ""
+
+#. translators: %s: post title
+#: inc/template-tags.php:102
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:216
+#: template-parts/blocks/sonder/lazy-video/lazy-video.php:102
+msgid "Leider unterstützt Ihr Browser keine eingebetteten Videos."
+msgstr ""
+
+#: single-post.php:51
+msgid "Lesen"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:89
+msgctxt "list item separator"
+msgid ", "
+msgstr ""
+
+#: inc/acf/blocks.php:331 inc/acf/blocks.php:332
+msgid "Liste der Einsatzbereiche"
+msgstr ""
 
 #: inc/acf/blocks.php:583 inc/acf/blocks.php:584
 msgid "Liste der Produkte"
 msgstr ""
 
-#: inc/acf/blocks.php:604 inc/acf/blocks.php:605
-msgid "Sektionsüberschrift"
+#: inc/template-functions.php:96
+msgid "Main Menu"
 msgstr ""
 
-#: inc/acf/blocks.php:625 inc/acf/blocks.php:626
-msgid "Termine"
+#: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:141
+#: template-parts/blocks/application-areas/application-areas-list/application-areas-list.php:72
+#: template-parts/blocks/sonder/our-areas.php:75
+#: template-parts/cards/news/new-card.php:29
+#: template-parts/cards/product/product-card.php:23
+msgid "Mehr"
 msgstr ""
 
-#: inc/acf/blocks.php:646 inc/acf/blocks.php:647
-msgid "Stellenangebote list"
+#: inc/ajax/search.php:52 template-parts/cards/search/search-card.php:31
+msgid "Mehr lesen"
 msgstr ""
 
-#: inc/acf/blocks.php:667 inc/acf/blocks.php:668
-msgid "Stellenangebot info"
+#: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:46
+msgid "Merkmale"
 msgstr ""
 
-#: inc/acf/blocks.php:688 inc/acf/blocks.php:689
-msgid "Absatztext"
-msgstr "Absatztext"
-
-#: inc/acf/blocks.php:710 inc/acf/blocks.php:711
-msgid "Cookies table"
+#: template-parts/blocks/sonder/our-team/our-team.php:150
+msgid "mob.:"
 msgstr ""
 
-#: inc/acf/blocks.php:732 inc/acf/blocks.php:733
-msgid "Impressum"
+#: template-parts/blocks/model/model-info.php:70
+msgid "Modell"
 msgstr ""
 
-#: inc/acf/blocks.php:754 inc/acf/blocks.php:755
-msgid "Columns text"
+#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:119
+#: template-parts/blocks/serial-product/series-general-info/series-general-info.php:58
+#: template-parts/blocks/serial-product/series-general-info/series-general-info.php:76
+msgid "modelle"
 msgstr ""
 
-#: inc/acf/blocks.php:776 inc/acf/blocks.php:777
-msgid "PDF-Kataloge"
+#: inc/acf/blocks.php:205 inc/acf/blocks.php:206
+msgid "Modellinformationen"
 msgstr ""
 
-#: inc/acf/blocks.php:798 inc/acf/blocks.php:799
-msgid "Page 404"
-msgstr ""
-
-#: inc/acf/blocks.php:820 inc/acf/blocks.php:821
-msgid "Farbiger text"
-msgstr ""
-
-#: inc/acf/blocks.php:841 inc/acf/blocks.php:842
-msgid "Unsere Partner"
-msgstr ""
-
-#: inc/ajax/all-news.php:15 inc/ajax/contacts-form.php:13
-#: inc/ajax/products.php:15 inc/ajax/search.php:15
-#: inc/ajax/stellenangebot-form.php:13
-msgid "Daten, die von einer fremden Adresse gesendet werden"
-msgstr "Data that are sent from a foreign address"
-
-#: inc/ajax/contacts-form.php:17 inc/ajax/stellenangebot-form.php:17
-msgid "Spam"
+#: inc/ajax/contacts-form.php:114 single-post.php:38
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:134
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:135
+msgid "Nachricht"
 msgstr ""
 
 #: inc/ajax/contacts-form.php:103 inc/ajax/stellenangebot-form.php:84
@@ -257,22 +438,26 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: inc/ajax/contacts-form.php:104
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:64
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:65
-msgid "Straße"
+#: inc/acf/blocks.php:121 inc/acf/blocks.php:122
+msgid "Neuigkeiten auf der Startseite"
 msgstr ""
 
-#: inc/ajax/contacts-form.php:105
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:69
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:70
-msgid "Hausnummer"
+#: inc/template-tags.php:453
+msgctxt "next set of posts"
+msgid "Weiter"
 msgstr ""
 
-#: inc/ajax/contacts-form.php:106
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:74
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:75
-msgid "PLZ"
+#: single.php:21
+msgid "Next:"
+msgstr ""
+
+#: template-parts/content-none.php:17 template-parts/content-none.php:114
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: 1: title.
+#: comments.php:35
+msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #: inc/ajax/contacts-form.php:107
@@ -281,10 +466,178 @@ msgstr ""
 msgid "Ort"
 msgstr ""
 
-#: inc/ajax/contacts-form.php:108
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:87
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:88
-msgid "Unternehmen"
+#: inc/acf/blocks.php:58 inc/acf/blocks.php:59
+msgid "Our Areas"
+msgstr ""
+
+#: inc/acf/blocks.php:79 inc/acf/blocks.php:80
+msgid "Our Company"
+msgstr ""
+
+#: inc/acf/blocks.php:798 inc/acf/blocks.php:799
+msgid "Page 404"
+msgstr ""
+
+#: template-parts/content-page.php:25 template-parts/content.php:53
+msgid "Pages:"
+msgstr ""
+
+#: inc/acf/blocks.php:776 inc/acf/blocks.php:777
+msgid "PDF-Kataloge"
+msgstr ""
+
+#: searchform.php:20
+msgctxt "placeholder"
+msgid "Suche …"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:106
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:74
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:75
+msgid "PLZ"
+msgstr ""
+
+#. translators: %s: post author.
+#: inc/template-tags.php:65
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#. translators: %s: post date.
+#: inc/template-tags.php:50
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr ""
+
+#. translators: 1: list of categories.
+#: inc/template-tags.php:85
+msgid "Posted in %1$s"
+msgstr ""
+
+#: inc/template-tags.php:452
+msgctxt "previous set of posts"
+msgid "Vorherige"
+msgstr ""
+
+#: single.php:20
+msgid "Previous:"
+msgstr ""
+
+#: functions.php:52
+msgid "Primary"
+msgstr ""
+
+#: inc/acf/blocks.php:184 inc/acf/blocks.php:185
+msgid "Produkt Modellliste"
+msgstr ""
+
+#: inc/template-functions.php:187
+msgid "Produkte"
+msgstr ""
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content-none.php:26
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: inc/ajax/stellenangebot-form.php:91
+msgid "Reaktion auf die freie Stelle"
+msgstr ""
+
+#: inc/acf/blocks.php:373 inc/acf/blocks.php:374
+msgid "Schachinhalt"
+msgstr ""
+
+#: 404.php:19
+msgid "Seite nicht gefunden"
+msgstr ""
+
+#: inc/acf/blocks.php:604 inc/acf/blocks.php:605
+msgid "Sektionsüberschrift"
+msgstr ""
+
+#: inc/acf/blocks.php:247 inc/acf/blocks.php:248
+msgid "Serielle Produktbeschreibungen"
+msgstr ""
+
+#: inc/acf/blocks.php:226 inc/acf/blocks.php:227
+msgid "Serienprodukt Allgemeine Informationen"
+msgstr ""
+
+#: inc/acf/blocks.php:268 inc/acf/blocks.php:269
+msgid "Serienproduktvergleich"
+msgstr ""
+
+#: functions.php:125
+msgid "Sidebar"
+msgstr ""
+
+#: inc/template-functions.php:182
+msgid "Sonder"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:17 inc/ajax/stellenangebot-form.php:17
+msgid "Spam"
+msgstr ""
+
+#: template-parts/blocks/sonder/our-team/our-team.php:77
+#: template-parts/blocks/sonder/our-team/our-team.php:104
+msgid "Sprachen"
+msgstr ""
+
+#: inc/acf/blocks.php:667 inc/acf/blocks.php:668
+msgid "Stellenangebot info"
+msgstr ""
+
+#: inc/acf/blocks.php:646 inc/acf/blocks.php:647
+msgid "Stellenangebote list"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:104
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:64
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:65
+msgid "Straße"
+msgstr ""
+
+#: template-parts/content-none.php:81
+msgid "Suche nach ähnlichen Suchbegriffen, z.B. Notebook statt Laptop, etc."
+msgstr ""
+
+#: search.php:54
+msgid ""
+"Suchergebnis nicht zufriedenstellend? Versuche es mal mit einem Wort oder "
+"einer anderen Schreibweise"
+msgstr ""
+
+#. translators: %s: search query.
+#: template-parts/content-none.php:48 template-parts/content-none.php:60
+msgid "Suchergebnisse für: %s"
+msgstr ""
+
+#. translators: 1: list of tags.
+#: inc/template-tags.php:92
+msgid "Tagged %1$s"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:78
+msgid "TECHNISCHE DATEN"
+msgstr "TECHNICAL DATA"
+
+#: inc/acf/blocks.php:310 inc/acf/blocks.php:311
+msgid "Technische Informationen zur Serie"
+msgstr ""
+
+#: inc/acf/blocks.php:163 inc/acf/blocks.php:164
+msgid "Technische Produktinformationen"
+msgstr ""
+
+#: single-post.php:119
+msgid "Teilen Sie den Artikel:"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:58
+msgid "Tel."
 msgstr ""
 
 #: inc/ajax/contacts-form.php:109 inc/ajax/stellenangebot-form.php:85
@@ -299,221 +652,16 @@ msgstr ""
 msgid "Telefon alternativ"
 msgstr ""
 
-#: inc/ajax/contacts-form.php:111 inc/ajax/stellenangebot-form.php:86
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:105
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:106
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:157
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:159
-msgid "E-Mail"
-msgstr ""
-
-#: inc/ajax/contacts-form.php:112
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:116
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:117
-#: template-parts/blocks/info/impressum.php:59
-msgid "Fax"
-msgstr ""
-
-#: inc/ajax/contacts-form.php:113
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:126
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:127
-msgid "Betreff"
-msgstr "Subject"
-
-#: inc/ajax/contacts-form.php:114 single-post.php:38
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:134
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:135
-msgid "Nachricht"
-msgstr ""
-
-#: inc/ajax/contacts-form.php:115 inc/ajax/stellenangebot-form.php:87
-msgid "Website url"
-msgstr ""
-
-#: inc/ajax/contacts-form.php:122 inc/ajax/stellenangebot-form.php:95
-msgid "Daten erfolgreich gesendet"
-msgstr "Data was sent successfully"
-
-#: inc/ajax/contacts-form.php:127 inc/ajax/stellenangebot-form.php:100
-msgid "Brief nicht abgeschickt"
-msgstr "Mail not sent"
-
-#: inc/ajax/search.php:52 template-parts/cards/search/search-card.php:31
-msgid "Mehr lesen"
-msgstr ""
-
-#: inc/ajax/stellenangebot-form.php:91
-msgid "Reaktion auf die freie Stelle"
-msgstr ""
-
-#: inc/template-functions.php:96
-msgid "Main Menu"
-msgstr ""
-
-#: inc/template-functions.php:97
-msgid "Footer Menu"
-msgstr ""
-
-#: inc/template-functions.php:167
-msgid "Bild-Module"
-msgstr ""
-
-#: inc/template-functions.php:172
-msgid "Bild/Text module"
+#: inc/acf/blocks.php:625 inc/acf/blocks.php:626
+msgid "Termine"
 msgstr ""
 
 #: inc/template-functions.php:177
 msgid "Text module"
 msgstr ""
 
-#: inc/template-functions.php:182
-msgid "Sonder"
-msgstr ""
-
-#: inc/template-functions.php:187
-msgid "Produkte"
-msgstr ""
-
-#: inc/template-functions.php:192
-msgid "Einsatzbereiche"
-msgstr ""
-
-#: inc/template-functions.php:197
-msgid "Kontakte"
-msgstr ""
-
-#. translators: %s: post date.
-#: inc/template-tags.php:50
-msgctxt "post date"
-msgid "Posted on %s"
-msgstr ""
-
-#. translators: %s: post author.
-#: inc/template-tags.php:65
-msgctxt "post author"
-msgid "by %s"
-msgstr ""
-
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:82
-msgid ", "
-msgstr ""
-
-#. translators: 1: list of categories.
-#: inc/template-tags.php:85
-msgid "Posted in %1$s"
-msgstr ""
-
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:89
-msgctxt "list item separator"
-msgid ", "
-msgstr ""
-
-#. translators: 1: list of tags.
-#: inc/template-tags.php:92
-msgid "Tagged %1$s"
-msgstr ""
-
-#. translators: %s: post title
-#: inc/template-tags.php:102
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
-
-#. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:119 template-parts/content-page.php:39
-msgid "Edit <span class=\"screen-reader-text\">%s</span>"
-msgstr ""
-
-#: inc/template-tags.php:452
-msgctxt "previous set of posts"
-msgid "Vorherige"
-msgstr ""
-
-#: inc/template-tags.php:453
-msgctxt "next set of posts"
-msgid "Weiter"
-msgstr ""
-
-#: inc/template-tags.php:454
-msgid "Beiträge Navigation"
-msgstr "Articles Navigation"
-
-#: inc/template-tags.php:455
-msgid "Beiträge"
-msgstr "Articles"
-
-#. translators: %1$d: post count; %2$s: search query.
-#: search.php:45
-msgid "%1$d Suchergebnisse für: %2$s"
-msgstr "%1$d Search results for: %2$s"
-
-#: search.php:54
-msgid ""
-"Suchergebnis nicht zufriedenstellend? Versuche es mal mit einem Wort oder "
-"einer anderen Schreibweise"
-msgstr ""
-
-#: searchform.php:14 searchform.php:25
-msgctxt "label"
-msgid "Suche nach:"
-msgstr ""
-
-#: searchform.php:20
-msgctxt "placeholder"
-msgid "Suche …"
-msgstr ""
-
-#: searchform.php:33
-msgctxt "button"
-msgid "Suche"
-msgstr ""
-
-#: single-post.php:51
-msgid "Lesen"
-msgstr ""
-
-#. translators: %s: Name of current post. Only visible to screen readers
-#: single-post.php:69 template-parts/content.php:40
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
-
-#: single-post.php:86
-msgid "Inhaltsverzeichnis"
-msgstr ""
-
-#: single-post.php:119
-msgid "Teilen Sie den Artikel:"
-msgstr ""
-
-#: single.php:20
-msgid "Previous:"
-msgstr ""
-
-#: single.php:21
-msgid "Next:"
-msgstr ""
-
-#: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:72
-msgid "Alle"
-msgstr "All"
-
-#: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:141
-#: template-parts/blocks/application-areas/application-areas-list/application-areas-list.php:72
-#: template-parts/blocks/sonder/our-areas.php:75
-#: template-parts/cards/news/new-card.php:29
-#: template-parts/cards/product/product-card.php:23
-msgid "Mehr"
-msgstr ""
-
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:38
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:36
-msgid "Dieses Feld darf nicht leer sein"
-msgstr ""
-
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:39
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:37
-msgid "E-Mail-Feld wird nicht korrekt ausgefüllt"
+#: inc/acf/acf.php:21 inc/acf/acf.php:22
+msgid "Themen Einstellungen"
 msgstr ""
 
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:40
@@ -522,199 +670,52 @@ msgid ""
 "das Kästchen ankreuzen."
 msgstr ""
 
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:41
-msgid ""
-"Durch das Absenden Dieses Kontaktformulars erklären Sie sich damit "
-"einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage "
-"elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung "
-"jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere "
-"Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in "
-"unserer Datenschutzerklärung."
+#. Author of the theme
+msgid "Underscores.me"
 msgstr ""
 
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:42
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:39
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:41
-msgid "Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!"
-msgstr ""
-
-#: template-parts/blocks/contacts/contacts-form/contacts-form.php:161
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:197
-msgid "Formular senden"
-msgstr ""
-
-#: template-parts/blocks/info/impressum.php:43
-msgid "Herausgeber"
-msgstr "Publisher"
-
-#: template-parts/blocks/info/impressum.php:47
-msgid "Anschrift"
-msgstr "Address"
-
-#: template-parts/blocks/info/impressum.php:51
-msgid "USt-ID"
-msgstr ""
-
-#: template-parts/blocks/info/impressum.php:57
-msgid "Kontakt"
-msgstr ""
-
-#: template-parts/blocks/info/impressum.php:58
-msgid "Tel."
-msgstr ""
-
-#: template-parts/blocks/info/impressum.php:60
-msgid "E-mail:"
-msgstr ""
-
-#: template-parts/blocks/info/impressum.php:61
-msgid "Eintrag im Handelsregister"
-msgstr ""
-
-#: template-parts/blocks/info/impressum.php:65
-msgid "Geschäftsführer"
-msgstr ""
-
-#: template-parts/blocks/model/model-info.php:70
-msgid "Modell"
-msgstr ""
-
-#: template-parts/blocks/model/model-info.php:78
-msgid "TECHNISCHE DATEN"
-msgstr "TECHNICAL DATA"
-
-#: template-parts/blocks/model/model-info.php:88
-msgid "VIDEO"
-msgstr ""
-
-#: template-parts/blocks/model/model-info.php:94
-msgid "FOTOS"
-msgstr ""
-
-#: template-parts/blocks/model/model-info.php:216
-#: template-parts/blocks/sonder/lazy-video/lazy-video.php:102
-msgid "Leider unterstützt Ihr Browser keine eingebetteten Videos."
-msgstr ""
-
-#: template-parts/blocks/news/all-news/all-news.php:55
-msgid "Alle Artikel"
-msgstr "All articles"
-
-#: template-parts/blocks/product/product-model-list/product-model-list.php:59
-msgid "<span>MODELLE</span> VERGLEICHEN"
-msgstr "<span>MODELS</span> COMPARE"
-
-#: template-parts/blocks/product/product-model-list/product-model-list.php:108
-#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:126
-msgid "Details"
-msgstr ""
-
-#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:119
-#: template-parts/blocks/serial-product/series-general-info/series-general-info.php:58
-#: template-parts/blocks/serial-product/series-general-info/series-general-info.php:76
-msgid "modelle"
-msgstr ""
-
-#: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:46
-msgid "Merkmale"
-msgstr ""
-
-#: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:92
-msgid "Einsatzgebiete"
-msgstr ""
-
-#: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:119
-msgid "Weltneuheit"
-msgstr ""
-
-#: template-parts/blocks/sonder/our-team/our-team.php:77
-#: template-parts/blocks/sonder/our-team/our-team.php:104
-msgid "Sprachen"
-msgstr ""
-
-#: template-parts/blocks/sonder/our-team/our-team.php:150
-msgid "mob.:"
-msgstr ""
-
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:38
-msgid "Die Dateigröße sollte 1 MB nicht überschreiten."
-msgstr ""
-
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:40
-msgid ""
-"Durch das Absenden dieses Kontaktformulars erklären Sie sich damit "
-"einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage "
-"elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung "
-"jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere "
-"Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in "
-"unserer Datenschutzerklärung."
+#: inc/acf/blocks.php:415 inc/acf/blocks.php:416
+msgid "Unser Team"
 msgstr ""
 
 #: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:104
 msgid "Unsere Benefits"
 msgstr ""
 
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:171
-msgid "Laden Sie Ihren Lebenslauf hoch"
+#: inc/acf/blocks.php:841 inc/acf/blocks.php:842
+msgid "Unsere Partner"
 msgstr ""
 
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:181
-msgid ""
-"<a>Klicken Sie auf eine Datei und wählen Sie sie aus</a>, oder ziehen Sie "
-"eine <b>DOC-</b>, <b>DOCX-</b> oder <b>PDF-Datei</b> per Drag & Drop. Die "
-"maximale Dateigröße beträgt <b>1 Mb</b>."
-msgstr ""
-"<a>Click and select a file </a> or drag and drop a <b>DOC</b>, <b>DOCX</b> "
-"or <b>PDF file</b>. The maximal file size is <b>1 Mb</b>."
-
-#: template-parts/blocks/stellenangebote/stellenangebote-list/stellenangebote-list.php:81
-msgid "Bereichern Sie unser Team als"
-msgstr "Join our team as"
-
-#: template-parts/content-none.php:17 template-parts/content-none.php:114
-msgid "Nothing Found"
+#: inc/ajax/contacts-form.php:108
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:87
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:88
+msgid "Unternehmen"
 msgstr ""
 
-#. translators: 1: link to WP admin new post page.
-#: template-parts/content-none.php:26
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-
-#. translators: %s: search query.
-#: template-parts/content-none.php:48 template-parts/content-none.php:60
-msgid "Suchergebnisse für: %s"
-msgstr ""
-
-#: template-parts/content-none.php:68
-msgid "Es konnte leider nichts gefunden werden"
-msgstr ""
-
-#: template-parts/content-none.php:72
-msgid ""
-"Entschuldigung, aber kein Eintrag erfüllt Deine Suchkriterien. Bitte starte "
-"eine neue Suche. Um bessere Suchergebnisse zu erzielen, beachte bitte "
-"folgende Hinweise:"
-msgstr ""
-
-#: template-parts/content-none.php:77
-msgid "Überprüfe die Rechtschreibung."
-msgstr ""
-
-#: template-parts/content-none.php:81
-msgid "Suche nach ähnlichen Suchbegriffen, z.B. Notebook statt Laptop, etc."
+#: template-parts/blocks/info/impressum.php:51
+msgid "USt-ID"
 msgstr ""
 
 #: template-parts/content-none.php:85
 msgid "Versuche mehr als einen Suchbegriff zu verwenden."
 msgstr ""
 
-#: template-parts/content-none.php:119
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
+#: template-parts/blocks/model/model-info.php:88
+msgid "VIDEO"
 msgstr ""
 
-#: template-parts/content-page.php:25 template-parts/content.php:53
-msgid "Pages:"
+#: inc/ajax/contacts-form.php:115 inc/ajax/stellenangebot-form.php:87
+msgid "Website url"
+msgstr ""
+
+#: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:119
+msgid "Weltneuheit"
+msgstr ""
+
+#: 404.php:21
+msgid "Zur Startseite"
+msgstr ""
+
+#: template-parts/content-none.php:77
+msgid "Überprüfe die Rechtschreibung."
 msgstr ""

@@ -643,7 +643,7 @@ msgid "Alle Artikel"
 msgstr ""
 
 #: template-parts/blocks/product/product-model-list/product-model-list.php:59
-msgid "<span>MODELLE</span> VERGLEICHEN"
+msgid "<strong>MODELLE</strong> VERGLEICHEN"
 msgstr ""
 
 #: template-parts/blocks/product/product-model-list/product-model-list.php:108
