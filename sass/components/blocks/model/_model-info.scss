@@ -108,14 +108,17 @@
         }
     }
 
-    &__params {
-        @include reset-ul;
+    &__params-wrapper {
 
         width: 57%;
 
         @include media-down-md {
             width: 100%;
         }
+    }
+
+    &__params {
+        @include reset-ul;
     }
 
     &__drawing {

@@ -31,6 +31,8 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
+	$kemroc_pml_enable_measure_units_switcher = get_field( 'enable_measure_units_switcher' );
+
 	$kemroc_pml_models       = kemroc_get_models_compare( get_post_type() );
 	$kemroc_pml_model_params = array();
 
@@ -56,25 +58,36 @@ if ( ! $is_preview ) :
 			<?php if ( $kemroc_pml_models ) : ?>
 				<div class="product-model-list__card pml-model-card">
 					<div class="pml-model-card__title">
-						<?php echo wp_kses_post( __( '<span>MODELLE</span> VERGLEICHEN', 'kemroc' ) ); ?>
+
+						<?php if ( $kemroc_pml_enable_measure_units_switcher ) : ?>
+							<span id='mu-switcher' class="pml-model-card__title-swither">
+								<?php esc_html_e( 'Maßeinheit:', 'kemroc' ); ?>
+								<span class="mu-flag" data-lang-code="default"></span>
+								<!-- /.mu-flag -->
+								<span class="mu-flag" data-lang-code="us"></span>
+								<!-- /.mu-flag -->
+							</span>
+							<!-- /.pml-model-card__title-swither -->
+						<?php endif; ?>
+						
+						<?php echo wp_kses_post( __( '<strong>MODELLE</strong> VERGLEICHEN', 'kemroc' ) ); ?>
 					</div>
 					<!-- /.pml-model-card__title -->
+					<ul class="pml-model-card__params">
 
-						<ul class="pml-model-card__params">
-
-							<?php 
-							foreach ( $kemroc_pml_model_params as $kemroc_pml_param_title => $kemroc_pml_param_value ) : 
-								?>
-								<li class="pml-model-card__param">
-									<?php echo esc_html( $kemroc_pml_param_title ); ?>
-								</li>
-								<!-- /.pml-model-card__param -->
-								<?php 
-							endforeach;
+						<?php 
+						foreach ( $kemroc_pml_model_params as $kemroc_pml_param_title => $kemroc_pml_param_value ) : 
 							?>
+							<li class="pml-model-card__param">
+								<?php echo esc_html( $kemroc_pml_param_title ); ?>
+							</li>
+							<!-- /.pml-model-card__param -->
+							<?php 
+						endforeach;
+						?>
 
-						</ul>
-						<!-- /.pml-model-card__params -->
+					</ul>
+					<!-- /.pml-model-card__params -->
 
 				</div>
 				<!-- /.product-model-list__card pml-model-card -->
@@ -95,7 +108,12 @@ if ( ! $is_preview ) :
 
 											<?php foreach ( $kemroc_pml_model['params'] as $kemroc_pml_param_value ) : ?>
 												<li class="pml-model__param">
-													<?php echo esc_html( $kemroc_pml_param_value ); ?>
+													<span class="mu-value pml-model__param-value" data-lang-code="default">
+														<?php echo esc_html( $kemroc_pml_param_value['default'] ); ?>
+													</span>
+													<span class="mu-value pml-model__param-value" data-lang-code="us">
+														<?php echo esc_html( $kemroc_pml_param_value['us'] ); ?>
+													</span>
 												</li>
 												<!-- /.pml-model__param -->
 											<?php endforeach; ?>	
@@ -135,5 +153,5 @@ if ( ! $is_preview ) :
 	</section>
 	<!-- /.product-model-list -->
 
-					<?php
+	<?php
 endif;

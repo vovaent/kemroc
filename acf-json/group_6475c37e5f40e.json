@@ -3,10 +3,10 @@
     "title": "Block | Product Model List",
     "fields": [
         {
-            "key": "field_6475c4e100030",
-            "label": "Übergeordnete Produktseite",
-            "name": "parent_product_page",
-            "type": "post_object",
+            "key": "field_64afe1da60297",
+            "label": "Eine Umschaltmöglichkeit für Maßeinheiten hinzufügen?",
+            "name": "enable_measure_units_switcher",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,14 +15,15 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "page"
-            ],
-            "taxonomy": "",
-            "return_format": "id",
-            "multiple": 0,
+            "acfe_save_meta": 0,
+            "choices": {
+                "false": "Nine",
+                "true": "Ja"
+            },
+            "default_value": "",
+            "return_format": "value",
             "allow_null": 0,
-            "ui": 1
+            "layout": "horizontal"
         }
     ],
     "location": [
@@ -40,8 +41,15 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": false,
+    "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686135194
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1689253001
 }

@@ -19,6 +19,29 @@
             "endpoint": 0
         },
         {
+            "key": "field_64aff47350b0d",
+            "label": "Eine Umschaltmöglichkeit für Maßeinheiten hinzufügen?",
+            "name": "enable_measure_units_switcher",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_save_meta": 0,
+            "choices": {
+                "false": "Nine",
+                "true": "Ja"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_64785ca42436c",
             "label": "Optionen",
             "name": "params",
@@ -60,7 +83,10 @@
                     "multiple": 0,
                     "allow_null": 0,
                     "ui": 1,
-                    "parent_repeater": "field_64785ca42436c"
+                    "parent_repeater": "field_64785ca42436c",
+                    "save_custom": 0,
+                    "save_post_type": "",
+                    "save_post_status": ""
                 },
                 {
                     "key": "field_647866b12436e",
@@ -81,8 +107,59 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_64785ca42436c"
+                },
+                {
+                    "key": "field_64afc0a07aa4e",
+                    "label": "Geben Sie den Wert in US-Einheiten an.",
+                    "name": "enable_us_measure_units_value",
+                    "type": "true_false",
+                    "instructions": "Wert in US-Maßeinheiten hinzufügen",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "acfe_save_meta": 0,
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_64785ca42436c"
+                },
+                {
+                    "key": "field_64afc14c7aa4f",
+                    "label": "US-Wert",
+                    "name": "us_value",
+                    "type": "text",
+                    "instructions": "Nur den Wert ohne Einheiten eingeben",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_64afc0a07aa4e",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "acfe_save_meta": 0,
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64785ca42436c"
                 }
-            ]
+            ],
+            "acfe_repeater_stylised_button": 0
         },
         {
             "key": "field_64786771017de",
@@ -106,7 +183,9 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
-            "preview_size": "medium"
+            "preview_size": "medium",
+            "uploader": "",
+            "acfe_thumbnail": 0
         },
         {
             "key": "field_647867a1017df",
@@ -161,7 +240,12 @@
                     "toolbar": "full",
                     "media_upload": 1
                 }
-            ]
+            ],
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
         },
         {
             "key": "field_64786888b0d6c",
@@ -268,7 +352,8 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "uploader": ""
                 },
                 {
                     "key": "field_6478b1e0edd84",
@@ -311,9 +396,16 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
-                    "preview_size": "medium"
+                    "preview_size": "medium",
+                    "uploader": "",
+                    "acfe_thumbnail": 0
                 }
-            ]
+            ],
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
         },
         {
             "key": "field_647868ee051f7",
@@ -375,9 +467,12 @@
                     "max_size": "",
                     "mime_types": "",
                     "preview_size": "medium",
+                    "uploader": "",
+                    "acfe_thumbnail": 0,
                     "parent_repeater": "field_6478692c051f8"
                 }
-            ]
+            ],
+            "acfe_repeater_stylised_button": 0
         }
     ],
     "location": [
@@ -398,5 +493,12 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689077977
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1689253110
 }

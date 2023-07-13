@@ -81,14 +81,15 @@ const productModelList = ( $ ) => {
 			const $thisModelTitle = $( this );
 
 			if ( modelCardTitleHeight !== $thisModelTitle.outerHeight() ) {
-				$thisModelTitle.css(
-					'min-height',
-					`${ modelTitleMaxHeight }px`
-				);
+				$thisModelTitle.css( 'height', `${ modelTitleMaxHeight }px` );
 			}
 		} );
 
-		$modelCardTitle.css( 'min-height', `${ modelTitleMaxHeight }px` );
+		if ( modelCardTitleHeight > modelTitleMaxHeight ) {
+			$modelTitles.css( 'height', `${ modelCardTitleHeight }px` );
+		} else {
+			$modelCardTitle.css( 'height', `${ modelTitleMaxHeight }px` );
+		}
 	};
 
 	const fixSliderArrowsPosition = () => {
@@ -101,10 +102,29 @@ const productModelList = ( $ ) => {
 		} );
 	};
 
+	const measureUnitsSwitcherHandler = () => {
+		const $muSwitcher = $( '#mu-switcher' );
+		const $muFlag = $( '.mu-flag' );
+		const $muValue = $( '.mu-value' );
+
+		if ( $muSwitcher.length === 0 ) {
+			return;
+		}
+		$muFlag.on( 'click', function () {
+			const $thisFlag = $( this );
+
+			const thisLangCode = $thisFlag.data( 'lang-code' );
+
+			$muValue.hide();
+			$( `.mu-value[data-lang-code="${ thisLangCode }"]` ).fadeIn( 200 );
+		} );
+	};
+
 	pmlSliderHandler();
 	fixModelParamsHeight();
 	fixModelNameHeight();
 	fixSliderArrowsPosition();
+	measureUnitsSwitcherHandler();
 };
 
 export { productModelList };

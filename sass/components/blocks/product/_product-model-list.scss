@@ -126,9 +126,13 @@
             padding: 0;
         }
 
-        span {
+        strong {
             color: $accent;
             text-transform: uppercase;
+        }
+
+        &-swither {
+            margin-bottom: 21px;
         }
     }
 
@@ -236,7 +240,6 @@
 
         &:last-child {
             border-bottom: 1px solid $color__border;
-
         }
     }
 
