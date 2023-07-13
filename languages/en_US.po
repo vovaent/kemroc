@@ -10,10 +10,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2023-07-11T08:39:13+00:00\n"
-"PO-Revision-Date: 2023-07-11 09:15+0000\n"
+"PO-Revision-Date: 2023-07-13 06:43+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: kemroc\n"
-"\n"
 "Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Loco-Version: 2.6.4; wp-6.2.2"
@@ -106,7 +105,7 @@ msgstr ""
 
 #: inc/acf/blocks.php:142 inc/acf/blocks.php:143
 msgid "Allgemeine Produktinformationen"
-msgstr ""
+msgstr "General product information"
 
 #: inc/acf/blocks.php:163 inc/acf/blocks.php:164
 msgid "Technische Produktinformationen"
@@ -134,7 +133,7 @@ msgstr ""
 
 #: inc/acf/blocks.php:289 inc/acf/blocks.php:290
 msgid "Allgemeine Informationen zur Serie"
-msgstr ""
+msgstr "General information about the series"
 
 #: inc/acf/blocks.php:310 inc/acf/blocks.php:311
 msgid "Technische Informationen zur Serie"
@@ -154,7 +153,7 @@ msgstr ""
 
 #: inc/acf/blocks.php:394 inc/acf/blocks.php:395
 msgid "Bild in voller Breite mit abgerundeten Kanten"
-msgstr ""
+msgstr "Full-width image with rounded edges"
 
 #: inc/acf/blocks.php:415 inc/acf/blocks.php:416
 msgid "Unser Team"
@@ -186,7 +185,7 @@ msgstr ""
 
 #: inc/acf/blocks.php:562 inc/acf/blocks.php:563 inc/template-functions.php:202
 msgid "Aktuelles"
-msgstr ""
+msgstr "News"
 
 #: inc/acf/blocks.php:583 inc/acf/blocks.php:584
 msgid "Liste der Produkte"
@@ -210,7 +209,7 @@ msgstr ""
 
 #: inc/acf/blocks.php:688 inc/acf/blocks.php:689
 msgid "Absatztext"
-msgstr ""
+msgstr "Absatztext"
 
 #: inc/acf/blocks.php:710 inc/acf/blocks.php:711
 msgid "Cookies table"
@@ -244,7 +243,7 @@ msgstr ""
 #: inc/ajax/products.php:15 inc/ajax/search.php:15
 #: inc/ajax/stellenangebot-form.php:13
 msgid "Daten, die von einer fremden Adresse gesendet werden"
-msgstr ""
+msgstr "Data that are sent from a foreign address"
 
 #: inc/ajax/contacts-form.php:17 inc/ajax/stellenangebot-form.php:17
 msgid "Spam"
@@ -319,7 +318,7 @@ msgstr ""
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:126
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:127
 msgid "Betreff"
-msgstr ""
+msgstr "Subject"
 
 #: inc/ajax/contacts-form.php:114 single-post.php:38
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:134
@@ -333,11 +332,11 @@ msgstr ""
 
 #: inc/ajax/contacts-form.php:122 inc/ajax/stellenangebot-form.php:95
 msgid "Daten erfolgreich gesendet"
-msgstr ""
+msgstr "Data was sent successfully"
 
 #: inc/ajax/contacts-form.php:127 inc/ajax/stellenangebot-form.php:100
 msgid "Brief nicht abgeschickt"
-msgstr ""
+msgstr "Mail not sent"
 
 #: inc/ajax/search.php:52 template-parts/cards/search/search-card.php:31
 msgid "Mehr lesen"
@@ -438,16 +437,16 @@ msgstr ""
 
 #: inc/template-tags.php:454
 msgid "Beiträge Navigation"
-msgstr ""
+msgstr "Articles Navigation"
 
 #: inc/template-tags.php:455
 msgid "Beiträge"
-msgstr ""
+msgstr "Articles"
 
 #. translators: %1$d: post count; %2$s: search query.
 #: search.php:45
 msgid "%1$d Suchergebnisse für: %2$s"
-msgstr ""
+msgstr "%1$d Search results for: %2$s"
 
 #: search.php:54
 msgid ""
@@ -497,7 +496,7 @@ msgstr ""
 
 #: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:72
 msgid "Alle"
-msgstr ""
+msgstr "All"
 
 #: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:141
 #: template-parts/blocks/application-areas/application-areas-list/application-areas-list.php:72
@@ -546,11 +545,11 @@ msgstr ""
 
 #: template-parts/blocks/info/impressum.php:43
 msgid "Herausgeber"
-msgstr ""
+msgstr "Publisher"
 
 #: template-parts/blocks/info/impressum.php:47
 msgid "Anschrift"
-msgstr ""
+msgstr "Address"
 
 #: template-parts/blocks/info/impressum.php:51
 msgid "USt-ID"
@@ -582,7 +581,7 @@ msgstr ""
 
 #: template-parts/blocks/model/model-info.php:78
 msgid "TECHNISCHE DATEN"
-msgstr ""
+msgstr "TECHNICAL DATA"
 
 #: template-parts/blocks/model/model-info.php:88
 msgid "VIDEO"
@@ -599,11 +598,11 @@ msgstr ""
 
 #: template-parts/blocks/news/all-news/all-news.php:55
 msgid "Alle Artikel"
-msgstr ""
+msgstr "All articles"
 
 #: template-parts/blocks/product/product-model-list/product-model-list.php:59
 msgid "<span>MODELLE</span> VERGLEICHEN"
-msgstr ""
+msgstr "<span>MODELS</span> COMPARE"
 
 #: template-parts/blocks/product/product-model-list/product-model-list.php:108
 #: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:126
@@ -665,10 +664,12 @@ msgid ""
 "eine <b>DOC-</b>, <b>DOCX-</b> oder <b>PDF-Datei</b> per Drag & Drop. Die "
 "maximale Dateigröße beträgt <b>1 Mb</b>."
 msgstr ""
+"<a>Click and select a file </a> or drag and drop a <b>DOC</b>, <b>DOCX</b> "
+"or <b>PDF file</b>. The maximal file size is <b>1 Mb</b>."
 
 #: template-parts/blocks/stellenangebote/stellenangebote-list/stellenangebote-list.php:81
 msgid "Bereichern Sie unser Team als"
-msgstr ""
+msgstr "Join our team as"
 
 #: template-parts/content-none.php:17 template-parts/content-none.php:114
 msgid "Nothing Found"
