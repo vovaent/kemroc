@@ -642,6 +642,10 @@ msgstr ""
 msgid "Alle Artikel"
 msgstr ""
 
+#: template-parts/blocks/product/product-model-list/product-model-list.php:64
+msgid "Maßeinheit:"
+msgstr ""
+
 #: template-parts/blocks/product/product-model-list/product-model-list.php:59
 msgid "<strong>MODELLE</strong> VERGLEICHEN"
 msgstr ""
