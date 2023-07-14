@@ -114,9 +114,13 @@ $store_link   = get_field( 'store_link', 'option' );
 							<button class="toggle-nav header-top__toggle-nav">
 								<?php get_template_part( 'template-parts/icons/toggle-nav-burger' ); ?>
 							</button>
-							<a href="<?php echo kemroc_home_url(); ?>" class="site-logo header-top__logo">
-								<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
-							</a>
+
+							<?php if ( $logo ) : ?>
+								<a href="<?php echo kemroc_home_url(); ?>" class="site-logo header-top__logo">
+									<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
+								</a>
+							<?php endif; ?>
+							
 							<a href="<?php echo esc_url( $kemroc_no_current_lang_url ); ?>"
 								class="lang-switcher header-top__lang-switcher">
 								<img src="<?php echo esc_attr( $kemroc_no_current_lang_flag ); ?>"
@@ -135,9 +139,11 @@ $store_link   = get_field( 'store_link', 'option' );
 					</div>
 					<div class="header__bottom">
 						<div class="mobile-nav-panel">
-							<button class="lang-switcher">
-								<?php get_template_part( 'template-parts/icons/english-flag' ); ?>
-							</button>
+							<a href="<?php echo esc_url( $kemroc_no_current_lang_url ); ?>" class="lang-switcher">
+								<img src="<?php echo esc_attr( $kemroc_no_current_lang_flag ); ?>"
+									class="lang-switcher__icon"
+									alt="<?php echo esc_attr( $kemroc_no_current_lang_name ); ?>">
+							</a>
 							<button class="toggle-nav">
 								<?php get_template_part( 'template-parts/icons/toggle-nav-cross' ); ?>
 							</button>
