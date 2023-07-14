@@ -30,11 +30,60 @@ const navigation = ( $ ) => {
 		'click',
 		'.header__mobile li.menu-item-has-children > a',
 		function ( e ) {
-			console.log( 'click' );
 			e.preventDefault();
-			$( this ).next( '.sub-menu' ).addClass( 'active' );
+
+			const $this = $( this );
+			const $thisSubmenu = $this.next( '.sub-menu' );
+
+			$thisSubmenu.addClass( 'active' );
 		}
 	);
+
+	const $liHasChildren = $( '.header__mobile li.menu-item-has-children' );
+
+	$liHasChildren.each( function () {
+		const $this = $( this );
+		const $thisSubMenu = $( '.sub-menu', $this );
+		const $thisSubMenuWrapper = $(
+			'.sub-menu__items-wrapper li:first',
+			$thisSubMenu
+		);
+
+		$this
+			.clone()
+			.insertBefore( $thisSubMenuWrapper )
+			.removeClass( 'menu-item-has-children' )
+			.addClass( 'nav-parent-page' )
+			.find( '.sub-menu' )
+			.remove();
+	} );
+
+	if ( ! /iPhone|iPad|iPod/i.test( navigator.userAgent ) ) {
+		$( '.main-navigation li' ).hover(
+			function () {
+				$( this ).addClass( 'hover' );
+			},
+			function () {
+				$( this ).removeClass( 'hover' );
+			}
+		);
+		$( '.main-navigation li>.sub-menu' ).hover(
+			function () {
+				$( this ).addClass( 'hover' );
+			},
+			function () {
+				$( this ).removeClass( 'hover' );
+			}
+		);
+		$( '.main-navigation li>.sub-menu a' ).hover(
+			function () {
+				$( this ).addClass( 'hover' );
+			},
+			function () {
+				$( this ).removeClass( 'hover' );
+			}
+		);
+	}
 };
 
 export { navigation };
