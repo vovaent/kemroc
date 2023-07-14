@@ -176,5 +176,20 @@
                 height: 175.5px;
             }
         }
+
+        &--animation {
+            .lazy-video__figure {
+
+                height: auto;
+
+                @include media-down-md {
+                    height: auto;
+                }
+
+                @include media-down-sm {
+                    height: auto;
+                }
+            }
+        }
     }
 }

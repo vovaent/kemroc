@@ -34,6 +34,7 @@ if ( ! $is_preview ) :
 	$kemroc_mi_params                         = get_field( 'params' );
 	$kemroc_mi_drawing_id                     = get_field( 'drawing' );
 	$kemroc_mi_descr                          = get_field( 'descr' );
+	$kemroc_mi_animation                      = get_field( 'animation' );
 	$kemroc_mi_video                          = get_field( 'video' );
 	$kemroc_mi_photos                         = get_field( 'photos' );
 	$kemroc_pml_enable_measure_units_switcher = get_field( 'enable_measure_units_switcher' );
@@ -80,6 +81,13 @@ if ( ! $is_preview ) :
 						<?php esc_html_e( 'TECHNISCHE DATEN', 'kemroc' ); ?>
 					</div>
 					<!-- /.model-tabs__tab -->
+
+					<?php if ( ! empty( $kemroc_mi_animation['file'] ) ) : ?>
+						<div class="model-tabs__tab">
+							<?php esc_html_e( '3D MODELL', 'kemroc' ); ?>
+						</div>
+						<!-- /.model-tabs__tab -->
+					<?php endif; ?>
 
 					<?php 
 					if ( ( 'youtube' === $kemroc_mi_video['yt_or_file_load'] && ! empty( $kemroc_mi_video['id'] ) )
@@ -183,6 +191,39 @@ if ( ! $is_preview ) :
 						<!-- /.model-tabs__inset-description -->
 					</div>
 					<!-- /.model-tabs__inset -->
+
+					<?php if ( ! empty( $kemroc_mi_animation['file'] ) ) : ?>
+						<?php
+						$kemroc_mi_animation_poster_img = '';
+						if ( $kemroc_mi_animation['poster'] ) : 
+							$kemroc_mi_animation_poster_img = wp_get_attachment_url( $kemroc_mi_animation['poster'] ); 
+						endif;
+						?>
+						<div class="model-tabs__inset">
+							<div class="model-tabs__lazy-video model-tabs__lazy-video--animation lazy-video">
+								<figure class="lazy-video__figure lazy-video__figure--file">
+									<video 
+										class="lazy-video__source lazy-video__source--model-page"
+										src="<?php echo esc_url( $kemroc_mi_animation['file']['url'] ); ?>" 
+										width="100%" 
+										height="100%" 
+										muted
+										poster="<?php echo esc_url( $kemroc_mi_animation_poster_img ); ?>"
+									>
+										<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
+									</video>
+									<!-- /.lazy-video__source -->
+									<span class="icon-play lazy-video__icon-play">
+										<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
+									</span>
+									<!-- /.icon-play lazy-video__icon-play -->
+								</figure>
+								<!-- /.lazy-video__figure lazy-video__figure--file -->
+							</div>
+							<!-- /.model-tabs__lazy-video lazy-video -->
+						</div>
+						<!-- /.model-tabs__inset -->
+					<?php endif; ?>
 
 					<?php if ( 'youtube' === $kemroc_mi_video['yt_or_file_load'] && $kemroc_mi_video['id'] ) : ?>
 						<div class="model-tabs__inset">

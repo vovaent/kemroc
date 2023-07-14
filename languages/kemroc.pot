@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: kemroc 1.1.5\n"
+"Project-Id-Version: kemroc 1.1.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/kemroc\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-07-11T08:39:13+00:00\n"
+"POT-Creation-Date: 2023-07-14T13:00:55+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: kemroc\n"
@@ -208,7 +208,7 @@ msgstr ""
 
 #: inc/acf/blocks.php:562
 #: inc/acf/blocks.php:563
-#: inc/template-functions.php:202
+#: inc/template-functions.php:203
 msgid "Aktuelles"
 msgstr ""
 
@@ -281,21 +281,21 @@ msgstr ""
 #: inc/ajax/contacts-form.php:13
 #: inc/ajax/products.php:15
 #: inc/ajax/search.php:15
-#: inc/ajax/stellenangebot-form.php:13
+#: inc/ajax/stellenangebot-info.php:13
 msgid "Daten, die von einer fremden Adresse gesendet werden"
 msgstr ""
 
 #: inc/ajax/contacts-form.php:17
-#: inc/ajax/stellenangebot-form.php:17
+#: inc/ajax/stellenangebot-info.php:17
 msgid "Spam"
 msgstr ""
 
 #: inc/ajax/contacts-form.php:103
-#: inc/ajax/stellenangebot-form.php:84
+#: inc/ajax/stellenangebot-info.php:86
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:56
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:57
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:147
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:149
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:117
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:119
 msgid "Name"
 msgstr ""
 
@@ -330,9 +330,11 @@ msgid "Unternehmen"
 msgstr ""
 
 #: inc/ajax/contacts-form.php:109
-#: inc/ajax/stellenangebot-form.php:85
+#: inc/ajax/stellenangebot-info.php:87
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:92
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:93
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:140
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:143
 msgid "Telefon"
 msgstr ""
 
@@ -343,11 +345,11 @@ msgid "Telefon alternativ"
 msgstr ""
 
 #: inc/ajax/contacts-form.php:111
-#: inc/ajax/stellenangebot-form.php:86
+#: inc/ajax/stellenangebot-info.php:88
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:105
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:106
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:157
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:159
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:127
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:129
 msgid "E-Mail"
 msgstr ""
 
@@ -372,17 +374,17 @@ msgid "Nachricht"
 msgstr ""
 
 #: inc/ajax/contacts-form.php:115
-#: inc/ajax/stellenangebot-form.php:87
+#: inc/ajax/stellenangebot-info.php:89
 msgid "Website url"
 msgstr ""
 
 #: inc/ajax/contacts-form.php:122
-#: inc/ajax/stellenangebot-form.php:95
+#: inc/ajax/stellenangebot-info.php:97
 msgid "Daten erfolgreich gesendet"
 msgstr ""
 
 #: inc/ajax/contacts-form.php:127
-#: inc/ajax/stellenangebot-form.php:100
+#: inc/ajax/stellenangebot-info.php:102
 msgid "Brief nicht abgeschickt"
 msgstr ""
 
@@ -391,7 +393,7 @@ msgstr ""
 msgid "Mehr lesen"
 msgstr ""
 
-#: inc/ajax/stellenangebot-form.php:91
+#: inc/ajax/stellenangebot-info.php:93
 msgid "Reaktion auf die freie Stelle"
 msgstr ""
 
@@ -403,31 +405,31 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/template-functions.php:167
+#: inc/template-functions.php:168
 msgid "Bild-Module"
 msgstr ""
 
-#: inc/template-functions.php:172
+#: inc/template-functions.php:173
 msgid "Bild/Text module"
 msgstr ""
 
-#: inc/template-functions.php:177
+#: inc/template-functions.php:178
 msgid "Text module"
 msgstr ""
 
-#: inc/template-functions.php:182
+#: inc/template-functions.php:183
 msgid "Sonder"
 msgstr ""
 
-#: inc/template-functions.php:187
+#: inc/template-functions.php:188
 msgid "Produkte"
 msgstr ""
 
-#: inc/template-functions.php:192
+#: inc/template-functions.php:193
 msgid "Einsatzbereiche"
 msgstr ""
 
-#: inc/template-functions.php:197
+#: inc/template-functions.php:198
 msgid "Kontakte"
 msgstr ""
 
@@ -475,6 +477,18 @@ msgstr ""
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
+#: inc/template-tags.php:269
+msgid "&laquo; Vorherige"
+msgstr ""
+
+#: inc/template-tags.php:270
+msgid "Weiter &raquo;"
+msgstr ""
+
+#: inc/template-tags.php:379
+msgid "&hellip;"
+msgstr ""
+
 #: inc/template-tags.php:452
 msgctxt "previous set of posts"
 msgid "Vorherige"
@@ -494,11 +508,11 @@ msgid "Beiträge"
 msgstr ""
 
 #. translators: %1$d: post count; %2$s: search query.
-#: search.php:45
+#: search.php:36
 msgid "%1$d Suchergebnisse für: %2$s"
 msgstr ""
 
-#: search.php:54
+#: search.php:45
 msgid "Suchergebnis nicht zufriedenstellend? Versuche es mal mit einem Wort oder einer anderen Schreibweise"
 msgstr ""
 
@@ -548,7 +562,7 @@ msgstr ""
 msgid "Alle"
 msgstr ""
 
-#: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:141
+#: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:153
 #: template-parts/blocks/application-areas/application-areas-list/application-areas-list.php:72
 #: template-parts/blocks/sonder/our-areas.php:75
 #: template-parts/cards/news/new-card.php:29
@@ -557,12 +571,12 @@ msgid "Mehr"
 msgstr ""
 
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:38
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:36
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:40
 msgid "Dieses Feld darf nicht leer sein"
 msgstr ""
 
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:39
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:37
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:41
 msgid "E-Mail-Feld wird nicht korrekt ausgefüllt"
 msgstr ""
 
@@ -575,14 +589,34 @@ msgid "Durch das Absenden Dieses Kontaktformulars erklären Sie sich damit einve
 msgstr ""
 
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:42
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:39
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:41
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:43
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:45
 msgid "Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!"
 msgstr ""
 
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:161
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:197
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:183
 msgid "Formular senden"
+msgstr ""
+
+#: template-parts/blocks/info/cookies-table.php:35
+msgid "NAME"
+msgstr ""
+
+#: template-parts/blocks/info/cookies-table.php:36
+msgid "ANBIETER"
+msgstr ""
+
+#: template-parts/blocks/info/cookies-table.php:37
+msgid "ZWECK"
+msgstr ""
+
+#: template-parts/blocks/info/cookies-table.php:38
+msgid "ABLAUF"
+msgstr ""
+
+#: template-parts/blocks/info/cookies-table.php:39
+msgid "TYP"
 msgstr ""
 
 #: template-parts/blocks/info/impressum.php:43
@@ -617,23 +651,33 @@ msgstr ""
 msgid "Geschäftsführer"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:70
+#: template-parts/blocks/model/model-info.php:73
 msgid "Modell"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:78
+#: template-parts/blocks/model/model-info.php:81
 msgid "TECHNISCHE DATEN"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:88
+#: template-parts/blocks/model/model-info.php:87
+msgid "3D MODELL"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:98
 msgid "VIDEO"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:94
+#: template-parts/blocks/model/model-info.php:105
 msgid "FOTOS"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:216
+#: template-parts/blocks/model/model-info.php:120
+#: template-parts/blocks/product/product-model-list/product-model-list.php:64
+msgid "Maßeinheit:"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:213
+#: template-parts/blocks/model/model-info.php:283
 #: template-parts/blocks/sonder/lazy-video/lazy-video.php:102
 msgid "Leider unterstützt Ihr Browser keine eingebetteten Videos."
 msgstr ""
@@ -642,15 +686,11 @@ msgstr ""
 msgid "Alle Artikel"
 msgstr ""
 
-#: template-parts/blocks/product/product-model-list/product-model-list.php:64
-msgid "Maßeinheit:"
-msgstr ""
-
-#: template-parts/blocks/product/product-model-list/product-model-list.php:59
+#: template-parts/blocks/product/product-model-list/product-model-list.php:73
 msgid "<strong>MODELLE</strong> VERGLEICHEN"
 msgstr ""
 
-#: template-parts/blocks/product/product-model-list/product-model-list.php:108
+#: template-parts/blocks/product/product-model-list/product-model-list.php:126
 #: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:126
 msgid "Details"
 msgstr ""
@@ -673,36 +713,32 @@ msgstr ""
 msgid "Weltneuheit"
 msgstr ""
 
-#: template-parts/blocks/sonder/our-team/our-team.php:77
-#: template-parts/blocks/sonder/our-team/our-team.php:104
+#: template-parts/blocks/sonder/our-team/our-team.php:76
+#: template-parts/blocks/sonder/our-team/our-team.php:103
 msgid "Sprachen"
 msgstr ""
 
-#: template-parts/blocks/sonder/our-team/our-team.php:150
+#: template-parts/blocks/sonder/our-team/our-team.php:149
 msgid "mob.:"
 msgstr ""
 
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:38
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:42
 msgid "Die Dateigröße sollte 1 MB nicht überschreiten."
 msgstr ""
 
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:40
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:44
 msgid "Durch das Absenden dieses Kontaktformulars erklären Sie sich damit einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in unserer Datenschutzerklärung."
 msgstr ""
 
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:104
-msgid "Unsere Benefits"
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:152
+msgid "Resume"
 msgstr ""
 
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:171
-msgid "Laden Sie Ihren Lebenslauf hoch"
-msgstr ""
-
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:181
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:163
 msgid "<a>Klicken Sie auf eine Datei und wählen Sie sie aus</a>, oder ziehen Sie eine <b>DOC-</b>, <b>DOCX-</b> oder <b>PDF-Datei</b> per Drag & Drop. Die maximale Dateigröße beträgt <b>1 Mb</b>."
 msgstr ""
 
-#: template-parts/blocks/stellenangebote/stellenangebote-list/stellenangebote-list.php:81
+#: template-parts/blocks/stellenangebote/stellenangebote-list/stellenangebote-list.php:71
 msgid "Bereichern Sie unser Team als"
 msgstr ""
 
