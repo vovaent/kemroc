@@ -41,6 +41,7 @@
         line-height: 52px;
         text-transform: uppercase;
         color: $color__background;
+        word-wrap: break-word;
 
         @include media-down-md {
             font-size: 28px;

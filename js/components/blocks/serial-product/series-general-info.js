@@ -6,26 +6,42 @@ import 'swiper/css';
 
 const seriesGeneralInfo = ( $ ) => {
 	const sliderHandler = () => {
-		new Swiper( '.series-general-info__slider.swiper-single-slide', {
-			modules: [ Pagination, Navigation ],
-
+		const swiperOptions = {
 			slidesPerView: 1,
 			spaceBetween: 5,
 			loop: true,
+		};
 
-			pagination: {
+		const $swiperSlide = $(
+			'.series-general-info__slider .swiper-single-slide__slide'
+		);
+		const $swiperArrows = $(
+			'.series-general-info__slider .swiper-single-slide__arrow'
+		);
+
+		if ( $swiperSlide.length > 1 ) {
+			swiperOptions.modules = [ Pagination, Navigation ];
+
+			swiperOptions.pagination = {
 				el:
 					'.series-general-info__slider + .swiper-single-slide__pagination',
 				clickable: true,
-			},
+			};
 
-			navigation: {
+			swiperOptions.navigation = {
 				nextEl:
 					'.series-general-info__slider .swiper-single-slide__arrow--next',
 				prevEl:
 					'.series-general-info__slider .swiper-single-slide__arrow--prev',
-			},
-		} );
+			};
+		} else {
+			$swiperArrows.hide();
+		}
+
+		new Swiper(
+			'.series-general-info__slider.swiper-single-slide',
+			swiperOptions
+		);
 	};
 
 	const $productModelList = $( '.product-model-list' );

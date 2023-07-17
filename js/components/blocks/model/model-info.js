@@ -21,34 +21,40 @@ const modelInfo = ( $ ) => {
 
 	$modelInfoTab.on( 'click', modelInfoToggleTab );
 
-	const miSlider = new Swiper( '.model-tabs__slider.swiper-single-slide', {
-		modules: [ Navigation, Pagination ],
+	const sliderHandler = () => {
+		const swiperOptions = {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: true,
+		};
 
-		slidesPerView: 1,
-		spaceBetween: 10,
-		loop: true,
+		const $swiperSlide = $(
+			'.model-tabs__slider .swiper-single-slide__slide'
+		);
+		const $swiperArrows = $(
+			'.model-tabs__slider .swiper-single-slide__arrow'
+		);
 
-		navigation: {
-			nextEl: '.model-tabs__slider .swiper-single-slide__arrow--next',
-			prevEl: '.model-tabs__slider .swiper-single-slide__arrow--prev',
-		},
+		if ( $swiperSlide.length > 1 ) {
+			swiperOptions.modules = [ Pagination, Navigation ];
 
-		pagination: {
-			el: '.model-tabs__slider + .swiper-single-slide__pagination',
-			clickable: true,
-		},
-	} );
+			swiperOptions.pagination = {
+				el: '.model-tabs__slider + .swiper-single-slide__pagination',
+				clickable: true,
+			};
 
-	const isNullPrevEl = null === miSlider.navigation.prevEl;
-	const isNullNextEl = null === miSlider.navigation.nextEl;
-
-	if ( ! isNullPrevEl && ! isNullNextEl ) {
-		if ( 1 === miSlider.slides.length ) {
-			$( miSlider.navigation.nextEl ).hide();
-			$( miSlider.navigation.prevEl ).hide();
-			$( miSlider.pagination.el ).hide();
+			swiperOptions.navigation = {
+				nextEl: '.model-tabs__slider .swiper-single-slide__arrow--next',
+				prevEl: '.model-tabs__slider .swiper-single-slide__arrow--prev',
+			};
+		} else {
+			$swiperArrows.hide();
 		}
-	}
+
+		new Swiper( '.model-tabs__slider.swiper-single-slide', swiperOptions );
+	};
+
+	sliderHandler();
 };
 
 export { modelInfo };
