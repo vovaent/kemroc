@@ -31,7 +31,13 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	$kemroc_pml_enable_measure_units_switcher = get_field( 'enable_measure_units_switcher' );
+
+	$kemroc_pml_current_lang = '';
+	if ( function_exists( 'pll_current_language' ) ) {
+		$kemroc_pml_current_lang = pll_current_language();
+	}
+	
+	$kemroc_pml_enable_measure_units_switcher = 'en' === $kemroc_pml_current_lang;
 
 	$kemroc_pml_models       = kemroc_get_models_compare( get_post_type() );
 	$kemroc_pml_model_params = array();
@@ -54,7 +60,7 @@ if ( ! $is_preview ) :
 	?>
 	<section id="<?php echo esc_attr( $kemroc_pml_id ); ?>" class="<?php echo esc_attr( $kemroc_pml_class_name ); ?>">
 		<div class="container product-model-list__content">
-			
+
 			<?php if ( $kemroc_pml_models ) : ?>
 				<div class="product-model-list__card pml-model-card">
 					<div class="pml-model-card__title">
@@ -69,7 +75,7 @@ if ( ! $is_preview ) :
 							</span>
 							<!-- /.pml-model-card__title-swither -->
 						<?php endif; ?>
-						
+
 						<?php echo wp_kses_post( __( '<strong>MODELLE</strong> VERGLEICHEN', 'kemroc' ) ); ?>
 					</div>
 					<!-- /.pml-model-card__title -->

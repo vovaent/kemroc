@@ -1,31 +1,7 @@
 {
     "key": "group_6475c37e5f40e",
     "title": "Block | Product Model List",
-    "fields": [
-        {
-            "key": "field_64afe1da60297",
-            "label": "Eine Umschaltmöglichkeit für Maßeinheiten hinzufügen?",
-            "name": "enable_measure_units_switcher",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "acfe_save_meta": 0,
-            "choices": {
-                "false": "Nine",
-                "true": "Ja"
-            },
-            "default_value": "",
-            "return_format": "value",
-            "allow_null": 0,
-            "layout": "horizontal"
-        }
-    ],
+    "fields": [],
     "location": [
         [
             {
@@ -51,5 +27,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1689253001
+    "modified": 1689584616
 }

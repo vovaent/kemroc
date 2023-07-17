@@ -31,14 +31,19 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	$kemroc_mi_params                         = get_field( 'params' );
-	$kemroc_mi_drawing_id                     = get_field( 'drawing' );
-	$kemroc_mi_descr                          = get_field( 'descr' );
-	$kemroc_mi_animation                      = get_field( 'animation' );
-	$kemroc_mi_video                          = get_field( 'video' );
-	$kemroc_mi_photos                         = get_field( 'photos' );
-	$kemroc_pml_enable_measure_units_switcher = get_field( 'enable_measure_units_switcher' );
-
+	$kemroc_mi_params     = get_field( 'params' );
+	$kemroc_mi_drawing_id = get_field( 'drawing' );
+	$kemroc_mi_descr      = get_field( 'descr' );
+	$kemroc_mi_animation  = get_field( 'animation' );
+	$kemroc_mi_video      = get_field( 'video' );
+	$kemroc_mi_photos     = get_field( 'photos' );
+	
+	$kemroc_mi_current_lang = '';
+	if ( function_exists( 'pll_current_language' ) ) {
+		$kemroc_mi_current_lang = pll_current_language();
+	}
+	
+	$kemroc_mi_enable_measure_units_switcher = 'en' === $kemroc_mi_current_lang;
 
 	$kemroc_mi_drawing = wp_get_attachment_image(
 		$kemroc_mi_drawing_id,
@@ -115,7 +120,7 @@ if ( ! $is_preview ) :
 
 							<?php if ( $kemroc_mi_params ) : ?>  
 								   <div class="model-tabs__params-wrapper">
-										<?php if ( $kemroc_pml_enable_measure_units_switcher ) : ?>
+										<?php if ( $kemroc_mi_enable_measure_units_switcher ) : ?>
 											<span id='mu-switcher' class="pml-model-card__title-swither">
 												<?php esc_html_e( 'Maßeinheit:', 'kemroc' ); ?>
 												<span class="mu-flag" data-lang-code="default"></span>
@@ -148,14 +153,18 @@ if ( ! $is_preview ) :
 																the_field( 'measure_units', $kemroc_mi_param['title']->ID )
 																?>
 															</span>
-															<!-- /.mu-value -->													
-															<span class="mu-value" data-lang-code="us">
-																<?php 
-																echo esc_html( $kemroc_mi_param['us_value'] ) . '&nbsp;';
-																the_field( 'us_measure_units', $kemroc_mi_param['title']->ID )
-																?>
-															</span>
-															<!-- /.mu-value -->													
+															<!-- /.mu-value -->		
+															
+															<?php if ( ! empty( $kemroc_mi_param['us_value'] ) ) : ?>
+																<span class="mu-value" data-lang-code="us">
+																	<?php 
+																	echo esc_html( $kemroc_mi_param['us_value'] ) . '&nbsp;';
+																	the_field( 'us_measure_units', $kemroc_mi_param['title']->ID )
+																	?>
+																</span>                                                            
+																<!-- /.mu-value -->											
+															<?php endif; ?>
+
 														</div>
 														<!-- /.arrow-list-item-full__value -->
 													</li>
