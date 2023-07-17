@@ -35,6 +35,8 @@ function kemroc_ajax_products_action_callback() {
 		'post_type'      => 'page',
 		'post_status'    => 'publish',
 		'paged'          => $page_number,
+		'orderby'        => 'menu_order',
+		'order'          => 'ASC',
 	);
 
 	if ( isset( $_POST['all_products_output_is_enabled'] ) ) {
