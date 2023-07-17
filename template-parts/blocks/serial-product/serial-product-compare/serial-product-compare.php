@@ -33,6 +33,13 @@ if ( ! $is_preview ) :
 	// Load values and assing defaults.
 	$kemroc_spd_title           = get_field( 'title' );
 	$kemroc_spd_serial_products = get_field( 'serial_products' );
+
+	$kemroc_spd_current_lang = '';
+	if ( function_exists( 'pll_current_language' ) ) {
+		$kemroc_spd_current_lang = pll_current_language();
+	}
+	
+	$kemroc_spd_enable_measure_units_switcher = 'en' === $kemroc_spd_current_lang;
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_spd_id ); ?>" class="<?php echo esc_attr( $kemroc_spd_class_name ); ?>">
@@ -44,8 +51,8 @@ if ( ! $is_preview ) :
 
 			<?php if ( $kemroc_spd_serial_products ) : ?>
 				<ul class="serial-product-compare__list">
-					
-					<?php foreach ( $kemroc_spd_serial_products as $kemroc_spd_serial_product ) : ?>
+
+					<?php foreach ( $kemroc_spd_serial_products as $kemroc_spd_key => $kemroc_spd_serial_product ) : ?>
 						<li class="serial-product-compare__item sp-item">
 							<div class="sp-item__header">
 								<div class="sp-item__photo">
@@ -62,9 +69,20 @@ if ( ! $is_preview ) :
 								<!-- /.sp-item__subtitle -->
 							</div>
 							<!-- /.sp-item__header -->
-							
+
 							<div class="sp-item__text">
-							
+
+								<?php if ( $kemroc_spd_enable_measure_units_switcher ) : ?>
+									<span id='mu-switcher' class="sp-item__title-swither">
+										<?php esc_html_e( 'Maßeinheit:', 'kemroc' ); ?>
+										<span class="mu-flag" data-lang-code="default" data-item-id="<?php echo $kemroc_spd_key; //phpcs:ignore ?>"></span>
+										<!-- /.mu-flag -->
+										<span class="mu-flag" data-lang-code="us" data-item-id="<?php echo $kemroc_spd_key; //phpcs:ignore ?>"></span>
+										<!-- /.mu-flag -->
+									</span>
+									<!-- /.sp-item__title-swither -->
+								<?php endif; ?>
+
 								<?php if ( $kemroc_spd_serial_product['params'] ) : ?>
 									<ul class="sp-item__params">
 
@@ -78,14 +96,22 @@ if ( ! $is_preview ) :
 													<?php echo esc_html( $kemroc_spd_serial_product_param['name']->post_title ); ?>
 												</div>
 												<!-- /.arrow-list-item-full__property -->
-												<div class="arrow-list-item-full__value">
+												<div class="mu-value arrow-list-item-full__value" data-lang-code="default" data-item-id="<?php echo $kemroc_spd_key; //phpcs:ignore ?>">
 													<?php echo wp_kses_post( $kemroc_spd_serial_product_param['value'] ); ?>
 												</div>
 												<!-- /.arrow-list-item-full__value -->
+												
+												<?php if ( ! empty( $kemroc_spd_serial_product_param['us_value'] ) ) : ?>
+                                                    <div class="mu-value arrow-list-item-full__value" data-lang-code="us" data-item-id="<?php echo $kemroc_spd_key; //phpcs:ignore ?>">
+														<?php echo esc_html( $kemroc_spd_serial_product_param['us_value'] ); ?>
+													</div>
+													<!-- /.arrow-list-item-full__value -->
+												<?php endif; ?>
+
 											</li>
 											<!-- /. arrow-list-item-full sp-item__param -->
 										<?php endforeach; ?>
-										
+
 									</ul>
 									<!-- /.sp-item__params -->
 								<?php endif; ?>
@@ -137,7 +163,7 @@ if ( ! $is_preview ) :
 				</ul>
 				<!-- /.serial-product-compare__list -->
 			<?php endif; ?>
-			
+
 		</div>
 		<!-- /.container serial-product-compare__content -->
 	</section>

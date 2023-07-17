@@ -63,6 +63,9 @@
                     "multiple": 0,
                     "allow_null": 0,
                     "ui": 1,
+                    "save_custom": 0,
+                    "save_post_type": "",
+                    "save_post_status": "",
                     "parent_repeater": "field_647f7cf9b674c"
                 },
                 {
@@ -88,6 +91,8 @@
                     "max_size": "",
                     "mime_types": "",
                     "preview_size": "medium",
+                    "uploader": "",
+                    "acfe_thumbnail": 0,
                     "parent_repeater": "field_647f7cf9b674c"
                 },
                 {
@@ -151,6 +156,9 @@
                             "multiple": 0,
                             "allow_null": 0,
                             "ui": 1,
+                            "save_custom": 0,
+                            "save_post_type": "",
+                            "save_post_status": "",
                             "parent_repeater": "field_647f7e4470d50"
                         },
                         {
@@ -172,8 +180,30 @@
                             "prepend": "",
                             "append": "",
                             "parent_repeater": "field_647f7e4470d50"
+                        },
+                        {
+                            "key": "field_64b524273028e",
+                            "label": "US-Wert",
+                            "name": "us_value",
+                            "type": "text",
+                            "instructions": "Nur den Wert ohne Einheiten eingeben",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_save_meta": 0,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_647f7e4470d50"
                         }
                     ],
+                    "acfe_repeater_stylised_button": 0,
                     "parent_repeater": "field_647f7cf9b674c"
                 },
                 {
@@ -230,9 +260,15 @@
                             "media_upload": 1
                         }
                     ],
+                    "acfe_seamless_style": 0,
+                    "acfe_group_modal": 0,
+                    "acfe_group_modal_close": 0,
+                    "acfe_group_modal_button": "",
+                    "acfe_group_modal_size": "large",
                     "parent_repeater": "field_647f7cf9b674c"
                 }
-            ]
+            ],
+            "acfe_repeater_stylised_button": 0
         }
     ],
     "location": [
@@ -253,5 +289,12 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686171347
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1689593765
 }

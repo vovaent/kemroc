@@ -117,10 +117,13 @@ if ( ! $is_preview ) :
 													<span class="mu-value pml-model__param-value" data-lang-code="default">
 														<?php echo esc_html( $kemroc_pml_param_value['default'] ); ?>
 													</span>
-													<span class="mu-value pml-model__param-value" data-lang-code="us">
-														<?php echo esc_html( $kemroc_pml_param_value['us'] ); ?>
-													</span>
-												</li>
+
+														<?php if ( ! empty( $kemroc_pml_param_value['us'] ) ) : ?>
+															<span class="mu-value pml-model__param-value" data-lang-code="us">
+																<?php echo esc_html( $kemroc_pml_param_value['us'] ); ?>
+															</span>
+														<?php endif; ?>
+													</li>
 												<!-- /.pml-model__param -->
 											<?php endforeach; ?>	
 
