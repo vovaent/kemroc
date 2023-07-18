@@ -53,10 +53,20 @@ if ( ! $is_preview ) :
 				<ul class="serial-product-compare__list">
 
 					<?php foreach ( $kemroc_spd_serial_products as $kemroc_spd_key => $kemroc_spd_serial_product ) : ?>
+						<?php
+						$kemroc_spd_product_photo_id = '';
+						if ( $kemroc_spd_serial_product['custom_photo'] ) {
+							if ( ! empty( $kemroc_spd_serial_product['photo'] ) ) {
+								$kemroc_spd_product_photo_id = $kemroc_spd_serial_product['photo'];
+							}
+						} else {
+							$kemroc_spd_product_photo_id = get_post_thumbnail_id( $kemroc_spd_serial_product['page']->ID );
+						}
+						?>
 						<li class="serial-product-compare__item sp-item">
 							<div class="sp-item__header">
 								<div class="sp-item__photo">
-									<?php echo wp_get_attachment_image( $kemroc_spd_serial_product['photo'] ); ?>
+									<?php echo wp_get_attachment_image( $kemroc_spd_product_photo_id ); ?>
 								</div>
 								<!-- /.sp-item__photo -->
 								<h6 class="sp-item__title">
