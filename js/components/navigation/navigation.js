@@ -1,15 +1,19 @@
 const navigation = ( $ ) => {
 	$( '.header__mobile .main-navigation li' ).each( function () {
 		const backTitle = $( this ).find( '>:first-child' ).text();
+		// const backTitle = 'back';
+
+		$( $( this ).find( '>.sub-menu > li' ) ).wrapAll(
+			'<div class="sub-menu__items-wrapper"></div>'
+		);
+
 		$(
 			'<li class="nav-back"><span class="back-btn">' +
 				backTitle +
 				'</span><button class="toggle-nav"></button></li>'
-		).insertBefore( $( this ).find( '.sub-menu > li:first-child' ) );
-		$( $( this ).find( '.sub-menu > li:not(:first-child)' ) ).wrapAll(
-			'<div class="sub-menu__items-wrapper"></div>'
-		);
+		).insertBefore( $( this ).find( '.sub-menu__items-wrapper' ) );
 	} );
+
 	$( document ).on( 'click', '.toggle-nav', function ( e ) {
 		e.preventDefault();
 		if ( $( '.header__mobile' ).hasClass( 'nav-active' ) ) {
@@ -18,14 +22,16 @@ const navigation = ( $ ) => {
 			$( '.header__mobile' ).addClass( 'nav-active' );
 		}
 	} );
+
 	$( document ).on(
 		'click',
 		'.header__mobile .nav-back .back-btn',
 		function ( e ) {
 			e.preventDefault();
-			$( this ).parents( '.sub-menu' ).removeClass( 'active' );
+			$( $( this ).parents( '.sub-menu' )[ 0 ] ).removeClass( 'active' );
 		}
 	);
+
 	$( document ).on(
 		'click',
 		'.header__mobile li.menu-item-has-children > a',
@@ -43,7 +49,8 @@ const navigation = ( $ ) => {
 
 	$liHasChildren.each( function () {
 		const $this = $( this );
-		const $thisSubMenu = $( '.sub-menu', $this );
+		const $thisSubMenu = $( '>.sub-menu', $this );
+		console.log( $thisSubMenu );
 		const $thisSubMenuWrapper = $(
 			'.sub-menu__items-wrapper li:first',
 			$thisSubMenu
