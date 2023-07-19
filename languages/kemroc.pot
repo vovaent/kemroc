@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: kemroc 1.1.6\n"
+"Project-Id-Version: kemroc 1.1.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/kemroc\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-07-14T13:00:55+00:00\n"
+"POT-Creation-Date: 2023-07-19T07:23:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: kemroc\n"
@@ -208,7 +208,7 @@ msgstr ""
 
 #: inc/acf/blocks.php:562
 #: inc/acf/blocks.php:563
-#: inc/template-functions.php:203
+#: inc/template-functions.php:199
 msgid "Aktuelles"
 msgstr ""
 
@@ -405,31 +405,31 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/template-functions.php:168
+#: inc/template-functions.php:164
 msgid "Bild-Module"
 msgstr ""
 
-#: inc/template-functions.php:173
+#: inc/template-functions.php:169
 msgid "Bild/Text module"
 msgstr ""
 
-#: inc/template-functions.php:178
+#: inc/template-functions.php:174
 msgid "Text module"
 msgstr ""
 
-#: inc/template-functions.php:183
+#: inc/template-functions.php:179
 msgid "Sonder"
 msgstr ""
 
-#: inc/template-functions.php:188
+#: inc/template-functions.php:184
 msgid "Produkte"
 msgstr ""
 
-#: inc/template-functions.php:193
+#: inc/template-functions.php:189
 msgid "Einsatzbereiche"
 msgstr ""
 
-#: inc/template-functions.php:198
+#: inc/template-functions.php:194
 msgid "Kontakte"
 msgstr ""
 
@@ -651,33 +651,34 @@ msgstr ""
 msgid "Geschäftsführer"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:73
+#: template-parts/blocks/model/model-info.php:78
 msgid "Modell"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:81
+#: template-parts/blocks/model/model-info.php:86
 msgid "TECHNISCHE DATEN"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:87
+#: template-parts/blocks/model/model-info.php:92
 msgid "3D MODELL"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:98
+#: template-parts/blocks/model/model-info.php:103
 msgid "VIDEO"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:105
+#: template-parts/blocks/model/model-info.php:110
 msgid "FOTOS"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:120
-#: template-parts/blocks/product/product-model-list/product-model-list.php:64
+#: template-parts/blocks/model/model-info.php:125
+#: template-parts/blocks/product/product-model-list/product-model-list.php:70
+#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:87
 msgid "Maßeinheit:"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:213
-#: template-parts/blocks/model/model-info.php:283
+#: template-parts/blocks/model/model-info.php:222
+#: template-parts/blocks/model/model-info.php:292
 #: template-parts/blocks/sonder/lazy-video/lazy-video.php:102
 msgid "Leider unterstützt Ihr Browser keine eingebetteten Videos."
 msgstr ""
@@ -686,16 +687,16 @@ msgstr ""
 msgid "Alle Artikel"
 msgstr ""
 
-#: template-parts/blocks/product/product-model-list/product-model-list.php:73
+#: template-parts/blocks/product/product-model-list/product-model-list.php:79
 msgid "<strong>MODELLE</strong> VERGLEICHEN"
 msgstr ""
 
-#: template-parts/blocks/product/product-model-list/product-model-list.php:126
-#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:126
+#: template-parts/blocks/product/product-model-list/product-model-list.php:135
+#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:162
 msgid "Details"
 msgstr ""
 
-#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:119
+#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:155
 #: template-parts/blocks/serial-product/series-general-info/series-general-info.php:58
 #: template-parts/blocks/serial-product/series-general-info/series-general-info.php:76
 msgid "modelle"

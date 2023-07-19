@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2023-07-11T08:39:13+00:00\n"
-"PO-Revision-Date: 2023-07-13 11:30+0000\n"
+"PO-Revision-Date: 2023-07-19 07:25+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: kemroc\n"
 "Language: en_US\n"
@@ -18,16 +18,28 @@ msgstr ""
 "X-Loco-Version: 2.6.4; wp-6.2.2"
 
 #. translators: %1$d: post count; %2$s: search query.
-#: search.php:45
+#: search.php:36
 msgid "%1$d Suchergebnisse für: %2$s"
 msgstr "%1$d Search results for: %2$s"
+
+#: inc/template-tags.php:379
+msgid "&hellip;"
+msgstr ""
+
+#: inc/template-tags.php:269
+msgid "&laquo; Vorherige"
+msgstr ""
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:82
 msgid ", "
 msgstr ""
 
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:181
+#: template-parts/blocks/model/model-info.php:87
+msgid "3D MODELL"
+msgstr "3D MODEL"
+
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:163
 msgid ""
 "<a>Klicken Sie auf eine Datei und wählen Sie sie aus</a>, oder ziehen Sie "
 "eine <b>DOC-</b>, <b>DOCX-</b> oder <b>PDF-Datei</b> per Drag & Drop. Die "
@@ -36,10 +48,14 @@ msgstr ""
 "<a>Click and select a file </a> or drag and drop a <b>DOC</b>, <b>DOCX</b> "
 "or <b>PDF file</b>. The maximal file size is <b>1 Mb</b>."
 
-#: template-parts/blocks/product/product-model-list/product-model-list.php:59
+#: template-parts/blocks/product/product-model-list/product-model-list.php:73
 #| msgid "<span>MODELLE</span> VERGLEICHEN"
 msgid "<strong>MODELLE</strong> VERGLEICHEN"
 msgstr "<strong>MODELS</strong> COMPARE"
+
+#: template-parts/blocks/info/cookies-table.php:38
+msgid "ABLAUF"
+msgstr ""
 
 #: inc/acf/blocks.php:688 inc/acf/blocks.php:689
 msgid "Absatztext"
@@ -49,7 +65,7 @@ msgstr "Absatztext"
 msgid "Add widgets here."
 msgstr ""
 
-#: inc/acf/blocks.php:562 inc/acf/blocks.php:563 inc/template-functions.php:202
+#: inc/acf/blocks.php:562 inc/acf/blocks.php:563 inc/template-functions.php:203
 msgid "Aktuelles"
 msgstr "News"
 
@@ -69,6 +85,10 @@ msgstr "General information about the series"
 msgid "Allgemeine Produktinformationen"
 msgstr "General product information"
 
+#: template-parts/blocks/info/cookies-table.php:36
+msgid "ANBIETER"
+msgstr ""
+
 #: template-parts/blocks/info/impressum.php:47
 msgid "Anschrift"
 msgstr "Address"
@@ -81,7 +101,7 @@ msgstr "Articles"
 msgid "Beiträge Navigation"
 msgstr "Articles Navigation"
 
-#: template-parts/blocks/stellenangebote/stellenangebote-list/stellenangebote-list.php:81
+#: template-parts/blocks/stellenangebote/stellenangebote-list/stellenangebote-list.php:71
 msgid "Bereichern Sie unser Team als"
 msgstr "Join our team as"
 
@@ -95,22 +115,22 @@ msgstr "Subject"
 msgid "Bild in voller Breite mit abgerundeten Kanten"
 msgstr "Full-width image with rounded edges"
 
-#: inc/template-functions.php:167
+#: inc/template-functions.php:168
 msgid "Bild-Module"
 msgstr ""
 
-#: inc/template-functions.php:172
+#: inc/template-functions.php:173
 msgid "Bild/Text module"
 msgstr ""
 
-#: inc/ajax/contacts-form.php:127 inc/ajax/stellenangebot-form.php:100
+#: inc/ajax/contacts-form.php:127 inc/ajax/stellenangebot-info.php:102
 msgid "Brief nicht abgeschickt"
 msgstr "Mail not sent"
 
 #: searchform.php:33
 msgctxt "button"
 msgid "Suche"
-msgstr ""
+msgstr "Search"
 
 #: inc/acf/blocks.php:754 inc/acf/blocks.php:755
 msgid "Columns text"
@@ -149,13 +169,13 @@ msgstr ""
 msgid "CTA v2"
 msgstr ""
 
-#: inc/ajax/contacts-form.php:122 inc/ajax/stellenangebot-form.php:95
+#: inc/ajax/contacts-form.php:122 inc/ajax/stellenangebot-info.php:97
 msgid "Daten erfolgreich gesendet"
 msgstr "Data was sent successfully"
 
 #: inc/ajax/all-news.php:15 inc/ajax/contacts-form.php:13
 #: inc/ajax/products.php:15 inc/ajax/search.php:15
-#: inc/ajax/stellenangebot-form.php:13
+#: inc/ajax/stellenangebot-info.php:13
 msgid "Daten, die von einer fremden Adresse gesendet werden"
 msgstr "Data that are sent from a foreign address"
 
@@ -163,19 +183,19 @@ msgstr "Data that are sent from a foreign address"
 msgid "Description"
 msgstr ""
 
-#: template-parts/blocks/product/product-model-list/product-model-list.php:108
+#: template-parts/blocks/product/product-model-list/product-model-list.php:126
 #: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:126
 msgid "Details"
 msgstr ""
 
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:38
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:42
 msgid "Die Dateigröße sollte 1 MB nicht überschreiten."
-msgstr ""
+msgstr "The file size should not be more than 1 MB."
 
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:38
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:36
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:40
 msgid "Dieses Feld darf nicht leer sein"
-msgstr ""
+msgstr "This field must not be empty"
 
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:41
 msgid ""
@@ -186,8 +206,13 @@ msgid ""
 "Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in "
 "unserer Datenschutzerklärung."
 msgstr ""
+"By submitting this contact form, you consent to your information and data "
+"being collected and stored electronically in order to respond to your "
+"request. You can revoke your consent for the future at any time by sending "
+"an e-mail to info@kemroc.de. For more information on the storage and "
+"processing of your data, please see our privacy policy."
 
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:40
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:44
 msgid ""
 "Durch das Absenden dieses Kontaktformulars erklären Sie sich damit "
 "einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage "
@@ -196,19 +221,24 @@ msgid ""
 "Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in "
 "unserer Datenschutzerklärung."
 msgstr ""
+"By submitting this contact form, you consent to your information and data "
+"being collected and stored electronically in order to respond to your "
+"request. You can revoke your consent for the future at any time by sending "
+"an e-mail to info@kemroc.de. For more information on the storage and "
+"processing of your data, please see our privacy policy."
 
-#: inc/ajax/contacts-form.php:111 inc/ajax/stellenangebot-form.php:86
+#: inc/ajax/contacts-form.php:111 inc/ajax/stellenangebot-info.php:88
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:105
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:106
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:157
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:159
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:127
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:129
 msgid "E-Mail"
 msgstr ""
 
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:39
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:37
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:41
 msgid "E-Mail-Feld wird nicht korrekt ausgefüllt"
-msgstr ""
+msgstr "Field E-mail is incorrectly filed"
 
 #: template-parts/blocks/info/impressum.php:60
 msgid "E-mail:"
@@ -219,25 +249,25 @@ msgstr ""
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: inc/template-functions.php:192
+#: inc/template-functions.php:193
 msgid "Einsatzbereiche"
-msgstr ""
+msgstr "Application areas"
 
 #: inc/acf/blocks.php:352 inc/acf/blocks.php:353
 msgid "Einsatzbereiche Beschreibung"
-msgstr ""
+msgstr "Application areas Description"
 
 #: inc/acf/blocks.php:436 inc/acf/blocks.php:437
 msgid "Einsatzbereiche Filter"
-msgstr ""
+msgstr "Application areas filters"
 
 #: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:92
 msgid "Einsatzgebiete"
-msgstr ""
+msgstr "Application areas"
 
 #: template-parts/blocks/info/impressum.php:61
 msgid "Eintrag im Handelsregister"
-msgstr ""
+msgstr "Entry in the trade register"
 
 #: template-parts/content-none.php:72
 msgid ""
@@ -245,16 +275,18 @@ msgid ""
 "eine neue Suche. Um bessere Suchergebnisse zu erzielen, beachte bitte "
 "folgende Hinweise:"
 msgstr ""
+"Sorry, but no entries match your search criteria. Please start a new search. "
+"For better search results, please follow these tips:"
 
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:42
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:39
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:41
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:43
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:45
 msgid "Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!"
-msgstr ""
+msgstr "Successful! Your message was sent successfully!"
 
 #: template-parts/content-none.php:68
 msgid "Es konnte leider nichts gefunden werden"
-msgstr ""
+msgstr "Sorry, nothing was found"
 
 #: inc/acf/blocks.php:541 inc/acf/blocks.php:542
 msgid "FAQ"
@@ -280,27 +312,27 @@ msgid "Footer Menu"
 msgstr ""
 
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:161
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:197
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:183
 msgid "Formular senden"
-msgstr ""
+msgstr "Submit form"
 
-#: template-parts/blocks/model/model-info.php:94
+#: template-parts/blocks/model/model-info.php:105
 msgid "FOTOS"
 msgstr ""
 
 #: template-parts/blocks/info/impressum.php:65
 msgid "Geschäftsführer"
-msgstr ""
+msgstr "Managing Director"
 
 #: inc/ajax/contacts-form.php:105
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:69
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:70
 msgid "Hausnummer"
-msgstr ""
+msgstr "House number"
 
 #: inc/acf/blocks.php:16 inc/acf/blocks.php:17
 msgid "Held"
-msgstr ""
+msgstr "Hero"
 
 #: template-parts/blocks/info/impressum.php:43
 msgid "Herausgeber"
@@ -313,17 +345,19 @@ msgstr ""
 
 #: inc/acf/blocks.php:732 inc/acf/blocks.php:733
 msgid "Impressum"
-msgstr ""
+msgstr "Legal Notice"
 
 #: single-post.php:86
 msgid "Inhaltsverzeichnis"
-msgstr ""
+msgstr "Contents"
 
 #: template-parts/content-none.php:119
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
+"Es scheint, dass wir nicht gefunden haben, wonach Sie gesucht haben. "
+"Vielleicht kann die Suche helfen."
 
 #. Theme Name of the theme
 msgid "kemroc"
@@ -331,46 +365,43 @@ msgstr ""
 
 #: template-parts/blocks/info/impressum.php:57
 msgid "Kontakt"
-msgstr ""
+msgstr "Contact"
 
 #: inc/acf/blocks.php:478 inc/acf/blocks.php:479
 msgid "Kontakt-Formular"
-msgstr ""
+msgstr "Contact form"
 
 #: inc/acf/blocks.php:499 inc/acf/blocks.php:500
 msgid "Kontakt-Links"
-msgstr ""
+msgstr "Contact links"
 
-#: inc/template-functions.php:197
+#: inc/template-functions.php:198
 msgid "Kontakte"
-msgstr ""
+msgstr "Contacts"
 
 #: inc/acf/blocks.php:457 inc/acf/blocks.php:458
 msgid "Kontaktinformationen"
-msgstr ""
+msgstr "Contact information"
 
 #: searchform.php:14 searchform.php:25
 msgctxt "label"
 msgid "Suche nach:"
-msgstr ""
-
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:171
-msgid "Laden Sie Ihren Lebenslauf hoch"
-msgstr ""
+msgstr "Search for:"
 
 #. translators: %s: post title
 #: inc/template-tags.php:102
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:216
+#: template-parts/blocks/model/model-info.php:213
+#: template-parts/blocks/model/model-info.php:283
 #: template-parts/blocks/sonder/lazy-video/lazy-video.php:102
 msgid "Leider unterstützt Ihr Browser keine eingebetteten Videos."
-msgstr ""
+msgstr "Unfortunately, your browser doesn't support embedded videos."
 
 #: single-post.php:51
 msgid "Lesen"
-msgstr ""
+msgstr "Read"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:89
@@ -380,72 +411,81 @@ msgstr ""
 
 #: inc/acf/blocks.php:331 inc/acf/blocks.php:332
 msgid "Liste der Einsatzbereiche"
-msgstr ""
+msgstr "List of application areas"
 
 #: inc/acf/blocks.php:583 inc/acf/blocks.php:584
 msgid "Liste der Produkte"
-msgstr ""
+msgstr "Products list"
 
 #: inc/template-functions.php:96
 msgid "Main Menu"
 msgstr ""
 
-#: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:141
+#: template-parts/blocks/model/model-info.php:120
+#: template-parts/blocks/product/product-model-list/product-model-list.php:64
+msgid "Maßeinheit:"
+msgstr "Measure:"
+
+#: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:153
 #: template-parts/blocks/application-areas/application-areas-list/application-areas-list.php:72
 #: template-parts/blocks/sonder/our-areas.php:75
 #: template-parts/cards/news/new-card.php:29
 #: template-parts/cards/product/product-card.php:23
 msgid "Mehr"
-msgstr ""
+msgstr "More"
 
 #: inc/ajax/search.php:52 template-parts/cards/search/search-card.php:31
 msgid "Mehr lesen"
-msgstr ""
+msgstr "Read more"
 
 #: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:46
 msgid "Merkmale"
-msgstr ""
+msgstr "Features"
 
-#: template-parts/blocks/sonder/our-team/our-team.php:150
+#: template-parts/blocks/sonder/our-team/our-team.php:149
 msgid "mob.:"
 msgstr ""
 
-#: template-parts/blocks/model/model-info.php:70
+#: template-parts/blocks/model/model-info.php:73
 msgid "Modell"
-msgstr ""
+msgstr "Model"
 
 #: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:119
 #: template-parts/blocks/serial-product/series-general-info/series-general-info.php:58
 #: template-parts/blocks/serial-product/series-general-info/series-general-info.php:76
 msgid "modelle"
-msgstr ""
+msgstr "models"
 
 #: inc/acf/blocks.php:205 inc/acf/blocks.php:206
 msgid "Modellinformationen"
-msgstr ""
+msgstr "Model information"
 
 #: inc/ajax/contacts-form.php:114 single-post.php:38
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:134
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:135
 msgid "Nachricht"
+msgstr "Message"
+
+#: template-parts/blocks/info/cookies-table.php:35
+msgid "NAME"
 msgstr ""
 
-#: inc/ajax/contacts-form.php:103 inc/ajax/stellenangebot-form.php:84
+#: inc/ajax/contacts-form.php:103 inc/ajax/stellenangebot-info.php:86
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:56
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:57
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:147
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:149
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:117
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:119
 msgid "Name"
 msgstr ""
 
 #: inc/acf/blocks.php:121 inc/acf/blocks.php:122
 msgid "Neuigkeiten auf der Startseite"
-msgstr ""
+msgstr "News on the homepage"
 
 #: inc/template-tags.php:453
 msgctxt "next set of posts"
 msgid "Weiter"
-msgstr ""
+msgstr "Next"
 
 #: single.php:21
 msgid "Next:"
@@ -464,7 +504,7 @@ msgstr ""
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:79
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:80
 msgid "Ort"
-msgstr ""
+msgstr "City"
 
 #: inc/acf/blocks.php:58 inc/acf/blocks.php:59
 msgid "Our Areas"
@@ -484,18 +524,18 @@ msgstr ""
 
 #: inc/acf/blocks.php:776 inc/acf/blocks.php:777
 msgid "PDF-Kataloge"
-msgstr ""
+msgstr "PDF catalogues"
 
 #: searchform.php:20
 msgctxt "placeholder"
 msgid "Suche …"
-msgstr ""
+msgstr "Search ..."
 
 #: inc/ajax/contacts-form.php:106
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:74
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:75
 msgid "PLZ"
-msgstr ""
+msgstr "POST CODE"
 
 #. translators: %s: post author.
 #: inc/template-tags.php:65
@@ -507,7 +547,7 @@ msgstr ""
 #: inc/template-tags.php:50
 msgctxt "post date"
 msgid "Posted on %s"
-msgstr ""
+msgstr "Verfasst am %s"
 
 #. translators: 1: list of categories.
 #: inc/template-tags.php:85
@@ -517,7 +557,7 @@ msgstr ""
 #: inc/template-tags.php:452
 msgctxt "previous set of posts"
 msgid "Vorherige"
-msgstr ""
+msgstr "Previous"
 
 #: single.php:20
 msgid "Previous:"
@@ -529,11 +569,11 @@ msgstr ""
 
 #: inc/acf/blocks.php:184 inc/acf/blocks.php:185
 msgid "Produkt Modellliste"
-msgstr ""
+msgstr "Product Model List"
 
-#: inc/template-functions.php:187
+#: inc/template-functions.php:188
 msgid "Produkte"
-msgstr ""
+msgstr "Products"
 
 #. translators: 1: link to WP admin new post page.
 #: template-parts/content-none.php:26
@@ -541,134 +581,146 @@ msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: inc/ajax/stellenangebot-form.php:91
+#: inc/ajax/stellenangebot-info.php:93
 msgid "Reaktion auf die freie Stelle"
+msgstr "Reaction to the vacancy"
+
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:152
+msgid "Resume"
 msgstr ""
 
 #: inc/acf/blocks.php:373 inc/acf/blocks.php:374
 msgid "Schachinhalt"
-msgstr ""
+msgstr "Content in chess"
 
 #: 404.php:19
 msgid "Seite nicht gefunden"
-msgstr ""
+msgstr "Page was not found"
 
 #: inc/acf/blocks.php:604 inc/acf/blocks.php:605
 msgid "Sektionsüberschrift"
-msgstr ""
+msgstr "Section title"
 
 #: inc/acf/blocks.php:247 inc/acf/blocks.php:248
 msgid "Serielle Produktbeschreibungen"
-msgstr ""
+msgstr "Serial product descriptions"
 
 #: inc/acf/blocks.php:226 inc/acf/blocks.php:227
 msgid "Serienprodukt Allgemeine Informationen"
-msgstr ""
+msgstr "Product series General information"
 
 #: inc/acf/blocks.php:268 inc/acf/blocks.php:269
 msgid "Serienproduktvergleich"
-msgstr ""
+msgstr "Comparison of series products"
 
 #: functions.php:125
 msgid "Sidebar"
 msgstr ""
 
-#: inc/template-functions.php:182
+#: inc/template-functions.php:183
 msgid "Sonder"
-msgstr ""
+msgstr "Special"
 
-#: inc/ajax/contacts-form.php:17 inc/ajax/stellenangebot-form.php:17
+#: inc/ajax/contacts-form.php:17 inc/ajax/stellenangebot-info.php:17
 msgid "Spam"
 msgstr ""
 
-#: template-parts/blocks/sonder/our-team/our-team.php:77
-#: template-parts/blocks/sonder/our-team/our-team.php:104
+#: template-parts/blocks/sonder/our-team/our-team.php:76
+#: template-parts/blocks/sonder/our-team/our-team.php:103
 msgid "Sprachen"
-msgstr ""
+msgstr "Languages"
 
 #: inc/acf/blocks.php:667 inc/acf/blocks.php:668
 msgid "Stellenangebot info"
-msgstr ""
+msgstr "Job offer info"
 
 #: inc/acf/blocks.php:646 inc/acf/blocks.php:647
 msgid "Stellenangebote list"
-msgstr ""
+msgstr "Job offers list"
 
 #: inc/ajax/contacts-form.php:104
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:64
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:65
 msgid "Straße"
-msgstr ""
+msgstr "Street"
 
 #: template-parts/content-none.php:81
 msgid "Suche nach ähnlichen Suchbegriffen, z.B. Notebook statt Laptop, etc."
 msgstr ""
+"Search for similar search terms, for example, notebook instead of laptop, "
+"etc."
 
-#: search.php:54
+#: search.php:45
 msgid ""
 "Suchergebnis nicht zufriedenstellend? Versuche es mal mit einem Wort oder "
 "einer anderen Schreibweise"
-msgstr ""
+msgstr "Isn't Search result sufficient? Try a word or a different spelling"
 
 #. translators: %s: search query.
 #: template-parts/content-none.php:48 template-parts/content-none.php:60
 msgid "Suchergebnisse für: %s"
-msgstr ""
+msgstr "Search results for: %s"
 
 #. translators: 1: list of tags.
 #: inc/template-tags.php:92
 msgid "Tagged %1$s"
-msgstr ""
+msgstr "Getaggt %1$s"
 
-#: template-parts/blocks/model/model-info.php:78
+#: template-parts/blocks/model/model-info.php:81
 msgid "TECHNISCHE DATEN"
 msgstr "TECHNICAL DATA"
 
 #: inc/acf/blocks.php:310 inc/acf/blocks.php:311
 msgid "Technische Informationen zur Serie"
-msgstr ""
+msgstr "Technical information for the series"
 
 #: inc/acf/blocks.php:163 inc/acf/blocks.php:164
 msgid "Technische Produktinformationen"
-msgstr ""
+msgstr "Technical product information"
 
 #: single-post.php:119
 msgid "Teilen Sie den Artikel:"
-msgstr ""
+msgstr "Share this article:"
 
 #: template-parts/blocks/info/impressum.php:58
 msgid "Tel."
 msgstr ""
 
-#: inc/ajax/contacts-form.php:109 inc/ajax/stellenangebot-form.php:85
+#: inc/ajax/contacts-form.php:109 inc/ajax/stellenangebot-info.php:87
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:92
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:93
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:140
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:143
 msgid "Telefon"
-msgstr ""
+msgstr "Phone number"
 
 #: inc/ajax/contacts-form.php:110
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:100
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:101
 msgid "Telefon alternativ"
-msgstr ""
+msgstr "Phone alternative"
 
 #: inc/acf/blocks.php:625 inc/acf/blocks.php:626
 msgid "Termine"
-msgstr ""
+msgstr "Events"
 
-#: inc/template-functions.php:177
+#: inc/template-functions.php:178
 msgid "Text module"
 msgstr ""
 
 #: inc/acf/acf.php:21 inc/acf/acf.php:22
 msgid "Themen Einstellungen"
+msgstr "Themes Settings"
+
+#: template-parts/blocks/info/cookies-table.php:39
+msgid "TYP"
 msgstr ""
 
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:40
 msgid ""
 "Um das Formular abzuschicken, müssen Sie die Vereinbarung akzeptieren und "
 "das Kästchen ankreuzen."
-msgstr ""
+msgstr "To submit the form, you must accept the agreement and check the box."
 
 #. Author of the theme
 msgid "Underscores.me"
@@ -676,46 +728,50 @@ msgstr ""
 
 #: inc/acf/blocks.php:415 inc/acf/blocks.php:416
 msgid "Unser Team"
-msgstr ""
-
-#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:104
-msgid "Unsere Benefits"
-msgstr ""
+msgstr "Our team"
 
 #: inc/acf/blocks.php:841 inc/acf/blocks.php:842
 msgid "Unsere Partner"
-msgstr ""
+msgstr "Our partners"
 
 #: inc/ajax/contacts-form.php:108
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:87
 #: template-parts/blocks/contacts/contacts-form/contacts-form.php:88
 msgid "Unternehmen"
-msgstr ""
+msgstr "Business"
 
 #: template-parts/blocks/info/impressum.php:51
 msgid "USt-ID"
-msgstr ""
+msgstr "VAT ID"
 
 #: template-parts/content-none.php:85
 msgid "Versuche mehr als einen Suchbegriff zu verwenden."
-msgstr ""
+msgstr "Try to use more than one search item."
 
-#: template-parts/blocks/model/model-info.php:88
+#: template-parts/blocks/model/model-info.php:98
 msgid "VIDEO"
 msgstr ""
 
-#: inc/ajax/contacts-form.php:115 inc/ajax/stellenangebot-form.php:87
+#: inc/ajax/contacts-form.php:115 inc/ajax/stellenangebot-info.php:89
 msgid "Website url"
+msgstr ""
+
+#: inc/template-tags.php:270
+msgid "Weiter &raquo;"
 msgstr ""
 
 #: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:119
 msgid "Weltneuheit"
-msgstr ""
+msgstr "World innovation"
 
 #: 404.php:21
 msgid "Zur Startseite"
+msgstr "To the homepage"
+
+#: template-parts/blocks/info/cookies-table.php:37
+msgid "ZWECK"
 msgstr ""
 
 #: template-parts/content-none.php:77
 msgid "Überprüfe die Rechtschreibung."
-msgstr ""
+msgstr "Check the spelling."
