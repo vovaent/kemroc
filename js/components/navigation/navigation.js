@@ -50,7 +50,7 @@ const navigation = ( $ ) => {
 	$liHasChildren.each( function () {
 		const $this = $( this );
 		const $thisSubMenu = $( '>.sub-menu', $this );
-		console.log( $thisSubMenu );
+
 		const $thisSubMenuWrapper = $(
 			'.sub-menu__items-wrapper li:first',
 			$thisSubMenu
