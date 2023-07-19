@@ -35,6 +35,11 @@ if ( ! $is_preview ) :
 	$kemroc_aaf_application_area = get_field( 'application_area' );
 	
 	$kemroc_aaf_term_children = get_term_children( $kemroc_aaf_application_area->term_id, $kemroc_aaf_application_area->taxonomy );
+	$kemroc_aaf_terms         = $kemroc_aaf_term_children;
+
+	if ( empty( $kemroc_aaf_term_children ) ) {
+		$kemroc_aaf_terms = $kemroc_aaf_application_area;
+	}
 
 	$kemroc_aaf_models_args  = array(
 		'post_type'      => 'page',
@@ -43,7 +48,7 @@ if ( ! $is_preview ) :
 		'tax_query'      => array( //phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 			array(
 				'taxonomy' => $kemroc_aaf_application_area->taxonomy,
-				'terms'    => $kemroc_aaf_term_children,
+				'terms'    => $kemroc_aaf_terms,
 			),
 		),
 	);
