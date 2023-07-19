@@ -3,23 +3,40 @@
     "title": "Post type | Termin",
     "fields": [
         {
-            "key": "field_64a2c2c9b523e",
-            "label": "Datum",
-            "name": "datum",
-            "type": "text",
+            "key": "field_64b7bb0199b1f",
+            "label": "Startdatum",
+            "name": "start_date",
+            "type": "date_picker",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "49",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "acfe_save_meta": 0,
+            "display_format": "d.m.Y",
+            "return_format": "Ymd",
+            "first_day": 1
+        },
+        {
+            "key": "field_64b7bb5899b20",
+            "label": "Datum der Fertigstellung",
+            "name": "end_date",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "49",
+                "class": "",
+                "id": ""
+            },
+            "acfe_save_meta": 0,
+            "display_format": "d.m.Y",
+            "return_format": "d.m.Y",
+            "first_day": 1
         }
     ],
     "location": [
@@ -40,5 +57,12 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688591375
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1689765346
 }

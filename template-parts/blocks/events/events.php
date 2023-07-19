@@ -11,24 +11,24 @@ if ( isset( $block['data']['gutenberg_preview_image'] ) && $is_preview ) {
 
 if ( ! $is_preview ) :
 	// Create id attribute allowing for custom "anchor" value.
-	$kemroc_termine_id = 'termine-' . $block['id'];
+	$kemroc_tr_id = 'termine-' . $block['id'];
 	if ( ! empty( $block['anchor'] ) ) {
 		$kemroc_faq_id = $block['anchor'];
 	}
 
 	// Create class attribute allowing for custom "className" and "align" values.
-	$kemroc_termine_class_name = 'termine';
+	$kemroc_tr_class_name = 'termine';
 	if ( ! empty( $block['className'] ) ) {
-		$kemroc_termine_class_name .= ' ' . $block['className'];
+		$kemroc_tr_class_name .= ' ' . $block['className'];
 	}
 	if ( ! empty( $block['align'] ) ) {
-		$kemroc_termine_class_name .= ' align' . $block['align'];
+		$kemroc_tr_class_name .= ' align' . $block['align'];
 	}
 
 
 	?>
 	<?php
-	$current = absint(
+	$kemroc_tr_current = absint(
 		max(
 			1,
 			get_query_var( 'paged' ) ? get_query_var( 'paged' ) : get_query_var( 'page' )
@@ -37,14 +37,15 @@ if ( ! $is_preview ) :
 	?>
 
 	<?php
-	$the_query  = new WP_Query(
+	$kemroc_tr_the_query = new WP_Query(
 		array(
 			'post_type'      => 'termin',
 			'posts_per_page' => 6,
 			'post_status'    => 'publish',
-			'orderby'        => 'date',
+			'paged'          => $kemroc_tr_current,
+			'meta_key'       => 'start_date',//phpcs:ignore
+			'orderby'        => 'meta_value_num',
 			'order'          => 'ASC',
-			'paged'          => $current,
 		)
 	);
     $navigation = kemroc_get_the_posts_pagination( //phpcs:ignore
@@ -53,20 +54,25 @@ if ( ! $is_preview ) :
 			'prev_text' => '', 
 			'next_text' => '',
 		),
-		$the_query,
-		$current
+		$kemroc_tr_the_query,
+		$kemroc_tr_current
 	);
 	?>
 
-	<section id="<?php echo esc_attr( $kemroc_termine_id ); ?>"
-		class="<?php echo esc_attr( $kemroc_termine_class_name ); ?>">
+	<section id="<?php echo esc_attr( $kemroc_tr_id ); ?>"
+		class="<?php echo esc_attr( $kemroc_tr_class_name ); ?>">
 		<div class="container">
-			<?php if ( $the_query->have_posts() ) { ?>
+			<?php if ( $kemroc_tr_the_query->have_posts() ) { ?>
 				<div class="events-list">
-					<?php
-					while ( $the_query->have_posts() ) :
-						$the_query->the_post();
-						$datum = get_field( 'datum', get_the_ID() );
+					<?php while ( $kemroc_tr_the_query->have_posts() ) : ?>
+						<?php
+						$kemroc_tr_the_query->the_post();
+
+						$start_date = get_field( 'start_date', get_the_ID() );
+						$end_date   = get_field( 'end_date', get_the_ID() );
+
+						$start_date_day = substr( $start_date, -2 );
+						$datum          = $start_date_day . '. - ' . $end_date;
 						?>
 						<div href="<?php the_permalink(); ?>" class="events-list__item">
 							<div class="item-date">
