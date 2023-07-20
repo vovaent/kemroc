@@ -29,6 +29,7 @@ if ( ! $is_preview ) :
 	if ( ! empty( $block['align'] ) ) {
 		$kemroc_si_class_name .= ' align' . $block['align'];
 	}
+
 	$kemroc_si_above_title = get_field( 'above_title' );
 	$kemroc_si_form        = get_field( 'form' );
 	$ihr_profil            = get_field( 'ihr_profil' );
@@ -234,9 +235,9 @@ if ( ! $is_preview ) :
 			</div>
 	</article><!--  -->
 
-	<?php if ( ! empty( $kemroc_cf_form_data['email_to'] ) ) : ?>
+	<?php if ( isset( $kemroc_si_form['custom_email'] ) && $kemroc_si_form['custom_email'] && ! empty( $kemroc_si_form['custom_email_to'] ) ) : ?>
 		<script>
-			var customEmailTo = '<?php echo esc_html( $kemroc_cf_form_data['email_to'] ); ?>';
+			var customEmailTo = '<?php echo esc_html( $kemroc_si_form['custom_email_to'] ); ?>';
 		</script>
 	<?php endif; ?>
 

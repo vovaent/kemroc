@@ -180,11 +180,11 @@ if ( ! $is_preview ) :
 	</section>
 	<!-- /.contacts-form -->
 
-	<?php if ( ! empty( $kemroc_cf_form_data['email_to'] ) ) : ?>
+	<?php if ( isset( $kemroc_cf_form_data['custom_email'] ) && $kemroc_cf_form_data['custom_email'] && ! empty( $kemroc_cf_form_data['custom_email_to'] ) ) : ?>
 		<script>
-			var customEmailTo = '<?php echo esc_html( $kemroc_cf_form_data['email_to'] ); ?>';
+			var customEmailTo = '<?php echo esc_html( $kemroc_cf_form_data['custom_email_to'] ); ?>';
 		</script>       
 	<?php endif; ?>
-
+	
 	<?php
 endif;
