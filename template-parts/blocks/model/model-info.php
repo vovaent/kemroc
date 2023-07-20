@@ -243,7 +243,7 @@ if ( ! $is_preview ) :
 										data-yt-video-id="<?php echo esc_attr( $kemroc_mi_video['id'] ); ?>" 
 										data-yt-iframe-class="lazy-video__source lazy-video__source--model-page"
 									>
-										
+
 										<?php 
 										if ( $kemroc_mi_video_poster ) : 
 											echo $kemroc_mi_video_poster; //phpcs:ignore
@@ -261,8 +261,8 @@ if ( ! $is_preview ) :
 											<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
 										</div>
 										<!-- /.icon-play lazy-video__icon-play -->
-										<div class="lazy-video__preloader"></div>
-										<!-- /.lazy-video__preloader -->
+										<div class="kemroc-preloader lazy-video__preloader"></div>
+										<!-- /.kemroc-preloader lazy-video__preloader -->
 									</div>
 									<!-- /.lazy-video__placeholder -->
 								</figure>

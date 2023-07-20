@@ -163,6 +163,8 @@ if ( ! $is_preview ) :
 						<!-- /.cf-form__button -->
 					</div>
 					<!-- /.cf-form__bottom-content -->
+					<div class="kemroc-preloader cf-form__preloader"></div>
+					<!-- /.kemroc-preloader cf-form__preloader -->
 					<div class="cf-form__success-message">
 						<?php echo esc_html( $kemroc_cf_form_messages['success_submit_text'] ); ?>
 					</div>

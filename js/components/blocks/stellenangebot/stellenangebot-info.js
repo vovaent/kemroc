@@ -16,6 +16,7 @@ const stellenangebotInfo = ( $ ) => {
 		'resumeFileAreaText'
 	);
 	const $fileClear = $( '.cf-form__file-clear' );
+	const $preloader = $( '.kemroc-preloader' );
 
 	const showError = ( $el, type ) => {
 		$el.addClass( 'cf-form__field--error' );
@@ -112,6 +113,9 @@ const stellenangebotInfo = ( $ ) => {
 	$form.on( 'submit', function ( event ) {
 		event.preventDefault();
 
+		$preloader.show();
+		$button.attr( 'disabled', true ).css( 'opacity', 0.5 );
+
 		const $this = $( this );
 		const data = new FormData( $this[ 0 ] );
 
@@ -148,12 +152,22 @@ const stellenangebotInfo = ( $ ) => {
 							resp.data,
 							function ( indexInArray, valueOfElement ) {
 								if ( indexInArray === 'resume' ) {
+									$preloader.hide();
+									$button
+										.attr( 'disabled', false )
+										.css( 'opacity', 1 );
+
 									showError(
 										$( elResumeFileArea ),
 										valueOfElement
 									);
 									return;
 								}
+
+								$preloader.hide();
+								$button
+									.attr( 'disabled', false )
+									.css( 'opacity', 1 );
 
 								showError(
 									$( `input[name=${ indexInArray }]` ),
@@ -162,6 +176,9 @@ const stellenangebotInfo = ( $ ) => {
 							}
 						);
 					} else if ( typeof resp.data === 'string' ) {
+						$preloader.hide();
+						$button.attr( 'disabled', false ).css( 'opacity', 1 );
+
 						$errorMessage.text( '' ).text( resp.data );
 						$errorMessage.fadeIn( 400, function () {
 							const srollToPos = $errorMessage.offset().top - 500;
@@ -171,11 +188,15 @@ const stellenangebotInfo = ( $ ) => {
 								500
 							);
 						} );
+
 						setTimeout( () => {
 							$errorMessage.fadeOut();
 						}, 5000 );
 					}
 				} else {
+					$preloader.hide();
+					$button.attr( 'disabled', false ).css( 'opacity', 1 );
+
 					$successMessage.fadeIn( 400, function () {
 						const srollToPos = $successMessage.offset().top - 500;
 

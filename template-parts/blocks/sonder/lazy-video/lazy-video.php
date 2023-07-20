@@ -76,8 +76,8 @@ if ( ! $is_preview ) :
 							<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
 						</div>
 						<!-- /.icon-play lazy-video__icon-play -->
-						<div class="lazy-video__preloader"></div>
-						<!-- /.lazy-video__preloader -->
+						<div class="kemroc-preloader lazy-video__preloader"></div>
+						<!-- /.kemroc-preloader lazy-video__preloader -->
 					</div>
 					<!-- /.lazy-video__placeholder -->
 				</figure>

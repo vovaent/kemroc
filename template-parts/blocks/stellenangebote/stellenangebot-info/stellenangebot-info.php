@@ -184,6 +184,8 @@ if ( ! $is_preview ) :
 									<?php esc_html_e( 'Formular senden', 'kemroc' ); ?>
 								</button>
 								<!-- /.cf-form__button -->
+								<div class="kemroc-preloader"></div>
+								<!-- /.kemroc-preloader -->
 								<div class="cf-form__success-message">
 									<?php echo esc_html( $kemroc_si_form_messages['success_submit_text'] ); ?>
 								</div>

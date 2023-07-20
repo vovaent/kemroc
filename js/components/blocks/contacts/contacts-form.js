@@ -8,6 +8,7 @@ const contactsForm = ( $ ) => {
 	const $checkbox = $( '.cf-form__agree-checkbox', $form );
 	const $successMessage = $( '.cf-form__success-message', $form );
 	const $errorMessage = $( '.cf-form__error-message', $form );
+	const $preloader = $( '.kemroc-preloader' );
 
 	const showError = ( $el, type ) => {
 		$el.addClass( 'cf-form__field--error' );
@@ -97,6 +98,8 @@ const contactsForm = ( $ ) => {
 
 	$form.on( 'submit', function ( event ) {
 		event.preventDefault();
+		$preloader.show();
+		$button.attr( 'disabled', true ).css( 'opacity', 0.5 );
 
 		const $this = $( this );
 		const data = new FormData( $this[ 0 ] );
@@ -121,6 +124,11 @@ const contactsForm = ( $ ) => {
 						$.each(
 							resp.data,
 							function ( indexInArray, valueOfElement ) {
+								$preloader.hide();
+								$button
+									.attr( 'disabled', false )
+									.css( 'opacity', 1 );
+
 								showError(
 									$( `input[name=${ indexInArray }]` ),
 									valueOfElement
@@ -128,6 +136,9 @@ const contactsForm = ( $ ) => {
 							}
 						);
 					} else if ( typeof resp.data === 'string' ) {
+						$preloader.hide();
+						$button.attr( 'disabled', false ).css( 'opacity', 1 );
+
 						$errorMessage.text( '' ).text( resp.data );
 						$errorMessage.fadeIn( 400, function () {
 							const scrollToPos =
@@ -143,6 +154,9 @@ const contactsForm = ( $ ) => {
 						}, 5000 );
 					}
 				} else {
+					$preloader.hide();
+					$button.attr( 'disabled', false ).css( 'opacity', 1 );
+
 					$successMessage.fadeIn( 400, function () {
 						const scrollToPos = $successMessage.offset().top - 500;
 
