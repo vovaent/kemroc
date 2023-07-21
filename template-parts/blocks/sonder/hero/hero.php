@@ -45,10 +45,16 @@ if ( ! $is_preview ) {
 	if ( $kemroc_hero_is_front_page ) {
 		$kemroc_hero_class_name .= ' hero--front-page';
 	}
+
+	if ( $kemroc_hero_bg_image['is_narrow'] ) {
+		$kemroc_hero_bg_image_width = 'narrow';
+	} else {
+		$kemroc_hero_bg_image_width = 'wide';
+	}
 	?>
 	<section id="<?php echo esc_attr( $kemroc_hero_id ); ?>" class="<?php echo esc_attr( $kemroc_hero_class_name ); ?>">
-		<figure class="hero__bg-picture-wrapper">
-			<picture class="hero__bg-picture">
+		<figure class="hero__bg-picture-wrapper hero__bg-picture-wrapper--<?php echo esc_html( $kemroc_hero_bg_image_width ); ?>">
+			<picture class="hero__bg-picture"></picture>
 
 				<?php if ( $kemroc_hero_bg_image['mobile'] ) : ?>
 					<source srcset="<?php echo esc_attr( $kemroc_hero_bg_image['mobile']['url'] ); ?>"
