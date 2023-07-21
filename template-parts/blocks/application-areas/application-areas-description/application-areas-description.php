@@ -35,20 +35,22 @@ if ( ! $is_preview ) :
 	$kemroc_aad_simple_text = get_field( 'simple_text' );
 	?>
 
-	<section id="<?php echo esc_attr( $kemroc_aad_id ); ?>" class="<?php echo esc_attr( $kemroc_aad_class_name ); ?>">
-		<div class="container fifty-fifty-description application-areas-description__content">
-			<div class="fifty-fifty-description__accent-text">
-				<?php echo wp_kses_post( $kemroc_aad_accent_text ); ?>
+	<?php if ( ! empty( $kemroc_aad_accent_text ) && ! empty( $kemroc_aad_simple_text ) ) : ?>
+		<section id="<?php echo esc_attr( $kemroc_aad_id ); ?>" class="<?php echo esc_attr( $kemroc_aad_class_name ); ?>">
+			<div class="container fifty-fifty-description application-areas-description__content">
+				<div class="fifty-fifty-description__accent-text">
+					<?php echo wp_kses_post( $kemroc_aad_accent_text ); ?>
+				</div>
+				<!-- /.fifty-fifty-description__accent-text -->
+				<div class="fifty-fifty-description__text">
+					<?php echo wp_kses_post( $kemroc_aad_simple_text ); ?>
+				</div>
+				<!-- /.fifty-fifty-description__text -->
 			</div>
-			<!-- /.fifty-fifty-description__accent-text -->
-			<div class="fifty-fifty-description__text">
-				<?php echo wp_kses_post( $kemroc_aad_simple_text ); ?>
-			</div>
-			<!-- /.fifty-fifty-description__text -->
-		</div>
-		<!-- /.container application-areas-description__content -->
-	</section>
-	<!-- /.application-areas-description -->
+			<!-- /.container application-areas-description__content -->
+		</section>
+		<!-- /.application-areas-description -->
+	<?php endif; ?>
 
 	<?php
 endif;
