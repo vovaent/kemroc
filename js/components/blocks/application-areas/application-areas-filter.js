@@ -32,9 +32,11 @@ const applicationAreasFilter = ( $ ) => {
 
 			$modelItems.each( function () {
 				const $modelItemThis = $( this );
-				const modelItemThisTermId = $modelItemThis.data( 'term-id' );
+				const modelItemThisTermIds = $modelItemThis.data( 'term-ids' );
+				const modelHasTermId =
+					modelItemThisTermIds.indexOf( areaItemThisTermId ) !== -1;
 
-				if ( modelItemThisTermId === areaItemThisTermId ) {
+				if ( modelHasTermId ) {
 					$modelItemThis.fadeIn();
 				}
 			} );

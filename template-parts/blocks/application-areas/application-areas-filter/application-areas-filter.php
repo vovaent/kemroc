@@ -78,7 +78,7 @@ if ( ! $is_preview ) :
 								</button>
 							</li>
 							<!-- /.application-areas-filter__areas-item -->
-							
+
 							<?php 
 							foreach ( $kemroc_aaf_term_children as $kemroc_aaf_term_child ) : 
 								$kemroc_aaf_term_obj = get_term( $kemroc_aaf_term_child, $kemroc_aaf_application_area->taxonomy );
@@ -95,7 +95,7 @@ if ( ! $is_preview ) :
 								<?php 
 							endforeach; 
 							?>
-														
+				
 						</ul>
 						<!-- /.application-areas-filter__areas-list -->
 					</div>
@@ -118,20 +118,27 @@ if ( ! $is_preview ) :
 							
 							if ( $kemroc_aaf_application_area && ! empty( $kemroc_aaf_model_terms ) ) {
 								if ( 1 < count( $kemroc_aaf_model_terms ) ) {
+									$kemroc_aaf_model_term_ids = '';
+									
 									foreach ( $kemroc_aaf_model_terms as $kemroc_aaf_model_term ) {
 										if ( $kemroc_aaf_model_term->parent !== $kemroc_aaf_application_area->term_id ) {
 											continue;
 										}
-										$kemroc_aaf_model_term_id = $kemroc_aaf_model_term->term_id;
+										
+										if ( empty( $kemroc_aaf_model_term_ids ) ) {
+											$kemroc_aaf_model_term_ids .= $kemroc_aaf_model_term->term_id;
+										} else {
+											$kemroc_aaf_model_term_ids .= ',' . $kemroc_aaf_model_term->term_id;
+										}
 									}
 								} else {
-									$kemroc_aaf_model_term_id = $kemroc_aaf_model_terms[0]->term_id;
+									$kemroc_aaf_model_term_ids = $kemroc_aaf_model_terms[0]->term_id;
 								}
 							}
 							?>
 							<li 
 								class="application-areas-filter__model-item application-areas-item application-areas-item--model"
-								data-term-id="<?php echo esc_attr( $kemroc_aaf_model_term_id ); ?>"
+								data-term-ids="[<?php echo esc_attr( $kemroc_aaf_model_term_ids ); ?>]"
 							>
 								<a href="<?php the_permalink(); ?>" class="application-areas-item__link">
 									<figure class="application-areas-item__figure application-areas-item__figure--model">
@@ -169,7 +176,7 @@ if ( ! $is_preview ) :
 						endwhile; 
 						wp_reset_postdata();
 						?>
-						
+
 					</ul>
 					<!-- /.application-areas-filter__models-list -->
 				</div>
