@@ -38,6 +38,7 @@ if ( ! $is_preview ) {
 	$kemroc_hero_title_choice  = get_field( 'title_choice' );
 	$kemroc_hero_title         = 'custom_title' === $kemroc_hero_title_choice ? get_field( 'custom_title' ) : get_the_title();
 	$kemroc_hero_description   = get_field( 'description' );
+	$kemroc_hero_show_button   = get_field( 'show_button' );
 	$kemroc_hero_link          = get_field( 'link' );
 	$kemroc_hero_bg_image      = get_field( 'bg_image' );
 
@@ -88,11 +89,16 @@ if ( ! $is_preview ) {
 					</div>
 				<?php endif; ?>
 
-				<?php if ( $kemroc_hero_link ) : ?>
-					<a href="<?php echo esc_url( $kemroc_hero_link['url'] ); ?>"
-						class="btn btn-accent btn-rounded arrow-right hero__readmore">
-						<?php echo esc_html( $kemroc_hero_link['title'] ); ?>
-					</a>
+				<?php if ( $kemroc_hero_is_front_page || $kemroc_hero_show_button ) : ?>
+					<?php if ( $kemroc_hero_link ) : ?>
+						<a 
+							href="<?php echo esc_url( $kemroc_hero_link['url'] ); ?>"
+							class="btn btn-accent btn-rounded arrow-right hero__readmore"
+							target="<?php echo esc_html( $kemroc_hero_link['target'] ); ?>"
+						>
+							<?php echo esc_html( $kemroc_hero_link['title'] ); ?>
+						</a>
+					<?php endif; ?>
 				<?php endif; ?>
 			</div>
 			<!-- /.container hero__inner -->
