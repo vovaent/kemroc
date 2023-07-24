@@ -46,7 +46,7 @@ if ( ! $is_preview ) {
 		$kemroc_hero_class_name .= ' hero--front-page';
 	}
 
-	if ( $kemroc_hero_bg_image['is_narrow'] ) {
+	if ( ! empty( $kemroc_hero_bg_image['is_narrow'] ) ) {
 		$kemroc_hero_bg_image_width = 'narrow';
 	} else {
 		$kemroc_hero_bg_image_width = 'wide';
@@ -54,7 +54,7 @@ if ( ! $is_preview ) {
 	?>
 	<section id="<?php echo esc_attr( $kemroc_hero_id ); ?>" class="<?php echo esc_attr( $kemroc_hero_class_name ); ?>">
 		<figure class="hero__bg-picture-wrapper hero__bg-picture-wrapper--<?php echo esc_html( $kemroc_hero_bg_image_width ); ?>">
-			<picture class="hero__bg-picture"></picture>
+			<picture class="hero__bg-picture">
 
 				<?php if ( $kemroc_hero_bg_image['mobile'] ) : ?>
 					<source srcset="<?php echo esc_attr( $kemroc_hero_bg_image['mobile']['url'] ); ?>"
@@ -75,10 +75,8 @@ if ( ! $is_preview ) {
 			<!-- /.hero__bg-picture -->
 			<div class="hero__bg-picture-overlay"></div>
 			<!-- /.hero__bg-picture-overlay -->
-		</figure>
-		<!-- /.hero__bg-picture-wrapper -->
-		<div class="container hero__container">
-			<div class="hero__inner">
+			<div class="container hero__content">
+
 				<?php if ( $kemroc_hero_above_title ) : ?>
 					<h6 class="above-title hero__above-title">
 						<?php echo esc_html( $kemroc_hero_above_title ); ?>
@@ -106,10 +104,11 @@ if ( ! $is_preview ) {
 						</a>
 					<?php endif; ?>
 				<?php endif; ?>
-			</div>
-			<!-- /.container hero__inner -->
+				
 		</div>
-		<!-- /.container hero__container -->
+		<!-- /.container hero__content -->
+		</figure>
+		<!-- /.hero__bg-picture-wrapper -->		
 	</section>
 	<!-- /.hero -->
 <?php } ?>
