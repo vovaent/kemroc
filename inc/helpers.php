@@ -115,9 +115,14 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 			for ( $i = 0; $i < $block_params; $i++ ) { 
 				$params_key_title_post_id = 'params_' . $i . '_title';
 				$params_key_title_post    = get_post( $block_data[ $params_key_title_post_id ] );
-				$params_title             = $params_key_title_post->post_title;
-				$params_measure_units     = get_field( 'measure_units', $params_key_title_post->ID );
-				$params_us_measure_units  = get_field( 'us_measure_units', $params_key_title_post->ID );
+
+				if ( ! $params_key_title_post ) {
+					continue;
+				}
+
+				$params_title            = $params_key_title_post->post_title;
+				$params_measure_units    = get_field( 'measure_units', $params_key_title_post->ID );
+				$params_us_measure_units = get_field( 'us_measure_units', $params_key_title_post->ID );
 					
 				$params_value    = 'params_' . $i . '_value';
 				$params_us_value = 'params_' . $i . '_us_value';
