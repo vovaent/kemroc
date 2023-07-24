@@ -327,3 +327,58 @@ function kemroc_change_search_posts_count( $query ) {
 	$query->set( 'post_type', array( 'post', 'page' ) );
 }
 add_action( 'pre_get_posts', 'kemroc_change_search_posts_count' );
+
+function kemroc_add_thumb_image_column( $columns ) {
+	$num = 1; 
+
+	$new_columns = array(
+		'thumb_image' => esc_html__( 'Bild', 'kemroc' ),
+	);
+
+	return array_slice( $columns, 0, $num ) + $new_columns + array_slice( $columns, $num );
+}
+add_filter( 'manage_page_posts_columns', 'kemroc_add_thumb_image_column', 4 );
+
+function kemroc_fill_thumb_image_column( $colname, $post_id ) {
+	if ( 'thumb_image' === $colname ) {
+		echo wp_get_attachment_image( get_post_thumbnail_id( $post_id ) );
+	}
+}
+add_action( 'manage_page_posts_custom_column', 'kemroc_fill_thumb_image_column', 5, 2 );
+
+function kemroc_add_thumb_image_column_css() {
+	echo '<style type="text/css">.column-thumb_image{ width:45px; } .column-thumb_image img {max-width: 100%; width: 36px; height: 36px}</style>';
+}
+add_action( 'admin_head', 'kemroc_add_thumb_image_column_css' );
+
+function kemroc_add_application_areas_column( $columns ) {
+	$num = 3; 
+
+	$new_columns = array(
+		'application_areas' => esc_html__( 'Einsatzbereiche', 'kemroc' ),
+	);
+
+	return array_slice( $columns, 0, $num ) + $new_columns + array_slice( $columns, $num );
+}
+add_filter( 'manage_page_posts_columns', 'kemroc_add_application_areas_column', 4 );
+
+function kemroc_fill_application_areas_column( $colname, $post_id ) {
+	if ( 'application_areas' === $colname ) {
+		$app_areas = get_the_terms( $post_id, 'einsatzbereich' );
+		
+		if ( is_array( $app_areas ) ) {
+			foreach ( $app_areas as $app_area ) {
+				echo '<a href="' . get_permalink( $app_area->term_id ) . '">' . $app_area->name . '</a>'; //phpcs:ignore
+				if ( end( $app_areas ) !== $app_area ) {
+					echo ', ';
+				}
+			}
+		}
+	}
+}
+add_action( 'manage_page_posts_custom_column', 'kemroc_fill_application_areas_column', 5, 2 );
+
+function kemroc_add_application_areas_column_css() {
+	echo '<style type="text/css">.column-application_areas{ width:10%; } .column-application_areas img {max-width: 100%; width: 36px; height: 36px}</style>';
+}
+add_action( 'admin_head', 'kemroc_add_application_areas_column_css' );
