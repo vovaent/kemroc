@@ -33,8 +33,6 @@ if ( ! $is_preview ) :
 	// Load values and assing defaults.
 	$kemroc_ci_personal_logo_use    = get_field( 'personal_logo_use' );
 	$kemroc_ci_personal_logo        = get_field( 'personal_logo' );
-	$kemroc_ci_logo                 = get_field( 'header_logo', 'option' );
-	$kemroc_ci_personal_logo        = $kemroc_ci_personal_logo_use ? $kemroc_ci_personal_logo : $kemroc_ci_logo;
 	$kemroc_ci_address              = get_field( 'address' );
 	$kemroc_ci_contacts             = get_field( 'contacts' );
 	$kemroc_ci_google_map_shortcode = get_field( 'google_map_shortcode' );
@@ -44,7 +42,13 @@ if ( ! $is_preview ) :
 		<div class="container contacts-info__content">
 			<div class="contacts-info__text">
 				<div class="contacts-info__logo">
-					<img src="<?php echo esc_url( $kemroc_ci_logo['url'] ); ?>" alt="<?php echo esc_attr( $kemroc_ci_logo['title'] ); ?>" class="contacts-info__logo-image">
+
+					<?php if ( $kemroc_ci_personal_logo && ! empty( $kemroc_ci_personal_logo ) ) : ?>
+						<?php echo wp_get_attachment_image( $kemroc_ci_personal_logo, 'full' ); ?>
+					<?php elseif ( has_custom_logo() ) : ?>
+						<?php echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full' ); ?>
+					<?php endif; ?>
+
 				</div>
 				<!-- /.contacts-info__logo -->
 				<address class="contacts-info__address">
@@ -54,7 +58,7 @@ if ( ! $is_preview ) :
 
 				<?php if ( $kemroc_ci_contacts ) : ?>
 					<ul class="contacts-info__contacts-list">
-						
+
 						<?php foreach ( $kemroc_ci_contacts as $kemroc_ci_contact ) : ?>
 							<?php if ( ! empty( $kemroc_ci_contact['link']['url'] ) && ! empty( $kemroc_ci_contact['link']['title'] ) ) : ?>
 								<li class="contacts-info__contacts-item">
@@ -66,7 +70,7 @@ if ( ! $is_preview ) :
 								<!-- /.contacts-info__contacts-item -->
 							<?php endif; ?>
 						<?php endforeach; ?>
-						
+
 					</ul>
 					<!-- /.contacts-info__contacts-list -->
 				<?php endif; ?>                
