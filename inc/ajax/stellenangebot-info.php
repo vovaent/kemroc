@@ -75,8 +75,13 @@ function kemroc_ajax_stellenangebot_action_callback() {
 	if ( $err_message ) {
 		wp_send_json_error( $err_message );
 	} else {   
+		
+		$recipient_email_address = get_field( 'recipient_email_address', 'option' );
+		
 		if ( isset( $_POST['custom_email_to'] ) ) {
 			$email_to = sanitize_textarea_field( wp_unslash( $_POST['custom_email_to'] ) );
+		} elseif ( $recipient_email_address ) {
+			$email_to = $recipient_email_address;
 		} else {
 			$email_to = get_option( 'admin_email' );
 		}
