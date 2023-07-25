@@ -262,3 +262,8 @@ require get_template_directory() . '/inc/acf/acf.php';
  * AJAX
  */
 require get_template_directory() . '/inc/ajax/ajax.php';
+
+/**
+ * Yoast
+ */
+require get_template_directory() . '/inc/yoast/yoast.php';
