@@ -44,7 +44,7 @@
         }
 
         .site-logo {
-            display: block;
+            display: flex;
             margin-right: 31px;
 
             @include media-down-md {
@@ -270,4 +270,10 @@
     @include media-down-sm {
         height: 64px;
     }
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -25,7 +25,7 @@ if ( function_exists( 'pll_languages_list' ) ) {
 	}
 }
 
-$logo         = get_field( 'header_logo', 'option' );
+// $logo         = get_field( 'header_logo', 'option' );
 $header_phone = get_field( 'header_phone', 'option' );
 $cta_link     = get_field( 'cta_link', 'option' );
 $rental_link  = get_field( 'rental_link', 'option' );
@@ -52,10 +52,13 @@ $store_link   = get_field( 'store_link', 'option' );
 				<div class="container">
 					<div class="header__top header-top">
 						<div class="header-top__left">
-							<?php if ( $logo ) : ?>
-								<a href="<?php echo kemroc_home_url(); ?>" class="site-logo">
-								<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
-								</a>
+							<?php if ( has_custom_logo() ) : ?>
+								<div class="site-logo">
+									<?php the_custom_logo(); ?>
+								</div>
+								<!-- <a href="<?php echo kemroc_home_url(); ?>" class="site-logo"> -->
+								<!-- <img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>"> -->
+								<!-- </a> -->
 							<?php endif; ?>							
 							<a href="<?php echo esc_url( $kemroc_no_current_lang_url ); ?>" class="lang-switcher">
 								<img src="<?php echo esc_attr( $kemroc_no_current_lang_flag ); ?>"
@@ -115,10 +118,14 @@ $store_link   = get_field( 'store_link', 'option' );
 								<?php get_template_part( 'template-parts/icons/toggle-nav-burger' ); ?>
 							</button>
 
-							<?php if ( $logo ) : ?>
-								<a href="<?php echo kemroc_home_url(); ?>" class="site-logo header-top__logo">
-									<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>">
-								</a>
+							<?php if ( has_custom_logo() ) : ?>
+								<div class="site-logo header-top__logo">
+									<?php the_custom_logo(); ?>
+								</div>
+								<!-- /.site-logo header-top__logo -->
+								<!-- <a href="<?php echo kemroc_home_url(); ?>" class="site-logo header-top__logo"> -->
+									<!-- <img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>"> -->
+								<!-- </a> -->
 							<?php endif; ?>
 							
 							<a href="<?php echo esc_url( $kemroc_no_current_lang_url ); ?>"
