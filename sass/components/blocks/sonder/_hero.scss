@@ -1,40 +1,42 @@
 .hero {
     display: flex;
     align-items: center;
-    min-height: 463px;
     margin-bottom: 128px;
-    // background-position: center;
-    // background-size: cover;
-    // background-repeat: no-repeat;
 
     @include media-down-md {
         align-items: start;
         margin-bottom: 32px;
-        min-height: 333px;
     }
 
-    @include media-down-sm {
-        min-height: 178px;
-    }
-
-    &--front-page {
-        min-height: 613px;
-
-        @include media-down-md {
-            align-items: center;
-            min-height: 414px;
-        }
-    }
 
     &__bg-picture-wrapper {
         position: relative;
         display: block;
         margin-top: 0;
         width: 100%;
+        overflow: hidden;
         z-index: -1;
 
         &--wide {
             max-width: 100%;
+            height: 463px;
+
+            @include media-down-md {
+                height: 333px;
+            }
+
+            @include media-down-sm {
+                height: 178px;
+            }
+
+            .hero--front-page & {
+                height: 613px;
+
+                @include media-down-md {
+                    align-items: center;
+                    height: 414px;
+                }
+            }
         }
 
         &--narrow {
