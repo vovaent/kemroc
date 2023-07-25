@@ -73,6 +73,19 @@ if ( ! $is_preview ) {
 
 			</picture>
 			<!-- /.hero__bg-picture -->
+
+			<?php if ( $kemroc_hero_is_front_page ) : ?>
+				<picture class="hero__bg-arrow">
+					<source srcset="<?php echo get_template_directory_uri() . '/images/bg-arrow-mobile.png'; ?>"
+						media="(max-width: 739px)">
+					<source srcset="<?php echo get_template_directory_uri() . '/images/bg-arrow-tablet.png'; ?>"
+						media="(max-width: 1179px)">
+					<img src="<?php echo get_template_directory_uri() . '/images/bg-arrow-pc.png'; ?>" alt="" 
+						class="hero__bg-arrow-image">
+				</picture>
+				<!-- /.hero__bg-arrow -->
+			<?php endif; ?>
+
 			<div class="hero__bg-picture-overlay"></div>
 			<!-- /.hero__bg-picture-overlay -->
 			<div class="container hero__content">

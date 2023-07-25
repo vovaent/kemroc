@@ -64,6 +64,31 @@
         height: 100%;
     }
 
+    &__bg-arrow {
+        position: absolute;
+        right: 70px;
+        bottom: 0;
+        display: block;
+        width: 490px;
+
+        @include media-down-md {
+            right: 66px;
+            width: 318px;
+        }
+
+        @include media-down-sm {
+            right: 0;
+            bottom: -5px;
+            width: 174px;
+        }
+
+        &-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
     &__bg-picture-overlay {
         position: absolute;
         top: 0;
