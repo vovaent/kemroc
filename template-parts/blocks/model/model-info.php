@@ -54,6 +54,16 @@ if ( ! $is_preview ) :
 		array( 'alt' => wp_get_attachment_caption( $kemroc_mi_drawing_id ) )
 	);
 
+	$kemroc_mi_video_1_yt_available      = 'youtube' === $kemroc_mi_video['yt_or_file_load'] && ! empty( $kemroc_mi_video['id'] );
+	$kemroc_mi_video_1_is_file_available = 'videofile' === $kemroc_mi_video['yt_or_file_load'] && ! empty( $kemroc_mi_video['videofile'] );
+	$kemroc_mi_video_1_is_available      = $kemroc_mi_video_1_yt_available || $kemroc_mi_video_1_is_file_available;
+
+	$kemroc_mi_video_2_yt_available      = $kemroc_mi_add_another_video && ( 'youtube' === $kemroc_mi_video_2['yt_or_file_load'] && ! empty( $kemroc_mi_video_2['id'] ) );
+	$kemroc_mi_video_2_is_file_available = $kemroc_mi_add_another_video && ( 'videofile' === $kemroc_mi_video_2['yt_or_file_load'] && ! empty( $kemroc_mi_video_2['videofile'] ) );
+	$kemroc_mi_video_2_is_available      = $kemroc_mi_video_2_yt_available || $kemroc_mi_video_2_is_file_available;
+
+	$kemroc_mi_video_poster = '';
+	
 	if ( ! empty( $kemroc_mi_video['poster'] ) ) {
 		$kemroc_mi_video_poster = wp_get_attachment_image( 
 			$kemroc_mi_video['poster'], 
@@ -112,11 +122,7 @@ if ( ! $is_preview ) :
 						<!-- /.model-tabs__tab -->
 					<?php endif; ?>
 
-					<?php 
-					if ( $kemroc_mi_video && ( 'youtube' === $kemroc_mi_video['yt_or_file_load'] && ! empty( $kemroc_mi_video['id'] ) )
-						|| ( 'videofile' === $kemroc_mi_video['yt_or_file_load'] && ! empty( $kemroc_mi_video['videofile'] ) )
-					) : 
-						?>
+					<?php if ( $kemroc_mi_video_1_is_available || $kemroc_mi_video_2_is_available ) : ?>
 						<div class="model-tabs__tab">
 							<?php esc_html_e( 'VIDEO', 'kemroc' ); ?>
 						</div>
@@ -252,9 +258,11 @@ if ( ! $is_preview ) :
 						<!-- /.model-tabs__inset -->
 					<?php endif; ?>
 
-					<?php if ( $kemroc_mi_video || ( $kemroc_mi_add_another_video && $kemroc_mi_video_2 ) ) : ?>
+					<?php if ( $kemroc_mi_video_1_is_available || $kemroc_mi_video_2_is_available ) : ?>
 						<div class="model-tabs__inset">
-							<?php if ( 'youtube' === $kemroc_mi_video['yt_or_file_load'] && $kemroc_mi_video['id'] ) : ?>
+
+						<?php if ( $kemroc_mi_video_1_is_available ) : ?>
+							<?php if ( $kemroc_mi_video_1_yt_available ) : ?>
 								<div class="model-tabs__lazy-video lazy-video">
 									<figure class="lazy-video__figure">
 										<div 
@@ -287,79 +295,104 @@ if ( ! $is_preview ) :
 									</figure>
 									<!-- /.lazy-video__figure -->
 								</div>
+								<!-- /.model-tabs__lazy-video lazy-video -->                                
+							<?php elseif ( $kemroc_mi_video_1_is_file_available ) : ?>
+								<?php 
+								$kemroc_mi_video_poster_img = '';
+								if ( $kemroc_mi_video['poster'] ) {
+									$kemroc_mi_video_poster_img = wp_get_attachment_url( $kemroc_mi_video['poster'] ); 
+								};
+								?>
+								<div class="model-tabs__lazy-video lazy-video">
+									<figure class="lazy-video__figure lazy-video__figure--file">
+										<video 
+											class="lazy-video__source lazy-video__source--model-page"
+											src="<?php echo esc_url( $kemroc_mi_video['videofile']['url'] ); ?>" 
+											width="100%" 
+											height="100%" 
+											muted
+											poster="<?php echo esc_url( $kemroc_mi_video_poster_img ); ?>"
+										>
+											<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
+										</video>
+										<!-- /.lazy-video__source -->
+										<span class="icon-play lazy-video__icon-play">
+											<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
+										</span>
+										<!-- /.icon-play lazy-video__icon-play -->
+									</figure>
+									<!-- /.lazy-video__figure lazy-video__figure--file -->
+								</div>
 								<!-- /.model-tabs__lazy-video lazy-video -->
 							<?php endif; ?>
-
-							<?php if ( $kemroc_mi_add_another_video ) : ?>                               
-								<?php if ( 'youtube' === $kemroc_mi_video_2['yt_or_file_load'] && $kemroc_mi_video_2['id'] ) : ?>
-									<div class="model-tabs__lazy-video lazy-video">
-										<figure class="lazy-video__figure">
-											<div 
-												class="lazy-video__placeholder lazy-video__placeholder--model-page" 
-												data-yt-video-id="<?php echo esc_attr( $kemroc_mi_video_2['id'] ); ?>" 
-												data-yt-iframe-class="lazy-video__source lazy-video__source--model-page"
-											>
-
-												<?php 
-												if ( $kemroc_mi_video_2_poster ) : 
-                                                    echo $kemroc_mi_video_2_poster; //phpcs:ignore
-												else : 
-													$kemroc_mi_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_mi_video_2['id'] . '/maxresdefault.jpg';
-													?>
-													<img 
-														class="lazy-video__poster"
-														src="<?php echo esc_url( $kemroc_mi_yt_poster_url ); ?>" 
-														alt="<?php echo esc_attr( $kemroc_mi_video_2['title'] ); ?>"
-													>
-												<?php endif; ?>
-
-												<div class="icon-play lazy-video__icon-play">
-													<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-												</div>
-												<!-- /.icon-play lazy-video__icon-play -->
-												<div class="kemroc-preloader lazy-video__preloader"></div>
-												<!-- /.kemroc-preloader lazy-video__preloader -->
-											</div>
-											<!-- /.lazy-video__placeholder -->
-										</figure>
-										<!-- /.lazy-video__figure -->
-									</div>
-									<!-- /.model-tabs__lazy-video lazy-video -->
-								<?php endif; ?>
-							<?php endif; ?>
+						<?php endif; ?>
 							
-						</div>
-						<!-- /.model-tabs__inset -->
-						
-						<?php 
-					elseif ( $kemroc_mi_video && 'videofile' === $kemroc_mi_video['yt_or_file_load'] && $kemroc_mi_video['videofile'] ) :
-						$kemroc_mi_video_poster_img = '';
-						if ( $kemroc_mi_video['poster'] ) : 
-							$kemroc_mi_video_poster_img = wp_get_attachment_url( $kemroc_mi_video['poster'] ); 
-						endif;
-						?>
-						<div class="model-tabs__inset">
-							<div class="model-tabs__lazy-video lazy-video">
-								<figure class="lazy-video__figure lazy-video__figure--file">
-									<video 
-										class="lazy-video__source lazy-video__source--model-page"
-										src="<?php echo esc_url( $kemroc_mi_video['videofile']['url'] ); ?>" 
-										width="100%" 
-										height="100%" 
-										muted
-										poster="<?php echo esc_url( $kemroc_mi_video_poster_img ); ?>"
-									>
-										<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
-									</video>
-									<!-- /.lazy-video__source -->
-									<span class="icon-play lazy-video__icon-play">
-										<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-									</span>
-									<!-- /.icon-play lazy-video__icon-play -->
-								</figure>
-								<!-- /.lazy-video__figure lazy-video__figure--file -->
-							</div>
-							<!-- /.model-tabs__lazy-video lazy-video -->
+						<?php if ( $kemroc_mi_video_2_is_available ) : ?>                           
+							<?php if ( $kemroc_mi_video_2_yt_available ) : ?>
+								<div class="model-tabs__lazy-video lazy-video">
+									<figure class="lazy-video__figure">
+										<div 
+											class="lazy-video__placeholder lazy-video__placeholder--model-page" 
+											data-yt-video-id="<?php echo esc_attr( $kemroc_mi_video_2['id'] ); ?>" 
+											data-yt-iframe-class="lazy-video__source lazy-video__source--model-page"
+										>
+
+											<?php 
+											if ( $kemroc_mi_video_2_poster ) : 
+                                                echo $kemroc_mi_video_2_poster; //phpcs:ignore
+											else : 
+												$kemroc_mi_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_mi_video_2['id'] . '/maxresdefault.jpg';
+												?>
+												<img 
+													class="lazy-video__poster"
+													src="<?php echo esc_url( $kemroc_mi_yt_poster_url ); ?>" 
+													alt="<?php echo esc_attr( $kemroc_mi_video_2['title'] ); ?>"
+												>
+											<?php endif; ?>
+
+											<div class="icon-play lazy-video__icon-play">
+												<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
+											</div>
+											<!-- /.icon-play lazy-video__icon-play -->
+											<div class="kemroc-preloader lazy-video__preloader"></div>
+											<!-- /.kemroc-preloader lazy-video__preloader -->
+										</div>
+										<!-- /.lazy-video__placeholder -->
+									</figure>
+									<!-- /.lazy-video__figure -->
+								</div>
+								<!-- /.model-tabs__lazy-video lazy-video -->
+							<?php elseif ( $kemroc_mi_video_2_is_file_available ) : ?>
+								<?php 
+								$kemroc_mi_video_2_poster_img = '';
+								if ( $kemroc_mi_video_2['poster'] ) {
+									$kemroc_mi_video_2_poster_img = wp_get_attachment_url( $kemroc_mi_video_2['poster'] ); 
+								};
+								?>
+								<div class="model-tabs__lazy-video lazy-video">
+									<figure class="lazy-video__figure lazy-video__figure--file">
+										<video 
+											class="lazy-video__source lazy-video__source--model-page"
+											src="<?php echo esc_url( $kemroc_mi_video_2['videofile']['url'] ); ?>" 
+											width="100%" 
+											height="100%" 
+											muted
+											poster="<?php echo esc_url( $kemroc_mi_video_2_poster_img ); ?>"
+										>
+											<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
+										</video>
+										<!-- /.lazy-video__source -->
+										<span class="icon-play lazy-video__icon-play">
+											<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
+										</span>
+										<!-- /.icon-play lazy-video__icon-play -->
+									</figure>
+									<!-- /.lazy-video__figure lazy-video__figure--file -->
+								</div>
+								<!-- /.model-tabs__lazy-video lazy-video -->
+							<?php endif; ?>
+						<?php endif; ?>
+
 						</div>
 						<!-- /.model-tabs__inset -->
 					<?php endif; ?>
