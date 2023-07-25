@@ -25,7 +25,6 @@ if ( function_exists( 'pll_languages_list' ) ) {
 	}
 }
 
-// $logo         = get_field( 'header_logo', 'option' );
 $header_phone = get_field( 'header_phone', 'option' );
 $cta_link     = get_field( 'cta_link', 'option' );
 $rental_link  = get_field( 'rental_link', 'option' );
