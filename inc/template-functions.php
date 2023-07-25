@@ -382,3 +382,19 @@ function kemroc_add_application_areas_column_css() {
 	echo '<style type="text/css">.column-application_areas{ width:10%; } .column-application_areas img {max-width: 100%; width: 36px; height: 36px}</style>';
 }
 add_action( 'admin_head', 'kemroc_add_application_areas_column_css' );
+
+function kemroc_adding_meta_tag_noindex_on_model_page() {
+	if ( is_admin() ) {
+		return;
+	}
+	if ( ! is_page() ) {
+		return;
+	}
+
+	global $post;
+	
+	if ( get_field( 'unlist_on_product_page', $post->ID ) ) {
+		echo '<meta name="robots" content="noindex, nofollow">';
+	}
+}
+add_action( 'wp_head', 'kemroc_adding_meta_tag_noindex_on_model_page' );
