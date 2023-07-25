@@ -1,8 +1,4 @@
 const lazyLoad = ( $ ) => {
-	const $preloader = $( '.kemroc-preloader' );
-	const $videoPlaceholder = $( '.lazy-video__placeholder' );
-	const $videoFile = $( '.lazy-video__figure--file' );
-
 	const createIframe = ( $placeholder ) => {
 		const ytVideoId = $placeholder.data( 'ytVideoId' );
 		const ytIframeClass = $placeholder.data( 'ytIframeClass' );
@@ -26,6 +22,9 @@ const lazyLoad = ( $ ) => {
 	};
 
 	const videoPlaceholderHandler = () => {
+		const $preloader = $( '.kemroc-preloader' );
+		const $videoPlaceholder = $( '.lazy-video__placeholder' );
+
 		if ( $videoPlaceholder.length === 0 ) {
 			return;
 		}
@@ -48,17 +47,21 @@ const lazyLoad = ( $ ) => {
 	};
 
 	const videoFileHandler = () => {
+		const $videoFile = $( '.lazy-video__figure--file' );
+
 		if ( $videoFile.length === 0 ) {
 			return;
 		}
 
-		$videoFile.on( 'click', function () {
+		$videoFile.on( 'click', function ( e ) {
 			const $this = $( this );
 			const $video = $this.find( 'video' );
 
-			$this.find( '.icon-play' ).remove();
-			$video.attr( 'controls', '' );
-			$video[ 0 ].play();
+			if ( e.target !== $video[ 0 ] ) {
+				$this.find( '.icon-play' ).remove();
+				$video.attr( 'controls', '' );
+				$video[ 0 ].play();
+			}
 		} );
 	};
 
