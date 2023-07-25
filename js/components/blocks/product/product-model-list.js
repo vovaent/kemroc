@@ -10,7 +10,6 @@ const productModelList = ( $ ) => {
 			modules: [ Navigation ],
 
 			slidesPerView: 2,
-			loop: true,
 
 			navigation: {
 				nextEl: '.swiper-button-next.product-model-list__control',

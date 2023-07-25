@@ -39,35 +39,17 @@ if ( ! $is_preview ) :
 	
 	$kemroc_pml_enable_measure_units_switcher = 'en' === $kemroc_pml_current_lang;
 
-	$kemroc_pml_models                = kemroc_get_models_compare( get_post_type() );
-	$kemroc_pml_final_array_of_models = array();
-	$kemroc_pml_model_params          = array();
+	$kemroc_pml_models       = kemroc_get_models_compare( get_post_type() );
+	$kemroc_pml_model_params = array();
 
 	foreach ( $kemroc_pml_models as $kemroc_pml_model ) {
-		if ( get_field( 'unlist_on_product_page', $kemroc_pml_model['id'] ) ) {
-			continue;
-		}
-		
-		$kemroc_pml_final_array_of_models[] = $kemroc_pml_model;
-		$kemroc_pml_model_params            = array_merge( $kemroc_pml_model_params, $kemroc_pml_model['params'] );
+		$kemroc_pml_model_params = array_merge( $kemroc_pml_model_params, $kemroc_pml_model['params'] );
 	};
-
-	$kemroc_pml_slides_per_view = 5;
-	$kemroc_pml_count_models    = count( $kemroc_pml_final_array_of_models );
-	$kemroc_pml_remainder       = $kemroc_pml_count_models % $kemroc_pml_slides_per_view;
-
-	if ( $kemroc_pml_slides_per_view < $kemroc_pml_count_models ) {
-		if ( $kemroc_pml_remainder ) {
-			$kemroc_pml_missing               = $kemroc_pml_slides_per_view - $kemroc_pml_remainder; 
-			$kemroc_pml_mising_models         = array_slice( $kemroc_pml_final_array_of_models, 0, $kemroc_pml_missing );    
-			$kemroc_pml_final_array_of_models = array_merge( $kemroc_pml_final_array_of_models, $kemroc_pml_mising_models );
-		}
-	}
 	?>
 	<section id="<?php echo esc_attr( $kemroc_pml_id ); ?>" class="<?php echo esc_attr( $kemroc_pml_class_name ); ?>">
 		<div class="container product-model-list__content">
 
-			<?php if ( $kemroc_pml_final_array_of_models ) : ?>
+			<?php if ( $kemroc_pml_models ) : ?>
 				<div class="product-model-list__card pml-model-card">
 					<div class="pml-model-card__title">
 
@@ -107,7 +89,7 @@ if ( ! $is_preview ) :
 				<div class="swiper product-model-list__slider">
 					<ul class="swiper-wrapper product-model-list__models">
 
-						<?php foreach ( $kemroc_pml_final_array_of_models as $kemroc_pml_model ) : ?>
+						<?php foreach ( $kemroc_pml_models as $kemroc_pml_model ) : ?>
 							<li class="swiper-slide product-model-list__item pml-model">
 								<a href="<?php the_permalink( $kemroc_pml_model['id'] ); ?>" class="pml-model__link">
 									<div class="pml-model__title">

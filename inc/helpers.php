@@ -93,13 +93,16 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 	$models = get_posts( $models_args );
 
 	foreach ( $models as $key => $model ) {
-			
+        if ( get_field( 'unlist_on_product_page', $model->ID ) ) {
+			continue;
+		}
+
+		$new_models[ $key ]['title'] = $model->post_title;
+		$new_models[ $key ]['id']    = $model->ID;
+						
 		$blocks = parse_blocks( $model->post_content );
 		$params = array();
 		
-		$new_models[ $key ]['title'] = $model->post_title;
-		$new_models[ $key ]['id']    = $model->ID;
-			
 		foreach ( $blocks as $block ) {
 			if ( 'acf/model-info' !== $block['blockName'] ) {
 				continue;
