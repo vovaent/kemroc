@@ -54,7 +54,7 @@ if ( ! $is_preview ) :
 					<div class="cf-form__left">
 						<label class="cf-form__label">
 							<?php esc_html_e( 'Name', 'kemroc' ); ?> *
-							<input type="text" name="name" class="cf-form__field cf-form__field--required" maxlength="15" minlength="5" placeholder="<?php esc_html_e( 'Name', 'kemroc' ); ?>" required>
+							<input type="text" name="name" class="cf-form__field cf-form__field--required" maxlength="50" minlength="3" placeholder="<?php esc_html_e( 'Name', 'kemroc' ); ?>" required>
 							<span class="cf-form__error-notice">
 								<?php echo esc_html( $kemroc_cf_form_messages['empty_field'] ); ?>
 							</span>
