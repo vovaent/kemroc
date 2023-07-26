@@ -66,7 +66,7 @@ get_header();
 					sprintf(
 						wp_kses(
 							/* translators: %s: Name of current post. Only visible to screen readers */
-							__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemroc' ),
+							__( 'Lesen Sie weiter<span class="screen-reader-text"> "%s"</span>', 'kemroc' ),
 							array(
 								'span' => array(
 									'class' => array(),
