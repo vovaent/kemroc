@@ -56,10 +56,19 @@ function kemroc_get_models_amount( $post_type = 'page', $post_id = null ) {
 		'posts_per_page' => -1, // phpcs:ignore
 		'post_parent'    => $post_id,
 	);
-	$models_query = new WP_Query( $models_args );
+	$all_models   = get_posts( $models_args );
+	$final_models = array();
 
-	if ( 0 < $models_query->post_count ) {
-		$models_amount = $models_query->post_count;
+	if ( ! empty( $all_models ) ) {
+		foreach ( $all_models as $model ) {
+			if ( get_field( 'unlist_on_product_page', $model->ID ) ) {
+				continue;
+			}
+
+			$final_models[] = $model; 
+		}
+		
+		$models_amount = count( $final_models );
 	}
 
 	return $models_amount;
@@ -93,7 +102,7 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 	$models = get_posts( $models_args );
 
 	foreach ( $models as $key => $model ) {
-        if ( get_field( 'unlist_on_product_page', $model->ID ) ) {
+		if ( get_field( 'unlist_on_product_page', $model->ID ) ) {
 			continue;
 		}
 
