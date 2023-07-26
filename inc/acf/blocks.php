@@ -856,5 +856,26 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
+	acf_register_block_type(
+		array(
+			'name'            => 'glossary',
+			'title'           => __( 'Glossar', 'kemroc' ),
+			'description'     => __( 'Glossar', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/sonder/glossary/glossary.php',
+			'category'        => 'sonder',
+			'mode'            => 'edit',
+			'icon'            => 'welcome-learn-more',
+			'keywords'        => array( 'Glossar' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/glossary/glossary.png',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'kemroc_acf_init_block_types' );
