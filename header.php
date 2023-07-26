@@ -40,6 +40,13 @@ $store_link   = get_field( 'store_link', 'option' );
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-XT8SK051GD');
+	</script>
 </head>
 
 <body <?php body_class(); ?>>

@@ -53,6 +53,7 @@
 
     .copyright {
         margin-bottom: 16px;
+        color: #848383;
 
         @include media-down-md {
             width: 138px;
@@ -305,7 +306,7 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 160%;
-        color: $color__text-main;
+        color: #848383;
         text-decoration: none;
     }
 }
