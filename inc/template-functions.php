@@ -399,3 +399,14 @@ function kemroc_adding_meta_tag_noindex_on_model_page() {
 	}
 }
 add_action( 'wp_head', 'kemroc_adding_meta_tag_noindex_on_model_page' );
+
+function kemroc_polylang_fix_styles() {
+	echo '<style type="text/css">
+          .ui-autocomplete {
+                width: max-content !important;
+                right: 45px;
+                left: auto !important;
+          }
+          </style>';
+}
+  add_action( 'admin_head', 'kemroc_polylang_fix_styles' );
