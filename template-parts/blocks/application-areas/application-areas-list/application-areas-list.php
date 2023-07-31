@@ -39,6 +39,8 @@ if ( ! $is_preview ) :
 			'post_status'    => 'published',
 			'posts_per_page' => -1, // phpcs:ignore
 			'post_parent'    => $kemroc_aal_parent_page_id,
+			'orderby'        => 'menu_order',
+			'order'          => 'ASC',
 		);
 		$kemroc_aal_areas = new WP_Query( $kemroc_aal_args );
 	}
