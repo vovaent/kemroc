@@ -129,7 +129,7 @@ if ( ! $is_preview ) :
 						<!-- /.model-tabs__tab -->
 					<?php endif; ?>
 
-					<?php if ( $kemroc_mi_photos && $kemroc_mi_photos[0]['photo'] ) : ?>
+					<?php if ( $kemroc_mi_photos && 0 < count( $kemroc_mi_photos ) ) : ?>
 						<div class="model-tabs__tab">
 							<?php esc_html_e( 'FOTOS', 'kemroc' ); ?>
 						</div>
@@ -326,7 +326,7 @@ if ( ! $is_preview ) :
 								<!-- /.model-tabs__lazy-video lazy-video -->
 							<?php endif; ?>
 						<?php endif; ?>
-							
+
 						<?php if ( $kemroc_mi_video_2_is_available ) : ?>                           
 							<?php if ( $kemroc_mi_video_2_yt_available ) : ?>
 								<div class="model-tabs__lazy-video lazy-video">
@@ -397,7 +397,7 @@ if ( ! $is_preview ) :
 						<!-- /.model-tabs__inset -->
 					<?php endif; ?>
 
-					<?php if ( $kemroc_mi_photos && $kemroc_mi_photos[0]['photo'] ) : ?>
+					<?php if ( $kemroc_mi_photos && 0 < count( $kemroc_mi_photos ) ) : ?>
 						<div class="model-tabs__inset">
 							<div class="swiper model-tabs__slider swiper-single-slide swiper-single-slide--big-slider">
 								<ul class="swiper-wrapper swiper-single-slide__container">
