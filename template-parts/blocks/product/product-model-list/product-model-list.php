@@ -89,11 +89,11 @@ if ( ! $is_preview ) :
 				<div class="swiper product-model-list__slider">
 					<ul class="swiper-wrapper product-model-list__models">
 
-						<?php foreach ( $kemroc_pml_models as $kemroc_pml_model ) : ?>
+						<?php foreach ( $kemroc_pml_models as $kemroc_pml_model_title => $kemroc_pml_model ) : ?>
 							<li class="swiper-slide product-model-list__item pml-model">
 								<a href="<?php the_permalink( $kemroc_pml_model['id'] ); ?>" class="pml-model__link">
 									<div class="pml-model__title">
-										<?php echo esc_html( $kemroc_pml_model['title'] ); ?>
+										<?php echo esc_html( $kemroc_pml_model_title ); ?>
 									</div>
 									<!-- /.pml-model__title -->
 

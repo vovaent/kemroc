@@ -95,8 +95,6 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 		'post_status'    => 'publish',
 		'posts_per_page' => -1, // phpcs:ignore
 		'post_parent'    => $post_id,
-		'orderby'        => 'title',
-		'order'          => 'ASC',
 	);
 	
 	$models = get_posts( $models_args );
@@ -106,8 +104,7 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 			continue;
 		}
 
-		$new_models[ $key ]['title'] = $model->post_title;
-		$new_models[ $key ]['id']    = $model->ID;
+		$new_models[ $model->post_title ]['id'] = $model->ID;
 						
 		$blocks = parse_blocks( $model->post_content );
 		$params = array();
@@ -150,8 +147,11 @@ function kemroc_get_models_compare( $post_type = 'page', $post_id = null ) {
 		}
 
 		ksort( $params );
-		$new_models[ $key ]['params'] = $params;
+		$new_models[ $model->post_title ]['params'] = $params;
 	}
+	
+	$new_models_keys = array_keys( $new_models );
+	array_multisort( $new_models_keys, SORT_NATURAL, $new_models ); // phpcs:ignore
 
 	return $new_models;
 }
