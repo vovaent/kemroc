@@ -1,0 +1,55 @@
+button.cky-btn.cky-btn-accept {
+    font-size: 14px !important;
+    border-radius: 12px !important;
+    padding: 12px 14px !important;
+    background-color: #FF6000 !important;
+    border-color: #FF6000 !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    line-height: 130% !important;
+    text-decoration: none !important;
+    font-family: "Eurostile Candy W02 Bold" !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+}
+
+.cky-notice-btn-wrapper .cky-btn,
+.cky-prefrence-btn-wrapper .cky-btn {
+    font-size: 14px !important;
+    border-radius: 12px !important;
+    padding: 12px 14px !important;
+    background-color: #fff !important;
+    border-color: #FF6000 !important;
+    color: #FF6000 !important;
+    font-weight: 700 !important;
+    line-height: 130% !important;
+    text-decoration: none !important;
+    font-family: "Eurostile Candy W02 Bold" !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+}
+
+.cky-notice .cky-title,
+.cky-preference-header .cky-preference-title,
+.cky-accordion-header .cky-accordion-btn {
+    font-family: "Eurostile Candy W02 Bold" !important;
+    font-weight: 700 !important;
+    font-size: 19px !important;
+    line-height: 30px !important;
+    color: #000000 !important;
+}
+
+.cky-notice-des,
+.cky-preference-content-wrapper,
+.cky-gpc-wrapper .cky-gpc-desc,
+.cky-accordion-header-des {
+    color: #444 !important;
+    font-family: "Asap", sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 160% !important;
+}
