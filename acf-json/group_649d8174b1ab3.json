@@ -3,6 +3,46 @@
     "title": "Block | Stellenangebot Info",
     "fields": [
         {
+            "key": "field_649dd600cee27",
+            "label": "Beschreibung",
+            "name": "beschreibung",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "parent_repeater": "field_649dd4e2b6b66"
+        },
+        {
+            "key": "field_649dd63fc0feb",
+            "label": "Beschreibung",
+            "name": "beschreibung",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "parent_repeater": "field_649dd56dfe2d3"
+        },
+        {
             "key": "field_64a73f2d9cc6e",
             "label": "Über der Schlagzeile",
             "name": "above_title",
@@ -44,82 +84,6 @@
             "key": "field_649dd4b0b6b65",
             "label": "Beschreibung",
             "name": "beschreibung",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "delay": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1
-        },
-        {
-            "key": "field_64aeca95cd9f6",
-            "label": "Ihr Profil - titel",
-            "name": "ihr_profil_titel",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_649dd4e2b6b66",
-            "label": "Ihr Profil - text",
-            "name": "ihr_profil",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "delay": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1
-        },
-        {
-            "key": "field_64aecad5cd9f7",
-            "label": "Unsere Benefits - titel",
-            "name": "unsere_benefits_titel",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_649dd56dfe2d3",
-            "label": "Unsere Benefits - text",
-            "name": "unsere_benefits",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -402,5 +366,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1689861613
+    "modified": 1690883535
 }
