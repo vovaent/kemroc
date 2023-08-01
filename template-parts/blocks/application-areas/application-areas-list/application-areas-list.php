@@ -36,7 +36,7 @@ if ( ! $is_preview ) :
 	if ( $kemroc_aal_parent_page_id ) {
 		$kemroc_aal_args  = array(
 			'post_type'      => 'page',
-			'post_status'    => 'published',
+			'post_status'    => 'publish',
 			'posts_per_page' => -1, // phpcs:ignore
 			'post_parent'    => $kemroc_aal_parent_page_id,
 			'orderby'        => 'menu_order',
