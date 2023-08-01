@@ -45,15 +45,21 @@ if ( ! $is_preview ) {
 	if ( $kemroc_hero_is_front_page ) {
 		$kemroc_hero_class_name .= ' hero--front-page';
 	}
+	
+	$kemroc_hero_bg_image_height = '';
 
 	if ( ! empty( $kemroc_hero_bg_image['is_narrow'] ) ) {
 		$kemroc_hero_bg_image_width = 'narrow';
 	} else {
 		$kemroc_hero_bg_image_width = 'wide';
+
+		if ( ! empty( $kemroc_hero_bg_image['is_all_height'] ) ) {
+			$kemroc_hero_bg_image_height = 'all-height';
+		}
 	}
 	?>
 	<section id="<?php echo esc_attr( $kemroc_hero_id ); ?>" class="<?php echo esc_attr( $kemroc_hero_class_name ); ?>">
-		<figure class="hero__bg-picture-wrapper hero__bg-picture-wrapper--<?php echo esc_html( $kemroc_hero_bg_image_width ); ?>">
+		<figure class="hero__bg-picture-wrapper hero__bg-picture-wrapper--<?php echo esc_html( $kemroc_hero_bg_image_width ); ?> <?php echo ! empty( $kemroc_hero_bg_image_height ) ? 'hero__bg-picture-wrapper--' . esc_html( $kemroc_hero_bg_image_height ) : ''; ?>">
 			<picture class="hero__bg-picture">
 
 				<?php if ( $kemroc_hero_bg_image['mobile'] ) : ?>
