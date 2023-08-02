@@ -545,7 +545,7 @@ function kemroc_acf_init_block_types() {
 			'mode'            => 'edit',
 			'icon'            => 'welcome-learn-more',
 			'keywords'        => array( 'FAQ' ),
-			'post_types'      => array( 'post' ),
+			'post_types'      => array( 'post', 'page' ),
 			'example'         => array(
 				'attributes' => array(
 					'mode' => 'preview',

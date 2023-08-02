@@ -223,6 +223,7 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 		'core/file',
 		'core/html',
 		'acf/lazy-video',
+		'acf/faq',
 	);
 
 	if ( (int) get_option( 'page_on_front' ) === $editor_context->post->ID ) {
@@ -285,9 +286,9 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 	} elseif ( 'post' === $editor_context->post->post_type ) {
 		$allowed_blocks = array_merge(
 			$general_blocks, 
-			array(
-				'acf/faq',
-			)
+			// array(
+			// 'acf/faq',
+			// )
 		);
 	}
 
