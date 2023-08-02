@@ -877,5 +877,26 @@ function kemroc_acf_init_block_types() {
 			),
 		)
 	);
+	acf_register_block_type(
+		array(
+			'name'            => 'text-and-image',
+			'title'           => __( 'Text und Bild', 'kemroc' ),
+			'description'     => __( 'Text und Bild', 'kemroc' ),
+			'render_template' => 'template-parts/blocks/sonder/text-and-image/text-and-image.php',
+			'category'        => 'sonder',
+			'mode'            => 'edit',
+			'icon'            => 'welcome-learn-more',
+			'keywords'        => array( 'Text und Bild' ),
+			'post_types'      => array( 'page' ),
+			'example'         => array(
+				'attributes' => array(
+					'mode' => 'preview',
+					'data' => array(
+						'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/text-and-image/text-and-image.png',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'kemroc_acf_init_block_types' );

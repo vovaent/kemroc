@@ -277,6 +277,9 @@ function allowed_block_types( $allowed_blocks, $editor_context ) {
 				'acf/farbiger-text',
 				'acf/partners',
 				'acf/glossary',
+				'acf/text-and-image',
+				'acf/cta-wide',
+				'acf/cta-bg',
 			)
 		);
 	} elseif ( 'post' === $editor_context->post->post_type ) {

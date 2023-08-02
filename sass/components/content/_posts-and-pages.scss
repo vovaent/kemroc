@@ -254,8 +254,20 @@
 
 
             .title {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 33px;
+                line-height: 130%;
+                font-family: "Eurostile Candy W02 Bold";
+                color: #000;
+                text-transform: none;
+
                 p {
                     margin: 0;
+
+                    strong {
+                        color: #FF6000;
+                    }
                 }
             }
 
