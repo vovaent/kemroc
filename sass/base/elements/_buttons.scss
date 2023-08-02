@@ -198,6 +198,8 @@ input[type="submit"] {
 }
 
 .filter-btn {
+    @include reset-a();
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -209,13 +211,14 @@ input[type="submit"] {
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
-    cursor: pointer;
 
     @include media-down-sm {
         width: max-content;
     }
 
     &--active {
+        @include reset-a(#FFFFFF);
+
         background: $accent;
         color: #FFFFFF;
     }

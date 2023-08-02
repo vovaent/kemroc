@@ -86,10 +86,11 @@ if ( ! $is_preview ) :
 								<li 
 									class="application-areas-filter__areas-item" 
 									data-term-id="<?php echo esc_attr( $kemroc_aaf_term_child ); ?>"
+									data-term-slug="<?php echo esc_attr( $kemroc_aaf_term_obj->slug ); ?>"
 								>
-									<button class="filter-btn">
+									<a href="#<?php echo esc_attr( $kemroc_aaf_term_obj->slug ); ?>" class="filter-btn">
 										<?php echo esc_html( $kemroc_aaf_term_obj->name ); ?>
-									</button>
+									</a>
 								</li>
 								<!-- /.application-areas-filter__areas-item -->
 								<?php 
