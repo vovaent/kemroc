@@ -149,7 +149,7 @@ if ( ! $is_preview ) :
 								<div class="cf-form__file-field-wrapper">
 									<label for="resumeFile" id="resumeFileLabel"
 										class="cf-form__label cf-form__label--file">
-										<?php esc_html_e( 'Resume', 'kemroc' ); ?> *
+										<?php esc_html_e( 'Unterlagen', 'kemroc' ); ?> *
 									</label>
 									<input type="file" name="resume" size="40"
 										class="cf-form__field cf-form__field--file cf-form__field--required" id="resumeFile"
@@ -234,7 +234,9 @@ if ( ! $is_preview ) :
 
 				</div>
 			</div>
-	</article><!--  -->
+		</div>
+		<!-- /.container post_wrap -->
+	</article><!-- /.stellenangebot-info -->
 
 	<?php if ( isset( $kemroc_si_form['custom_email'] ) && $kemroc_si_form['custom_email'] && ! empty( $kemroc_si_form['custom_email_to'] ) ) : ?>
 		<script>
