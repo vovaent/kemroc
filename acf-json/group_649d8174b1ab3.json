@@ -3,46 +3,6 @@
     "title": "Block | Stellenangebot Info",
     "fields": [
         {
-            "key": "field_649dd600cee27",
-            "label": "Beschreibung",
-            "name": "beschreibung",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "parent_repeater": "field_649dd4e2b6b66"
-        },
-        {
-            "key": "field_649dd63fc0feb",
-            "label": "Beschreibung",
-            "name": "beschreibung",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "parent_repeater": "field_649dd56dfe2d3"
-        },
-        {
             "key": "field_64a73f2d9cc6e",
             "label": "Über der Schlagzeile",
             "name": "above_title",
@@ -366,5 +326,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1690883535
+    "modified": 1690966624
 }

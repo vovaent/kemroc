@@ -30,28 +30,27 @@ if ( ! $is_preview ) :
 		$kemroc_si_class_name .= ' align' . $block['align'];
 	}
 
-	$kemroc_si_above_title = get_field( 'above_title' );
-	$kemroc_si_form        = get_field( 'form' );
-	$ihr_profil            = get_field( 'ihr_profil' );
-	$ihr_profil_titel      = get_field( 'ihr_profil_titel' );
-	$unsere_benefits       = get_field( 'unsere_benefits' );
-	$unsere_benefits_titel = get_field( 'unsere_benefits_titel' );
+	$kemroc_si_above_title           = get_field( 'above_title' );
+	$kemroc_si_form                  = get_field( 'form' );
+	$kemroc_si_ihr_profil            = get_field( 'ihr_profil' );
+	$kemroc_si_ihr_profil_titel      = get_field( 'ihr_profil_titel' );
+	$kemroc_si_unsere_benefits       = get_field( 'unsere_benefits' );
+	$kemroc_si_unsere_benefits_titel = get_field( 'unsere_benefits_titel' );
 
 	$kemroc_si_form_messages = array(
 		'empty_field'         => ! empty( $kemroc_si_form_data['error_text_empty_field'] ) ? $kemroc_si_form_data['error_text_empty_file'] : esc_html__( 'Dieses Feld darf nicht leer sein', 'kemroc' ),
 		'invalid_email'       => ! empty( $kemroc_si_form_data['error_text_invalid_email'] ) ? $kemroc_si_form_data['error_text_invalid_email'] : esc_html__( 'E-Mail-Feld wird nicht korrekt ausgefüllt', 'kemroc' ),
-		'file_oversize'       => ! empty( $kemroc_si_form_data['file_oversize'] ) ? $kemroc_si_form_data['file_oversize'] : esc_html__( 'Die Dateigröße sollte 1 MB nicht überschreiten.', 'kemroc' ),
+		'file_oversize'       => ! empty( $kemroc_si_form_data['file_oversize'] ) ? $kemroc_si_form_data['file_oversize'] : esc_html__( 'Die Dateigröße sollte 5 MB nicht überschreiten.', 'kemroc' ),
 		'empty_checkbox'      => ! empty( $kemroc_si_form_data['error_text_empty_checkbox'] ) ? $kemroc_si_form_data['error_text_empty_checkbox'] : esc_html__( 'Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!', 'kemroc' ),
 		'agree_text'          => ! empty( $kemroc_si_form_data['agree_text'] ) ? $kemroc_si_form_data['agree_text'] : esc_html__( 'Durch das Absenden dieses Kontaktformulars erklären Sie sich damit einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in unserer Datenschutzerklärung.', 'kemroc' ),
 		'success_submit_text' => ! empty( $kemroc_si_form_data['success_submit_text'] ) ? $kemroc_si_form_data['success_submit_text'] : esc_html__( 'Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!', 'kemroc' ),
 	);
-
 	?>
 
 	<article id="<?php echo esc_attr( $kemroc_si_id ); ?>" class="<?php echo esc_attr( $kemroc_si_class_name ); ?>">
 		<?php
-		$post_dringlichkeit = get_field( 'dringlichkeit' );
-		$post_beschreibung  = get_field( 'beschreibung' );
+		$kemroc_si_post_dringlichkeit = get_field( 'dringlichkeit' );
+		$kemroc_si_post_beschreibung  = get_field( 'beschreibung' );
 		?>
 		<div class="container post_wrap">
 			<div class="post_wrap_column-1">
@@ -63,37 +62,37 @@ if ( ! $is_preview ) :
 						<?php echo get_the_title(); ?>
 					</h5>
 					<div class="item-bottom">
-						<?php if ( $post_dringlichkeit ) : ?>
+						<?php if ( $kemroc_si_post_dringlichkeit ) : ?>
 							<div class="job-category">
-								<?php echo $post_dringlichkeit; ?>
+								<?php echo $kemroc_si_post_dringlichkeit; ?>
 							</div>
 						<?php endif; ?>
 					</div>
 				</section>
 				<section class="posts__beschreibung">
-					<?php if ( $post_beschreibung ) : ?>
+					<?php if ( $kemroc_si_post_beschreibung ) : ?>
 						<div class="item-beschreibung">
-							<?php echo $post_beschreibung; ?>
+							<?php echo $kemroc_si_post_beschreibung; ?>
 						</div>
 					<?php endif; ?>
 				</section>
 				<?php if ( get_field( 'ihr_profil' ) ) : ?>
 					<section class="posts__ihr_profil">
 						<h4>
-							<?php echo esc_html( $ihr_profil_titel ); ?>
+							<?php echo esc_html( $kemroc_si_ihr_profil_titel ); ?>
 						</h4>
 						<div class="ihr_profil_wrap">
-							<?php echo wp_kses_post( $ihr_profil ); ?>
+							<?php echo wp_kses_post( $kemroc_si_ihr_profil ); ?>
 						</div>
 					</section>
 				<?php endif; ?>
 				<?php if ( get_field( 'unsere_benefits' ) ) : ?>
 					<section class="posts__unsere_benefits">
 						<h4>
-							<?php echo esc_html( $unsere_benefits_titel ); ?>
+							<?php echo esc_html( $kemroc_si_unsere_benefits_titel ); ?>
 						</h4>
 						<div class="unsere_benefits_wrap">
-							<?php echo wp_kses_post( $unsere_benefits ); ?>
+							<?php echo wp_kses_post( $kemroc_si_unsere_benefits ); ?>
 						</div>
 					</section>
 				<?php endif; ?>
@@ -161,7 +160,7 @@ if ( ! $is_preview ) :
 										<p id="resumeFileAreaText">
 											<?php
 											echo wp_kses(
-												__( '<a>Klicken Sie auf eine Datei und wählen Sie sie aus</a>, oder ziehen Sie eine <b>DOC-</b>, <b>DOCX-</b> oder <b>PDF-Datei</b> per Drag & Drop. Die maximale Dateigröße beträgt <b>1 Mb</b>.', 'kemroc' ),
+												__( '<a>Klicken Sie auf eine Datei und wählen Sie sie aus</a>, oder ziehen Sie eine <b>DOC-</b>, <b>DOCX-</b> oder <b>PDF-Datei</b> per Drag & Drop. Die maximale Dateigröße beträgt <b>5 Mb</b>.', 'kemroc' ),
 												array(
 													'a' => array(),
 													'b' => array(),
@@ -227,7 +226,7 @@ if ( ! $is_preview ) :
 								<input type="checkbox" name="anticheck" style="display: none !important;" value="true"
 									checked="checked" />
 								<input type="text" name="submitted" value="" style="display: none !important;" />
-								<input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+								<input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
 							</div>
 						</div>
 					</form>

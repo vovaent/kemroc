@@ -18,6 +18,8 @@ const stellenangebotInfo = ( $ ) => {
 	const $fileClear = $( '.cf-form__file-clear' );
 	const $preloader = $( '.kemroc-preloader' );
 
+	const maxFileSize = $( 'input[name="MAX_FILE_SIZE"]' ).val();
+
 	const showError = ( $el, type ) => {
 		$el.addClass( 'cf-form__field--error' );
 
@@ -123,16 +125,16 @@ const stellenangebotInfo = ( $ ) => {
 			const resumeFileData = $resumeFile.prop( 'files' )[ 0 ];
 
 			if ( typeof resumeFileData !== 'undefined' ) {
-				// if ( resumeFileData.size <= 1000000 ) {
 				data.append( 'resume', resumeFileData );
-				// } else {
-				// 	showError();
-				// }
 			}
 		}
 
 		data.append( 'action', 'stellenangebot_action' );
 		data.append( 'nonce', stellenangebotAjax.nonce );
+
+		if ( typeof customEmailTo !== 'undefined' ) {
+			data.append( 'MAX_FILE_SIZE', maxFileSize );
+		}
 
 		if ( typeof customEmailTo !== 'undefined' ) {
 			data.append( 'custom_email_to', customEmailTo );
@@ -245,7 +247,7 @@ const stellenangebotInfo = ( $ ) => {
 
 			elResumeFileAreaText.innerHTML = file.name;
 
-			if ( file.size > 1000000 ) {
+			if ( file.size > maxFileSize ) {
 				showError( $( elResumeFileArea ), 'file' );
 			}
 		};

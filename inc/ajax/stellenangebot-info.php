@@ -36,6 +36,13 @@ function kemroc_ajax_stellenangebot_action_callback() {
 		$phone = sanitize_text_field( wp_unslash( $_POST['phone'] ) );
 	}
 	
+
+	if ( empty( $_POST['MAX_FILE_SIZE'] ) || ! isset( $_POST['MAX_FILE_SIZE'] ) ) {
+		$err_message['MAX_FILE_SIZE'] = 'empty';
+	} else {
+		$max_file_size = sanitize_text_field( wp_unslash( $_POST['MAX_FILE_SIZE'] ) );
+	}
+	
 	if ( empty( $_POST['email'] ) || ! isset( $_POST['email'] ) ) {
 		$err_message['email'] = 'empty';
 	} elseif ( ! preg_match(
@@ -53,7 +60,7 @@ function kemroc_ajax_stellenangebot_action_callback() {
 
 		if ( isset( $_FILES['resume']['error'] ) && 0 < $resume_file['error'] ) {
 			$err_message['resume'] = sanitize_text_field( wp_unslash( $resume_file['error'] ) );
-		} elseif ( 1000000 < $resume_file['size'] ) {
+		} elseif ( $max_file_size < $resume_file['size'] ) {
 			$err_message['resume'] = 'file';        
 		} else {
 			$upload_dir       = wp_upload_dir();
