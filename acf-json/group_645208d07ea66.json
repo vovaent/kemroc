@@ -268,7 +268,7 @@
                 },
                 {
                     "key": "field_648497f6d217a",
-                    "label": "Bild für tablette",
+                    "label": "Bild für tablet",
                     "name": "tablet",
                     "type": "image",
                     "instructions": "Optional",
