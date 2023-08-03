@@ -71,11 +71,12 @@ if ( ! $is_preview ) :
 						<ul class="filter-btns application-areas-filter__areas-list">
 							<li 
 								class="application-areas-filter__areas-item"
-								data-term-id="all"
+								data-term-id="0"
+								data-term-slug="all"
 							>
-								<button class="filter-btn filter-btn--active">
+								<a href="#all" class="filter-btn filter-btn--active">
 									<?php esc_html_e( 'Alle', 'kemroc' ); ?>
-								</button>
+								</a>
 							</li>
 							<!-- /.application-areas-filter__areas-item -->
 

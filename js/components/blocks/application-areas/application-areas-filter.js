@@ -49,7 +49,7 @@ const applicationAreasFilter = ( $ ) => {
 			return;
 		}
 
-		if ( 'all' === areaItemThisTermId ) {
+		if ( 0 === areaItemThisTermId ) {
 			$modelItems.fadeIn();
 		} else {
 			$modelItems.hide();
