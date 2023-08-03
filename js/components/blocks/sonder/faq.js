@@ -1,42 +1,36 @@
-const faq = ($) => {
+const faq = ( $ ) => {
 	const faqItemClass = 'faq__item';
-	const faqItemSelector = `.${faqItemClass}`;
-	const $faqItem = $(faqItemSelector);
+	const faqItemSelector = `.${ faqItemClass }`;
+	const $faqItem = $( faqItemSelector );
 
-	if ($faqItem.length === 0) {
+	if ( $faqItem.length === 0 ) {
 		return;
 	}
 
 	const collapseItem = () => {
-		const $answer = $(`${faqItemSelector}-answer`);
-
-		$faqItem.removeClass(`${faqItemClass}--extended`);
-		$answer.slideUp();
+		$faqItem.removeClass( `${ faqItemClass }--extended` );
 	};
 
-	const extendItem = ($thisItem, thisItemIsExtended = false) => {
-		if (thisItemIsExtended) {
+	const extendItem = ( $thisItem, thisItemIsExtended = false ) => {
+		if ( thisItemIsExtended ) {
 			return;
 		}
 
-		const $answer = $(`${faqItemSelector}-answer`, $thisItem);
-
-		$thisItem.addClass(`${faqItemClass}--extended`);
-		$answer.slideDown();
+		$thisItem.addClass( `${ faqItemClass }--extended` );
 	};
 
-	const faqItemClickHandler = ($thisItem) => {
+	const faqItemClickHandler = ( $thisItem ) => {
 		const thisItemIsExtended = $thisItem.hasClass(
-			`${faqItemClass}--extended`
+			`${ faqItemClass }--extended`
 		);
 
 		collapseItem();
-		extendItem($thisItem, thisItemIsExtended);
+		extendItem( $thisItem, thisItemIsExtended );
 	};
 
-	$faqItem.on('click', function () {
-		faqItemClickHandler($(this));
-	});
+	$faqItem.on( 'click', function () {
+		faqItemClickHandler( $( this ) );
+	} );
 };
 
 export { faq };

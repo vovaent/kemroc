@@ -3,6 +3,26 @@
     "title": "Block | FAQ",
     "fields": [
         {
+            "key": "field_64cbacb1affc4",
+            "label": "Titel",
+            "name": "faq_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_save_meta": 0,
+            "default_value": "FAQ",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6495aa9cba5ec",
             "label": "Liste der Fragen und Antworten",
             "name": "faq_list",
@@ -61,9 +81,11 @@
                     "rows": "",
                     "placeholder": "",
                     "new_lines": "",
+                    "acfe_textarea_code": 0,
                     "parent_repeater": "field_6495aa9cba5ec"
                 }
-            ]
+            ],
+            "acfe_repeater_stylised_button": 0
         }
     ],
     "location": [
@@ -84,5 +106,12 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687530875
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1691069730
 }
