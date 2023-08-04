@@ -16,17 +16,6 @@
         line-height: 140%;
     }
 
-    &__download-link {
-        display: flex;
-        order: 3;
-        width: 24px;
-        height: 24px;
-        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImRvd25sb2FkLTAxIj4KPHBhdGggaWQ9Ikljb24iIGQ9Ik00IDIwLjM4MjdDNC40MDQ3MSAyMC43NzggNC45NTM2MSAyMSA1LjUyNTk1IDIxSDE4LjQ3NDFDMTkuMDQ2NCAyMSAxOS41OTUzIDIwLjc3OCAyMCAyMC4zODI3TTEyLjAwMTIgM1YxNC45NDI1TTEyLjAwMTIgMTQuOTQyNUwxNi45MzM4IDEwLjM3OTNNMTIuMDAxMiAxNC45NDI1TDcuMDY4NTkgMTAuMzc5MyIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8L3N2Zz4K");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
-
     &__extension {
         order: 2;
         margin-left: 8px;
@@ -37,9 +26,33 @@
         color: #b6b6b6;
     }
 
-    a:first-child {
-        @include reset-a($color__background);
+    &__button.wp-element-button {
+        @include reset-a;
 
-        padding: 24px 32px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+
+        &::before {
+            content: '';
+            display: flex;
+            order: 3;
+            width: 24px;
+            height: 24px;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImRvd25sb2FkLTAxIj4KPHBhdGggaWQ9Ikljb24iIGQ9Ik00IDIwLjM4MjdDNC40MDQ3MSAyMC43NzggNC45NTM2MSAyMSA1LjUyNTk1IDIxSDE4LjQ3NDFDMTkuMDQ2NCAyMSAxOS41OTUzIDIwLjc3OCAyMCAyMC4zODI3TTEyLjAwMTIgM1YxNC45NDI1TTEyLjAwMTIgMTQuOTQyNUwxNi45MzM4IDEwLjM3OTNNMTIuMDAxMiAxNC45NDI1TDcuMDY4NTkgMTAuMzc5MyIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8L3N2Zz4K");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
     }
+}
+
+[id|="wp-block-file--media"] {
+    @include reset-a($color__background);
+
+    width: 100%;
+    padding: 24px 32px;
 }

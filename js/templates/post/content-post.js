@@ -182,11 +182,16 @@ const contentPost = ( $ ) => {
 	};
 
 	const wpBlockFileHandler = () => {
-		const $wpBlockFileLink = $( '.wp-block-file a' );
+		const $wpBlockFileLink = $( '[id|="wp-block-file--media"]' );
+		// const $wpBlockFileBtn = $( '.wp-block-file__button.wp-element-button' );
 
 		if ( $wpBlockFileLink.length === 0 ) {
 			return;
 		}
+
+		// if ( $wpBlockFileBtn.length > 0 ) {
+		// 	$wpBlockFileBtn.text( '' );
+		// }
 
 		$wpBlockFileLink.attr( 'target', '_blank' );
 
@@ -201,14 +206,6 @@ const contentPost = ( $ ) => {
 				`<span class="wp-block-file__extension">${ extension }</span>`
 			);
 		}
-
-		const $downloadLink = $( '<a>', {
-			class: 'wp-block-file__download-link',
-			href: wpBlockFileLinkHref,
-			download: true,
-		} );
-
-		$wpBlockFileLink.after( $downloadLink );
 	};
 
 	const goToReadHandler = () => {
