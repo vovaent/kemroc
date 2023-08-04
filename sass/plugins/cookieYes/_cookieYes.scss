@@ -61,3 +61,13 @@ button.cky-btn.cky-btn-accept {
 .cky-btn-revisit-wrapper {
     background-color: #FF6000 !important;
 }
+
+.cky-modal {
+    ul {
+        @include reset-ul;
+    }
+
+    li {
+        @include reset-li;
+    }
+}
