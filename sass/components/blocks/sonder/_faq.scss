@@ -1,6 +1,18 @@
 .faq {
     margin-top: 40px;
 
+    .page & {
+        margin: 80px 0;
+
+        @include media-down-md {
+            margin: 64px 0;
+        }
+
+        @include media-down-sm {
+            margin: 40px 0;
+        }
+    }
+
     &__content {
         .cp-article & {
             padding: 0;
@@ -10,6 +22,14 @@
     &__title {
         @include media-down-sm {
             font-size: 28px;
+        }
+
+        &--left {
+            text-align: left;
+        }
+
+        &--center {
+            text-align: center;
         }
     }
 
@@ -39,7 +59,7 @@
 
         &-question {
             display: flex;
-            align-items: center;
+            justify-content: space-between;
             font-family: $font__secondary;
             font-size: 23px;
             font-weight: 700;
@@ -63,18 +83,9 @@
             background: #fff;
             outline: none;
             cursor: pointer;
-            transition: transform .3s ease-out;
 
             @include media-down-sm {
                 margin-left: 20px;
-            }
-
-            .faq__item--extended & {
-                transform: translateY(-17px);
-
-                @include media-down-sm {
-                    transform: translateY(-29px);
-                }
             }
 
             &::before,

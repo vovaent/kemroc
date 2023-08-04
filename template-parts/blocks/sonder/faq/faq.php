@@ -31,23 +31,23 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	$kemroc_faq_title = get_field( 'faq_title' );
-	$kemroc_faq_list  = get_field( 'faq_list' );
+	$kemroc_title_data = get_field( 'title_data' );
+	$kemroc_faq_list   = get_field( 'faq_list' );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_faq_id ); ?>" class="<?php echo esc_attr( $kemroc_faq_class_name ); ?>">
 		<div class="container faq__content">
 
-			<?php if ( $kemroc_faq_title ) : ?>
-				<h2 class="faq__title">
-					<?php echo esc_html( $kemroc_faq_title ); ?>
+			<?php if ( ! empty( $kemroc_title_data['faq_title'] ) ) : ?>
+				<h2 class="faq__title faq__title--<?php echo esc_attr( $kemroc_title_data['title_horizontal_align'] ); ?>">
+					<?php echo esc_html( $kemroc_title_data['faq_title'] ); ?>
 				</h2>
 				<!-- /.faq__title -->
 			<?php endif; ?>
 
 			<?php if ( $kemroc_faq_list ) : ?>
-
 				<ul class="faq__list">
+					
 					<?php foreach ( $kemroc_faq_list as $kemroc_faq_item ) : ?>
 						<li class="faq__item">
 							<h5 class="faq__item-question">
@@ -66,9 +66,9 @@ if ( ! $is_preview ) :
 						</li>
 					<!-- /.faq__item -->
 					<?php endforeach; ?>
+
 				</ul>
 				<!-- /.faq__list -->
-
 			<?php endif; ?>
 
 		</div>

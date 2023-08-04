@@ -3,10 +3,10 @@
     "title": "Block | FAQ",
     "fields": [
         {
-            "key": "field_64cbacb1affc4",
-            "label": "Titel",
-            "name": "faq_title",
-            "type": "text",
+            "key": "field_64ccc932578f2",
+            "label": "Titeldaten",
+            "name": "title_data",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,11 +16,57 @@
                 "id": ""
             },
             "acfe_save_meta": 0,
-            "default_value": "FAQ",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "layout": "block",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "sub_fields": [
+                {
+                    "key": "field_64cbacb1affc4",
+                    "label": "Titel",
+                    "name": "faq_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "acfe_save_meta": 0,
+                    "default_value": "FAQ",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_64ccc965578f3",
+                    "label": "Titel horizontal ausrichten",
+                    "name": "title_horizontal_align",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "acfe_save_meta": 0,
+                    "choices": {
+                        "left": "Links",
+                        "center": "Center"
+                    },
+                    "default_value": "center",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "layout": "horizontal"
+                }
+            ],
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
         },
         {
             "key": "field_6495aa9cba5ec",
@@ -113,5 +159,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1691069730
+    "modified": 1691143003
 }
