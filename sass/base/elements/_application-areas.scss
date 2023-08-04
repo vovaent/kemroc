@@ -1,27 +1,24 @@
-.application-area-in-image {
-    padding: 4px 8px;
-    background: $accent;
-    color: #FFFFFF;
-    border-radius: 8px;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 160%;
+.app-areas-in-image {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
 
-    @include media-down-md {
+    &__item {
+        @include reset-a(#fff);
+
+        padding: 4px 8px;
+        background: $accent;
+        color: #FFFFFF;
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-weight: 700;
         font-size: 10px;
         line-height: 160%;
-    }
 
-    &--absolute {
-        position: absolute;
-        top: 32px;
-        left: 32px;
-        z-index: 99;
-
-        @include media-down-sm {
-            top: 16px;
-            left: 16px;
+        @include media-down-md {
+            font-size: 10px;
+            line-height: 160%;
         }
     }
 }

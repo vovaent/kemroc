@@ -150,10 +150,6 @@
         top: 32px;
         left: 32px;
         z-index: 99;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
 
         @include media-down-sm {
             top: 16px;

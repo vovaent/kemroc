@@ -31,16 +31,21 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
-	$kemroc_sgi_title_choice  = get_field( 'title_choice' );
-	$kemroc_sgi_title         = 'custom_title' === $kemroc_sgi_title_choice ? get_field( 'custom_title' ) : get_the_title();
-	$kemroc_sgi_subtitle      = get_field( 'subtitle' );
-	$kemroc_sgi_description   = get_field( 'description' );
-	$kemroc_sgi_photos        = get_field( 'photos' );
+	$kemroc_sgi_title_choice      = get_field( 'title_choice' );
+	$kemroc_sgi_title             = 'custom_title' === $kemroc_sgi_title_choice ? get_field( 'custom_title' ) : get_the_title();
+	$kemroc_sgi_subtitle          = get_field( 'subtitle' );
+	$kemroc_sgi_description       = get_field( 'description' );
+	$kemroc_sgi_photos            = get_field( 'photos' );
+	$kemroc_sgi_hide_applications = get_field( 'hide_applications' );
+
+	if ( ! $kemroc_sgi_hide_applications ) {
+		$kemroc_sgi_app_areas = kemroc_get_parent_application_areas();
+	}
+
 	$kemroc_sgi_models_amount = kemroc_get_models_amount( 
 		get_post_type(), 
 		get_the_ID()
 	);
-	$kemroc_sgi_app_areas     = wp_get_post_terms( get_the_ID(), 'einsatzbereich' );
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_sgi_id ); ?>" class="<?php echo esc_attr( $kemroc_sgi_class_name ); ?>">
@@ -84,16 +89,31 @@ if ( ! $is_preview ) :
 			<?php if ( $kemroc_sgi_photos ) : ?>
 				<div class="series-general-info__slider-wrapper">
 					<div class="swiper series-general-info__slider swiper-single-slide">
-						<!-- <div class="application-area-in-image application-area-in-image--absolute series-general-info__area">
-							Bohren
-						</div> -->
-						
-						<?php if ( isset( $kemroc_sgi_app_areas[0] ) ) : ?>
-							<div class="application-area-in-image application-area-in-image--absolute pseries-general-info__area">
-								<?php echo esc_html( $kemroc_sgi_app_areas[0]->name ); ?>
+
+						<?php if ( ! $kemroc_sgi_hide_applications && ! empty( $kemroc_sgi_app_areas ) ) : ?>
+							<div class="series-general-info__areas app-areas-in-image">
+
+								<?php foreach ( $kemroc_sgi_app_areas as $kemroc_sgi_app_area_link => $kemroc_sgi_app_area_name ) : ?>
+									<?php if ( 'integer' === gettype( $kemroc_sgi_app_area_link ) ) : ?>
+										<div class="app-areas-in-image__item">
+											<?php echo esc_html( $kemroc_sgi_app_area_name ); ?>
+										</div>
+										<!-- /.app-areas-in-image__item -->
+									<?php else : ?>
+										<a 
+											class="app-areas-in-image__item"
+											href="<?php echo esc_attr( $kemroc_sgi_app_area_link ); ?>"
+										>
+											<?php echo esc_html( $kemroc_sgi_app_area_name ); ?>
+										</a>
+										<!-- /.app-areas-in-image__item -->
+									<?php endif; ?>
+								<?php endforeach; ?>
+
 							</div>
+							<!-- /.series-general-info__areas app-areas-in-image -->
 						<?php endif; ?>
-				
+
 						<ul class="swiper-wrapper swiper-single-slide__container">
 
 							<?php foreach ( $kemroc_sgi_photos as $kemroc_sgi_photo ) : ?>

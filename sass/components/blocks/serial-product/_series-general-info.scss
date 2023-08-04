@@ -151,4 +151,16 @@
     &__slide {
         width: 100%;
     }
+
+    &__areas {
+        position: absolute;
+        top: 32px;
+        left: 32px;
+        z-index: 99;
+
+        @include media-down-sm {
+            top: 16px;
+            left: 16px;
+        }
+    }
 }
