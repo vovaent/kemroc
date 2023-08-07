@@ -317,3 +317,58 @@ function kemroc_get_parent_application_areas( $post_id = null, $post_type = 'pag
 
 	return $parent_areas;
 }
+
+/** 
+ * Get the weight of the model
+ * 
+ * @param int    $post_id Optional. Post id. Default $post_id = null.
+ * @param string $post_type Optional. Post type. Default post_type = 'page'.
+ * 
+ * @return string
+ */
+function kemroc_get_weight_of_model( $post_id = null, $post_type = 'page' ) {
+	if ( null === $post_id ) {
+		global $post;
+		$post_id = $post->ID;
+	}
+
+	$param_value = '';
+	$model       = get_post( $post_id );
+
+	$blocks = parse_blocks( $model->post_content );
+
+	foreach ( $blocks as $block ) {
+		if ( 'acf/model-info' !== $block['blockName'] ) {
+			continue;
+		}
+
+		$block_data   = $block['attrs']['data'];
+		$block_params = $block_data['params'];
+
+		if ( empty( $block_params ) ) {
+			break;
+		}
+
+		for ( $i = 0; $i < $block_params; $i++ ) {
+			$params_key_title_post_id = 'params_' . $i . '_title';
+			$params_key_title_post    = get_post( $block_data[ $params_key_title_post_id ] );
+
+			if ( ! $params_key_title_post ) {
+				continue;
+			}
+
+			$params_measure_units = get_field( 'measure_units', $params_key_title_post->ID );
+
+			if ( 't' !== $params_measure_units ) {
+				continue;
+			}
+
+			$params_value = 'params_' . $i . '_value';
+			$param_value  = $block_data[ $params_value ] . ' ' . $params_measure_units;
+		}
+		break;
+	}
+	
+
+	return $param_value;
+}

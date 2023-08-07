@@ -115,8 +115,8 @@ if ( ! $is_preview ) :
 							$kemroc_aaf_models_query->the_post();
 							
 							$kemroc_aaf_model_id     = get_the_ID();
-							$kemroc_aaf_model_weight = get_field( 'weight', $kemroc_aaf_model_id );
 							$kemroc_aaf_model_terms  = get_the_terms( $kemroc_aaf_model_id, $kemroc_aaf_application_area->taxonomy );
+							$kemroc_aaf_model_weight = kemroc_get_weight_of_model();
 							
 							if ( $kemroc_aaf_application_area && ! empty( $kemroc_aaf_model_terms ) ) {
 								if ( 1 < count( $kemroc_aaf_model_terms ) ) {
