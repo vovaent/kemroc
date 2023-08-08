@@ -267,3 +267,8 @@ require get_template_directory() . '/inc/ajax/ajax.php';
  * Yoast
  */
 require get_template_directory() . '/inc/yoast/yoast.php';
+
+/**
+ * Optimization
+ */
+require get_template_directory() . '/inc/optimization/optimization.php';

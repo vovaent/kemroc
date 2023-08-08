@@ -46,7 +46,7 @@ if ( ! $is_preview ) {
 			<picture class="cta-bg__picture">
 				<source srcset="<?php echo esc_url( get_template_directory_uri() . '/images/Mietpark-pc.png' ); ?>" media="(min-width: 1024px)">
 				<source srcset="<?php echo esc_url( get_template_directory_uri() . '/images/Mietpark-tablet.png' ); ?>" media="(min-width: 743px)">
-				<img class="cta-bg__image" src="<?php echo esc_url( get_template_directory_uri() . '/images/Mietpark-mobile.png' ); ?>" alt="Mietpark">
+				<img class="cta-bg__image" src="<?php echo esc_url( get_template_directory_uri() . '/images/Mietpark-mobile.png' ); ?>" alt="" loading="lazy">
 			</picture>
 			<!-- /.cta-bg__picture -->
 

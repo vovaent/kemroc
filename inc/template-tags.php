@@ -161,7 +161,7 @@ if ( ! function_exists( 'kemroc_the_post_thumbnail' ) ) :
 		else :
 			$post_thumb = get_the_post_thumbnail(
 				$post_id,
-				'post-thumbnail',
+				$size,
 				array_merge(
 					array(
 						'alt' => the_title_attribute(

@@ -146,9 +146,9 @@ if ( ! $is_preview ) :
 									<figure class="application-areas-item__figure application-areas-item__figure--model">
 										<?php echo get_the_post_thumbnail( $kemroc_aaf_model_id, 'post-thumbnail', array( 'class' => 'application-areas-item__image' ) ); ?>
 										<figcaption class="application-areas-item__caption">
-											<h6 class="application-areas-item__title application-areas-item__title--model">
+											<p class="application-areas-item__title application-areas-item__title--model">
 												<?php the_title(); ?>
-											</h6>
+											</p>
 											<!-- /.application-areas-item__title -->
 											<p class="application-areas-item__weight">
 												<span class="application-areas-item__weight-icon">

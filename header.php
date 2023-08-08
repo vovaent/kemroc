@@ -40,13 +40,6 @@ $store_link   = get_field( 'store_link', 'option' );
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-XT8SK051GD');
-	</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -74,7 +67,7 @@ $store_link   = get_field( 'store_link', 'option' );
 						</div>
 
 						<div class="header__top-btns">
-							<a class="site-search"></a> <!-- pc search -->
+							<button class="site-search" title="<?php esc_html_e( 'Website-Suche', 'kemroc' ); ?>"></button> <!-- pc search -->
 							<?php if ( $header_phone ) : ?>
 								<a class="header__phone" href="<?php echo $header_phone['url']; ?>"><?php echo $header_phone['title']; ?></a>
 							<?php endif; ?>
@@ -120,7 +113,7 @@ $store_link   = get_field( 'store_link', 'option' );
 				<div class="container">
 					<div class="header__top header-top">
 						<div class="header-top__left">
-							<button class="toggle-nav header-top__toggle-nav">
+							<button class="toggle-nav header-top__toggle-nav" title="<?php esc_html_e( 'Mobiler Menüwechsel', 'kemroc' ); ?>">
 								<?php get_template_part( 'template-parts/icons/toggle-nav-burger' ); ?>
 							</button>
 
@@ -140,10 +133,10 @@ $store_link   = get_field( 'store_link', 'option' );
 									class="lang-switcher__icon"
 									alt="<?php echo esc_attr( $kemroc_no_current_lang_name ); ?>">
 							</a>
-							<a class="site-search header-top__site-search"></a> <!-- mob search -->
+							<button class="site-search header-top__site-search" title="<?php esc_html_e( 'Website-Suche', 'kemroc' ); ?>"></button> <!-- mob search -->
 						</div>
 						<div class="header-top__right top-right">
-							<a class="site-search top-right__site-search"></a><!-- tab search -->
+							<button class="site-search top-right__site-search" title="<?php esc_html_e( 'Website-Suche', 'kemroc' ); ?>"></button><!-- tab search -->
 							<?php if ( $cta_link ) : ?>
 								<a class="btn btn-accent btn-rounded top-right__cta"
 									href="<?php echo $cta_link['url']; ?>"><?php echo $cta_link['title']; ?></a>
@@ -157,7 +150,7 @@ $store_link   = get_field( 'store_link', 'option' );
 									class="lang-switcher__icon"
 									alt="<?php echo esc_attr( $kemroc_no_current_lang_name ); ?>">
 							</a>
-							<button class="toggle-nav">
+							<button class="toggle-nav" title="<?php esc_html_e( 'Schließen Sie das mobile Menü', 'kemroc' ); ?>">
 								<?php get_template_part( 'template-parts/icons/toggle-nav-cross' ); ?>
 							</button>
 						</div>

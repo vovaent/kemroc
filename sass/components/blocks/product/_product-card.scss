@@ -9,10 +9,12 @@
     overflow: hidden;
 
     @include media-down-md {
+        max-width: 209px;
         padding: 20px;
     }
 
     @include media-down-sm {
+        max-width: 148px;
         padding: 12px;
     }
 

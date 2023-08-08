@@ -62,11 +62,11 @@ if ( ! $is_preview ) :
 							<li class="application-areas-list__item application-areas-item">
 								<a href="<?php the_permalink( $kemroc_aal_post_id ); ?>" class="application-areas-item__link">
 									<figure class="application-areas-item__figure">
-										<?php echo get_the_post_thumbnail( $kemroc_aal_post_id, 'medium', array( 'class' => 'application-areas-item__image' ) ); ?>
+										<?php echo get_the_post_thumbnail( $kemroc_aal_post_id, array( '270', '340' ), array( 'class' => 'application-areas-item__image' ) ); ?>
 										<figcaption class="application-areas-item__caption">
-											<h6 class="application-areas-item__title">
+											<p class="application-areas-item__title">
 												<?php the_title(); ?>
-											</h6>
+											</p>
 											<!-- /.application-areas-item__title -->										
 										</figcaption>
 										<!-- /.application-areas-item__caption -->

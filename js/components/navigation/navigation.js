@@ -4,13 +4,13 @@ const navigation = ( $ ) => {
 		// const backTitle = 'back';
 
 		$( $( this ).find( '>.sub-menu > li' ) ).wrapAll(
-			'<div class="sub-menu__items-wrapper"></div>'
+			'<ul class="sub-menu__items-wrapper"></ul>'
 		);
 
 		$(
 			'<li class="nav-back"><span class="back-btn">' +
 				backTitle +
-				'</span><button class="toggle-nav"></button></li>'
+				'</span><button class="toggle-nav" title="Zurück-btn"></button></li>'
 		).insertBefore( $( this ).find( '.sub-menu__items-wrapper' ) );
 	} );
 

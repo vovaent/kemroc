@@ -33,7 +33,6 @@ $footer_nav = get_field( 'footer_nav', 'option' ); // title links-link
 					<div class="cta-content">
 						<?php 
 						if ( $footer_cta['title'] ) :
-							; 
 							?>
 							<h3 class="title"><?php echo $footer_cta['title']; ?></h3>
 						<?php endif; ?>
@@ -65,7 +64,7 @@ $footer_nav = get_field( 'footer_nav', 'option' ); // title links-link
 				<?php 
 				if ( $footer_logo ) : 
 					?>
-					<a href="<?php echo site_url(); ?>" class="footer-logo"><img src="<?php echo $footer_logo['url']; ?>" alt="<?php echo $footer_logo['alt']; ?>"></a>
+					<a href="<?php echo site_url(); ?>" class="footer-logo" title="<?php echo $footer_logo['title']; ?>"><img src="<?php echo $footer_logo['url']; ?>" alt="<?php echo $footer_logo['title']; ?>" loading="lazy"></a>
 				<?php endif; ?>
 				<?php 
 				if ( $socials ) : 
@@ -73,10 +72,9 @@ $footer_nav = get_field( 'footer_nav', 'option' ); // title links-link
 					<ul class="socials">
 						<?php 
 						foreach ( $socials as $item ) :
-							; 
 							?>
 							<li>
-								<a href="<?php echo $item['link']['url']; ?>" target="_blank"><img src="<?php echo $item['icon']['url']; ?>" alt=""></a>
+								<a href="<?php echo $item['link']['url']; ?>" target="_blank"><img src="<?php echo $item['icon']['url']; ?>" alt="<?php echo $item['icon']['title']; ?>" loading="lazy"></a>
 							</li>
 						<?php endforeach; ?>
 					</ul>
@@ -92,7 +90,6 @@ $footer_nav = get_field( 'footer_nav', 'option' ); // title links-link
 					<ul class="footer-links desktop">
 						<?php 
 						foreach ( $links as $item ) :
-							; 
 							?>
 							<li>
 								<a href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a>
@@ -109,14 +106,12 @@ $footer_nav = get_field( 'footer_nav', 'option' ); // title links-link
 						<div class="footer-info__left">
 							<?php 
 							if ( $company['company_name'] ) :
-								; 
 								?>
 								<span class="company-name"><?php echo $company['company_name']; ?></span>
 							<?php endif; ?>
 
 							<?php 
 							if ( $company['address'] ) :
-								; 
 								?>
 								<div class="company-address"><?php echo $company['address']; ?></div>
 							<?php endif; ?>
@@ -128,7 +123,6 @@ $footer_nav = get_field( 'footer_nav', 'option' ); // title links-link
 						<div class="footer-info__right">
 							<?php 
 							foreach ( $contacts as $item ) :
-								; 
 								?>
 								<a href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a>
 							<?php endforeach; ?>
@@ -141,23 +135,19 @@ $footer_nav = get_field( 'footer_nav', 'option' ); // title links-link
 					<div class="footer-nav">
 						<?php 
 						foreach ( $footer_nav as $item ) :
-							; 
 							?>
 							<div class="footer-nav__item">
 								<?php 
 								if ( $item['title'] ) :
-									; 
 									?>
 									<span class="title"><?php echo $item['title']; ?></span>
 								<?php endif; ?>
 								<?php 
 								if ( $item['links'] ) :
-									; 
 									?>
 									<ul>
 										<?php 
 										foreach ( $item['links'] as $link ) :
-											; 
 											?>
 											<li>
 												<a href="<?php echo $link['link']['url']; ?>"><?php echo $link['link']['title']; ?></a>
@@ -180,7 +170,6 @@ $footer_nav = get_field( 'footer_nav', 'option' ); // title links-link
 					<ul class="footer-links mobile">
 						<?php 
 						foreach ( $links as $item ) :
-							; 
 							?>
 							<li>
 								<a href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a>

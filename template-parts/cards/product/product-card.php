@@ -9,7 +9,7 @@
 <article class="product-card">
 	<?php 
 	kemroc_the_post_thumbnail(
-		'post-thumbnail', 
+		array( '122', '110' ),
 		'product-card__thumbnail',
 		array( 'class' => 'product-card__image' )
 	);
