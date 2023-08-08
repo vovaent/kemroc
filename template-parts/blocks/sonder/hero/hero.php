@@ -57,24 +57,33 @@ if ( ! $is_preview ) {
 			$kemroc_hero_bg_image_height = 'all-height';
 		}
 	}
+
+	$kemroc_hero_bg_picture_wrapper_classes  = 'hero__bg-picture-wrapper--' . $kemroc_hero_bg_image_width;
+	$kemroc_hero_bg_picture_wrapper_classes .= ! empty( $kemroc_hero_bg_image_height ) ? ' hero__bg-picture-wrapper--' . $kemroc_hero_bg_image_height : '';
+	$kemroc_hero_bg_picture_wrapper_classes .= ! empty( $kemroc_hero_bg_image['tablet']['url'] ) ? ' hero__bg-picture-wrapper--tab' : '';
+	$kemroc_hero_bg_picture_wrapper_classes .= ! empty( $kemroc_hero_bg_image['mobile']['url'] ) ? ' hero__bg-picture-wrapper--mob' : '';
 	?>
 	<section id="<?php echo esc_attr( $kemroc_hero_id ); ?>" class="<?php echo esc_attr( $kemroc_hero_class_name ); ?>">
-		<figure class="hero__bg-picture-wrapper hero__bg-picture-wrapper--<?php echo esc_html( $kemroc_hero_bg_image_width ); ?> <?php echo ! empty( $kemroc_hero_bg_image_height ) ? 'hero__bg-picture-wrapper--' . esc_html( $kemroc_hero_bg_image_height ) : ''; ?>">
+		<figure 
+			class="hero__bg-picture-wrapper <?php echo esc_attr( $kemroc_hero_bg_picture_wrapper_classes ); ?>">
 			<picture class="hero__bg-picture">
 
-				<?php if ( $kemroc_hero_bg_image['mobile'] ) : ?>
+				<?php if ( ! empty( $kemroc_hero_bg_image['mobile'] ) ) : ?>
 					<source srcset="<?php echo esc_attr( $kemroc_hero_bg_image['mobile']['url'] ); ?>"
 						media="(max-width: 739px)">
 				<?php endif; ?>
 
-				<?php if ( $kemroc_hero_bg_image['tablet'] ) : ?>
+				<?php if ( ! empty( $kemroc_hero_bg_image['tablet'] ) ) : ?>
 					<source srcset="<?php echo esc_attr( $kemroc_hero_bg_image['tablet']['url'] ); ?>"
 						media="(max-width: 1179px)">
 				<?php endif; ?>
 
-				<?php if ( $kemroc_hero_bg_image['pc'] ) : ?>
-					<img class="hero__bg-image" src="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['url'] ); ?>"
-						alt="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['alt'] ); ?>">
+				<?php if ( ! empty( $kemroc_hero_bg_image['pc'] ) ) : ?>
+					<img 
+						class="hero__bg-image"
+						src="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['url'] ); ?>"
+						alt="<?php echo esc_attr( $kemroc_hero_bg_image['pc']['alt'] ); ?>"
+					>
 				<?php endif; ?>
 
 			</picture>
@@ -82,11 +91,11 @@ if ( ! $is_preview ) {
 
 			<?php if ( $kemroc_hero_is_front_page ) : ?>
 				<picture class="hero__bg-arrow">
-					<source srcset="<?php echo get_template_directory_uri() . '/images/bg-arrow-mobile.png'; ?>"
+					<source srcset="<?php echo esc_attr( get_template_directory_uri() . '/images/bg-arrow-mobile.png' ); ?>"
 						media="(max-width: 739px)">
-					<source srcset="<?php echo get_template_directory_uri() . '/images/bg-arrow-tablet.png'; ?>"
+					<source srcset="<?php echo esc_attr( get_template_directory_uri() . '/images/bg-arrow-tablet.png' ); ?>"
 						media="(max-width: 1179px)">
-					<img src="<?php echo get_template_directory_uri() . '/images/bg-arrow-pc.png'; ?>" alt="" 
+					<img src="<?php echo esc_attr( get_template_directory_uri() . '/images/bg-arrow-pc.png' ); ?>" alt="" 
 						class="hero__bg-arrow-image">
 				</picture>
 				<!-- /.hero__bg-arrow -->
@@ -123,7 +132,7 @@ if ( ! $is_preview ) {
 						</a>
 					<?php endif; ?>
 				<?php endif; ?>
-				
+
 		</div>
 		<!-- /.container hero__content -->
 		</figure>

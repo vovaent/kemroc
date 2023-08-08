@@ -53,6 +53,22 @@
         &--all-height {
             height: auto;
         }
+
+        &--tablet {
+            height: 100%;
+
+            .hero--front-page & {
+                height: 100%;
+            }
+        }
+
+        &--mob {
+            height: 100%;
+
+            .hero--front-page & {
+                height: 100%;
+            }
+        }
     }
 
     &__bg-picture {
