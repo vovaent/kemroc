@@ -97,7 +97,7 @@
             "sub_fields": [
                 {
                     "key": "field_64d37e0e107ae",
-                    "label": "Hide titel",
+                    "label": "Titel ausblenden",
                     "name": "hide",
                     "aria-label": "",
                     "type": "true_false",
@@ -1407,5 +1407,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1691582305
+    "modified": 1691592824
 }
