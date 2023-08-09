@@ -140,6 +140,8 @@ input[type="submit"] {
 }
 
 .site-search {
+    @include reset-btn;
+
     width: 24px;
     height: 24px;
     display: inline-flex;

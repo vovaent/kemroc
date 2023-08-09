@@ -128,6 +128,10 @@
 }
 
 @mixin reset-btn () {
+    margin: 0;
     padding: 0;
     border: none;
+    border-radius: 0;
+    background-color: unset;
+    color: unset;
 }

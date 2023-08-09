@@ -65,7 +65,7 @@ function kemroc_include_critical_css() {
 		return;
 	}
 	
-	$critical_file = file_get_contents( $critical_file_path );
+	$critical_file = file_get_contents( $critical_file_path ); //phpcs:ignore
 	?>
 
 	<style id="critical-css">
