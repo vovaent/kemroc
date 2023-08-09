@@ -55,18 +55,26 @@
         }
 
         &--tablet {
-            height: 100%;
+            @include media-down-md {
+                height: 100%;
+            }
 
             .hero--front-page & {
-                height: 100%;
+                @include media-down-md {
+                    height: 100%;
+                }
             }
         }
 
         &--mob {
-            height: 100%;
+            @include media-down-sm {
+                height: 100%;
+            }
 
             .hero--front-page & {
-                height: 100%;
+                @include media-down-sm {
+                    height: 100%;
+                }
             }
         }
     }
