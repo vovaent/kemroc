@@ -31,6 +31,8 @@ if ( ! $is_preview ) :
 	}
 
 	// Load values and assing defaults.
+	$kemroc_mi_overhead_titel    = get_field( 'overhead_titel' );
+	$kemroc_mi_custom_title      = get_field( 'custom_title' );
 	$kemroc_mi_params            = get_field( 'params' );
 	$kemroc_mi_drawing_id        = get_field( 'drawing' );
 	$kemroc_mi_descr             = get_field( 'descr' );
@@ -42,7 +44,27 @@ if ( ! $is_preview ) :
 	$kemroc_mi_video_4           = get_field( 'video_4' );
 	$kemroc_mi_video_5           = get_field( 'video_5' );
 	$kemroc_mi_photos            = get_field( 'photos' );
+
+    $kemroc_mi_model_overhead_title = '';
+	$kemroc_mi_parent_id = wp_get_post_parent_id();    
+    
+	if ( ! $kemroc_mi_overhead_titel['hide'] ) {
+		if ( ! empty( $kemroc_mi_overhead_titel['text'] ) ) {
+			$kemroc_mi_model_overhead_title = $kemroc_mi_overhead_titel['text'];
+		} else {
+			$kemroc_mi_model_overhead_title = get_the_title( $kemroc_mi_parent_id );
+		}
+	}
 	
+	$kemroc_mi_model_title = '';
+	if ( ! $kemroc_mi_custom_title['hide'] ) {
+		if ( ! empty( $kemroc_mi_custom_title['text'] ) ) {
+			$kemroc_mi_model_title = $kemroc_mi_custom_title['text'];
+		} else {
+			$kemroc_mi_model_title = __( 'Modell', 'kemroc' ) . '&nbsp;' . get_the_title();
+		}
+	}
+
 	$kemroc_mi_current_lang = '';
 	if ( function_exists( 'pll_current_language' ) ) {
 		$kemroc_mi_current_lang = pll_current_language();
@@ -154,19 +176,17 @@ if ( ! $is_preview ) :
 			); 
 		}
 	}
-	
-	$kemroc_mi_parent_id = wp_get_post_parent_id();
 	?>
 
 	<section id="<?php echo esc_attr( $kemroc_mi_id ); ?>" class="<?php echo esc_attr( $kemroc_mi_class_name ); ?>">
 		<div class="container model-info__content">
 			<header class="model-info__head">
 				<a href="<?php the_permalink( $kemroc_mi_parent_id ); ?>" class="above-title model-info__parent-page-name">
-					<?php echo wp_kses_post( get_the_title( $kemroc_mi_parent_id ) ); ?>
+					<?php echo esc_html( $kemroc_mi_model_overhead_title ); ?>
 				</a>
 				<!-- /.model-info__parent-page-name -->
 				<h1 class="model-info__title">
-					<?php the_title( esc_html__( 'Modell', 'kemroc' ) . '&nbsp;' ); ?>
+					<?php echo esc_html( $kemroc_mi_model_title ); ?>
 				</h1>
 				<!-- /.model-info__title -->
 			</header>
