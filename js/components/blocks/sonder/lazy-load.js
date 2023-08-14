@@ -57,9 +57,10 @@ const lazyLoad = ( $ ) => {
 			const $this = $( this );
 			const $video = $this.find( 'video' );
 
+			$this.find( '.icon-play' ).remove();
+			$video.attr( 'controls', '' );
+
 			if ( e.target !== $video[ 0 ] ) {
-				$this.find( '.icon-play' ).remove();
-				$video.attr( 'controls', '' );
 				$video[ 0 ].play();
 			}
 		} );
