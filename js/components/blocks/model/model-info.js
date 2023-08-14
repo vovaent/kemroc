@@ -22,36 +22,77 @@ const modelInfo = ( $ ) => {
 	$modelInfoTab.on( 'click', modelInfoToggleTab );
 
 	const sliderHandler = () => {
-		const swiperOptions = {
+		const photoSwiperOptions = {
 			slidesPerView: 1,
 			spaceBetween: 10,
 			loop: true,
 		};
 
-		const $swiperSlide = $(
-			'.model-tabs__slider .swiper-single-slide__slide'
+		const $photoSwiperSlide = $(
+			'.model-tabs__slider.swiper-single-slide--big-slider .swiper-single-slide__slide'
 		);
-		const $swiperArrows = $(
-			'.model-tabs__slider .swiper-single-slide__arrow'
+		const $photoSwiperArrows = $(
+			'.model-tabs__slider.swiper-single-slide--big-slider .swiper-single-slide__arrow'
 		);
 
-		if ( $swiperSlide.length > 1 ) {
-			swiperOptions.modules = [ Pagination, Navigation ];
+		if ( $photoSwiperSlide.length > 1 ) {
+			photoSwiperOptions.modules = [ Pagination, Navigation ];
 
-			swiperOptions.pagination = {
-				el: '.model-tabs__slider + .swiper-single-slide__pagination',
+			photoSwiperOptions.pagination = {
+				el:
+					'.model-tabs__slider.swiper-single-slide--big-slider + .swiper-single-slide__pagination',
 				clickable: true,
 			};
 
-			swiperOptions.navigation = {
-				nextEl: '.model-tabs__slider .swiper-single-slide__arrow--next',
-				prevEl: '.model-tabs__slider .swiper-single-slide__arrow--prev',
+			photoSwiperOptions.navigation = {
+				nextEl:
+					'.model-tabs__slider.swiper-single-slide--big-slider .swiper-single-slide__arrow--next',
+				prevEl:
+					'.model-tabs__slider.swiper-single-slide--big-slider .swiper-single-slide__arrow--prev',
 			};
 		} else {
-			$swiperArrows.hide();
+			$photoSwiperArrows.hide();
 		}
 
-		new Swiper( '.model-tabs__slider.swiper-single-slide', swiperOptions );
+		new Swiper(
+			'.model-tabs__slider.swiper-single-slide--big-slider',
+			photoSwiperOptions
+		);
+
+		const videosSwiperOptions = {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: true,
+		};
+		const $videoSwiperSlide = $(
+			'.model-tabs__slider.swiper-single-slide--videos .swiper-single-slide__slide'
+		);
+		const $videoSwiperArrows = $(
+			'.model-tabs__slider.swiper-single-slide--videos .swiper-single-slide__arrow'
+		);
+
+		if ( $videoSwiperSlide.length > 1 ) {
+			videosSwiperOptions.modules = [ Pagination, Navigation ];
+
+			videosSwiperOptions.pagination = {
+				el:
+					'.model-tabs__slider.swiper-single-slide--videos + .swiper-single-slide__pagination',
+				clickable: true,
+			};
+
+			videosSwiperOptions.navigation = {
+				nextEl:
+					'.model-tabs__slider.swiper-single-slide--videos .swiper-single-slide__arrow--next',
+				prevEl:
+					'.model-tabs__slider.swiper-single-slide--videos .swiper-single-slide__arrow--prev',
+			};
+		} else {
+			$videoSwiperArrows.hide();
+		}
+		new Swiper(
+			'.model-tabs__slider.swiper-single-slide--videos',
+			videosSwiperOptions
+		);
 	};
 
 	sliderHandler();

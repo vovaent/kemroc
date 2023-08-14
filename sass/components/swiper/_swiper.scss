@@ -32,6 +32,16 @@
         }
     }
 
+    &--videos {
+        position: relative;
+        margin: 40px auto 0;
+        width: 928px;
+
+        @include media-down-md {
+            width: 100%;
+        }
+    }
+
     &__container {
         @include reset-ul;
     }
@@ -76,6 +86,29 @@
             img {
                 width: 100%;
                 height: 100%;
+            }
+        }
+
+        &--video {
+
+            @include media-down-md {
+                height: 386px;
+            }
+
+            @include media-down-sm {
+                height: 175px;
+            }
+
+            .lazy-video__figure {
+                height: 520px;
+
+                @include media-down-md {
+                    height: 387px;
+                }
+
+                @include media-down-sm {
+                    height: 175.5px;
+                }
             }
         }
     }

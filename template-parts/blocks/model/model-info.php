@@ -45,9 +45,9 @@ if ( ! $is_preview ) :
 	$kemroc_mi_video_5           = get_field( 'video_5' );
 	$kemroc_mi_photos            = get_field( 'photos' );
 
-    $kemroc_mi_model_overhead_title = '';
-	$kemroc_mi_parent_id = wp_get_post_parent_id();    
-    
+	$kemroc_mi_model_overhead_title = '';
+	$kemroc_mi_parent_id            = wp_get_post_parent_id();    
+	
 	if ( ! $kemroc_mi_overhead_titel['hide'] ) {
 		if ( ! empty( $kemroc_mi_overhead_titel['text'] ) ) {
 			$kemroc_mi_model_overhead_title = $kemroc_mi_overhead_titel['text'];
@@ -226,66 +226,66 @@ if ( ! $is_preview ) :
 						<div class="model-tabs__tech-info">
 
 							<?php if ( $kemroc_mi_params ) : ?>  
-								   <div class="model-tabs__params-wrapper">
-										<?php if ( $kemroc_mi_enable_measure_units_switcher ) : ?>
-											<span id='mu-switcher' class="pml-model-card__title-swither">
-												<?php esc_html_e( 'Maßeinheit:', 'kemroc' ); ?>
-												<span class="mu-flag" data-lang-code="default"></span>
-												<!-- /.mu-flag -->
-												<span class="mu-flag" data-lang-code="us"></span>
-												<!-- /.mu-flag -->
-											</span>
-											<!-- /.pml-model-card__title-swither -->
-										<?php endif; ?>
-								
-										<ul class="model-tabs__params">
+								<div class="model-tabs__params-wrapper">
+									<?php if ( $kemroc_mi_enable_measure_units_switcher ) : ?>
+										<span id='mu-switcher' class="pml-model-card__title-swither">
+											<?php esc_html_e( 'Maßeinheit:', 'kemroc' ); ?>
+											<span class="mu-flag" data-lang-code="default"></span>
+											<!-- /.mu-flag -->
+											<span class="mu-flag" data-lang-code="us"></span>
+											<!-- /.mu-flag -->
+										</span>
+										<!-- /.pml-model-card__title-swither -->
+									<?php endif; ?>
+							
+									<ul class="model-tabs__params">
 
-											<?php 
-											foreach ( $kemroc_mi_params as $kemroc_mi_param ) : 
-												if ( $kemroc_mi_param['title'] && $kemroc_mi_param['value'] ) :
-													?>
-													<li class="arrow-list-item-full model-tabs__param arrow-list-item-full">
-														<div class="arrow-list-item-full__property">
-															<div class="arrow-list-item-full__arrow">
-																<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
-															</div>
-															<!-- /.arrow-list-item-full__arrow -->
-															<?php echo esc_html( $kemroc_mi_param['title']->post_title ); ?>													
+										<?php 
+										foreach ( $kemroc_mi_params as $kemroc_mi_param ) : 
+											if ( $kemroc_mi_param['title'] && $kemroc_mi_param['value'] ) :
+												?>
+												<li class="arrow-list-item-full model-tabs__param arrow-list-item-full">
+													<div class="arrow-list-item-full__property">
+														<div class="arrow-list-item-full__arrow">
+															<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#FF6000' ) ); ?>
 														</div>
-														<!-- /.arrow-list-item-full__property -->
-														<div class="arrow-list-item-full__value">
-															<span class="mu-value" data-lang-code="default">
+														<!-- /.arrow-list-item-full__arrow -->
+														<?php echo esc_html( $kemroc_mi_param['title']->post_title ); ?>													
+													</div>
+													<!-- /.arrow-list-item-full__property -->
+													<div class="arrow-list-item-full__value">
+														<span class="mu-value" data-lang-code="default">
+															<?php 
+															echo esc_html( $kemroc_mi_param['value'] ) . '&nbsp;';
+															the_field( 'measure_units', $kemroc_mi_param['title']->ID )
+															?>
+														</span>
+														<!-- /.mu-value -->		
+														
+														<?php if ( ! empty( $kemroc_mi_param['us_value'] ) ) : ?>
+															<span class="mu-value" data-lang-code="us">
 																<?php 
-																echo esc_html( $kemroc_mi_param['value'] ) . '&nbsp;';
-																the_field( 'measure_units', $kemroc_mi_param['title']->ID )
+																echo esc_html( $kemroc_mi_param['us_value'] ) . '&nbsp;';
+																the_field( 'us_measure_units', $kemroc_mi_param['title']->ID )
 																?>
-															</span>
-															<!-- /.mu-value -->		
-															
-															<?php if ( ! empty( $kemroc_mi_param['us_value'] ) ) : ?>
-																<span class="mu-value" data-lang-code="us">
-																	<?php 
-																	echo esc_html( $kemroc_mi_param['us_value'] ) . '&nbsp;';
-																	the_field( 'us_measure_units', $kemroc_mi_param['title']->ID )
-																	?>
-																</span>                                                            
-																<!-- /.mu-value -->											
-															<?php endif; ?>
+															</span>                                                            
+															<!-- /.mu-value -->											
+														<?php endif; ?>
 
-														</div>
-														<!-- /.arrow-list-item-full__value -->
-													</li>
-													<!-- /.model-tabs__param model-tabs-param -->
-													<?php 
-												endif;
-											endforeach; 
-											?>
+													</div>
+													<!-- /.arrow-list-item-full__value -->
+												</li>
+												<!-- /.model-tabs__param model-tabs-param -->
+												<?php 
+											endif;
+										endforeach; 
+										?>
 
-										</ul>
-										<!-- /.model-tabs__params -->
+									</ul>
+									<!-- /.model-tabs__params -->
 
-								   </div>
-								   <!-- /.model-tabs__params-wrapper -->
+								</div>
+								<!-- /.model-tabs__params-wrapper -->
 							<?php endif; ?>
 
 							<div class="model-tabs__drawing">
@@ -343,337 +343,217 @@ if ( ! $is_preview ) :
 
 					<?php if ( $kemroc_mi_video_1_is_available ) : ?>
 						<div class="model-tabs__inset">
-
-						<?php if ( $kemroc_mi_video_1_is_available ) : ?>
-							<?php if ( $kemroc_mi_video_1_yt_available ) : ?>
-								<div class="model-tabs__lazy-video lazy-video">
-									<figure class="lazy-video__figure">
-										<div 
-											class="lazy-video__placeholder lazy-video__placeholder--model-page" 
-											data-yt-video-id="<?php echo esc_attr( $kemroc_mi_video['id'] ); ?>" 
-											data-yt-iframe-class="lazy-video__source lazy-video__source--model-page"
-										>
-
-											<?php 
-											if ( $kemroc_mi_video_poster ) : 
-                                                echo $kemroc_mi_video_poster; //phpcs:ignore
-											else : 
-												$kemroc_mi_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_mi_video['id'] . '/maxresdefault.jpg';
+							<div class="swiper model-tabs__slider swiper-single-slide swiper-single-slide--videos">
+								<div class="swiper-wrapper swiper-single-slide__container">
+									<?php if ( $kemroc_mi_video_1_is_available ) : ?>
+										<?php if ( $kemroc_mi_video_1_yt_available ) : ?>
+											<div class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video">
+												<?php 
+												get_template_part(
+													'template-parts/videos/lazy-yt',
+													null,
+													array(
+														'id' => $kemroc_mi_video['id'],
+														'title' => $kemroc_mi_video['title'],
+														'poster' => $kemroc_mi_video_poster,
+													) 
+												); 
 												?>
-												<img 
-													class="lazy-video__poster"
-													src="<?php echo esc_url( $kemroc_mi_yt_poster_url ); ?>" 
-													alt="<?php echo esc_attr( $kemroc_mi_video['title'] ); ?>"
-												>
-											<?php endif; ?>
-
-											<div class="icon-play lazy-video__icon-play">
-												<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
 											</div>
-											<!-- /.icon-play lazy-video__icon-play -->
-											<div class="kemroc-preloader lazy-video__preloader"></div>
-											<!-- /.kemroc-preloader lazy-video__preloader -->
-										</div>
-										<!-- /.lazy-video__placeholder -->
-									</figure>
-									<!-- /.lazy-video__figure -->
-								</div>
-								<!-- /.model-tabs__lazy-video lazy-video -->                                
-							<?php elseif ( $kemroc_mi_video_1_is_file_available ) : ?>
-								<?php 
-								$kemroc_mi_video_poster_img = '';
-								if ( $kemroc_mi_video['poster'] ) {
-									$kemroc_mi_video_poster_img = wp_get_attachment_url( $kemroc_mi_video['poster'] ); 
-								};
-								?>
-								<div class="model-tabs__lazy-video lazy-video">
-									<figure class="lazy-video__figure lazy-video__figure--file">
-										<video 
-											class="lazy-video__source lazy-video__source--model-page"
-											src="<?php echo esc_url( $kemroc_mi_video['videofile']['url'] ); ?>" 
-											width="100%" 
-											height="100%" 
-											muted
-											poster="<?php echo esc_url( $kemroc_mi_video_poster_img ); ?>"
-										>
-											<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
-										</video>
-										<!-- /.lazy-video__source -->
-										<span class="icon-play lazy-video__icon-play">
-											<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-										</span>
-										<!-- /.icon-play lazy-video__icon-play -->
-									</figure>
-									<!-- /.lazy-video__figure lazy-video__figure--file -->
-								</div>
-								<!-- /.model-tabs__lazy-video lazy-video -->
-							<?php endif; ?>
-						<?php endif; ?>
-
-						<?php if ( $kemroc_mi_video_2_is_available ) : ?>                           
-							<?php if ( $kemroc_mi_video_2_yt_available ) : ?>
-								<div class="model-tabs__lazy-video lazy-video">
-									<figure class="lazy-video__figure">
-										<div 
-											class="lazy-video__placeholder lazy-video__placeholder--model-page" 
-											data-yt-video-id="<?php echo esc_attr( $kemroc_mi_video_2['id'] ); ?>" 
-											data-yt-iframe-class="lazy-video__source lazy-video__source--model-page"
-										>
-
+											<!-- /.swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video -->                                
+										<?php elseif ( $kemroc_mi_video_1_is_file_available ) : ?>
 											<?php 
-											if ( $kemroc_mi_video_2_poster ) : 
-                                                echo $kemroc_mi_video_2_poster; //phpcs:ignore
-											else : 
-												$kemroc_mi_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_mi_video_2['id'] . '/maxresdefault.jpg';
+											$kemroc_mi_video_poster_img = '';
+											if ( $kemroc_mi_video['poster'] ) {
+												$kemroc_mi_video_poster_img = wp_get_attachment_url( $kemroc_mi_video['poster'] ); 
+											};
+											?>
+											<div class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video">
+												<?php 
+													get_template_part(
+														'template-parts/videos/lazy-videofile',
+														null,
+														array(
+															'videofile_url' => $kemroc_mi_video['videofile']['url'],
+															'poster_image' => $kemroc_mi_video_poster_img,
+														) 
+													); 
 												?>
-												<img 
-													class="lazy-video__poster"
-													src="<?php echo esc_url( $kemroc_mi_yt_poster_url ); ?>" 
-													alt="<?php echo esc_attr( $kemroc_mi_video_2['title'] ); ?>"
-												>
-											<?php endif; ?>
-
-											<div class="icon-play lazy-video__icon-play">
-												<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
 											</div>
-											<!-- /.icon-play lazy-video__icon-play -->
-											<div class="kemroc-preloader lazy-video__preloader"></div>
-											<!-- /.kemroc-preloader lazy-video__preloader -->
-										</div>
-										<!-- /.lazy-video__placeholder -->
-									</figure>
-									<!-- /.lazy-video__figure -->
-								</div>
-								<!-- /.model-tabs__lazy-video lazy-video -->
-							<?php elseif ( $kemroc_mi_video_2_is_file_available ) : ?>
-								<?php 
-								$kemroc_mi_video_2_poster_img = '';
-								if ( $kemroc_mi_video_2['poster'] ) {
-									$kemroc_mi_video_2_poster_img = wp_get_attachment_url( $kemroc_mi_video_2['poster'] ); 
-								};
-								?>
-								<div class="model-tabs__lazy-video lazy-video">
-									<figure class="lazy-video__figure lazy-video__figure--file">
-										<video 
-											class="lazy-video__source lazy-video__source--model-page"
-											src="<?php echo esc_url( $kemroc_mi_video_2['videofile']['url'] ); ?>" 
-											width="100%" 
-											height="100%" 
-											muted
-											poster="<?php echo esc_url( $kemroc_mi_video_2_poster_img ); ?>"
-										>
-											<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
-										</video>
-										<!-- /.lazy-video__source -->
-										<span class="icon-play lazy-video__icon-play">
-											<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-										</span>
-										<!-- /.icon-play lazy-video__icon-play -->
-									</figure>
-									<!-- /.lazy-video__figure lazy-video__figure--file -->
-								</div>
-								<!-- /.model-tabs__lazy-video lazy-video -->
-							<?php endif; ?>
-						<?php endif; ?>
+											<!-- /.swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video -->
+										<?php endif; ?>
+									<?php endif; ?>
 
-						<?php if ( $kemroc_mi_video_3_is_available ) : ?>                           
-							<?php if ( $kemroc_mi_video_3_yt_available ) : ?>
-								<div class="model-tabs__lazy-video lazy-video">
-									<figure class="lazy-video__figure">
-										<div 
-											class="lazy-video__placeholder lazy-video__placeholder--model-page" 
-											data-yt-video-id="<?php echo esc_attr( $kemroc_mi_video_3['id'] ); ?>" 
-											data-yt-iframe-class="lazy-video__source lazy-video__source--model-page"
-										>
-
+									<?php if ( $kemroc_mi_video_2_is_available ) : ?>                           
+										<?php if ( $kemroc_mi_video_2_yt_available ) : ?>
+											<div class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video">
+												<?php 
+												get_template_part(
+													'template-parts/videos/lazy-yt',
+													null,
+													array(
+														'id' => $kemroc_mi_video_2['id'],
+														'title' => $kemroc_mi_video_2['title'],
+														'poster' => $kemroc_mi_video_2_poster,
+													) 
+												); 
+												?>
+											</div>
+											<!-- /.swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video -->											
+										<?php elseif ( $kemroc_mi_video_2_is_file_available ) : ?>
 											<?php 
-											if ( $kemroc_mi_video_3_poster ) : 
-                                                echo $kemroc_mi_video_3_poster; //phpcs:ignore
-											else : 
-												$kemroc_mi_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_mi_video_3['id'] . '/maxresdefault.jpg';
+											$kemroc_mi_video_2_poster_img = '';
+											if ( $kemroc_mi_video_2['poster'] ) {
+												$kemroc_mi_video_2_poster_img = wp_get_attachment_url( $kemroc_mi_video_2['poster'] ); 
+											};
+											?>
+											<div class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video">
+												<?php 
+													get_template_part(
+														'template-parts/videos/lazy-videofile',
+														null,
+														array(
+															'videofile_url' => $kemroc_mi_video_2['videofile']['url'],
+															'poster_image' => $kemroc_mi_video_2_poster_img,
+														) 
+													); 
 												?>
-												<img 
-													class="lazy-video__poster"
-													src="<?php echo esc_url( $kemroc_mi_yt_poster_url ); ?>" 
-													alt="<?php echo esc_attr( $kemroc_mi_video_3['title'] ); ?>"
-												>
-											<?php endif; ?>
-
-											<div class="icon-play lazy-video__icon-play">
-												<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
 											</div>
-											<!-- /.icon-play lazy-video__icon-play -->
-											<div class="kemroc-preloader lazy-video__preloader"></div>
-											<!-- /.kemroc-preloader lazy-video__preloader -->
-										</div>
-										<!-- /.lazy-video__placeholder -->
-									</figure>
-									<!-- /.lazy-video__figure -->
-								</div>
-								<!-- /.model-tabs__lazy-video lazy-video -->
-							<?php elseif ( $kemroc_mi_video_3_is_file_available ) : ?>
-								<?php 
-								$kemroc_mi_video_3_poster_img = '';
-								if ( $kemroc_mi_video_3['poster'] ) {
-									$kemroc_mi_video_3_poster_img = wp_get_attachment_url( $kemroc_mi_video_3['poster'] ); 
-								};
-								?>
-								<div class="model-tabs__lazy-video lazy-video">
-									<figure class="lazy-video__figure lazy-video__figure--file">
-										<video 
-											class="lazy-video__source lazy-video__source--model-page"
-											src="<?php echo esc_url( $kemroc_mi_video_3['videofile']['url'] ); ?>" 
-											width="100%" 
-											height="100%" 
-											muted
-											poster="<?php echo esc_url( $kemroc_mi_video_3_poster_img ); ?>"
-										>
-											<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
-										</video>
-										<!-- /.lazy-video__source -->
-										<span class="icon-play lazy-video__icon-play">
-											<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-										</span>
-										<!-- /.icon-play lazy-video__icon-play -->
-									</figure>
-									<!-- /.lazy-video__figure lazy-video__figure--file -->
-								</div>
-								<!-- /.model-tabs__lazy-video lazy-video -->
-							<?php endif; ?>
-						<?php endif; ?>
+											<!-- /.swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video -->
+										<?php endif; ?>
+									<?php endif; ?>
 
-						<?php if ( $kemroc_mi_video_4_is_available ) : ?>                           
-							<?php if ( $kemroc_mi_video_4_yt_available ) : ?>
-								<div class="model-tabs__lazy-video lazy-video">
-									<figure class="lazy-video__figure">
-										<div 
-											class="lazy-video__placeholder lazy-video__placeholder--model-page" 
-											data-yt-video-id="<?php echo esc_attr( $kemroc_mi_video_4['id'] ); ?>" 
-											data-yt-iframe-class="lazy-video__source lazy-video__source--model-page"
-										>
-
+									<?php if ( $kemroc_mi_video_3_is_available ) : ?>                           
+										<?php if ( $kemroc_mi_video_3_yt_available ) : ?>
+											<div class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video">
+												<?php 
+												get_template_part(
+													'template-parts/videos/lazy-yt',
+													null,
+													array(
+														'id' => $kemroc_mi_video_3['id'],
+														'title' => $kemroc_mi_video_3['title'],
+														'poster' => $kemroc_mi_video_3_poster,
+													) 
+												); 
+												?>
+											</div>
+											<!-- /.swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video -->	
+										<?php elseif ( $kemroc_mi_video_3_is_file_available ) : ?>
 											<?php 
-											if ( $kemroc_mi_video_4_poster ) : 
-                                                echo $kemroc_mi_video_4_poster; //phpcs:ignore
-											else : 
-												$kemroc_mi_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_mi_video_4['id'] . '/maxresdefault.jpg';
+											$kemroc_mi_video_3_poster_img = '';
+											if ( $kemroc_mi_video_3['poster'] ) {
+												$kemroc_mi_video_3_poster_img = wp_get_attachment_url( $kemroc_mi_video_3['poster'] ); 
+											};
+											?>
+											<div class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video">
+												<?php 
+													get_template_part(
+														'template-parts/videos/lazy-videofile',
+														null,
+														array(
+															'videofile_url' => $kemroc_mi_video_3['videofile']['url'],
+															'poster_image' => $kemroc_mi_video_3_poster_img,
+														) 
+													); 
 												?>
-												<img 
-													class="lazy-video__poster"
-													src="<?php echo esc_url( $kemroc_mi_yt_poster_url ); ?>" 
-													alt="<?php echo esc_attr( $kemroc_mi_video_4['title'] ); ?>"
-												>
-											<?php endif; ?>
-
-											<div class="icon-play lazy-video__icon-play">
-												<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
 											</div>
-											<!-- /.icon-play lazy-video__icon-play -->
-											<div class="kemroc-preloader lazy-video__preloader"></div>
-											<!-- /.kemroc-preloader lazy-video__preloader -->
-										</div>
-										<!-- /.lazy-video__placeholder -->
-									</figure>
-									<!-- /.lazy-video__figure -->
-								</div>
-								<!-- /.model-tabs__lazy-video lazy-video -->
-							<?php elseif ( $kemroc_mi_video_4_is_file_available ) : ?>
-								<?php 
-								$kemroc_mi_video_4_poster_img = '';
-								if ( $kemroc_mi_video_4['poster'] ) {
-									$kemroc_mi_video_4_poster_img = wp_get_attachment_url( $kemroc_mi_video_4['poster'] ); 
-								};
-								?>
-								<div class="model-tabs__lazy-video lazy-video">
-									<figure class="lazy-video__figure lazy-video__figure--file">
-										<video 
-											class="lazy-video__source lazy-video__source--model-page"
-											src="<?php echo esc_url( $kemroc_mi_video_4['videofile']['url'] ); ?>" 
-											width="100%" 
-											height="100%" 
-											muted
-											poster="<?php echo esc_url( $kemroc_mi_video_4_poster_img ); ?>"
-										>
-											<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
-										</video>
-										<!-- /.lazy-video__source -->
-										<span class="icon-play lazy-video__icon-play">
-											<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-										</span>
-										<!-- /.icon-play lazy-video__icon-play -->
-									</figure>
-									<!-- /.lazy-video__figure lazy-video__figure--file -->
-								</div>
-								<!-- /.model-tabs__lazy-video lazy-video -->
-							<?php endif; ?>
-						<?php endif; ?>
+											<!-- /.swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video -->
+										<?php endif; ?>
+									<?php endif; ?>
 
-						<?php if ( $kemroc_mi_video_5_is_available ) : ?>                           
-							<?php if ( $kemroc_mi_video_5_yt_available ) : ?>
-								<div class="model-tabs__lazy-video lazy-video">
-									<figure class="lazy-video__figure">
-										<div 
-											class="lazy-video__placeholder lazy-video__placeholder--model-page" 
-											data-yt-video-id="<?php echo esc_attr( $kemroc_mi_video_5['id'] ); ?>" 
-											data-yt-iframe-class="lazy-video__source lazy-video__source--model-page"
-										>
-
+									<?php if ( $kemroc_mi_video_4_is_available ) : ?>                           
+										<?php if ( $kemroc_mi_video_4_yt_available ) : ?>
+											<div class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video">
+												<?php 
+												get_template_part(
+													'template-parts/videos/lazy-yt',
+													null,
+													array(
+														'id' => $kemroc_mi_video_4['id'],
+														'title' => $kemroc_mi_video_4['title'],
+														'poster' => $kemroc_mi_video_4_poster,
+													) 
+												); 
+												?>
+											</div>
+											<!-- /.swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video -->	
+										<?php elseif ( $kemroc_mi_video_4_is_file_available ) : ?>
 											<?php 
-											if ( $kemroc_mi_video_5_poster ) : 
-                                                echo $kemroc_mi_video_5_poster; //phpcs:ignore
-											else : 
-												$kemroc_mi_yt_poster_url = 'https://img.youtube.com/vi/' . $kemroc_mi_video_5['id'] . '/maxresdefault.jpg';
+											$kemroc_mi_video_4_poster_img = '';
+											if ( $kemroc_mi_video_4['poster'] ) {
+												$kemroc_mi_video_4_poster_img = wp_get_attachment_url( $kemroc_mi_video_4['poster'] ); 
+											};
+											?>
+											<div class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video">
+												<?php 
+													get_template_part(
+														'template-parts/videos/lazy-videofile',
+														null,
+														array(
+															'videofile_url' => $kemroc_mi_video_4['videofile']['url'],
+															'poster_image' => $kemroc_mi_video_4_poster_img,
+														) 
+													); 
 												?>
-												<img 
-													class="lazy-video__poster"
-													src="<?php echo esc_url( $kemroc_mi_yt_poster_url ); ?>" 
-													alt="<?php echo esc_attr( $kemroc_mi_video_5['title'] ); ?>"
-												>
-											<?php endif; ?>
-
-											<div class="icon-play lazy-video__icon-play">
-												<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
 											</div>
-											<!-- /.icon-play lazy-video__icon-play -->
-											<div class="kemroc-preloader lazy-video__preloader"></div>
-											<!-- /.kemroc-preloader lazy-video__preloader -->
-										</div>
-										<!-- /.lazy-video__placeholder -->
-									</figure>
-									<!-- /.lazy-video__figure -->
-								</div>
-								<!-- /.model-tabs__lazy-video lazy-video -->
-							<?php elseif ( $kemroc_mi_video_5_is_file_available ) : ?>
-								<?php 
-								$kemroc_mi_video_5_poster_img = '';
-								if ( $kemroc_mi_video_5['poster'] ) {
-									$kemroc_mi_video_5_poster_img = wp_get_attachment_url( $kemroc_mi_video_5['poster'] ); 
-								};
-								?>
-								<div class="model-tabs__lazy-video lazy-video">
-									<figure class="lazy-video__figure lazy-video__figure--file">
-										<video 
-											class="lazy-video__source lazy-video__source--model-page"
-											src="<?php echo esc_url( $kemroc_mi_video_5['videofile']['url'] ); ?>" 
-											width="100%" 
-											height="100%" 
-											muted
-											poster="<?php echo esc_url( $kemroc_mi_video_5_poster_img ); ?>"
-										>
-											<?php esc_html_e( 'Leider unterstützt Ihr Browser keine eingebetteten Videos.', 'kemroc' ); ?>
-										</video>
-										<!-- /.lazy-video__source -->
-										<span class="icon-play lazy-video__icon-play">
-											<?php get_template_part( 'template-parts/icons/icon-play' ); ?>
-										</span>
-										<!-- /.icon-play lazy-video__icon-play -->
-									</figure>
-									<!-- /.lazy-video__figure lazy-video__figure--file -->
-								</div>
-								<!-- /.model-tabs__lazy-video lazy-video -->
-							<?php endif; ?>
-						<?php endif; ?>
+											<!-- /.swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video -->
+										<?php endif; ?>
+									<?php endif; ?>
 
+									<?php if ( $kemroc_mi_video_5_is_available ) : ?>                           
+										<?php if ( $kemroc_mi_video_5_yt_available ) : ?>
+											<div class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video">
+												<?php 
+												get_template_part(
+													'template-parts/videos/lazy-yt',
+													null,
+													array(
+														'id' => $kemroc_mi_video_5['id'],
+														'title' => $kemroc_mi_video_5['title'],
+														'poster' => $kemroc_mi_video_5_poster,
+													) 
+												); 
+												?>
+											</div>
+											<!-- /.swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video -->	
+										<?php elseif ( $kemroc_mi_video_5_is_file_available ) : ?>
+											<?php 
+											$kemroc_mi_video_5_poster_img = '';
+											if ( $kemroc_mi_video_5['poster'] ) {
+												$kemroc_mi_video_5_poster_img = wp_get_attachment_url( $kemroc_mi_video_5['poster'] ); 
+											};
+											?>
+											<div class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video">
+												<?php 
+												get_template_part(
+													'template-parts/videos/lazy-videofile',
+													null,
+													array(
+														'videofile_url' => $kemroc_mi_video_5['videofile']['url'],
+														'poster_image' => $kemroc_mi_video_5_poster_img,
+													) 
+												); 
+												?>
+											</div>
+											<!-- /.swiper-slide swiper-single-slide__slide swiper-single-slide__slide--video -->
+										<?php endif; ?>
+									<?php endif; ?>
+
+								</div>
+								<!-- /.swiper-wrapper swiper-single-slide__container -->
+								<div class="swiper-button-prev swiper-single-slide__arrow swiper-single-slide__arrow--prev swiper-single-slide__arrow--big-slider-prev">
+									<?php get_template_part( 'template-parts/icons/arrow-left', null, array( 'fill' => '#444444' ) ); ?>
+								</div>
+								<!-- /.swiper-single-slide__arrow -->
+								<div class="swiper-button-next swiper-single-slide__arrow swiper-single-slide__arrow--next swiper-single-slide__arrow--big-slider-next">
+									<?php get_template_part( 'template-parts/icons/arrow-right', null, array( 'fill' => '#444444' ) ); ?>
+								</div>
+								<!-- /.swiper-single-slide__arrow -->
+							</div>
+							<!-- /.swiper model-tabs__slider swiper-single-slide -->
+							<div class="swiper-pagination swiper-single-slide__pagination"></div>
+							<!-- /.swiper-pagination swiper-single-slide__pagination -->
 						</div>
 						<!-- /.model-tabs__inset -->
 					<?php endif; ?>
@@ -689,7 +569,7 @@ if ( ! $is_preview ) :
 											continue;
 										} 
 										?>
-																				
+									
 										<li class="swiper-slide swiper-single-slide__slide swiper-single-slide__slide--big-slider-slide">
 											<?php
 											echo wp_get_attachment_image(

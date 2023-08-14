@@ -151,31 +151,6 @@
     }
 
     &__lazy-video {
-        position: relative;
-        margin: 40px auto 0;
-        width: 928px;
-
-        @include media-down-md {
-            margin-top: 16px;
-            width: 100%;
-            height: 386px;
-        }
-
-        @include media-down-sm {
-            height: 175px;
-        }
-
-        .lazy-video__figure {
-            height: 520px;
-
-            @include media-down-md {
-                height: 387px;
-            }
-
-            @include media-down-sm {
-                height: 175.5px;
-            }
-        }
 
         &--animation {
             .lazy-video__figure {
@@ -191,5 +166,10 @@
                 }
             }
         }
+    }
+
+    .lazy-video {
+        margin-top: 0;
+        width: 100%;
     }
 }
