@@ -1,0 +1,209 @@
+.serial-product-compare {
+    margin: 72px 0 117px;
+
+    @include media-down-md {
+        margin: 72px 0;
+    }
+
+    @include media-down-sm {
+        margin: 40px 0;
+    }
+
+    &__title {
+        font-family: $font__secondary;
+        font-weight: 700;
+        font-size: 33px;
+        line-height: 43px;
+        color: $color__background;
+        text-transform: capitalize;
+
+        @include media-down-md {
+            font-size: 23px;
+            line-height: 32px;
+        }
+    }
+
+    &__list {
+        @include reset-ul;
+
+        // display: flex;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 48px;
+
+        @include media-down-md {
+            grid-template-columns: repeat(2, 1fr);
+            margin-top: 24px;
+        }
+
+        @include media-down-sm {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 24px;
+        }
+    }
+}
+
+.sp-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // gap: 24px;
+    padding: 30px 32px 24px;
+    border: 1px solid $color__border;
+    border-radius: 16px;
+
+    @include media-down-md {
+        padding: 24px 20px 24px 32px;
+    }
+
+    @include media-down-sm {
+        padding: 30px 24px 24px;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__photo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 170px;
+        height: 170px;
+        align-self: center;
+        padding: 9px 0 6px;
+
+        @include media-down-md {
+            width: calc(50% - 12px);
+        }
+
+        @include media-down-sm {
+            width: 100%;
+        }
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    &__title-swither {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    &__title {
+        font-family: $font__secondary;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 30px;
+        color: $accent;
+        text-transform: capitalize;
+
+        @include media-down-md {
+            font-size: 19px;
+            line-height: 27px;
+        }
+
+        @include media-down-sm {
+            line-height: 30px;
+        }
+    }
+
+    &__subtitle {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: #000000;
+    }
+
+    &__params {
+        @include reset-ul;
+
+        margin-top: 8px;
+    }
+
+    &__param {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+
+    &__application-areas {
+        margin-top: 24px;
+
+        @include media-down-md {
+            margin-top: 16px;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 24px;
+
+        @include media-down-md {
+            margin-top: 16px;
+        }
+
+        @include media-down-sm {
+            margin-top: 24px;
+        }
+    }
+
+    &__btn {
+        @include reset-a(#fff);
+    }
+}
+
+.spi-application-areas {
+    &__title {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 26px;
+        color: $color__background;
+    }
+
+    &__list {
+        margin-top: 8px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+
+        ul {
+            @include reset-ul;
+
+            list-style-type: disc;
+            margin-left: 10px;
+            padding-left: 15px;
+        }
+
+        li {
+            @include reset-li;
+        }
+    }
+}
+
+.amount-series-models {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    padding: 8.5px 12px;
+    background: $color__border;
+    border-radius: 16px;
+    font-size: 10px;
+    line-height: 16px;
+
+    &__number {
+        font-family: $font__secondary;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}

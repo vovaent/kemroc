@@ -1,0 +1,105 @@
+.our-partners {
+    margin-top: 64px;
+    margin-bottom: 80px;
+
+
+    @include media-down-md {
+        margin-bottom: 72px;
+    }
+
+    @include media-down-sm {
+        margin-bottom: 64px;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 32px;
+        padding-left: 48px;
+        border-radius: 24px;
+        background: #444;
+        gap: 24px;
+
+        @include media-down-md {
+            padding: 32px 24px;
+        }
+
+        @include media-down-sm {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: stretch;
+        }
+    }
+
+    &__text-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    &__kemroc-logo {
+        flex-shrink: 0;
+        width: 84px;
+        height: 56px;
+        margin-right: 24px;
+
+        @include media-down-md {
+            display: none;
+        }
+
+        img {
+            width: 84px;
+            height: 56px;
+        }
+    }
+
+    &__text {
+        max-width: 560px;
+        color: #FFF;
+        font-family: $font__secondary;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 130%;
+
+        @include media-down-md {
+            font-size: 23px;
+            line-height: 140%;
+        }
+
+        @include media-down-sm {
+            font-size: 18px;
+        }
+    }
+
+    &__list {
+        @include reset-ul;
+        display: flex;
+        flex-shrink: 0;
+        gap: 24px;
+    }
+
+    &__item {
+        @include reset-li;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+        border-radius: 20px;
+        background: #FFF;
+
+        @include media-down-md {
+            padding: 16px;
+        }
+
+        img {
+            width: 96px;
+            height: 96px;
+
+            @include media-down-md {
+                width: 68px;
+                height: 68px;
+            }
+        }
+    }
+}

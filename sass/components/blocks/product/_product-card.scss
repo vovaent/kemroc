@@ -1,0 +1,119 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;
+    height: 100%;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid $color__border;
+    overflow: hidden;
+
+    @include media-down-md {
+        max-width: 209px;
+        padding: 20px;
+    }
+
+    @include media-down-sm {
+        max-width: 148px;
+        padding: 12px;
+    }
+
+    &__thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        min-height: 198px;
+        padding-bottom: 18px;
+
+        @include media-down-md {
+            min-height: 162px;
+            padding-bottom: 11px;
+        }
+
+        @include media-down-sm {
+            min-height: 118px;
+            padding-bottom: 5px;
+        }
+    }
+
+    &__image {
+        height: 140px;
+
+        @include media-down-sm {
+            height: 110px;
+        }
+
+        &.skeleton {
+            width: 140px;
+
+            @include media-down-sm {
+                width: 110px;
+            }
+        }
+    }
+
+    &__text {
+        margin-top: auto;
+    }
+
+    &__title {
+        font-family: $font__main;
+        font-size: 19px;
+        font-weight: 600;
+        line-height: 160%;
+        color: #000;
+        transform: translateY(22px);
+        transition: transform .3s ease-in-out;
+
+        @include media-down-md {
+            transform: translateY(0);
+        }
+
+        @include media-down-md {
+            font-size: 15px;
+        }
+
+        @include media-down-sm {
+            font-size: 13px;
+        }
+
+        &.skeleton {
+            margin-top: 24px;
+            min-height: 20px;
+            transform: translateY(0);
+
+            @include media-down-md {
+                margin-top: 26px;
+            }
+
+            @include media-down-sm {
+                margin-top: 22px;
+            }
+        }
+
+        .product-card:hover & {
+            transform: translateY(0);
+        }
+
+        &--2 {
+            &.skeleton {
+                margin-top: 14px;
+                margin-bottom: 3px;
+            }
+        }
+    }
+
+    &__pseudo-link {
+        margin-top: 2px;
+        transform: translateY(43px);
+        transition: transform .3s ease-in-out;
+
+        @include media-down-md {
+            transform: translateY(0);
+        }
+
+        .product-card:hover & {
+            transform: translateY(0);
+        }
+    }
+}

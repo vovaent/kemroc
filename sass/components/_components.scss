@@ -2,6 +2,10 @@
 --------------------------------------------- */
 @import "navigation/navigation";
 
+/* Swiper
+--------------------------------------------- */
+@import "swiper/swiper";
+
 /* Posts and pages
 --------------------------------------------- */
 @import "content/posts-and-pages";
@@ -10,9 +14,17 @@
 --------------------------------------------- */
 @import "content/header";
 
+/* Search area
+--------------------------------------------- */
+@import "content/search-area";
+
 /* Footer
 --------------------------------------------- */
 @import "content/footer";
+
+/* Search
+--------------------------------------------- */
+@import "content/search-card";
 
 /* Comments
 --------------------------------------------- */
@@ -33,3 +45,15 @@
 /* Galleries
 --------------------------------------------- */
 @import "media/galleries";
+
+/* Preloader
+--------------------------------------------- */
+@import "preloader/preloader";
+
+/* Blocks
+--------------------------------------------- */
+@import "blocks/blocks";
+
+/* Page 404
+--------------------------------------------- */
+@import "content/page-not-found";

@@ -1,0 +1,25 @@
+.pseudo-link {
+    @include reset-a($accent);
+
+    display: flex;
+    align-items: center;
+    font-family: $font__secondary;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+
+    @include media-down-sm {
+        font-size: 11px;
+        line-height: 15px;
+    }
+
+    &>svg {
+        margin-left: 6px;
+        width: 5px;
+        height: 9px;
+
+        @include media-down-md {
+            margin-left: 4px;
+        }
+    }
+}

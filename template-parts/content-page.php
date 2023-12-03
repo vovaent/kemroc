@@ -14,7 +14,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php kemroc_post_thumbnail(); ?>
+	<?php kemroc_the_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -22,7 +22,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kemroc' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Seiten:', 'kemroc' ),
 				'after'  => '</div>',
 			)
 		);

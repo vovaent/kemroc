@@ -1,0 +1,126 @@
+{
+    "key": "group_64921692e04c8",
+    "title": "Post Type |  Post",
+    "fields": [
+        {
+            "key": "field_6494085f57359",
+            "label": "Einstellungen im Inhaltsverzeichnis",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6492169393bd8",
+            "label": "Inhaltsübersicht",
+            "name": "table_of_contents",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Ein Inhaltsverzeichnis für den Artikel einfügen",
+            "default_value": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 0
+        },
+        {
+            "key": "field_649218278ee2c",
+            "label": "Artikel-Navigationsmöglichkeit",
+            "name": "article_navigation_option",
+            "type": "button_group",
+            "instructions": "Wird der Artikel nur durch eine Art von Überschrift navigiert?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6492169393bd8",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "multiple": "Mehrere",
+                "single": "Einzeln"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_6492178d8ee2b",
+            "label": "Header-Tag",
+            "name": "header_tag",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_649218278ee2c",
+                        "operator": "==",
+                        "value": "single"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4",
+                "h5": "H5",
+                "h6": "H6"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1688655512
+}

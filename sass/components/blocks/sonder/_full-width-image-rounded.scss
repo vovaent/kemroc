@@ -1,0 +1,9 @@
+.fw-image-rounded {
+    @include standard-block-margins;
+
+    &__content {
+        img {
+            border-radius: 24px;
+        }
+    }
+}

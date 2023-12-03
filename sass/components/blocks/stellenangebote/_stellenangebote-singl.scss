@@ -1,0 +1,407 @@
+.post_wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 32px;
+    padding-top: 56px;
+    padding-bottom: 138px;
+
+    @include media-down-md {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding-bottom: 72px;
+    }
+
+    @include media-down-sm {
+        padding-bottom: 64px;
+    }
+
+    h4 {
+        font-size: 19px;
+        font-weight: 700;
+        line-height: 160%;
+    }
+
+    .post_wrap_column-1 {
+        // width: 71%;
+        max-width: 470px;
+
+        @include media-down-md {
+            width: 100%;
+        }
+    }
+
+    .posts__beschreibung {
+        color: #131313;
+        font-size: 16px;
+        font-family: 'Asap';
+        font-weight: 400;
+        line-height: 160%;
+        margin-top: 32px;
+    }
+
+    .posts__title {
+        .item-subtitle {
+            color: #444;
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 160%;
+            margin-bottom: 16px;
+        }
+
+        .item-title {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-weight: 700;
+            line-height: 160%;
+
+        }
+
+        .item-bottom {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+
+            @include media-down-md {
+                margin-top: auto;
+                margin-bottom: 0;
+            }
+        }
+
+        .job-category {
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 160%;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 8px;
+            background: #ff6000;
+        }
+    }
+
+    .posts__ihr_profil {
+        margin-top: 32px;
+
+        .ihr_profil_item {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            gap: 16px;
+        }
+
+        .ihr_profil_item+.ihr_profil_item {
+            margin-top: 12px;
+        }
+
+        .ihr_profil_wrap {
+            margin-top: 8px;
+        }
+    }
+
+    .posts__unsere_benefits {
+        margin-top: 32px;
+
+        .unsere_benefits_item {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            gap: 16px;
+        }
+
+        .unsere_benefits_item+.unsere_benefits_item {
+            margin-top: 12px;
+        }
+
+        .unsere_benefits_wrap {
+            margin-top: 8px;
+        }
+    }
+
+    .contacts-form {
+        flex-shrink: 0;
+        margin: 0;
+        max-width: 636px;
+        padding: 32px;
+        border-radius: 24px;
+        border: 1px solid #EBEBEB;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+
+        @include media-down-md {
+            max-width: 100%;
+            padding: 32px 20px;
+        }
+
+        .contacts-form__title {
+            font-size: 23px;
+            font-weight: 700;
+            line-height: 160%;
+
+            @include media-down-sm {
+                font-size: 18px;
+                line-height: 140%;
+            }
+        }
+
+        .contacts-form__subtitle {
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 160%;
+            margin-top: 2px;
+
+            @include media-down-sm {
+                font-size: 16px;
+                line-height: 160%;
+            }
+        }
+
+        .contacts-form__form {
+            margin-top: 32px;
+        }
+
+        .cf-form__left {
+            width: 100%;
+        }
+
+        .btn-rounded {
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        .cf-form__agree {
+            margin-top: 24px;
+        }
+
+        .cf-form__agree-content {
+            display: flex;
+        }
+
+        &__agree-checkbox {
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        &__agree-label {
+            .cf-form__agree-checkbox+& {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+
+                &::before {
+                    content: '';
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid $accent;
+                    border-radius: 6px;
+                    margin-right: 14px;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+
+            .cf-form__agree-checkbox:checked+&::before {
+                background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xLjc1IDRMNC41OCA2LjgzTDEwLjI1IDEuMTciIHN0cm9rZT0iI0ZGNjAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==");
+            }
+        }
+
+        &__agree-text {
+            max-width: 825px;
+            font-family: $font__third;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 17px;
+            color: $color__background;
+
+            @include media-down-md {
+                max-width: 100%;
+            }
+        }
+
+        &__button {
+            @include media-down-md {
+                margin-top: 24px;
+            }
+
+            @include media-down-sm {
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+    }
+
+    .cf-form__agree-text {
+        max-width: 90%;
+    }
+
+    .cf-form_beschreibung {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 40px 24px;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        gap: 24px;
+        -ms-flex-item-align: stretch;
+        align-self: stretch;
+        border-radius: 16px;
+        background: #FFF;
+        margin-top: 32px;
+
+        @include media-down-sm {
+            padding: 23px;
+        }
+
+        .cf-form_beschreibung-title {
+            font-size: 16px;
+            font-family: 'Asap';
+            font-weight: 600;
+            line-height: 160%;
+        }
+
+        .cf-form_beschreibung-text {
+            color: #131313;
+            font-size: 16px;
+            font-family: 'Asap';
+            font-weight: 400;
+            line-height: 160%;
+
+            a {
+                @include reset-a($accent);
+
+                &[href^="mailto:"] {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .cf-form__label--email,
+    .cf-form__label--phone {
+        width: calc(50% - 10px);
+
+        @include media-down-sm {
+            width: 100%;
+        }
+    }
+
+    .cf-form__file-field-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    .cf-form__field--resume {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        padding: 42px 48px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 10px;
+        -ms-flex-item-align: stretch;
+        align-self: stretch;
+        border-radius: 16px;
+        border: 1px dashed #EBEBEB;
+        background: #FFF;
+
+        @include media-down-sm {
+            padding: 32px 24px;
+        }
+
+        &--over {
+            border: 2px dotted;
+        }
+
+        p {
+            margin-top: 0;
+            font-weight: 400;
+        }
+
+        a {
+            color: #FF6000;
+            text-align: center;
+            font-size: 14px;
+            font-family: Inter;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            -webkit-text-decoration-line: underline;
+            text-decoration-line: underline;
+            cursor: pointer;
+        }
+    }
+
+    .cf-form__label--file {
+        position: relative;
+        // display: none;
+    }
+
+    .cf-form__field--file {
+        position: absolute;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .cf-form__file-clear {
+        display: none;
+
+        &--visible {
+            position: absolute;
+            top: 9px;
+            right: 13px;
+            display: block;
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+.stellenangebot-info {
+    ul {
+        margin-top: 16px;
+
+        &>li {
+            padding-left: 20px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 8px;
+                left: 4px;
+                display: inline-block;
+                width: 6px;
+                height: 10px;
+                border-radius: 0;
+                background-color: #fff;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDYgMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGlkPSJhcnJvdy1yaWdodCIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wLjI5Mjg5MyAwLjI5Mjg5M0MwLjY4MzQxNyAtMC4wOTc2MzExIDEuMzE2NTggLTAuMDk3NjMxMSAxLjcwNzExIDAuMjkyODkzTDUuNzA3MTEgNC4yOTI4OUM2LjA5NzYzIDQuNjgzNDIgNi4wOTc2MyA1LjMxNjU4IDUuNzA3MTEgNS43MDcxMUwxLjcwNzExIDkuNzA3MTFDMS4zMTY1OCAxMC4wOTc2IDAuNjgzNDE3IDEwLjA5NzYgMC4yOTI4OTMgOS43MDcxMUMtMC4wOTc2MzExIDkuMzE2NTggLTAuMDk3NjMxMSA4LjY4MzQyIDAuMjkyODkzIDguMjkyODlMMy41ODU3OSA1TDAuMjkyODkzIDEuNzA3MTFDLTAuMDk3NjMxMSAxLjMxNjU4IC0wLjA5NzYzMTEgMC42ODM0MTcgMC4yOTI4OTMgMC4yOTI4OTNaIiBmaWxsPSIjRkY2MDAwIi8+Cjwvc3ZnPgo=);
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+    }
+}

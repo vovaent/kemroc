@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Underscores.me
 Author URI: http://underscores.me/
 Description: Description
-Version: 1.0.0
+Version: 1.2.9
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -84,10 +84,17 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
+@import "plugins/AddToAny/a2a";
+@import "plugins/cookieYes/cookieYes";
 
 /* Jetpack infinite scroll
 --------------------------------------------- */
 @import "plugins/jetpack/infinite-scroll";
+
+/*--------------------------------------------------------------
+# Templates
+--------------------------------------------- */
+@import "templates/templates";
 
 /*--------------------------------------------------------------
 # Utilities

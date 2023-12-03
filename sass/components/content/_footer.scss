@@ -2,15 +2,34 @@
     background-color: #131313;
     padding-bottom: 80px;
 
+    @include media-down-md {
+        padding-bottom: 40px;
+    }
+
+    @include media-down-sm {
+        padding-bottom: 64px;
+    }
+
     .cta-wide {
+        margin-top: 0;
         margin-bottom: 80px;
         background: rgb(19, 19, 19);
         background: linear-gradient(0deg, rgba(19, 19, 19, 1) 0%, rgba(19, 19, 19, 1) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
+        position: relative;
+        top: -1px;
+
+        @include media-down-md {
+            margin-bottom: 57px;
+        }
+
+        @include media-down-sm {
+            margin-bottom: 64px;
+        }
 
         h3 {
             strong {
                 color: $accent;
-                display: block;
+                // display: block;
             }
         }
     }
@@ -18,26 +37,40 @@
     .footer-logo {
         display: inline-flex;
         margin-bottom: 106px;
-        @media (max-width: 1023px) {
+
+        @include media-down-sm {
             margin-bottom: 32px;
         }
     }
 
     .socials {
         margin-bottom: 72px;
-        @media (max-width: 1023px) {
-            margin-bottom: 56px;
+
+        @include media-down-sm {
+            margin-bottom: 24px;
         }
     }
 
     .copyright {
         margin-bottom: 16px;
-        @media (max-width: 1023px) {
+        color: #848383;
+
+        @include media-down-md {
+            width: 138px;
+            font-size: 14px;
+            line-height: 160%;
+        }
+
+        @include media-down-sm {
+            width: 100%;
+            margin-bottom: 0;
+
             &.desktop {
                 display: none;
             }
         }
-        @media (min-width: 1024px) {
+
+        @media (min-width: 768px) {
             &.mobile {
                 display: none;
             }
@@ -48,15 +81,27 @@
         display: flex;
         gap: 100px;
         justify-content: space-between;
-        @media (max-width: 1023px) {
+
+        @include media-down-md {
+            justify-content: start;
+            gap: 60px;
+        }
+
+        @include media-down-sm {
             flex-direction: column;
+            gap: 32px;
         }
 
         .col-1 {
             border-right: 1px solid #1B1B1B;
             width: 400px;
             max-width: 50%;
-            @media (max-width: 1023px) {
+
+            @include media-down-md {
+                width: 211px;
+            }
+
+            @include media-down-sm {
                 max-width: 100%;
             }
         }
@@ -65,13 +110,27 @@
             display: flex;
             flex-direction: column;
             gap: 72px;
-            
+
+            @include media-down-md {
+                gap: 40px;
+            }
+
+            @include media-down-sm {
+                gap: 16px;
+            }
+
 
             .footer-info {
                 display: flex;
                 gap: 130px;
-                @media (max-width: 1023px) {
+
+                @include media-down-md {
+                    gap: 25px;
+                }
+
+                @include media-down-sm {
                     flex-direction: column;
+                    gap: 16px;
                 }
 
                 .company-name {
@@ -89,11 +148,23 @@
                     font-size: 19px;
                     line-height: 160%;
                     color: #fff;
+
+                    @include media-down-md {
+                        font-size: 16px;
+                    }
                 }
 
                 &__left {
                     display: flex;
                     flex-direction: column;
+
+                    @include media-down-md {
+                        width: 183px;
+                    }
+
+                    @include media-down-sm {
+                        width: 100%;
+                    }
                 }
 
                 &__right {
@@ -101,12 +172,21 @@
                     flex-direction: column;
                     gap: 16px;
 
+                    @include media-down-sm {
+                        gap: 4px;
+                        margin-bottom: 16px;
+                    }
+
                     a {
                         font-weight: 400;
                         font-size: 19px;
                         line-height: 160%;
                         color: #FFFFFF;
                         text-decoration: none;
+
+                        @include media-down-md {
+                            font-size: 16px;
+                        }
                     }
                 }
             }
@@ -114,8 +194,11 @@
             .footer-nav {
                 display: flex;
                 justify-content: space-between;
-                @media (max-width: 1023px) {
+
+                @include media-down-sm {
                     flex-direction: column;
+                    gap: 24px;
+                    margin-bottom: 8px;
                 }
 
                 .title {
@@ -127,15 +210,25 @@
                     margin-bottom: 16px;
                     color: #fff;
                     display: block;
+
+                    @include media-down-md {
+                        margin-bottom: 8px;
+                    }
                 }
 
                 ul {
+                    @include reset-ul;
+
                     padding: 0;
                     margin: 0;
                     list-style: none;
                     display: flex;
                     flex-direction: column;
                     gap: 8px;
+
+                    li {
+                        @include reset-li;
+                    }
 
                     a {
                         color: #fff;
@@ -152,11 +245,17 @@
 }
 
 .socials {
+    @include reset-ul;
+
     padding: 0;
     margin: 0;
     list-style: none;
     display: flex;
     gap: 24px;
+
+    li {
+        @include reset-li;
+    }
 
     a {
         display: block;
@@ -169,19 +268,36 @@
 }
 
 .footer-links {
+    @include reset-ul;
+
     display: flex;
     margin: 0;
     padding: 0;
     gap: 12px;
     list-style: none;
-    @media (max-width: 1023px) {
-        &.desktop {
+
+    &.desktop {
+        @include media-down-md {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        @include media-down-sm {
             display: none;
         }
     }
-    @media (min-width: 1024px) {
+
+    @media (min-width: 768px) {
         &.mobile {
             display: none;
+        }
+    }
+
+    li {
+        @include reset-li;
+
+        @include media-down-md {
+            line-height: 0;
         }
     }
 
@@ -190,7 +306,7 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 160%;
-        color: #444444;
+        color: #848383;
         text-decoration: none;
     }
 }

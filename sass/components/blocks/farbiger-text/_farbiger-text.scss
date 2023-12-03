@@ -1,0 +1,47 @@
+.farbiger_text {
+    .container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 83px;
+        margin-bottom: 40px;
+
+        @media (max-width: 739px) {
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .col_1 {
+            font-size: 40px;
+            font-family: 'Eurostile Candy W02 Bold';
+            font-weight: 700;
+            line-height: 130%;
+            width: 45.21%;
+
+            @media (max-width: 739px) {
+                width: 100%;
+            }
+
+            .col_1_wrap {
+                width: 90%;
+            }
+
+            .black {
+                color: #000;
+            }
+
+            .color {
+                color: #FF6000;
+            }
+        }
+
+        .col_2 {
+            width: 48.72%;
+
+            @media (max-width: 739px) {
+                width: 100%;
+            }
+        }
+    }
+}

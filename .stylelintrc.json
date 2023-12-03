@@ -3,7 +3,11 @@
         "@wordpress/stylelint-config/scss"
     ],
     "ignoreFiles": [
-        "sass/_normalize.scss"
+        "sass/_normalize.scss",
+        "**/*/*.css",
+        "js/build/**/*.css",
+        "js/build/**/*.min.css",
+        "critical-css/*"
     ],
     "rules": {
         "font-family-no-missing-generic-family-keyword": null,

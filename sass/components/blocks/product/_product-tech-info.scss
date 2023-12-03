@@ -1,0 +1,51 @@
+.product-tech-info {
+    margin: 70px 0;
+
+    @include media-down-md {
+        margin: 72px 0;
+    }
+
+    @include media-down-sm {
+        margin: 40px 0;
+    }
+
+    &__content {
+        display: flex;
+        gap: 70px;
+
+        @include media-down-md {
+            gap: 30px;
+        }
+
+        @include media-down-sm {
+            flex-direction: column;
+        }
+    }
+
+    &__text {
+        max-width: 51%;
+
+        @include media-down-md {
+            max-width: 50%;
+        }
+
+        @include media-down-sm {
+            max-width: 100%;
+        }
+
+        &-strong {
+            font-weight: 600;
+            font-size: 19px;
+            line-height: 160%;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+        &-simple {
+            margin-top: 24px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 160%;
+        }
+    }
+}

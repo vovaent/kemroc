@@ -1,0 +1,45 @@
+.serial-product-descriptions {
+    margin: 66px 0 72px;
+
+    @include media-down-md {
+        margin: 72px 0;
+    }
+
+    @include media-down-sm {
+        margin: 40px 0;
+    }
+
+    &__content {
+        display: flex;
+        gap: 40px;
+
+        @include media-down-md {
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+
+    &__title {
+        font-family: $font__secondary;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 36px;
+        color: $color__background;
+
+        @include media-down-md {
+            font-size: 19px;
+            line-height: 27px;
+        }
+    }
+
+    &__description {
+        margin-top: 18px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+
+        @include media-down-md {
+            margin-top: 12px;
+        }
+    }
+}

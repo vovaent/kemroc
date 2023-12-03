@@ -1,0 +1,19 @@
+.columns-text {
+    margin-bottom: 64px;
+
+    &__wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px;
+        margin-top: 16px;
+
+        @include media-down-sm {
+            grid-template-columns: 100%;
+            grid-gap: 0;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}

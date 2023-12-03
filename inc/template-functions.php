@@ -10,45 +10,51 @@ function custom_images_size() {
 	add_image_size( 'home-product', 140, 140, true );
 	add_image_size( 'home-areas', 540, 680, true );
 	add_image_size( 'home-news', 370, 250, true );
+	add_image_size( 'product-page', 370, 250, true );
 
 }
  // SVG support
 // Allow SVG
-add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+add_filter(
+	'wp_check_filetype_and_ext',
+	function( $data, $file, $filename, $mimes ) {
 
-    global $wp_version;
-    if ( $wp_version !== '4.7.1' ) {
-       return $data;
-    }
+		global $wp_version;
+		if ( $wp_version !== '4.7.1' ) {
+			return $data;
+		}
   
-    $filetype = wp_check_filetype( $filename, $mimes );
+		$filetype = wp_check_filetype( $filename, $mimes );
   
-    return [
-        'ext'             => $filetype['ext'],
-        'type'            => $filetype['type'],
-        'proper_filename' => $data['proper_filename']
-    ];
+		return array(
+			'ext'             => $filetype['ext'],
+			'type'            => $filetype['type'],
+			'proper_filename' => $data['proper_filename'],
+		);
   
-  }, 10, 4 );
+	},
+	10,
+	4 
+);
   
-  function cc_mime_types( $mimes ){
-    $mimes['svg'] = 'image/svg';
-    $mimes['svgz'] = 'image/svg+xml';
-    $mimes['dwg'] = 'image/vnd.dwg';
-    $mimes['rvt'] = 'application/octet-stream';
-    $mimes['3ds'] = 'image/x-3ds';
-    return $mimes;
-  }
+function cc_mime_types( $mimes ) {
+	$mimes['svg']  = 'image/svg';
+	$mimes['svgz'] = 'image/svg+xml';
+	$mimes['dwg']  = 'image/vnd.dwg';
+	$mimes['rvt']  = 'application/octet-stream';
+	$mimes['3ds']  = 'image/x-3ds';
+	return $mimes;
+}
   add_filter( 'upload_mimes', 'cc_mime_types' );
   
-  function fix_svg() {
-    echo '<style type="text/css">
+function fix_svg() {
+	echo '<style type="text/css">
           .attachment-266x266, .thumbnail img {
                width: 100% !important;
                height: auto !important;
           }
           </style>';
-  }
+}
   add_action( 'admin_head', 'fix_svg' );
 
 /**
@@ -82,399 +88,329 @@ function kemroc_pingback_header() {
 }
 add_action( 'wp_head', 'kemroc_pingback_header' );
 
-if (!function_exists('mytheme_register_nav_menu')) {
+if ( ! function_exists( 'kemroc_register_nav_menu' ) ) {
 
-    function mytheme_register_nav_menu()
-    {
-        register_nav_menus(array(
-            'main_menu' => __('Main Menu', 'text_domain'),
-            'footer_menu'  => __('Footer Menu', 'text_domain'),
-        ));
-    }
-    add_action('after_setup_theme', 'mytheme_register_nav_menu', 0);
-}
-
-add_filter('wp_nav_menu_objects', function( $items, $args ) {
-	
-	// loop
-	foreach( $items as &$item ) {
-		
-		// vars
-		$image = get_field('image', $item);
-		
-		
-		// append icon
-		if( $image ) {
-			
-			$item->title = '<img src="' . $image['sizes']['home-product'] . '" /><div class="item-title"><span>'.$item->title.'</span><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L5.70711 4.29289C6.09763 4.68342 6.09763 5.31658 5.70711 5.70711L1.70711 9.70711C1.31658 10.0976 0.683417 10.0976 0.292893 9.70711C-0.0976311 9.31658 -0.0976311 8.68342 0.292893 8.29289L3.58579 5L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z" fill="#444444"/>
-            </svg>
-            </div>';
-			
-		}
-		
+	function kemroc_register_nav_menu() {
+		register_nav_menus(
+			array(
+				'main_menu'   => __( 'Main Menu', 'kemroc' ),
+				'footer_menu' => __( 'Footer Menu', 'kemroc' ),
+			)
+		);
 	}
+	add_action( 'after_setup_theme', 'kemroc_register_nav_menu', 0 );
+}
+
+add_filter(
+	'wp_nav_menu_objects',
+	function( $items, $args ) {
+		
+		// loop.
+		foreach ( $items as &$item ) {
+			if ( $item->menu_item_parent ) {
+				// vars.
+				$image         = get_field( 'image', $item );
+				$item_thumb_id = get_post_thumbnail_id( $item->object_id );
+				$item_thumb    = wp_get_attachment_image( $item_thumb_id );
+		
+				// append icon.
+				if ( $image && $item_thumb_id ) {
+			
+					$item->title = $item_thumb . '<div class="item-title arrow-right"><span>' . $item->title . '</span></div>';
+			
+				} else {
+					$item->title = '<div class="item-title arrow-right"><span>' . $item->title . '</span></div>';
+				}
+			}       
+		}
 	
+		return $items;
 	
-	// return
-	return $items;
+	},
+	10,
+	2
+);
+
+function kemroc_the_excerpt( $limit = 30, $post_id = false ) {
+	echo kemroc_get_the_excerpt( $limit, $post_id ); //phpcs:ignore
+}
+
+function kemroc_get_the_excerpt( $limit = 30, $post_id = false ) {
+	if ( $post_id ) {
+		$excerpt = explode( ' ', get_the_excerpt( $post_id ), $limit );
+	} else {
+		$excerpt = explode( ' ', get_the_excerpt(), $limit );
+	}
+
+
+	if ( count( $excerpt ) >= $limit ) {
+		array_pop( $excerpt );
+		$excerpt = implode( ' ', $excerpt ) . '...';
+	} else {
+		$excerpt = implode( ' ', $excerpt );
+	}
+
+	$excerpt = preg_replace( '`\[[^\]]*\]`', '', $excerpt );
+
+	return $excerpt;
+}
+
+function add_custom_block_categories( $block_categories, $editor_context ) {
+	if ( ! empty( $editor_context->post ) ) {
+		array_push(
+			$block_categories,
+			array(
+				'slug'  => 'images-modules',
+				'title' => __( 'Bild-Module', 'kemroc' ),
+				'icon'  => null,
+			),
+			array(
+				'slug'  => 'text-images-modules',
+				'title' => __( 'Bild/Text module', 'kemroc' ),
+				'icon'  => null,
+			),
+			array(
+				'slug'  => 'text-modules',
+				'title' => __( 'Text module', 'kemroc' ),
+				'icon'  => null,
+			),
+			array(
+				'slug'  => 'sonder',
+				'title' => __( 'Sonder', 'kemroc' ),
+				'icon'  => null,
+			),
+			array(
+				'slug'  => 'products',
+				'title' => esc_html__( 'Produkte', 'kemroc' ),
+				'icon'  => null,
+			),
+			array(
+				'slug'  => 'application-areas',
+				'title' => esc_html__( 'Einsatzbereiche', 'kemroc' ),
+				'icon'  => null,            
+			),
+			array(
+				'slug'  => 'constacts',
+				'title' => esc_html__( 'Kontakte', 'kemroc' ),
+				'icon'  => null,
+			),
+			array(
+				'slug'  => 'aktuelles',
+				'title' => esc_html__( 'Aktuelles', 'kemroc' ),
+				'icon'  => null,
+			)
+		);
+	}
+	return $block_categories;
+}
+add_filter( 'block_categories_all', 'add_custom_block_categories', 10, 2 );
+
+function allowed_block_types( $allowed_blocks, $editor_context ) {
+	if ( ! is_object( $editor_context ) || ! is_object( $editor_context->post ) ) {
+		return;
+	}
+
+	$general_blocks = array(
+		'core/paragraph',
+		'core/image',
+		'core/gallery',
+		'core/heading',
+		'core/list',
+		'core/list-item',
+		'core/spacer',
+		'core/buttons',
+		'core/separator',
+		'core/file',
+		'core/html',
+		'acf/lazy-video',
+		'acf/faq',
+	);
+
+	if ( (int) get_option( 'page_on_front' ) === $editor_context->post->ID ) {
+		$allowed_blocks = array_merge(
+			$general_blocks,
+			array(
+				'acf/hero',
+				'acf/cta-wide',
+				'acf/our-company',
+				'acf/cta-bg',
+				'acf/section-header',
+				'acf/products',
+				'acf/application-areas-list',
+				'acf/front-page-news',
+			)
+		);
+	} elseif ( 'page' === $editor_context->post->post_type ) {
+		$allowed_blocks = array_merge(
+			$general_blocks,
+			array(
+				'acf/hero',
+				'acf/product-general-info',
+				'acf/product-tech-info',
+				'acf/product-model-list',
+				'acf/products',
+				'acf/model-info',
+				'acf/serial-product-general-info',
+				'acf/serial-product-descriptions',
+				'acf/serial-product-compare',
+				'acf/series-general-info',
+				'acf/series-tech-info',
+				'acf/application-areas-list',
+				'acf/application-areas-description',
+				'acf/chess-content',
+				'acf/full-width-image-rounded',
+				'acf/our-team',
+				'acf/application-areas-filter',
+				'acf/contacts-info',
+				'acf/contacts-form',
+				'acf/contacts-links',
+				'acf/all-news',
+				'acf/section-header',
+				'acf/events',
+				'acf/stellenangebote-list',
+				'acf/stellenangebot-info',
+				'acf/absatztext',
+				'acf/cookies-table',
+				'acf/impressum',
+				'acf/columns-text',
+				'acf/pdf-kataloge',
+				'acf/page-404',
+				'acf/farbiger-text',
+				'acf/partners',
+				'acf/glossary',
+				'acf/text-and-image',
+				'acf/cta-wide',
+				'acf/cta-bg',
+			)
+		);
+	} elseif ( 'post' === $editor_context->post->post_type ) {
+		$allowed_blocks = array_merge(
+			$general_blocks, 
+			// array(
+			// 'acf/faq',
+			// )
+		);
+	}
+
+	return $allowed_blocks;
+}
+add_filter( 'allowed_block_types_all', 'allowed_block_types', 25, 2 );
+
+function kemroc_navigation_template_class_change( $template ) {
+	$template = '
+    <nav class="navigation %1$s" aria-label="%4$s">
+		<h2 class="screen-reader-text">%2$s</h2>
+		<div class="kemroc-navigation__nav-links">%3$s</div>
+	</nav>
+    ';
+	return $template;
+}
+
+add_filter( 'navigation_markup_template', 'kemroc_navigation_template_class_change', 10, 1 );
+
+function kemroc_home_url( $lang = '' ) {
+	$home_url = home_url();
+
+	if ( function_exists( 'pll_home_url' ) ) {
+		$home_url = pll_home_url( $lang );
+	}
+	return $home_url;
+}
+
+function kemroc_change_search_posts_count( $query ) {
+	if ( is_admin() ) {
+		return;
+	}
+	if ( ! $query->is_main_query() ) {
+		return;
+	}
+	if ( ! is_search() ) {
+		return;
+	}
+
+	$query->set( 'posts_per_page', 6 );
+	$query->set( 'post_type', array( 'post', 'page' ) );
+}
+add_action( 'pre_get_posts', 'kemroc_change_search_posts_count' );
+
+function kemroc_add_thumb_image_column( $columns ) {
+	$num = 1; 
+
+	$new_columns = array(
+		'thumb_image' => esc_html__( 'Bild', 'kemroc' ),
+	);
+
+	return array_slice( $columns, 0, $num ) + $new_columns + array_slice( $columns, $num );
+}
+add_filter( 'manage_page_posts_columns', 'kemroc_add_thumb_image_column', 4 );
+
+function kemroc_fill_thumb_image_column( $colname, $post_id ) {
+	if ( 'thumb_image' === $colname ) {
+		echo wp_get_attachment_image( get_post_thumbnail_id( $post_id ) );
+	}
+}
+add_action( 'manage_page_posts_custom_column', 'kemroc_fill_thumb_image_column', 5, 2 );
+
+function kemroc_add_thumb_image_column_css() {
+	echo '<style type="text/css">.column-thumb_image{ width:45px; } .column-thumb_image img {max-width: 100%; width: 36px; height: 36px}</style>';
+}
+add_action( 'admin_head', 'kemroc_add_thumb_image_column_css' );
+
+function kemroc_add_application_areas_column( $columns ) {
+	$num = 3; 
+
+	$new_columns = array(
+		'application_areas' => esc_html__( 'Einsatzbereiche', 'kemroc' ),
+	);
+
+	return array_slice( $columns, 0, $num ) + $new_columns + array_slice( $columns, $num );
+}
+add_filter( 'manage_page_posts_columns', 'kemroc_add_application_areas_column', 4 );
+
+function kemroc_fill_application_areas_column( $colname, $post_id ) {
+	if ( 'application_areas' === $colname ) {
+		$app_areas = get_the_terms( $post_id, 'einsatzbereich' );
+		
+		if ( is_array( $app_areas ) ) {
+			foreach ( $app_areas as $app_area ) {
+				echo '<a href="' . get_permalink( $app_area->term_id ) . '">' . $app_area->name . '</a>'; //phpcs:ignore
+				if ( end( $app_areas ) !== $app_area ) {
+					echo ', ';
+				}
+			}
+		}
+	}
+}
+add_action( 'manage_page_posts_custom_column', 'kemroc_fill_application_areas_column', 5, 2 );
+
+function kemroc_add_application_areas_column_css() {
+	echo '<style type="text/css">.column-application_areas{ width:10%; } .column-application_areas img {max-width: 100%; width: 36px; height: 36px}</style>';
+}
+add_action( 'admin_head', 'kemroc_add_application_areas_column_css' );
+
+function kemroc_adding_meta_tag_noindex_on_model_page() {
+	if ( is_admin() ) {
+		return;
+	}
+	if ( ! is_page() ) {
+		return;
+	}
+
+	global $post;
 	
-}, 10, 2);
-
-function excerpt($limit, $post_id = false)
-{
-    if ($post_id) {
-        $excerpt = explode(' ', get_the_excerpt($post_id), $limit);
-    } else {
-        $excerpt = explode(' ', get_the_excerpt(), $limit);
-    }
-
-
-    if (count($excerpt) >= $limit) {
-        array_pop($excerpt);
-        $excerpt = implode(" ", $excerpt) . '...';
-    } else {
-        $excerpt = implode(" ", $excerpt);
-    }
-
-    $excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
-
-    return $excerpt;
+	if ( get_field( 'unlist_on_product_page', $post->ID ) ) {
+		echo '<meta name="robots" content="noindex, nofollow">';
+	}
 }
+add_action( 'wp_head', 'kemroc_adding_meta_tag_noindex_on_model_page' );
 
-function custom_post_type() {
-  
-    // Set UI labels for Custom Post Type
-        $labels = array(
-            'name'                => _x( 'Products', 'Post Type General Name', 'kemroc' ),
-            'singular_name'       => _x( 'Product', 'Post Type Singular Name', 'kemroc' ),
-            'menu_name'           => __( 'Products', 'kemroc' ),
-            'parent_item_colon'   => __( 'Parent Product', 'kemroc' ),
-            'all_items'           => __( 'All Products', 'kemroc' ),
-            'view_item'           => __( 'View Product', 'kemroc' ),
-            'add_new_item'        => __( 'Add New Product', 'kemroc' ),
-            'add_new'             => __( 'Add New', 'kemroc' ),
-            'edit_item'           => __( 'Edit Product', 'kemroc' ),
-            'update_item'         => __( 'Update Product', 'kemroc' ),
-            'search_items'        => __( 'Search Products', 'kemroc' ),
-            'not_found'           => __( 'Not Found', 'kemroc' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'kemroc' ),
-        );
-          
-    // Set other options for Custom Post Type
-          
-        $args = array(
-            'label'               => __( 'products', 'kemroc' ),
-            'description'         => __( 'Products', 'kemroc' ),
-            'labels'              => $labels,
-            // Features this CPT supports in Post Editor
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            // You can associate this CPT with a taxonomy or custom taxonomy. 
-            
-            /* A hierarchical CPT is like Pages and can have
-            * Parent and child items. A non-hierarchical CPT
-            * is like Posts.
-            */
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-      
-        );
-          
-        // Registering your Custom Post Type
-        register_post_type( 'products', $args );
-      
-    }
-      
-    /* Hook into the 'init' action so that the function
-    * Containing our post type registration is not 
-    * unnecessarily executed. 
-    */
-      
-    add_action( 'init', 'custom_post_type', 0 );
-
-function custom_post_type_areas() {
-  
-    // Set UI labels for Custom Post Type
-        $labels = array(
-            'name'                => _x( 'Our Areas', 'Post Type General Name', 'kemroc' ),
-            'singular_name'       => _x( 'Area', 'Post Type Singular Name', 'kemroc' ),
-            'menu_name'           => __( 'Our Areas', 'kemroc' ),
-            'parent_item_colon'   => __( 'Parent Area', 'kemroc' ),
-            'all_items'           => __( 'All Areas', 'kemroc' ),
-            'view_item'           => __( 'View Area', 'kemroc' ),
-            'add_new_item'        => __( 'Add New Area', 'kemroc' ),
-            'add_new'             => __( 'Add New', 'kemroc' ),
-            'edit_item'           => __( 'Edit Area', 'kemroc' ),
-            'update_item'         => __( 'Update Area', 'kemroc' ),
-            'search_items'        => __( 'Search Area', 'kemroc' ),
-            'not_found'           => __( 'Not Found', 'kemroc' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'kemroc' ),
-        );
-          
-    // Set other options for Custom Post Type
-          
-        $args = array(
-            'label'               => __( 'areas', 'kemroc' ),
-            'description'         => __( 'Areas', 'kemroc' ),
-            'labels'              => $labels,
-            // Features this CPT supports in Post Editor
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            // You can associate this CPT with a taxonomy or custom taxonomy. 
-            
-            /* A hierarchical CPT is like Pages and can have
-            * Parent and child items. A non-hierarchical CPT
-            * is like Posts.
-            */
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-      
-        );
-          
-        // Registering your Custom Post Type
-        register_post_type( 'areas', $args );
-      
-    }
-      
-    /* Hook into the 'init' action so that the function
-    * Containing our post type registration is not 
-    * unnecessarily executed. 
-    */
-      
-    add_action( 'init', 'custom_post_type_areas', 0 );
-
-function acf_option_init()
-{
-    if (function_exists('acf_add_options_sub_page')) {
-
-        $parent = acf_add_options_page(array(
-            'page_title' => __('Themen Einstellungen'),
-            'menu_title' => __('Themen Einstellungen'),
-            'menu_slug' => 'theme-general-settings',
-            'capability' => 'edit_posts',
-            'redirect' => false,
-        ));
-    }
+function kemroc_polylang_fix_styles() {
+	echo '<style type="text/css">
+          .ui-autocomplete {
+                width: max-content !important;
+                right: 45px;
+                left: auto !important;
+          }
+          </style>';
 }
-add_action('acf/init', 'acf_option_init');
-
-function add_custom_block_categories($block_categories, $editor_context)
-{
-    if (!empty($editor_context->post)) {
-        array_push(
-            $block_categories,
-            array(
-                'slug' => 'images-modules',
-                'title' => __('Bild-Module', 'images-plugins'),
-                'icon' => null,
-            ),
-            array(
-                'slug' => 'text-images-modules',
-                'title' => __('Bild/Text module', 'text-plugins'),
-                'icon' => null,
-            ),
-            array(
-                'slug' => 'text-modules',
-                'title' => __('Text module', 'text-plugins'),
-                'icon' => null,
-            ),
-            array(
-                'slug' => 'sonder-modules',
-                'title' => __('Sonder module', 'text-plugins'),
-                'icon' => null,
-            )
-        );
-    }
-    return $block_categories;
-}
-add_filter('block_categories_all', 'add_custom_block_categories', 10, 2);
-
-function acf_init_block_types()
-{
-
-    //Home last news block
-    acf_register_block_type(array(
-        'name' => 'home-hero',
-        'title' => __('Home Hero'),
-        'description' => __('Home Hero'),
-        'render_template' => 'template-parts/blocks/sonder/home-hero.php',
-        'category' => 'sonder',
-        'mode' => 'edit',
-        'icon' => 'format-gallery',
-        'keywords' => array('hero'),
-        'post_types' => array('page'),
-        'example' => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/home-hero.png',
-                ),
-            ),
-        ),
-    ));
-    acf_register_block_type(array(
-        'name' => 'our-products',
-        'title' => __('Our Products'),
-        'description' => __('Our Products'),
-        'render_template' => 'template-parts/blocks/sonder/our-products.php',
-        'category' => 'sonder',
-        'mode' => 'edit',
-        'icon' => 'format-gallery',
-        'keywords' => array('products'),
-        'post_types' => array('page'),
-        'example' => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/our-products.png',
-                ),
-            ),
-        ),
-    ));
-    acf_register_block_type(array(
-        'name' => 'cta-wide',
-        'title' => __('CTA v1'),
-        'description' => __('CTA'),
-        'render_template' => 'template-parts/blocks/sonder/cta-wide.php',
-        'category' => 'sonder',
-        'mode' => 'edit',
-        'icon' => 'format-gallery',
-        'keywords' => array('cta'),
-        'post_types' => array('page'),
-        'example' => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/cta-wide.png',
-                ),
-            ),
-        ),
-    ));
-    acf_register_block_type(array(
-        'name' => 'our-areas',
-        'title' => __('Our Areas'),
-        'description' => __('Our Areas'),
-        'render_template' => 'template-parts/blocks/sonder/our-areas.php',
-        'category' => 'sonder',
-        'mode' => 'edit',
-        'icon' => 'format-gallery',
-        'keywords' => array('areas'),
-        'post_types' => array('page'),
-        'example' => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/our-areas.png',
-                ),
-            ),
-        ),
-    ));
-    acf_register_block_type(array(
-        'name' => 'our-company',
-        'title' => __('Our Company'),
-        'description' => __('Our Company'),
-        'render_template' => 'template-parts/blocks/sonder/our-company.php',
-        'category' => 'sonder',
-        'mode' => 'edit',
-        'icon' => 'format-gallery',
-        'keywords' => array('company'),
-        'post_types' => array('page'),
-        'example' => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/our-company.png',
-                ),
-            ),
-        ),
-    ));
-    acf_register_block_type(array(
-        'name' => 'cta-bg',
-        'title' => __('CTA v2'),
-        'description' => __('CTA'),
-        'render_template' => 'template-parts/blocks/sonder/cta-bg.php',
-        'category' => 'sonder',
-        'mode' => 'edit',
-        'icon' => 'format-gallery',
-        'keywords' => array('CTA'),
-        'post_types' => array('page'),
-        'example' => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/cta-bg.png',
-                ),
-            ),
-        ),
-    ));
-    acf_register_block_type(array(
-        'name' => 'our-news',
-        'title' => __('Our News'),
-        'description' => __('Our News'),
-        'render_template' => 'template-parts/blocks/sonder/our-news.php',
-        'category' => 'sonder',
-        'mode' => 'edit',
-        'icon' => 'format-gallery',
-        'keywords' => array('News'),
-        'post_types' => array('page'),
-        'example' => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'gutenberg_preview_image' => get_template_directory_uri() . '/template-parts/blocks/sonder/our-news.png',
-                ),
-            ),
-        ),
-    ));
-}
-add_action('acf/init', 'acf_init_block_types');
-
-add_filter('allowed_block_types_all', 'allowed_block_types', 25, 2);
-function allowed_block_types($allowed_blocks, $editor_context)
-{
-    if ('post' === $editor_context->post->post_type) {
-        return array(
-            'core/paragraph',
-            'core/image',
-            'core/gallery',
-            'core/heading',
-            'core/list',
-            'core/list-item',
-            'core/video',
-            'core/embed',
-            'core/spacer',
-            'core/buttons',
-            'core/separator',
-            'acf/article-button-simple',
-        );
-    }
-
-    if (get_option('page_on_front') == $editor_context->post->ID) {
-
-        return array(
-            'core/columns',
-            'acf/home-topnews',
-        );
-    }
-}
+  add_action( 'admin_head', 'kemroc_polylang_fix_styles' );

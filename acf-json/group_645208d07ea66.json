@@ -1,0 +1,355 @@
+{
+    "key": "group_645208d07ea66",
+    "title": "Block | Hero",
+    "fields": [
+        {
+            "key": "field_6486dc52a2840",
+            "label": "Dies ist die Startseite",
+            "name": "is_front_page",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_645208eca5e31",
+            "label": "Oberhalb des Titels",
+            "name": "above_title",
+            "type": "text",
+            "instructions": "Bei Bedarf ausfüllen",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6486ff450ac83",
+            "label": "Titelauswahl",
+            "name": "title_choice",
+            "type": "radio",
+            "instructions": "Den Seitentitel verwenden oder einen eigenen Titel eingeben?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "page_title": "Page title",
+                "custom_title": "Custom title"
+            },
+            "default_value": "Page title",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_645208d1a5e30",
+            "label": "Titel",
+            "name": "custom_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6486ff450ac83",
+                        "operator": "==",
+                        "value": "custom_title"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6486dcfda2841",
+            "label": "Beschreibung",
+            "name": "description",
+            "type": "wysiwyg",
+            "instructions": "Bei Bedarf ausfüllen",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6486dc52a2840",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "delay": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
+        },
+        {
+            "key": "field_64ba5dacad4e7",
+            "label": "Schaltfläche anzeigen",
+            "name": "show_button",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6486dc52a2840",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_save_meta": 0,
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_6452090fa5e32",
+            "label": "Link",
+            "name": "link",
+            "type": "link",
+            "instructions": "Bei Bedarf ausfüllen",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6486dc52a2840",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_64ba5dacad4e7",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_save_meta": 0,
+            "return_format": "array"
+        },
+        {
+            "key": "field_6486e211ccb16",
+            "label": "Hintergrundbild",
+            "name": "bg_image",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_64bab19488889",
+                    "label": "Schmales Hintergrundbild",
+                    "name": "is_narrow",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "acfe_save_meta": 0,
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_64c946b8ce4b5",
+                    "label": "Vollständige Höhe",
+                    "name": "is_all_height",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_64bab19488889",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "acfe_save_meta": 0,
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_64520924ae284",
+                    "label": "Bild für PC",
+                    "name": "pc",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "full",
+                    "uploader": "",
+                    "acfe_thumbnail": 0
+                },
+                {
+                    "key": "field_648497f6d217a",
+                    "label": "Bild für Tablet",
+                    "name": "tablet",
+                    "type": "image",
+                    "instructions": "Optional",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "full",
+                    "uploader": "",
+                    "acfe_thumbnail": 0
+                },
+                {
+                    "key": "field_64520a1b7a3c3",
+                    "label": "Bild für Mobile",
+                    "name": "mobile",
+                    "type": "image",
+                    "instructions": "Optional",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "full",
+                    "uploader": "",
+                    "acfe_thumbnail": 0
+                }
+            ],
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1690913049
+}

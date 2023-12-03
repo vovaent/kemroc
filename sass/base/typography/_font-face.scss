@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "Eurostile Candy W02 Bold";
+    src: url("fonts/8b91e093997592567ef9e144ac80f87d.eot");
+    /* IE9*/
+    src: url("fonts/8b91e093997592567ef9e144ac80f87d.eot?#iefix") format("embedded-opentype"),
+        /* IE6-IE8 */
+        url("fonts/8b91e093997592567ef9e144ac80f87d.woff2") format("woff2"),
+        /* chrome、firefox */
+        url("fonts/8b91e093997592567ef9e144ac80f87d.woff") format("woff"),
+        /* chrome、firefox */
+        url("fonts/8b91e093997592567ef9e144ac80f87d.ttf") format("truetype"),
+        /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url("fonts/8b91e093997592567ef9e144ac80f87d.svg#Eurostile Candy W02 Bold") format("svg");
+    /* iOS 4.1- */
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Asap';
+    src: url('fonts/Asap-SemiBold.eot');
+    src: url('fonts/Asap-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Asap-SemiBold.woff2') format('woff2'),
+        url('fonts/Asap-SemiBold.woff') format('woff'),
+        url('fonts/Asap-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Asap';
+    src: url('fonts/Asap-Bold.eot');
+    src: url('fonts/Asap-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Asap-Bold.woff2') format('woff2'),
+        url('fonts/Asap-Bold.woff') format('woff'),
+        url('fonts/Asap-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Asap';
+    src: url('fonts/Asap-Medium.eot');
+    src: url('fonts/Asap-Medium.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Asap-Medium.woff2') format('woff2'),
+        url('fonts/Asap-Medium.woff') format('woff'),
+        url('fonts/Asap-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Asap';
+    src: url('fonts/Asap-Regular.eot');
+    src: url('fonts/Asap-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Asap-Regular.woff2') format('woff2'),
+        url('fonts/Asap-Regular.woff') format('woff'),
+        url('fonts/Asap-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter/Inter-Regular.eot');
+    src: local('Inter Regular'), local('fonts/Inter/Inter-Regular'),
+        url('fonts/Inter/Inter-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Inter/Inter-Regular.woff2') format('woff2'),
+        url('fonts/Inter/Inter-Regular.woff') format('woff'),
+        url('fonts/Inter/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter/Inter-SemiBold.eot');
+    src: local('Inter Semi Bold'), local('fonts/Inter/Inter-SemiBold'),
+        url('fonts/Inter/Inter-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Inter/Inter-SemiBold.woff2') format('woff2'),
+        url('fonts/Inter/Inter-SemiBold.woff') format('woff'),
+        url('fonts/Inter/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}

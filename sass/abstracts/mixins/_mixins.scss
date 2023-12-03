@@ -1,11 +1,137 @@
 // Center block
 @mixin center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+    width: map-get($columns, $numberColumns) - (($columns__margin * ($numberColumns - 1)) / $numberColumns );
+}
+
+@mixin media-down($width) {
+    @media (max-width: $width) {
+        @content;
+    }
+}
+
+
+@mixin media-down-md() {
+    @media (max-width: map-get($bp-down, 'md')) {
+        @content;
+    }
+}
+
+@mixin media-down-sm() {
+    @media (max-width: map-get($bp-down, 'sm')) {
+        @content;
+    }
+}
+
+@mixin media-up($width) {
+    @media (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin media-up-sm() {
+    @media (min-width: map-get($bp-up, 'sm')) {
+        @content;
+    }
+}
+
+@mixin media-up-md() {
+    @media (min-width: map-get($bp-up, 'md')) {
+        @content;
+    }
+}
+
+@mixin reset-ul() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        position: static;
+
+        &:not(:first-child) {
+            margin-top: 0;
+        }
+
+        &::before {
+            display: none;
+        }
+    }
+}
+
+@mixin reset-li() {
+    position: static;
+    padding-left: 0;
+
+    &:not(:first-child) {
+        margin-top: 0;
+    }
+
+    &::before {
+        display: none;
+    }
+}
+
+@mixin reset-a ($color: #444444) {
+
+    &,
+    &:link,
+    &:active,
+    &:hover,
+    &:visited {
+        text-decoration: none;
+        color: $color;
+    }
+}
+
+@mixin underline($h) {
+    &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0px;
+        display: block;
+        width: 40px;
+        height: $h;
+        border-radius: 5px;
+        background-color: $accent;
+        transform: translateX(-50%) scaleX(0);
+        transition: transform 0.2s linear;
+        transform-origin: center;
+    }
+}
+
+@mixin active-underline($h) {
+    @include underline($h);
+
+    &::before {
+        transform: translateX(-50%) scaleX(1);
+    }
+}
+
+@mixin standard-block-margins() {
+    margin: 128px 0;
+
+    @include media-down-md {
+        margin: 72px 0;
+    }
+
+    @include media-down-sm {
+        margin: 64px 0;
+    }
+}
+
+@mixin reset-btn () {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background-color: unset;
+    color: unset;
 }

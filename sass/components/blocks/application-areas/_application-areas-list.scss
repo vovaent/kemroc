@@ -1,0 +1,23 @@
+.application-areas-list {
+    @include standard-block-margins;
+
+    &__list {
+        @include reset-ul;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        @include media-down-md {
+            gap: 32px 30px;
+        }
+
+        @include media-down-sm {
+            gap: 24px 16px;
+        }
+    }
+
+    &__item {
+        @include reset-li;
+    }
+}

@@ -1,0 +1,18 @@
+.front-page-news {
+    @include standard-block-margins;
+
+    @include media-down-md {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        @include media-down-md {
+            flex-wrap: nowrap;
+        }
+    }
+}

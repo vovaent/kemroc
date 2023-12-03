@@ -1,54 +1,42 @@
-# Copyright (C) 2020 Automattic
+# Copyright (C) 2023 Underscores.me
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: _s 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/_s\n"
+"Project-Id-Version: kemroc 1.2.9\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/kemroc\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-04-17T21:03:15+00:00\n"
+"POT-Creation-Date: 2023-08-02T10:27:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: _s\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: kemroc\n"
 
 #. Theme Name of the theme
-msgid "_s"
+msgid "kemroc"
 msgstr ""
 
 #. Theme URI of the theme
-msgid "https://underscores.me/"
+#. Author URI of the theme
+msgid "http://underscores.me/"
 msgstr ""
 
 #. Description of the theme
-msgid "Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for."
+msgid "Description"
 msgstr ""
 
 #. Author of the theme
-msgid "Automattic"
+msgid "Underscores.me"
 msgstr ""
 
-#. Author URI of the theme
-msgid "https://automattic.com/"
+#: 404.php:19
+msgid "Seite nicht gefunden"
 msgstr ""
 
-#: 404.php:18
-msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
-
-#: 404.php:22
-msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
-msgstr ""
-
-#: 404.php:31
-msgid "Most Used Categories"
-msgstr ""
-
-#. translators: %1$s: smiley
-#: 404.php:49
-msgid "Try looking in the monthly archives. %1$s"
+#: 404.php:21
+msgid "Zur Startseite"
 msgstr ""
 
 #. translators: 1: title.
@@ -68,131 +56,755 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:18
-msgid "https://wordpress.org/"
-msgstr ""
-
-#. translators: %s: CMS name, i.e. WordPress.
-#: footer.php:21
-msgid "Proudly powered by %s"
-msgstr ""
-
-#. translators: 1: Theme name, 2: Theme author.
-#: footer.php:27
-msgid "Theme: %1$s by %2$s."
-msgstr ""
-
-#: functions.php:53
+#: functions.php:52
 msgid "Primary"
 msgstr ""
 
-#: functions.php:130
+#: functions.php:125
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:132
+#: functions.php:127
 msgid "Add widgets here."
 msgstr ""
 
-#: header.php:26
-msgid "Skip to content"
+#: inc/acf/acf.php:21
+#: inc/acf/acf.php:22
+msgid "Themen Einstellungen"
 msgstr ""
 
-#: header.php:49
-msgid "Primary Menu"
+#: inc/acf/blocks.php:16
+#: inc/acf/blocks.php:17
+msgid "Held"
+msgstr ""
+
+#: inc/acf/blocks.php:37
+msgid "CTA v1"
+msgstr ""
+
+#: inc/acf/blocks.php:38
+#: inc/acf/blocks.php:101
+msgid "CTA"
+msgstr ""
+
+#: inc/acf/blocks.php:58
+#: inc/acf/blocks.php:59
+msgid "Our Areas"
+msgstr ""
+
+#: inc/acf/blocks.php:79
+#: inc/acf/blocks.php:80
+msgid "Our Company"
+msgstr ""
+
+#: inc/acf/blocks.php:100
+msgid "CTA v2"
+msgstr ""
+
+#: inc/acf/blocks.php:121
+#: inc/acf/blocks.php:122
+msgid "Neuigkeiten auf der Startseite"
+msgstr ""
+
+#: inc/acf/blocks.php:142
+#: inc/acf/blocks.php:143
+msgid "Allgemeine Produktinformationen"
+msgstr ""
+
+#: inc/acf/blocks.php:163
+#: inc/acf/blocks.php:164
+msgid "Technische Produktinformationen"
+msgstr ""
+
+#: inc/acf/blocks.php:184
+#: inc/acf/blocks.php:185
+msgid "Produkt Modellliste"
+msgstr ""
+
+#: inc/acf/blocks.php:205
+#: inc/acf/blocks.php:206
+msgid "Modellinformationen"
+msgstr ""
+
+#: inc/acf/blocks.php:226
+#: inc/acf/blocks.php:227
+msgid "Serienprodukt Allgemeine Informationen"
+msgstr ""
+
+#: inc/acf/blocks.php:247
+#: inc/acf/blocks.php:248
+msgid "Serielle Produktbeschreibungen"
+msgstr ""
+
+#: inc/acf/blocks.php:268
+#: inc/acf/blocks.php:269
+msgid "Serienproduktvergleich"
+msgstr ""
+
+#: inc/acf/blocks.php:289
+#: inc/acf/blocks.php:290
+msgid "Allgemeine Informationen zur Serie"
+msgstr ""
+
+#: inc/acf/blocks.php:310
+#: inc/acf/blocks.php:311
+msgid "Technische Informationen zur Serie"
+msgstr ""
+
+#: inc/acf/blocks.php:331
+#: inc/acf/blocks.php:332
+msgid "Liste der Einsatzbereiche"
+msgstr ""
+
+#: inc/acf/blocks.php:352
+#: inc/acf/blocks.php:353
+msgid "Einsatzbereiche Beschreibung"
+msgstr ""
+
+#: inc/acf/blocks.php:373
+#: inc/acf/blocks.php:374
+msgid "Schachinhalt"
+msgstr ""
+
+#: inc/acf/blocks.php:394
+#: inc/acf/blocks.php:395
+msgid "Bild in voller Breite mit abgerundeten Kanten"
+msgstr ""
+
+#: inc/acf/blocks.php:415
+#: inc/acf/blocks.php:416
+msgid "Unser Team"
+msgstr ""
+
+#: inc/acf/blocks.php:436
+#: inc/acf/blocks.php:437
+msgid "Einsatzbereiche Filter"
+msgstr ""
+
+#: inc/acf/blocks.php:457
+#: inc/acf/blocks.php:458
+msgid "Kontaktinformationen"
+msgstr ""
+
+#: inc/acf/blocks.php:478
+#: inc/acf/blocks.php:479
+msgid "Kontakt-Formular"
+msgstr ""
+
+#: inc/acf/blocks.php:499
+#: inc/acf/blocks.php:500
+msgid "Kontakt-Links"
+msgstr ""
+
+#: inc/acf/blocks.php:520
+#: inc/acf/blocks.php:521
+msgid "Faulenzer-Video"
+msgstr ""
+
+#: inc/acf/blocks.php:541
+#: inc/acf/blocks.php:542
+msgid "FAQ"
+msgstr ""
+
+#: inc/acf/blocks.php:562
+#: inc/acf/blocks.php:563
+#: inc/template-functions.php:199
+#: inc/yoast/yoast.php:23
+msgid "Aktuelles"
+msgstr ""
+
+#: inc/acf/blocks.php:583
+#: inc/acf/blocks.php:584
+msgid "Liste der Produkte"
+msgstr ""
+
+#: inc/acf/blocks.php:604
+#: inc/acf/blocks.php:605
+msgid "Sektionsüberschrift"
+msgstr ""
+
+#: inc/acf/blocks.php:625
+#: inc/acf/blocks.php:626
+msgid "Termine"
+msgstr ""
+
+#: inc/acf/blocks.php:646
+#: inc/acf/blocks.php:647
+msgid "Stellenangebote list"
+msgstr ""
+
+#: inc/acf/blocks.php:667
+#: inc/acf/blocks.php:668
+msgid "Stellenangebot info"
+msgstr ""
+
+#: inc/acf/blocks.php:688
+#: inc/acf/blocks.php:689
+msgid "Absatztext"
+msgstr ""
+
+#: inc/acf/blocks.php:710
+#: inc/acf/blocks.php:711
+msgid "Cookies table"
+msgstr ""
+
+#: inc/acf/blocks.php:732
+#: inc/acf/blocks.php:733
+msgid "Impressum"
+msgstr ""
+
+#: inc/acf/blocks.php:754
+#: inc/acf/blocks.php:755
+msgid "Columns text"
+msgstr ""
+
+#: inc/acf/blocks.php:776
+#: inc/acf/blocks.php:777
+msgid "PDF-Kataloge"
+msgstr ""
+
+#: inc/acf/blocks.php:798
+#: inc/acf/blocks.php:799
+msgid "Page 404"
+msgstr ""
+
+#: inc/acf/blocks.php:820
+#: inc/acf/blocks.php:821
+msgid "Farbiger text"
+msgstr ""
+
+#: inc/acf/blocks.php:841
+#: inc/acf/blocks.php:842
+msgid "Unsere Partner"
+msgstr ""
+
+#: inc/acf/blocks.php:862
+#: inc/acf/blocks.php:863
+msgid "Glossar"
+msgstr ""
+
+#: inc/ajax/all-news.php:15
+#: inc/ajax/contacts-form.php:13
+#: inc/ajax/products.php:15
+#: inc/ajax/search.php:15
+#: inc/ajax/stellenangebot-info.php:13
+msgid "Daten, die von einer fremden Adresse gesendet werden"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:17
+#: inc/ajax/stellenangebot-info.php:17
+msgid "Spam"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:107
+#: inc/ajax/stellenangebot-info.php:98
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:56
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:57
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:117
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:119
+msgid "Name"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:108
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:64
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:65
+msgid "Straße"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:109
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:69
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:70
+msgid "Hausnummer"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:110
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:74
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:75
+msgid "PLZ"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:111
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:79
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:80
+msgid "Ort"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:112
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:87
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:88
+msgid "Unternehmen"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:113
+#: inc/ajax/stellenangebot-info.php:99
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:92
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:93
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:140
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:143
+msgid "Telefon"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:114
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:100
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:101
+msgid "Telefon alternativ"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:115
+#: inc/ajax/stellenangebot-info.php:100
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:105
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:106
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:127
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:129
+msgid "E-Mail"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:116
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:116
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:117
+#: template-parts/blocks/info/impressum.php:59
+msgid "Fax"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:117
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:126
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:127
+msgid "Betreff"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:118
+#: single-post.php:38
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:134
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:135
+msgid "Nachricht"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:119
+#: inc/ajax/stellenangebot-info.php:101
+msgid "Website url"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:126
+#: inc/ajax/stellenangebot-info.php:109
+msgid "Daten erfolgreich gesendet"
+msgstr ""
+
+#: inc/ajax/contacts-form.php:131
+#: inc/ajax/stellenangebot-info.php:114
+msgid "Brief nicht abgeschickt"
+msgstr ""
+
+#: inc/ajax/search.php:52
+#: template-parts/cards/search/search-card.php:31
+msgid "Mehr lesen"
+msgstr ""
+
+#: inc/ajax/stellenangebot-info.php:105
+msgid "Reaktion auf die freie Stelle"
+msgstr ""
+
+#: inc/template-functions.php:96
+msgid "Main Menu"
+msgstr ""
+
+#: inc/template-functions.php:97
+msgid "Footer Menu"
+msgstr ""
+
+#: inc/template-functions.php:164
+msgid "Bild-Module"
+msgstr ""
+
+#: inc/template-functions.php:169
+msgid "Bild/Text module"
+msgstr ""
+
+#: inc/template-functions.php:174
+msgid "Text module"
+msgstr ""
+
+#: inc/template-functions.php:179
+msgid "Sonder"
+msgstr ""
+
+#: inc/template-functions.php:184
+msgid "Produkte"
+msgstr ""
+
+#: inc/template-functions.php:189
+#: inc/template-functions.php:359
+msgid "Einsatzbereiche"
+msgstr ""
+
+#: inc/template-functions.php:194
+msgid "Kontakte"
+msgstr ""
+
+#: inc/template-functions.php:336
+msgid "Bild"
 msgstr ""
 
 #. translators: %s: post date.
-#: inc/template-tags.php:30
+#: inc/template-tags.php:50
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
 #. translators: %s: post author.
-#: inc/template-tags.php:46
+#: inc/template-tags.php:65
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:63
+#: inc/template-tags.php:82
 msgid ", "
 msgstr ""
 
 #. translators: 1: list of categories.
-#: inc/template-tags.php:66
+#: inc/template-tags.php:85
 msgid "Posted in %1$s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:70
+#: inc/template-tags.php:89
 msgctxt "list item separator"
 msgid ", "
 msgstr ""
 
 #. translators: 1: list of tags.
-#: inc/template-tags.php:73
+#: inc/template-tags.php:92
 msgid "Tagged %1$s"
 msgstr ""
 
 #. translators: %s: post title
-#: inc/template-tags.php:83
+#: inc/template-tags.php:102
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:100
+#: inc/template-tags.php:119
 #: template-parts/content-page.php:39
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: inc/woocommerce.php:186
-msgid "View your shopping cart"
+#: inc/template-tags.php:269
+msgid "&laquo; Vorherige"
 msgstr ""
 
-#. translators: number of items in the mini cart.
-#: inc/woocommerce.php:190
-msgid "%d item"
-msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
-
-#. translators: %s: search query.
-#: search.php:22
-msgid "Search Results for: %s"
+#: inc/template-tags.php:270
+msgid "Weiter &raquo;"
 msgstr ""
 
-#: single.php:23
-msgid "Previous:"
+#: inc/template-tags.php:379
+msgid "&hellip;"
 msgstr ""
 
-#: single.php:24
-msgid "Next:"
+#: inc/template-tags.php:452
+msgctxt "previous set of posts"
+msgid "Vorherige"
 msgstr ""
 
-#: template-parts/content-none.php:14
+#: inc/template-tags.php:453
+msgctxt "next set of posts"
+msgid "Weiter"
+msgstr ""
+
+#: inc/template-tags.php:454
+msgid "Beiträge Navigation"
+msgstr ""
+
+#: inc/template-tags.php:455
+msgid "Beiträge"
+msgstr ""
+
+#: inc/yoast/yoast.php:22
+msgctxt "breadcrumbs"
+msgid "aktuelles"
+msgstr ""
+
+#. translators: %1$d: post count; %2$s: search query.
+#: search.php:36
+msgid "%1$d Suchergebnisse für: %2$s"
+msgstr ""
+
+#: search.php:45
+msgid "Suchergebnis nicht zufriedenstellend? Versuche es mal mit einem Wort oder einer anderen Schreibweise"
+msgstr ""
+
+#: searchform.php:14
+#: searchform.php:25
+msgctxt "label"
+msgid "Suche nach:"
+msgstr ""
+
+#: searchform.php:20
+msgctxt "placeholder"
+msgid "Suche …"
+msgstr ""
+
+#: searchform.php:33
+msgctxt "button"
+msgid "Suche"
+msgstr ""
+
+#: single-glossary.php:23
+#: single.php:20
+msgid "Vorherige:"
+msgstr ""
+
+#: single-glossary.php:24
+#: single.php:21
+msgid "Weiter:"
+msgstr ""
+
+#: single-post.php:51
+msgid "Lesen"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: single-post.php:69
+#: template-parts/content-glossary.php:25
+#: template-parts/content.php:40
+msgid "Lesen Sie weiter<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: single-post.php:86
+msgid "Inhaltsverzeichnis"
+msgstr ""
+
+#: single-post.php:119
+msgid "Teilen Sie den Artikel:"
+msgstr ""
+
+#: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:77
+msgid "Alle"
+msgstr ""
+
+#: template-parts/blocks/application-areas/application-areas-filter/application-areas-filter.php:165
+#: template-parts/blocks/application-areas/application-areas-list/application-areas-list.php:74
+#: template-parts/blocks/sonder/our-areas.php:75
+#: template-parts/cards/news/new-card.php:29
+#: template-parts/cards/product/product-card.php:23
+msgid "Mehr"
+msgstr ""
+
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:38
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:41
+msgid "Dieses Feld darf nicht leer sein"
+msgstr ""
+
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:39
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:42
+msgid "E-Mail-Feld wird nicht korrekt ausgefüllt"
+msgstr ""
+
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:40
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:44
+msgid "Um das Formular abzuschicken, müssen Sie die Vereinbarung akzeptieren und das Kästchen ankreuzen."
+msgstr ""
+
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:41
+msgid "Durch das Absenden Dieses Kontaktformulars erklären Sie sich damit einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in unserer Datenschutzerklärung."
+msgstr ""
+
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:42
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:46
+msgid "Erfolgreich! Ihre Nachricht wurde erfolgreich gesendet!"
+msgstr ""
+
+#: template-parts/blocks/contacts/contacts-form/contacts-form.php:161
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:183
+msgid "Formular senden"
+msgstr ""
+
+#: template-parts/blocks/info/cookies-table.php:35
+msgid "NAME"
+msgstr ""
+
+#: template-parts/blocks/info/cookies-table.php:36
+msgid "ANBIETER"
+msgstr ""
+
+#: template-parts/blocks/info/cookies-table.php:37
+msgid "ZWECK"
+msgstr ""
+
+#: template-parts/blocks/info/cookies-table.php:38
+msgid "ABLAUF"
+msgstr ""
+
+#: template-parts/blocks/info/cookies-table.php:39
+msgid "TYP"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:43
+msgid "Herausgeber"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:47
+msgid "Anschrift"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:51
+msgid "USt-ID"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:57
+msgid "Kontakt"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:58
+msgid "Tel."
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:60
+msgid "E-mail:"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:61
+msgid "Eintrag im Handelsregister"
+msgstr ""
+
+#: template-parts/blocks/info/impressum.php:65
+msgid "Geschäftsführer"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:106
+msgid "Modell"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:114
+msgid "TECHNISCHE DATEN"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:120
+msgid "3D MODELL"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:127
+msgid "VIDEO"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:134
+msgid "FOTOS"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:149
+#: template-parts/blocks/product/product-model-list/product-model-list.php:58
+#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:87
+msgid "Maßeinheit:"
+msgstr ""
+
+#: template-parts/blocks/model/model-info.php:246
+#: template-parts/blocks/model/model-info.php:316
+#: template-parts/blocks/model/model-info.php:382
+#: template-parts/blocks/sonder/lazy-video/lazy-video.php:102
+msgid "Leider unterstützt Ihr Browser keine eingebetteten Videos."
+msgstr ""
+
+#: template-parts/blocks/news/all-news/all-news.php:55
+msgid "Alle Artikel"
+msgstr ""
+
+#: template-parts/blocks/product/product-model-list/product-model-list.php:67
+msgid "<strong>MODELLE</strong> VERGLEICHEN"
+msgstr ""
+
+#: template-parts/blocks/product/product-model-list/product-model-list.php:123
+#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:162
+msgid "Details"
+msgstr ""
+
+#: template-parts/blocks/serial-product/serial-product-compare/serial-product-compare.php:155
+#: template-parts/blocks/serial-product/series-general-info/series-general-info.php:58
+#: template-parts/blocks/serial-product/series-general-info/series-general-info.php:76
+msgid "modelle"
+msgstr ""
+
+#: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:46
+msgid "Merkmale"
+msgstr ""
+
+#: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:92
+msgid "Einsatzgebiete"
+msgstr ""
+
+#: template-parts/blocks/serial-product/series-tech-info/series-tech-info.php:119
+msgid "Weltneuheit"
+msgstr ""
+
+#: template-parts/blocks/sonder/our-team/our-team.php:76
+#: template-parts/blocks/sonder/our-team/our-team.php:103
+msgid "Sprachen"
+msgstr ""
+
+#: template-parts/blocks/sonder/our-team/our-team.php:149
+msgid "mob.:"
+msgstr ""
+
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:43
+msgid "Die Dateigröße sollte 5 MB nicht überschreiten."
+msgstr ""
+
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:45
+msgid "Durch das Absenden dieses Kontaktformulars erklären Sie sich damit einverstanden, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage elektronisch erhoben und gespeichert werden. Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an info@kemroc.de widerrufen. Weitere Informationen zur Speicherung und Verarbeitung Ihrer Daten finden Sie in unserer Datenschutzerklärung."
+msgstr ""
+
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:152
+msgid "Unterlagen"
+msgstr ""
+
+#: template-parts/blocks/stellenangebote/stellenangebot-info/stellenangebot-info.php:163
+msgid "<a>Klicken Sie auf eine Datei und wählen Sie sie aus</a>, oder ziehen Sie eine <b>DOC-</b>, <b>DOCX-</b> oder <b>PDF-Datei</b> per Drag & Drop. Die maximale Dateigröße beträgt <b>5 Mb</b>."
+msgstr ""
+
+#: template-parts/blocks/stellenangebote/stellenangebote-list/stellenangebote-list.php:71
+msgid "Bereichern Sie unser Team als"
+msgstr ""
+
+#: template-parts/content-glossary.php:38
+#: template-parts/content-page.php:25
+#: template-parts/content.php:53
+msgid "Seiten:"
+msgstr ""
+
+#: template-parts/content-none.php:17
+#: template-parts/content-none.php:114
 msgid "Nothing Found"
 msgstr ""
 
 #. translators: 1: link to WP admin new post page.
-#: template-parts/content-none.php:24
+#: template-parts/content-none.php:26
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:37
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+#. translators: %s: search query.
+#: template-parts/content-none.php:48
+#: template-parts/content-none.php:60
+msgid "Suchergebnisse für: %s"
 msgstr ""
 
-#: template-parts/content-none.php:44
+#: template-parts/content-none.php:68
+msgid "Es konnte leider nichts gefunden werden"
+msgstr ""
+
+#: template-parts/content-none.php:72
+msgid "Entschuldigung, aber kein Eintrag erfüllt Deine Suchkriterien. Bitte starte eine neue Suche. Um bessere Suchergebnisse zu erzielen, beachte bitte folgende Hinweise:"
+msgstr ""
+
+#: template-parts/content-none.php:77
+msgid "Überprüfe die Rechtschreibung."
+msgstr ""
+
+#: template-parts/content-none.php:81
+msgid "Suche nach ähnlichen Suchbegriffen, z.B. Notebook statt Laptop, etc."
+msgstr ""
+
+#: template-parts/content-none.php:85
+msgid "Versuche mehr als einen Suchbegriff zu verwenden."
+msgstr ""
+
+#: template-parts/content-none.php:119
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr ""
-
-#: template-parts/content-page.php:25
-#: template-parts/content.php:53
-msgid "Pages:"
-msgstr ""
-
-#. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:40
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""

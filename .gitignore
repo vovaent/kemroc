@@ -1,1 +1,40 @@
-node_modules
+# Visual Studio Code workspace -------------------------------------------------
+/.vscode
+
+# JetBrains PhpStorm IDE files -------------------------------------------------
+/.idea/
+
+# PHP Dependencies -------------------------------------------------------------
+/vendor/
+
+# Front end assets -------------------------------------------------------------
+/node_modules/
+
+# Gettext backup files (by Loco Translate) -------------------------------------
+*.po~
+
+# php cs fixer cache -----------------------------------------------------------
+.php_cs.cache
+.php-cs-fixer.cache
+
+# Folders Build, Dist -------------------------------------
+/build/
+/js/build/
+/dist/
+
+# Logs -------------------------------------
+*.log
+
+# Map -------------------------------------
+*.css.map
+*.js.map
+
+# Other -------------------------------------
+*:Zone.Identifier
+/style.css
+/style-rtl.css
+
+# ------------------------------------------------------------------------------
+sass/components/.DS_Store
+sass/.DS_Store
+.DS_Store

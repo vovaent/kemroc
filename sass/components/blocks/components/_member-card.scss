@@ -1,0 +1,289 @@
+.member-card {
+    @include reset-li;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: calc((100% - 60px) / 3);
+    padding: 24px;
+    background: #FFFFFF;
+    border: 1px solid $color__border;
+    border-radius: 16px;
+    overflow: hidden;
+
+    @include media-down-md {
+        align-items: flex-start;
+        width: calc((100% - 30px) / 2);
+        padding: 20px;
+    }
+
+    @include media-down-sm {
+        width: 100%;
+    }
+
+    &:hover {
+        border-width: 2px;
+        border-color: $accent;
+
+        @include media-down-md {
+            border: 1px solid $color__border;
+        }
+    }
+
+    &__personal-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include media-down-md {
+            flex-direction: row;
+        }
+    }
+
+    &__langs {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: max-content;
+        padding: 8px 12px;
+        background: #EEEEEE;
+        border-radius: 12px;
+        line-height: 0;
+
+        @include media-down-md {
+            padding: 4px 12px;
+        }
+
+        &--pc {
+            transform: translateY(-68px);
+            transition: transform .3s ease-out;
+            will-change: transform;
+
+            @include media-down-md {
+                display: none;
+                transform: none;
+            }
+
+            .member-card:hover & {
+                transform: translateY(0);
+            }
+
+        }
+
+        &--tab {
+            display: none;
+
+            @include media-down-md {
+                display: flex;
+            }
+        }
+
+    }
+
+    &__langs-text {
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: 0.055em;
+        color: #000;
+        text-transform: uppercase;
+    }
+
+    &__langs-list {
+        @include reset-ul;
+
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__langs-item {
+        @include reset-li;
+    }
+
+    &__avatar {
+        flex-shrink: 0;
+        margin-top: 20px;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: scale .3s ease-out;
+        will-change: scale;
+
+        @include media-down-md {
+            margin-top: 0;
+            width: 88px;
+            height: 88px;
+        }
+
+        .member-card:hover & {
+            scale: 0.8;
+
+            @include media-down-md {
+                scale: 1
+            }
+        }
+
+        img {
+            scale: 1.1;
+            transition: scale .4s ease-out;
+            border-radius: inherit;
+            will-change: scale;
+
+            @include media-down-md {
+                scale: none;
+            }
+
+            .member-card:hover & {
+                scale: 1;
+
+                @include media-down-md {
+                    scale: none;
+                }
+            }
+
+        }
+    }
+
+    &__inner {
+        margin-top: 24px;
+        padding: 0 15px;
+        text-align: center;
+        transition: transform .3s ease-out;
+        will-change: transform;
+
+        @include media-down-md {
+            margin-top: 0;
+            margin-left: 16px;
+            padding: 0;
+            text-align: left;
+        }
+
+        .member-card:hover & {
+            transform: translateY(-22px);
+
+            @include media-down-md {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__name {
+        font-family: $font__secondary;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 30px;
+        color: #000000;
+
+        @include media-down-md {
+            margin-top: 12px;
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+
+    &__position {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        color: $accent;
+
+        @include media-down-md {
+            font-size: 12px;
+            line-height: 17px;
+        }
+    }
+
+    &__contacts {
+        margin-top: 24px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        color: #000000;
+        transform: translateY(84px);
+        transition: transform .3s ease-out;
+        will-change: transform;
+
+        .member-card:hover & {
+            transform: translateY(0);
+        }
+
+        @include media-down-md {
+            margin-top: 16px;
+            transform: translateY(0);
+        }
+    }
+
+    &__numbers {
+        display: flex;
+        align-items: center;
+        // gap: 17px;
+
+        @include media-down-md {
+            flex-direction: column;
+            align-items: flex-start;
+            // gap: 8px;
+        }
+    }
+
+    &__mobile-number {
+        display: flex;
+        align-items: center;
+        margin-left: 8px;
+
+        @include media-down-md {
+            margin-top: 8px;
+            margin-left: 0;
+        }
+
+        &::before {
+            content: '';
+            margin-right: 8px;
+            width: 1px;
+            height: 22px;
+            background-color: $color__border;
+
+            @include media-down-md {
+                display: none;
+            }
+        }
+
+        a {
+            @include reset-a(#000);
+        }
+    }
+
+    &__phone-number {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        svg {
+            width: 14px;
+            height: 22px;
+        }
+
+        a {
+            @include reset-a(#000);
+        }
+    }
+
+    &__email {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+
+        svg {
+            width: 14px;
+            height: 14px;
+        }
+    }
+
+    a {
+        @include reset-a(#000);
+    }
+}

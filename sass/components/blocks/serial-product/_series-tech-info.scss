@@ -1,0 +1,164 @@
+.series-tech-info {
+    margin: 63px 0 88px;
+
+
+    @include media-down-md {
+        margin: 72px 0;
+    }
+
+    @include media-down-sm {
+        margin: 40px 0;
+    }
+}
+
+.sti-title {
+    font-family: $font__secondary;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    color: $accent;
+    text-transform: uppercase;
+
+    @include media-down-md {
+        font-size: 19px;
+        line-height: 27px;
+    }
+}
+
+.sti-features {
+    display: flex;
+    gap: 56px;
+    padding: 32px 0;
+    border-top: 1px solid $color__border;
+
+    @include media-down-md {
+        gap: 30px;
+        padding: 24px 0;
+    }
+
+    @include media-down-sm {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__left {
+        width: 43%;
+
+        @include media-down-md {
+            width: 48%;
+        }
+
+        @include media-down-sm {
+            width: 100%;
+        }
+    }
+
+    &__drawing {
+        margin-top: 32px;
+    }
+
+    &__right {
+        width: 52%;
+
+        @include media-down-md {
+            width: 48%;
+        }
+
+        @include media-down-sm {
+            width: 100%;
+        }
+    }
+
+    &__list {
+        @include reset-ul;
+    }
+
+    &__item {
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.sti-application-areas {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0;
+    border-top: 1px solid $color__border;
+    border-bottom: 1px solid $color__border;
+
+    @include media-down-sm {
+        flex-direction: column;
+        justify-content: stretch;
+        padding: 24px 0;
+    }
+
+    &__list {
+        @include reset-ul;
+
+        width: 52%;
+
+        @include media-down-md {
+            width: 48%;
+        }
+
+        @include media-down-sm {
+            width: 100%;
+        }
+    }
+
+    &__item {
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.sti-novelty {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 43px;
+
+    @include media-down-md {
+        padding-top: 24px;
+    }
+
+    @include media-down-sm {
+        flex-direction: column;
+        justify-content: stretch;
+    }
+
+    &__left {
+        width: 41%;
+
+        @include media-down-md {
+            width: 28%;
+        }
+
+        @include media-down-sm {
+            width: 100%;
+
+        }
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 49%;
+        padding: 32px;
+        border: 1px solid $color__border;
+        border-radius: 16px;
+
+        @include media-down-md {
+            width: 45%;
+        }
+
+        @include media-down-sm {
+            margin-top: 16px;
+            width: 100%;
+        }
+    }
+}
